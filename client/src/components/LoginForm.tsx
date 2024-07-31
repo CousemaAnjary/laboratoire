@@ -40,14 +40,14 @@ export default function LoginForm() {
      */
     const handleLogin = async (data: LoginType): Promise<void> => {
         // Données à envoyer au serveur (API) pour l'authentification
-        const dataLogin = {
+        const loginData = {
             email: data.email,
             password: data.password
         }
 
         try {
             // Envoi des données au serveur (API) pour l'authentification
-            console.log(dataLogin)
+            console.log(loginData)
 
         } catch (error) {
             // Afficher l'erreur dans la console
