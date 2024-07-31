@@ -4,6 +4,7 @@ import { Input } from "./ui/input"
 import { Button } from "./ui/button"
 import { Link } from "react-router-dom"
 import { Eye, EyeOff } from "lucide-react"
+import { LoginType } from "@/typeScript/type"
 import { useForm } from "react-hook-form/dist"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
@@ -15,11 +16,7 @@ const formSchema = z.object({
     password: z.string().min(8, { message: "Le mot de passe doit contenir au moins 8 caractères" })
 })
 
-// Définir le type des données de connexion
-type LoginType = {
-    email: string
-    password: string
-}
+
 
 export default function LoginForm() {
     /**
