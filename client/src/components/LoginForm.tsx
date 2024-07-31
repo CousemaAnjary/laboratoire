@@ -15,6 +15,12 @@ const formSchema = z.object({
     password: z.string().min(8, { message: "Le mot de passe doit contenir au moins 8 caractères" })
 })
 
+// Définir le type des données de connexion
+type LoginType = {
+    email: string
+    password: string
+}
+
 export default function LoginForm() {
     /**
      * ! STATE (état, données) de l'application
@@ -32,7 +38,7 @@ export default function LoginForm() {
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
-    const handleLogin = async (data) => {
+    const handleLogin = async (data: LoginType): Promise<void> => {
         // Données à envoyer au serveur (API) pour l'authentification
         const dataLogin = {
             email: data.email,
