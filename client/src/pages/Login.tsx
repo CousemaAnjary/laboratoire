@@ -14,7 +14,7 @@ export default function Login() {
      */
     return (
         <>
-            <div className="container min-h-screen">
+            <div className="min-h-screen bg-slate-100">
                 <div className="flex flex-col justify-center items-center">
 
                 </div>
