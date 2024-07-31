@@ -1,3 +1,4 @@
+import Login from "./pages/Login"
 import { Route, Routes } from "react-router-dom"
 
 
@@ -19,7 +20,7 @@ export default function App() {
         <>
             <Routes>
                 <Route path="/" element="" />
-                <Route path="/login" element="" />
+                <Route path="/login" element={<Login />} />
                 <Route path="/register" element="" />
             </Routes>
         </>
