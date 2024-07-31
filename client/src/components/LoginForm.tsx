@@ -5,9 +5,9 @@ import { Button } from "./ui/button"
 import { Link } from "react-router-dom"
 import { Eye, EyeOff } from "lucide-react"
 import { LoginType } from "@/typeScript/type"
-import { useForm } from "react-hook-form/dist"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
+import { useForm, UseFormReturn, FieldPath, ControllerRenderProps } from "react-hook-form/dist"
 
 
 // Définir le schéma de validation avec Zod
@@ -22,7 +22,7 @@ export default function LoginForm() {
      */
     const [showPassword, setShowPassword] = useState(false)
 
-    const form = useForm({
+    const form: UseFormReturn<LoginType> = useForm<LoginType>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             email: "",
@@ -70,7 +70,7 @@ export default function LoginForm() {
                                 <FormField
                                     control={form.control}
                                     name="email"
-                                    render={({ field }) => (
+                                    render={({ field }: { field: ControllerRenderProps<LoginType, FieldPath<LoginType>> }) => (
                                         <FormItem>
                                             <FormLabel>E-mail</FormLabel>
                                             <FormControl>
@@ -87,7 +87,7 @@ export default function LoginForm() {
                                     <FormField
                                         control={form.control}
                                         name="password"
-                                        render={({ field }) => (
+                                        render={({ field }: { field: ControllerRenderProps<LoginType, FieldPath<LoginType>> }) => (
                                             <FormItem>
                                                 <FormLabel>Mot de passe</FormLabel>
                                                 <FormControl>
