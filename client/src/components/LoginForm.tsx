@@ -16,8 +16,6 @@ const formSchema = z.object({
     password: z.string().min(8, { message: "Le mot de passe doit contenir au moins 8 caractères" })
 })
 
-
-
 export default function LoginForm() {
     /**
      * ! STATE (état, données) de l'application
