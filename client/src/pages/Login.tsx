@@ -1,3 +1,6 @@
+import LoginForm from "@/components/LoginForm"
+
+
 export default function Login() {
     /**
      * ! STATE (état, données) de l'application
@@ -19,7 +22,7 @@ export default function Login() {
                     {/* NavBar */}
                 </div>
                 <div className="w-full flex flex-col justify-center items-center">
-                    {/* LoginForm */}
+                    <LoginForm />
                 </div>
             </div>
         </>
