@@ -1,31 +1,38 @@
 import Navbar from "@/components/Navbar"
 import LoginForm from "@/components/LoginForm"
 
-
 export default function Login() {
     /**
      * ! STATE (état, données) de l'application
      */
 
-
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
-
 
     /**
      * ! AFFICHAGE (render) de l'application
      */
     return (
         <>
-            <div className="relative min-h-screen bg-slate-300">
-                <div className="w-full">
+            <div className="min-h-screen  flex flex-col">
+                {/* En-tête */}
+                <header className="w-full">
                     <Navbar />
-                </div>
-                <div className="bg-slate-800 flex justify-center">
-                    <LoginForm />
-                </div>
+                </header>
+
+                {/* Contenu principal */}
+                <main className="flex flex-grow justify-center items-center  p-4">
+                    <div className="w-full max-w-md">
+                        <LoginForm />
+                    </div>
+                </main>
+
+                {/* Pied de page (optionnel) */}
+                {/* <footer className="w-full bg-slate-900 text-white p-4 text-center">
+                    <p>&copy; 2024 Votre Société. Tous droits réservés.</p>
+                </footer> */}
             </div>
         </>
-    )
+    );
 }
