@@ -56,7 +56,7 @@ export default function LoginForm() {
     return (
         <>
             <div className="p-8 max-w-lg w-full">
-                <h1 className="text-3xl  mb-4">Connexion</h1>
+                <h1 className="scroll-m-20 text-3xl font-semibold tracking-tight mb-4 font-mono">Connexion</h1>
                 <p className="mb-4 text-md text-muted-foreground text-black">
                     Faites partie de la communauté , où vous pourrez rencontrer et discuter avec de nouveaux amis et partager des intérêts communs !
                 </p>
