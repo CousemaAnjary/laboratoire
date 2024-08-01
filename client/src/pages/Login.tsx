@@ -17,11 +17,11 @@ export default function Login() {
      */
     return (
         <>
-            <div className="min-h-screen ">
+            <div className="relative min-h-screen bg-slate-300">
                 <div className="w-full">
                     {/* NavBar */}
                 </div>
-                <div className="flex justify-center items ">
+                <div className="bg-slate-800 flex justify-center">
                     <LoginForm />
                 </div>
             </div>
