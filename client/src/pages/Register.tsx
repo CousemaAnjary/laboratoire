@@ -25,9 +25,9 @@ export default function Register() {
 
                 {/* Contenu principal */}
                 <main className="flex flex-grow justify-center items-center  p-4">
-                    <div className="w-full max-w-md">
-                    <RegisterForm />
-                    </div>
+                    <section className="w-full max-w-md">
+                        <RegisterForm />
+                    </section>
                 </main>
 
                 {/* Pied de page (optionnel) */}
