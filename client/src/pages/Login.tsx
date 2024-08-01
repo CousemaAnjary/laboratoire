@@ -34,5 +34,5 @@ export default function Login() {
                 </footer> */}
             </div>
         </>
-    );
+    )
 }
