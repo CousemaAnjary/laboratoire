@@ -3,12 +3,12 @@ import { useState } from "react"
 import { Input } from "./ui/input"
 import { Button } from "./ui/button"
 import { Link } from "react-router-dom"
+import { FcGoogle } from "react-icons/fc"
 import { Eye, EyeOff } from "lucide-react"
 import { RegisterType } from "@/typeScript/Type"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
 import { useForm, UseFormReturn} from "react-hook-form"
-import { FcGoogle } from "react-icons/fc"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
 
 
 // Définir le schéma de validation avec Zod
