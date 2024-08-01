@@ -7,7 +7,7 @@ import { Eye, EyeOff } from "lucide-react"
 import { LoginType } from "@/typeScript/Type"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
-import { useForm, UseFormReturn, FieldPath, ControllerRenderProps } from "react-hook-form"
+import { useForm, UseFormReturn} from "react-hook-form"
 
 
 // Définir le schéma de validation avec Zod
@@ -70,7 +70,7 @@ export default function LoginForm() {
                                 <FormField
                                     control={form.control}
                                     name="email"
-                                    render={({ field }: { field: ControllerRenderProps<LoginType, FieldPath<LoginType>> }) => (
+                                    render={({ field }) => (
                                         <FormItem>
                                             <FormLabel>E-mail</FormLabel>
                                             <FormControl>
@@ -87,7 +87,7 @@ export default function LoginForm() {
                                     <FormField
                                         control={form.control}
                                         name="password"
-                                        render={({ field }: { field: ControllerRenderProps<LoginType, FieldPath<LoginType>> }) => (
+                                        render={({ field }) => (
                                             <FormItem>
                                                 <FormLabel>Mot de passe</FormLabel>
                                                 <FormControl>
