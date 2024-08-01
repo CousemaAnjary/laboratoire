@@ -61,10 +61,7 @@ export default function RegisterForm() {
     return (
         <>
             < div className="p-8 max-w-lg w-full">
-                <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-4xl mb-4 font-serif">Créer un compte</h1>
-                <p className="mb-4 text-md text-muted-foreground text-black">
-                    Faites partie de la communauté , où vous pourrez rencontrer et discuter avec de nouveaux amis et partager des intérêts communs !
-                </p>
+                <h1 className="scroll-m-20 text-3xl font-semibold tracking-tight mb-4 ">Créer un compte</h1>
                 <p className="mb-4 text-sm text-muted-foreground">
                     Vous avez déjà un compte ? Accédez-y en cliquant <Link to="/login" className="underline text-cyan-700">ici</Link>
                 </p>
@@ -114,7 +111,7 @@ export default function RegisterForm() {
                                         <FormItem>
                                             <FormLabel>E-mail</FormLabel>
                                             <FormControl>
-                                                <Input {...field} placeholder="@exemple.com" className="shadow-sm" />
+                                                <Input {...field} placeholder="exemple@gmail.com" className="shadow-sm" />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
