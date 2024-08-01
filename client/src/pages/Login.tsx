@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar"
 import LoginForm from "@/components/LoginForm"
 
 
@@ -19,7 +20,7 @@ export default function Login() {
         <>
             <div className="relative min-h-screen bg-slate-300">
                 <div className="w-full">
-                    {/* NavBar */}
+                    <Navbar />
                 </div>
                 <div className="bg-slate-800 flex justify-center">
                     <LoginForm />
