@@ -15,7 +15,7 @@ export default function Login() {
      */
     return (
         <>
-            <div className="min-h-screen  flex flex-col">
+            <div className="min-h-screen flex flex-col">
                 {/* En-tête */}
                 <header className="w-full">
                     <Navbar />
