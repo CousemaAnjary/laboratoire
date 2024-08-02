@@ -6,8 +6,8 @@ import { Link } from "react-router-dom"
 import { Eye, EyeOff } from "lucide-react"
 import { LoginType } from "@/typeScript/Type"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm, UseFormReturn } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
-import { useForm, UseFormReturn} from "react-hook-form"
 
 
 // Définir le schéma de validation avec Zod
