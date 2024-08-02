@@ -17,7 +17,6 @@ const formSchema = z.object({
     first_name: z.string().min(2, { message: "Le prénom doit contenir au moins 2 caractères" }),
     email: z.string().email({ message: "Adresse e-mail invalide" }),
     password: z.string().min(6, { message: "Le mot de passe doit contenir au moins 8 caractères" }),
-    image: z.string().url({ message: "L'image doit être une URL valide" })
 })
 
 export default function RegisterForm() {
@@ -42,7 +41,7 @@ export default function RegisterForm() {
      */
     const handleRegister = async (data: RegisterType): Promise<void> => {
         // Données à envoyer au serveur (API)
-        const loginData = {
+        const registerData = {
             last_name: data.last_name,
             first_name: data.first_name,
             email: data.email,
@@ -53,7 +52,7 @@ export default function RegisterForm() {
 
         try {
             // Envoi des données au serveur (API) pour le processus d'inscription
-            console.log(loginData)
+            console.log(registerData)
 
         } catch (error) {
             // Afficher l'erreur dans la console
