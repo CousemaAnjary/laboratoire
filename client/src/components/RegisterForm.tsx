@@ -7,7 +7,7 @@ import { FcGoogle } from "react-icons/fc"
 import { Eye, EyeOff } from "lucide-react"
 import { RegisterType } from "@/typeScript/Type"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm, UseFormReturn} from "react-hook-form"
+import { useForm, UseFormReturn } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
 
 
@@ -16,7 +16,8 @@ const formSchema = z.object({
     last_name: z.string().min(2, { message: "Le nom doit contenir au moins 2 caractères" }),
     first_name: z.string().min(2, { message: "Le prénom doit contenir au moins 2 caractères" }),
     email: z.string().email({ message: "Adresse e-mail invalide" }),
-    password: z.string().min(6, { message: "Le mot de passe doit contenir au moins 8 caractères" })
+    password: z.string().min(6, { message: "Le mot de passe doit contenir au moins 8 caractères" }),
+    image: z.string().url({ message: "L'image doit être une URL valide" })
 })
 
 export default function RegisterForm() {
@@ -31,7 +32,8 @@ export default function RegisterForm() {
             last_name: "",
             first_name: "",
             email: "",
-            password: ""
+            password: "",
+            image: ""
         },
     })
 
@@ -41,8 +43,12 @@ export default function RegisterForm() {
     const handleRegister = async (data: RegisterType): Promise<void> => {
         // Données à envoyer au serveur (API) pour l'authentification
         const loginData = {
+            last_name: data.last_name,
+            first_name: data.first_name,
             email: data.email,
-            password: data.password
+            password: data.password,
+            image: data.image
+
         }
 
         try {
@@ -136,10 +142,28 @@ export default function RegisterForm() {
                                     />
                                 </div>
 
+
                                 <div className="gap-2">
                                     <Button type="button" variant="outline" className="mt-8 p-2 shadow-sm" onClick={() => setShowPassword(!showPassword)}>
                                         {showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
                                     </Button>
+                                </div>
+                            </div>
+                            <div className="grid gap-4">
+                                <div className=" col-span-9">
+                                    <FormField
+                                        control={form.control}
+                                        name="image"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel>Image</FormLabel>
+                                                <FormControl>
+                                                    <Input {...field} type="file" className="shadow-sm" />
+                                                </FormControl>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )}
+                                    />
                                 </div>
                             </div>
                             <Button type="submit" className="w-full bg-cyan-700">S'inscrire</Button>
