@@ -41,7 +41,7 @@ export default function RegisterForm() {
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
     const handleRegister = async (data: RegisterType): Promise<void> => {
-        // Données à envoyer au serveur (API) pour l'authentification
+        // Données à envoyer au serveur (API)
         const loginData = {
             last_name: data.last_name,
             first_name: data.first_name,
@@ -52,7 +52,7 @@ export default function RegisterForm() {
         }
 
         try {
-            // Envoi des données au serveur (API) pour l'authentification
+            // Envoi des données au serveur (API) pour le processus d'inscription
             console.log(loginData)
 
         } catch (error) {
