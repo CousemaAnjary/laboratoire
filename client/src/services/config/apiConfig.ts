@@ -13,6 +13,7 @@ const api = axios.create({
     withCredentials: true // Pour envoyer les cookies avec les requêtes
 })
 
+
 // Ajouter un intercepteur de requêtes pour inclure le token dans les en-têtes
 api.interceptors.request.use((config) => {
 
@@ -29,6 +30,5 @@ api.interceptors.request.use((config) => {
 }, (error) => {
     return Promise.reject(error)
 })
-
 
 export default api
