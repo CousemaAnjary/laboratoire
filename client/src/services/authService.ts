@@ -19,7 +19,7 @@ export const login = async (dataLogin: LoginType) => {
         // Appel à l'API pour authentifier un utilisateur
         const response = await api.post('/login', dataLogin)
         const { user } = response.data // Extraire les données de l'utilisateur de la réponse
-
+        
         // Stoker les données de l'utilisateur dans le local storage
         localStorage.setItem('user', JSON.stringify(user))
 

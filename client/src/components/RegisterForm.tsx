@@ -2,13 +2,15 @@ import { z } from "zod"
 import { useState } from "react"
 import { Input } from "./ui/input"
 import { Button } from "./ui/button"
-import { Link } from "react-router-dom"
 import { FcGoogle } from "react-icons/fc"
 import { Eye, EyeOff } from "lucide-react"
 import { RegisterType } from "@/typeScript/Type"
+import { Link, useNavigate } from "react-router-dom"
+import { register } from "@/services/authservice"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm, UseFormReturn } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
+
 
 
 // Définir le schéma de validation avec Zod
@@ -23,6 +25,7 @@ export default function RegisterForm() {
     /**
      * ! STATE (état, données) de l'application
      */
+    const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false)
 
     const form: UseFormReturn<RegisterType> = useForm<RegisterType>({
@@ -51,8 +54,9 @@ export default function RegisterForm() {
         }
 
         try {
-            // Envoi des données au serveur (API) pour le processus d'inscription
-            console.log(registerData)
+            await register(registerData)
+            // Inscription réussie, rediriger vers la page de connexion
+            navigate('/login')
 
         } catch (error) {
             // Afficher l'erreur dans la console
