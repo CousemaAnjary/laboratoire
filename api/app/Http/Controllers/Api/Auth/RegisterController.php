@@ -18,10 +18,13 @@ class RegisterController extends Controller
         // Hasher le mot de passe de l'utilisateur
         $validated['password'] = Hash::make($validated['password']);
 
-        // Stocker l'image de l'utilisateur
+        // Vérifier si une image a été téléchargée
         if ($request->hasFile('image')) {
+
+            // Stocker l'image dans le dossier de stockage 'images' du disque 'public'
             $validated['image'] = $request->file('image')->store('images', 'public');
         }
+
 
         // Créer un nouvel utilisateur
         $user = User::create($validated);
