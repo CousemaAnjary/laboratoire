@@ -19,6 +19,7 @@ const formSchema = z.object({
     first_name: z.string().min(2, { message: "Le prénom doit contenir au moins 2 caractères" }),
     email: z.string().email({ message: "Adresse e-mail invalide" }),
     password: z.string().min(6, { message: "Le mot de passe doit contenir au moins 8 caractères" }),
+    image: z.string().optional()
 })
 
 export default function RegisterForm() {
@@ -56,7 +57,7 @@ export default function RegisterForm() {
             await register(registerData)
             // Inscription réussie, rediriger vers la page de connexion
             navigate('/login')
-
+            
         } catch (error) {
             // Afficher l'erreur dans la console
             console.error(error)
