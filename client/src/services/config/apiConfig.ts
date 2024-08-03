@@ -1,5 +1,5 @@
 import axios from 'axios'
-import Cookies from 'node_modules/@types/js-cookie'
+import Cookies from 'js-cookie'
 
 
 // Récupérer l'URL de base de l'API à partir des variables d'environnement
