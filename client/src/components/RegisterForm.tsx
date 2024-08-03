@@ -5,8 +5,8 @@ import { Button } from "./ui/button"
 import { FcGoogle } from "react-icons/fc"
 import { Eye, EyeOff } from "lucide-react"
 import { RegisterType } from "@/typeScript/Type"
+import { register } from "@/services/authService"
 import { Link, useNavigate } from "react-router-dom"
-import { register } from "@/services/authservice"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm, UseFormReturn } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
@@ -50,7 +50,6 @@ export default function RegisterForm() {
             email: data.email,
             password: data.password,
             image: data.image
-
         }
 
         try {
