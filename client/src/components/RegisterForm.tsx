@@ -18,7 +18,7 @@ const formSchema = z.object({
     first_name: z.string().min(2, { message: "Le prénom doit contenir au moins 2 caractères" }),
     email: z.string().email({ message: "Adresse e-mail invalide" }),
     password: z.string().min(6, { message: "Le mot de passe doit contenir au moins 8 caractères" }),
-    image: z.string().optional()
+    image: z.instanceof(File).optional(),
 })
 
 export default function RegisterForm() {
@@ -35,7 +35,7 @@ export default function RegisterForm() {
             first_name: "",
             email: "",
             password: "",
-            image: ""
+            image: undefined
         },
     })
 
@@ -160,7 +160,17 @@ export default function RegisterForm() {
                                             <FormItem>
                                                 <FormLabel>Image</FormLabel>
                                                 <FormControl>
-                                                    <Input {...field} type="file" className="shadow-sm" />
+                                                    <Input
+                                                        type="file"
+                                                        className="shadow-sm"
+                                                        onChange={(e) => {
+                                                            const file = e.target.files ? e.target.files[0] : undefined;
+                                                            field.onChange(file);
+                                                        }}
+                                                        onBlur={field.onBlur}
+                                                        name={field.name}
+                                                        ref={field.ref}
+                                                    />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
