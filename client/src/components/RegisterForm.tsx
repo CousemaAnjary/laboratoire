@@ -152,7 +152,7 @@ export default function RegisterForm() {
                                 </div>
                             </div>
                             <div className="grid gap-4">
-                                <div className=" col-span-9">
+                                <div className="col-span-9">
                                     <FormField
                                         control={form.control}
                                         name="image"
