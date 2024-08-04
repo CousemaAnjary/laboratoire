@@ -56,7 +56,7 @@ export default function RegisterForm() {
             await register(registerData)
             // Inscription réussie, rediriger vers la page de connexion
             navigate('/login')
-            
+
         } catch (error) {
             // Afficher l'erreur dans la console
             console.error(error)

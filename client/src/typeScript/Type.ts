@@ -11,5 +11,5 @@ export type RegisterType = {
     first_name: string
     email: string
     password: string
-    image: string
+    image?: string
 }
