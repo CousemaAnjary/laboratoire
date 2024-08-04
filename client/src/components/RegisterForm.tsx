@@ -163,10 +163,11 @@ export default function RegisterForm() {
                                                     <Input
                                                         type="file"
                                                         className="shadow-sm"
-                                                        onChange={(e) => {
-                                                            const file = e.target.files ? e.target.files[0] : undefined;
-                                                            field.onChange(file);
-                                                        }}
+                                                        // onChange={(e) => {
+                                                        //     const file = e.target.files ? e.target.files[0] : undefined
+                                                        //     field.onChange(file)
+                                                        // }}
+                                                        onChange={(e) => { field.onChange(e.target.files ? e.target.files[0] : undefined) }}
                                                     />
                                                 </FormControl>
                                                 <FormMessage />
