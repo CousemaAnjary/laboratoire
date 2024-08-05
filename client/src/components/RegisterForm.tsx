@@ -18,7 +18,7 @@ const formSchema = z.object({
     first_name: z.string().min(2, { message: "Le prénom doit contenir au moins 2 caractères" }),
     email: z.string().email({ message: "Adresse e-mail invalide" }),
     password: z.string().min(6, { message: "Le mot de passe doit contenir au moins 8 caractères" }),
-    image: z.instanceof(File).optional(),
+    image: z.instanceof(File).optional()
 })
 
 export default function RegisterForm() {
