@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie'
 import api from "./config/apiConfig"
 import { LoginType, RegisterType } from "@/typeScript/Type"
 
@@ -14,6 +15,7 @@ export const register = async (dataRegister: RegisterType) => {
     }
 }
 
+// connecter un utilisateur
 export const login = async (dataLogin: LoginType) => {
     try {
         // Appel à l'API pour authentifier un utilisateur
@@ -28,4 +30,13 @@ export const login = async (dataLogin: LoginType) => {
     } catch (error) {
         console.error('Erreur lors de l\'authentification:', error)
     }
+}
+
+// Déconnecter un utilisateur
+export const logout = async () => {
+    // Supprimer le token du cookie
+    Cookies.remove('auth_token')
+
+    // Supprimer les informations de l'utilisateur du localStorage
+    localStorage.removeItem('user')
 }
