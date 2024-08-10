@@ -12,7 +12,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 
 
 
-
 // Définir le schéma de validation avec Zod
 const formSchema = z.object({
     email: z.string().email({ message: "Adresse e-mail invalide" }),
@@ -46,7 +45,6 @@ export default function LoginForm() {
         try {
             // Envoi des données au serveur (API) pour l'authentification
             console.log(loginData)
-
 
         } catch (error) {
             // Afficher l'erreur dans la console

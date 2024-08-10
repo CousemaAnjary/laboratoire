@@ -20,7 +20,6 @@ export type UserType = {
     last_name: string
     email: string
     image: string
-    image_cover: string
 }
 
 // Le type pour le contexte d'authentification
