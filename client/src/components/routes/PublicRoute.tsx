@@ -16,5 +16,5 @@ export default function PublicRoute(): JSX.Element {
     /**
      * ! AFFICHAGE (render) de l'application
      */
-    return isAuthenticated ? <Navigate to="/friendzy" /> : <Outlet />
+    return isAuthenticated ? <Navigate to="/dashboard" /> : <Outlet />
 }
