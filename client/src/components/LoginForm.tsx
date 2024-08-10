@@ -106,7 +106,7 @@ export default function LoginForm() {
                                 </div>
                             </div>
                             {/* <Button type="submit" className="w-full bg-cyan-700">Authentifier</Button> */}
-                            <ShinyButton text="Authentifier" className="w-full text-red-950" />
+                            <ShinyButton text="Authentifier" className="w-full p-3 " />
                         </div>
                     </form>
                 </Form>
