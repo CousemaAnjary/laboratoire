@@ -29,4 +29,5 @@ export type AuthContextType = {
     user: UserType | null
     login: (dataLogin: LoginType) => Promise<void>
     logout: () => Promise<void>
+    isReady: boolean
 }

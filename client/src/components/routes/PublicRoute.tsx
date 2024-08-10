@@ -6,7 +6,7 @@ export default function PublicRoute(): JSX.Element {
     /**
      * ! STATE (état, données) de l'application
      */
-    
+
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
