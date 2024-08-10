@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         if (auth && !user) {
             // Récupérer les données de l'utilisateur depuis le local storage
             const storedUser = localStorage.getItem('user')
-            
+
             if (storedUser) {
                 // Mettre à jour les données de l'utilisateur
                 setUser(JSON.parse(storedUser))
