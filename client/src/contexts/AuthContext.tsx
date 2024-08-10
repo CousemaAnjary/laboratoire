@@ -30,8 +30,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
      */
     useEffect(() => {
         if (auth && !user) {
+            // Récupérer les données de l'utilisateur depuis le local storage
             const storedUser = localStorage.getItem('user')
+            
             if (storedUser) {
+                // Mettre à jour les données de l'utilisateur
                 setUser(JSON.parse(storedUser))
             }
         }
@@ -39,28 +42,31 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     const login = async (dataLogin: LoginType) => {
         try {
+            // Appel à l'API pour authentifier un utilisateur
             const response = await loginService(dataLogin)
+
             if (response) {
-                setAuth(true)
-                const { user } = response
-                localStorage.setItem('user', JSON.stringify(user))
-                setUser(user)
+                setAuth(true) // Authentifier l'utilisateur
+                const { user } = response // Extraire les données de l'utilisateur de la réponse
+                localStorage.setItem('user', JSON.stringify(user)) // Stoker les données de l'utilisateur dans le local storage
+                setUser(user) // Mettre à jour les données de l'utilisateur
             }
+
         } catch (error) {
             console.error('Login failed:', error)
-            throw error
         }
-    };
+    }
 
     const logout = async () => {
         try {
+            // Appel à l'API pour déconnecter un utilisateur
             await logoutService()
-            setAuth(false)
-            setUser(null)
-            navigate('/login')
+            setAuth(false) // Déconnecter l'utilisateur
+            setUser(null) // Supprimer les données de l'utilisateur
+            navigate('/login') // Rediriger l'utilisateur vers la page de connexion
+
         } catch (error) {
             console.error('Logout failed:', error)
-            throw error
         }
     }
 
