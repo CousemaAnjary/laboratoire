@@ -39,30 +39,30 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     const login = async (dataLogin: LoginType) => {
         try {
-            const response = await loginService(dataLogin);
+            const response = await loginService(dataLogin)
             if (response) {
-                setAuth(true);
-                const { user } = response;
-                localStorage.setItem('user', JSON.stringify(user));
-                setUser(user);
+                setAuth(true)
+                const { user } = response
+                localStorage.setItem('user', JSON.stringify(user))
+                setUser(user)
             }
         } catch (error) {
-            console.error('Login failed:', error);
-            throw error;
+            console.error('Login failed:', error)
+            throw error
         }
     };
 
     const logout = async () => {
         try {
-            await logoutService();
-            setAuth(false);
-            setUser(null);
-            navigate('/login');
+            await logoutService()
+            setAuth(false)
+            setUser(null)
+            navigate('/login')
         } catch (error) {
-            console.error('Logout failed:', error);
-            throw error;
+            console.error('Logout failed:', error)
+            throw error
         }
-    };
+    }
 
     /**
      * ! AFFICHAGE (render) de l'application
