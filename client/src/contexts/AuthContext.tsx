@@ -83,6 +83,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 /**
  * ! Consommation du contexte (hook)
  */
-export const useAuth = (): AuthContextType | undefined => useContext(AuthContext)
+export const useAuth = (): AuthContextType => {
+    const context = useContext(AuthContext)
 
+    if (context === undefined) {
+        throw new Error('useAuth doit être utilisé dans un AuthProvider')
+    }
 
+    return context
+}

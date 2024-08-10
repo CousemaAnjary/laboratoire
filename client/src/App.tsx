@@ -1,6 +1,7 @@
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import { Route, Routes } from "react-router-dom"
+import { AuthProvider } from "./contexts/AuthContext"
 import PublicRoute from "./components/routes/PublicRoute"
 import PrivateRoute from "./components/routes/PrivateRoute"
 
@@ -21,19 +22,22 @@ export default function App() {
      */
     return (
         <>
-            <Routes>
-                {/* Public Routes */}
-                <Route element={<PublicRoute />}>
-                    <Route path="/" element={<Login />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                </Route>
+            <AuthProvider>
+                <Routes>
+                    {/* Public Routes */}
+                    <Route element={<PublicRoute />}>
+                        <Route path="/" element={<Login />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                    </Route>
 
-                {/* Protected Routes */}
-                <Route element={<PrivateRoute />}>
-                </Route>
+                    {/* Protected Routes */}
+                    <Route element={<PrivateRoute />}>
+                    </Route>
 
-            </Routes>
+                </Routes>
+            </AuthProvider>
+
         </>
     )
 }
