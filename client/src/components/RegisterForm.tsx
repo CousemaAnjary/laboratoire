@@ -186,7 +186,6 @@ export default function RegisterForm() {
 
                             <div className="grid gap-2">
                                 <Button type="button" variant="outline" className="w-full"><FcGoogle size={18} className="mr-1" />Google</Button>
-                               
                             </div>
                         </div>
                     </form>
