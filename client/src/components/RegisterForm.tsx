@@ -12,6 +12,7 @@ import { useForm, UseFormReturn } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
 
 
+
 // Définir le schéma de validation avec Zod
 const formSchema = z.object({
     last_name: z.string().min(2, { message: "Le nom doit contenir au moins 2 caractères" }),
@@ -185,6 +186,7 @@ export default function RegisterForm() {
 
                             <div className="grid gap-2">
                                 <Button type="button" variant="outline" className="w-full"><FcGoogle size={18} className="mr-1" />Google</Button>
+                               
                             </div>
                         </div>
                     </form>

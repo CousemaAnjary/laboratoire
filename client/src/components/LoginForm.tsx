@@ -8,6 +8,7 @@ import { LoginType } from "@/typeScript/Type"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm, UseFormReturn } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
+import ShinyButton from "./magicui/shiny-button"
 
 
 // Définir le schéma de validation avec Zod
@@ -104,7 +105,8 @@ export default function LoginForm() {
                                     </Button>
                                 </div>
                             </div>
-                            <Button type="submit" className="w-full bg-cyan-700">Authentifier</Button>
+                            {/* <Button type="submit" className="w-full bg-cyan-700">Authentifier</Button> */}
+                            <ShinyButton text="Authentifier" className="w-full text-red-950" />
                         </div>
                     </form>
                 </Form>
