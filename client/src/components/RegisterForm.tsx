@@ -128,7 +128,7 @@ export default function RegisterForm() {
                             </div>
 
                             <div className="grid grid-cols-10 gap-2">
-                                <div className=" col-span-9">
+                                <div className="col-span-9">
                                     <FormField
                                         control={form.control}
                                         name="password"

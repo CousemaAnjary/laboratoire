@@ -98,7 +98,7 @@ export default function LoginForm() {
                                         )}
                                     />
                                 </div>
-                                <div className="col-span-1 flex items-center justify-center">
+                                <div className="gap-2">
                                     <Button type="button" variant="outline" className="mt-8 p-2 shadow-sm" onClick={() => setShowPassword(!showPassword)}>
                                         {showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
                                     </Button>
