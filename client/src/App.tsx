@@ -1,5 +1,6 @@
 import Login from "./pages/Login"
 import Register from "./pages/Register"
+import Dashboard from "./pages/Dashboard"
 import { Route, Routes } from "react-router-dom"
 import { AuthProvider } from "./contexts/AuthContext"
 import PublicRoute from "./components/routes/PublicRoute"
@@ -33,6 +34,7 @@ export default function App() {
 
                     {/* Protected Routes */}
                     <Route element={<PrivateRoute />}>
+                        <Route path="/dashboard" element={<Dashboard />} />
                     </Route>
 
                 </Routes>
