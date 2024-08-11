@@ -11,6 +11,7 @@ export default function PrivateRoute(): JSX.Element {
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
+    
 
 
     /**
