@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                 setUser(JSON.parse(storedUser))
             }
         }
-    }, [auth, user])
+    }, [auth])
 
 
     // Authentification de l'utilisateur
