@@ -31,6 +31,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     useEffect(() => {
         // Vérifier si l'utilisateur est authentifié
         const checkAuth = async () => {
+
             // Appel à l'API pour vérifier si l'utilisateur est authentifié
             const isAuth = await isAuthenticated()
             setAuth(isAuth) // Authentifier l'utilisateur
