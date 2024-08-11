@@ -32,6 +32,17 @@ export const login = async (dataLogin: LoginType) => {
     }
 }
 
+export const isAuthenticated = async (): Promise<boolean> => {
+    try {
+        // Appel à l'API pour vérifier le token
+        const response = await api.get('/auth/verify-token')
+        return response.status === 200 // Retourne true si le token est valide, sinon false
+
+    } catch (error) {
+        return false
+    }
+}
+
 // Déconnecter un utilisateur
 export const logout = async () => {
     // Supprimer le token du cookie

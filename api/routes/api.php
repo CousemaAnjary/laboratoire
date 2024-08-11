@@ -11,3 +11,7 @@ Route::get('/user', function (Request $request) {
 
 Route::post('/register', [RegisterController::class, 'store']);
 Route::post('login', [AuthenticatedUserSessionController::class, 'store']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('auth/verify-token', [AuthenticatedUserSessionController::class, 'verifyToken']);
+});

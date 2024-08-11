@@ -49,7 +49,7 @@ export default function LoginForm() {
         try {
             // Envoi des données au serveur (API) pour l'authentification
             await login(loginData)
-            navigate("/dashboard") // Rediriger l'utilisateur vers le tableau de bord
+            navigate('/dashboard') // Rediriger l'utilisateur vers le tableau de bord
 
         } catch (error) {
             // Afficher l'erreur dans la console

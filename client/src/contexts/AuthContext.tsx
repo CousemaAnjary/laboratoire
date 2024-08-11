@@ -1,9 +1,9 @@
 /* eslint-disable react-refresh/only-export-components */
 import Cookies from "js-cookie"
-import { isAuthenticated } from "@/utils/auth"
 import { AuthContextType, LoginType, UserType } from "@/typeScript/Type"
 import { createContext, ReactNode, useContext, useEffect, useState } from "react"
-import { login as loginService, logout as logoutService } from '../services/authService'
+import { isAuthenticated, login as loginService, logout as logoutService } from '../services/authService'
+import { useNavigate } from "react-router-dom"
 
 
 
@@ -20,25 +20,32 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     /**
      * ! STATE (état, données) de l'application
      */
+    const navigate = useNavigate()
     const [user, setUser] = useState<UserType | null>(null)
-    const [auth, setAuth] = useState<boolean>(isAuthenticated())
+    const [auth, setAuth] = useState<boolean>(false)
 
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
     useEffect(() => {
-        // Vérification si l'utilisateur est connecté
-        if (auth) {
-            // Récupération des données de l'utilisateur
-            const storedUser = localStorage.getItem('user')
+        // Vérifier si l'utilisateur est authentifié
+        const checkAuth = async () => {
+            // Appel à l'API pour vérifier si l'utilisateur est authentifié
+            const isAuth = await isAuthenticated()
+            setAuth(isAuth) // Authentifier l'utilisateur
 
-            // Si les données de l'utilisateur sont présentes
-            if (storedUser) {
-                setUser(JSON.parse(storedUser))
+            if (isAuth) {
+                // Récupération des données de l'utilisateur
+                const storedUser = localStorage.getItem('user')
+
+                if (storedUser) {
+                    setUser(JSON.parse(storedUser)) // Mettre à jour les données de l'utilisateur
+                }
             }
         }
-    }, [auth])
+        checkAuth()
+    }, [])
 
 
     // Authentification de l'utilisateur
@@ -52,6 +59,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                 const { user } = response // Extraire les données de l'utilisateur de la réponse
                 localStorage.setItem('user', JSON.stringify(user)) // Stoker les données de l'utilisateur dans le local storage
                 setUser(user) // Mettre à jour les données de l'utilisateur
+                navigate('/dashboard') // Rediriger l'utilisateur vers le tableau de bord
             }
 
         } catch (error) {

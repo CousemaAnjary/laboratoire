@@ -36,4 +36,12 @@ class AuthenticatedUserSessionController extends Controller
             ], 401);
         }
     }
+
+    public function verifyToken(Request $request)
+    {
+        // Retourner une réponse JSON avec l'utilisateur authentifié
+        return response()->json([
+            'message' => 'Token valide.',
+        ], 200);
+    }
 }
