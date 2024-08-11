@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         }
     }, [auth, user])
 
-    
+
     // Authentification de l'utilisateur
     const login = async (dataLogin: LoginType) => {
         try {
@@ -90,7 +90,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 export const useAuth = () => {
     const context = useContext(AuthContext)
 
-    if (context === undefined) {
+    if (!context) {
         throw new Error('useAuth doit être utilisé dans un AuthProvider')
     }
 
