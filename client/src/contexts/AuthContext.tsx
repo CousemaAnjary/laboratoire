@@ -1,9 +1,10 @@
 /* eslint-disable react-refresh/only-export-components */
-import { AuthContextType, LoginType, UserType } from "@/typeScript/Type";
-import { isAuthenticated } from "@/utils/auth";
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
-import { login as loginService, logout as logoutService } from '../services/authService'
 import Cookies from "js-cookie"
+import { isAuthenticated } from "@/utils/auth"
+import { AuthContextType, LoginType, UserType } from "@/typeScript/Type"
+import { createContext, ReactNode, useContext, useEffect, useState } from "react"
+import { login as loginService, logout as logoutService } from '../services/authService'
+
 
 
 /**
@@ -39,6 +40,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         }
     }, [auth, user])
 
+    
     // Authentification de l'utilisateur
     const login = async (dataLogin: LoginType) => {
         try {
@@ -85,5 +87,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 /**
  * ! Consommation du contexte (hook)
  */
-export const useAuth = () => useContext(AuthContext)
+export const useAuth = () => {
+    const context = useContext(AuthContext)
 
+    if (context === undefined) {
+        throw new Error('useAuth doit être utilisé dans un AuthProvider')
+    }
+
+    return context
+}

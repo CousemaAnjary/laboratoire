@@ -9,6 +9,7 @@ import { Link } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm, UseFormReturn } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
+import { useAuth } from "@/contexts/AuthContext"
 
 
 
@@ -22,6 +23,7 @@ export default function LoginForm() {
     /**
      * ! STATE (état, données) de l'application
      */
+    const { login } = useAuth()
     const [showPassword, setShowPassword] = useState(false)
 
     const form: UseFormReturn<LoginType> = useForm<LoginType>({
@@ -44,7 +46,7 @@ export default function LoginForm() {
 
         try {
             // Envoi des données au serveur (API) pour l'authentification
-            console.log(loginData)
+            await login(loginData)
 
         } catch (error) {
             // Afficher l'erreur dans la console
