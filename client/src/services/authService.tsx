@@ -19,11 +19,16 @@ export const login = async (dataLogin: LoginType) => {
     try {
         // Appel à l'API pour authentifier un utilisateur
         const response = await api.post('/login', dataLogin)
-        const { user } = response.data // Extraire les données de l'utilisateur de la réponse
+        const { user } = response.data
 
-        // Stoker les données de l'utilisateur dans le local storage
-        localStorage.setItem('user', JSON.stringify(user))
+        if (response.data.token) {
+            // Stocker le token JWT dans localStorage 
+            localStorage.setItem('token', response.data.token)
 
+            // Stoker les données de l'utilisateur dans le local storage
+            localStorage.setItem('user', JSON.stringify(user))
+
+        }
         return response.data // Retourner les données de la réponse de l'API
 
     } catch (error) {
@@ -31,16 +36,16 @@ export const login = async (dataLogin: LoginType) => {
     }
 }
 
-export const isAuthenticated = async (): Promise<boolean> => {
-    try {
-        // Appel à l'API pour vérifier le token
-        const response = await api.get('/auth/verify-token')
-        return response.status === 200 // Retourne true si le token est valide, sinon false
+// export const isAuthenticated = async (): Promise<boolean> => {
+//     try {
+//         // Appel à l'API pour vérifier le token
+//         const response = await api.get('/auth/verify-token')
+//         return response.status === 200 // Retourne true si le token est valide, sinon false
 
-    } catch (error) {
-        return false
-    }
-}
+//     } catch (error) {
+//         return false
+//     }
+// }
 
 // Déconnecter un utilisateur
 // export const logout = async () => {

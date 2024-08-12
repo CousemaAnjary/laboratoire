@@ -1,8 +1,9 @@
 /* eslint-disable react-refresh/only-export-components */
 import { AuthContextType, LoginType, UserType } from "@/typeScript/Type"
 import { createContext, ReactNode, useContext, useEffect, useState } from "react"
-import { isAuthenticated, login as loginService } from '../services/authService'
-import { useNavigate } from "react-router-dom"
+import { login as loginService } from '../services/authService'
+
+import { isAuthenticated } from "@/utils/auth"
 
 
 /**
@@ -18,33 +19,25 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     /**
      * ! STATE (état, données) de l'application
      */
-    const navigate = useNavigate()
+    
     const [user, setUser] = useState<UserType | null>(null)
-    const [auth, setAuth] = useState<boolean>(false)
-
+    const [auth, setAuth] = useState(isAuthenticated())
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
     useEffect(() => {
-        // Vérifier si l'utilisateur est authentifié
-        const checkAuth = async () => {
 
-            // Appel à l'API pour vérifier si l'utilisateur est authentifié
-            const isAuth = await isAuthenticated()
-            setAuth(isAuth) // Authentifier l'utilisateur
+        if (auth) {
+            // Récupérer les données de l'utilisateur depuis le local storage
+            const storedUser = localStorage.getItem('user')
 
-            if (isAuth) {
-                // Récupération des données de l'utilisateur
-                const storedUser = localStorage.getItem('user')
-
-                if (storedUser) {
-                    setUser(JSON.parse(storedUser)) // Mettre à jour les données de l'utilisateur
-                }
+            if (storedUser) {
+                // Mettre à jour les données de l'utilisateur
+                setUser(JSON.parse(storedUser))
             }
         }
-        checkAuth()
-    }, [])
+    }, [auth, setUser])
 
 
     // Authentification de l'utilisateur
@@ -53,12 +46,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             // Appel à l'API pour authentifier un utilisateur
             const response = await loginService(dataLogin)
 
-            if (response) {
+            if (response.token) {
                 setAuth(true) // Authentifier l'utilisateur
                 const { user } = response // Extraire les données de l'utilisateur de la réponse
                 localStorage.setItem('user', JSON.stringify(user)) // Stoker les données de l'utilisateur dans le local storage
                 setUser(user) // Mettre à jour les données de l'utilisateur
-                navigate('/dashboard') // Rediriger l'utilisateur vers le tableau de bord
+               
             }
 
         } catch (error) {
