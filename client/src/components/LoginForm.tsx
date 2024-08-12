@@ -5,8 +5,8 @@ import { Button } from "./ui/button"
 import { Eye, EyeOff } from "lucide-react"
 import { LoginType } from "@/typeScript/Type"
 import ShinyButton from "./magicui/shiny-button"
-
-import { Link} from "react-router-dom"
+import { useAuth } from "@/contexts/AuthContext"
+import { Link, useNavigate } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm, UseFormReturn } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
@@ -24,7 +24,8 @@ export default function LoginForm() {
     /**
      * ! STATE (état, données) de l'application
      */
-   
+    const { login } = useAuth()
+    const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false)
 
     const form: UseFormReturn<LoginType> = useForm<LoginType>({
@@ -47,7 +48,9 @@ export default function LoginForm() {
 
         try {
             // Envoi des données au serveur (API) pour l'authentification
-          console.log(loginData)
+            await login(loginData)
+            navigate('/dashboard') // Rediriger l'utilisateur vers le tableau de bord
+
 
         } catch (error) {
             // Afficher l'erreur dans la console

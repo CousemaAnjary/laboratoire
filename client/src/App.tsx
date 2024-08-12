@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom"
 
 import PublicRoute from "./components/routes/PublicRoute"
 import PrivateRoute from "./components/routes/PrivateRoute"
+import { AuthProvider } from "./contexts/AuthContext"
 
 
 
@@ -24,7 +25,7 @@ export default function App() {
      */
     return (
         <>
-       
+            <AuthProvider>
                 <Routes>
                     {/* Public Routes */}
                     <Route element={<PublicRoute />}>
@@ -39,7 +40,9 @@ export default function App() {
                     </Route>
 
                 </Routes>
-            
+            </AuthProvider>
+
+
         </>
     )
 }
