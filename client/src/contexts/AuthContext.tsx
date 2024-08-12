@@ -8,7 +8,11 @@ import { createContext, ReactNode, useContext, useEffect, useState } from "react
 /**
  * ! Création du contexte 
  */
-const AuthContext = createContext<AuthContextType | undefined>(undefined)
+const AuthContext = createContext<AuthContextType >({
+    isAuthenticated : false,
+    user: null,
+    login: async () => {} 
+})
 
 
 /**
@@ -36,7 +40,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                 setUser(JSON.parse(storedUser))
             }
         }
-    }, [auth, setUser])
+    }, [auth])
 
 
     // Authentification de l'utilisateur
@@ -49,8 +53,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                 setAuth(true) // Authentifier l'utilisateur
                 const { user } = response // Extraire les données de l'utilisateur de la réponse
                 localStorage.setItem('user', JSON.stringify(user)) // Stoker les données de l'utilisateur dans le local storage
-                setUser(user) // Mettre à jour les données de l'utilisateur
-               
+                setUser(user) // Mettre à jour les données de l'utilisateur       
             }
 
         } catch (error) {
@@ -86,12 +89,4 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 /**
  * ! Consommation du contexte (hook)
  */
-export const useAuth = () => {
-    const context = useContext(AuthContext)
-
-    if (!context) {
-        throw new Error('useAuth doit être utilisé dans un AuthProvider')
-    }
-
-    return context
-}
+export const useAuth = () =>  useContext(AuthContext)

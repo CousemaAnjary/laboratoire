@@ -26,6 +26,6 @@ export type UserType = {
 export type AuthContextType = {
     isAuthenticated: boolean 
     user: UserType | null
-    login: (dataLogin: LoginType) => Promise<void>
+    login: (dataLogin: LoginType) => Promise<void> 
     // logout: () => Promise<void>
 }
