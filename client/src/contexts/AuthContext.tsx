@@ -1,9 +1,8 @@
 /* eslint-disable react-refresh/only-export-components */
+import { isAuthenticated } from "@/utils/auth"
+import { login as loginService } from '../services/authService'
 import { AuthContextType, LoginType, UserType } from "@/typeScript/Type"
 import { createContext, ReactNode, useContext, useEffect, useState } from "react"
-import { login as loginService } from '../services/authService'
-
-import { isAuthenticated } from "@/utils/auth"
 
 
 /**
