@@ -25,10 +25,11 @@ class AuthenticatedUserSessionController extends Controller
 
             // Retourner une réponse JSON avec l'utilisateur authentifié et le token
             return response()->json([
+                'token' => $token,
                 'user' => $user,
                 'message' => 'User a été authentifié avec succès.'
-            ], 200)->cookie('auth_token',  $token, 60 * 24, '/', null, env('APP_ENV') !== 'local', true); // Nom du cookie, Valeur du cookie (token), Durée de vie (1 jour), Chemin (tout le site), Domaine (domaine actuel), Secure (true pour HTTPS en production, false en local), HttpOnly (inaccessible via JavaScript)
-
+            ], 200);
+            
         } else {
             // Retourner une réponse JSON avec un message d'erreur
             return response()->json([

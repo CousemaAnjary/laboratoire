@@ -1,5 +1,4 @@
 
-import { useAuth } from "@/hooks/useAuth"
 import { Navigate, Outlet } from "react-router-dom"
 
 
@@ -7,7 +6,7 @@ export default function PublicRoute(): JSX.Element {
     /**
      * ! STATE (état, données) de l'application
      */
-    const { isAuthenticated } = useAuth()
+ 
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
