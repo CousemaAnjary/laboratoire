@@ -1,4 +1,3 @@
-import Cookies from 'js-cookie'
 import api from "./config/apiConfig"
 import { LoginType, RegisterType } from "@/typeScript/Type"
 
@@ -44,10 +43,10 @@ export const isAuthenticated = async (): Promise<boolean> => {
 }
 
 // Déconnecter un utilisateur
-export const logout = async () => {
-    // Supprimer le token du cookie
-    Cookies.remove('auth_token')
+// export const logout = async () => {
+//     // Supprimer le token du cookie
+//     Cookies.remove('auth_token')
 
-    // Supprimer les informations de l'utilisateur du localStorage
-    localStorage.removeItem('user')
-}
+//     // Supprimer les informations de l'utilisateur du localStorage
+//     localStorage.removeItem('user')
+// }

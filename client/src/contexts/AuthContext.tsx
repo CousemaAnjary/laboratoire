@@ -1,10 +1,8 @@
 /* eslint-disable react-refresh/only-export-components */
-import Cookies from "js-cookie"
 import { AuthContextType, LoginType, UserType } from "@/typeScript/Type"
 import { createContext, ReactNode, useContext, useEffect, useState } from "react"
-import { isAuthenticated, login as loginService, logout as logoutService } from '../services/authService'
+import { isAuthenticated, login as loginService } from '../services/authService'
 import { useNavigate } from "react-router-dom"
-
 
 
 /**
@@ -68,26 +66,26 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         }
     }
 
-    const logout = async () => {
-        try {
-            // Appel à l'API pour déconnecter un utilisateur
-            await logoutService()
-            Cookies.remove('auth_token') // Supprimer le token du cookie
-            setAuth(false) // Déconnecter l'utilisateur
-            localStorage.removeItem('user') // Supprimer les informations de l'utilisateur du localStorage
-            setUser(null) // Mettre à jour les données de l'utilisateur
+    // const logout = async () => {
+    //     try {
+    //         // Appel à l'API pour déconnecter un utilisateur
+    //         await logoutService()
+    //         Cookies.remove('auth_token') // Supprimer le token du cookie
+    //         setAuth(false) // Déconnecter l'utilisateur
+    //         localStorage.removeItem('user') // Supprimer les informations de l'utilisateur du localStorage
+    //         setUser(null) // Mettre à jour les données de l'utilisateur
 
-        } catch (error) {
-            console.error('Logout failed:', error)
-        }
-    }
+    //     } catch (error) {
+    //         console.error('Logout failed:', error)
+    //     }
+    // }
 
 
     /**
      * ! AFFICHAGE (render) de l'application
      */
     return (
-        <AuthContext.Provider value={{ isAuthenticated: auth, user, login, logout }}>
+        <AuthContext.Provider value={{ isAuthenticated: auth, user, login }}>
             {children}
         </AuthContext.Provider>
     )

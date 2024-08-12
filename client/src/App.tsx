@@ -2,7 +2,7 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Dashboard from "./pages/Dashboard"
 import { Route, Routes } from "react-router-dom"
-import { AuthProvider } from './contexts/AuthContext'
+
 import PublicRoute from "./components/routes/PublicRoute"
 import PrivateRoute from "./components/routes/PrivateRoute"
 
@@ -24,7 +24,7 @@ export default function App() {
      */
     return (
         <>
-            <AuthProvider>
+       
                 <Routes>
                     {/* Public Routes */}
                     <Route element={<PublicRoute />}>
@@ -39,7 +39,7 @@ export default function App() {
                     </Route>
 
                 </Routes>
-            </AuthProvider>
+            
         </>
     )
 }
