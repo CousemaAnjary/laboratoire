@@ -8,7 +8,7 @@ const api = axios.create({
     withCredentials: true // Pour envoyer les cookies avec les requêtes
 })
 
-// Ajouter un intercepteur
+// Ajouter un intercepteur 
 api.interceptors.request.use((config) => {
 
     // Ajouter les headers par défaut
