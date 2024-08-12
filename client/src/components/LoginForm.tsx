@@ -12,8 +12,6 @@ import { useForm, UseFormReturn } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
 
 
-
-
 // Définir le schéma de validation avec Zod
 const formSchema = z.object({
     email: z.string().email({ message: "Adresse e-mail invalide" }),

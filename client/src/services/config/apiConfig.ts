@@ -5,7 +5,7 @@ const API_URL: string = import.meta.env.VITE_BACKEND_API_URL
 
 const api = axios.create({
     baseURL: API_URL,
-    withCredentials: true // Pour envoyer les cookies avec les requêtes
+    // withCredentials: true // Pour envoyer les cookies avec les requêtes
 })
 
 // Ajouter un intercepteur 
