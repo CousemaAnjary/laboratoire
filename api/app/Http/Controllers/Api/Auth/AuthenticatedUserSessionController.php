@@ -38,11 +38,22 @@ class AuthenticatedUserSessionController extends Controller
         }
     }
 
-    public function verifyToken(Request $request)
+    // public function verifyToken(Request $request)
+    // {
+    //     // Retourner une réponse JSON avec l'utilisateur authentifié
+    //     return response()->json([
+    //         'message' => 'Token valide.',
+    //     ], 200);
+    // }
+
+    public function destroy(Request $request)
     {
-        // Retourner une réponse JSON avec l'utilisateur authentifié
+        // Révoquer le token d'authentification de l'utilisateur
+        $request->user()->currentAccessToken()->delete();
+
+        // Retourner une réponse JSON avec un message de succès
         return response()->json([
-            'message' => 'Token valide.',
+            'message' => 'Token a été révoqué avec succès.'
         ], 200);
     }
 }

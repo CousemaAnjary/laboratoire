@@ -48,10 +48,18 @@ export const login = async (dataLogin: LoginType) => {
 // }
 
 // Déconnecter un utilisateur
-// export const logout = async () => {
-//     // Supprimer le token du cookie
-//     Cookies.remove('auth_token')
+export const logout = async () => {
+    try {
+        // Appel à l'API pour déconnecter un utilisateur
+        await api.post('/logout')
 
-//     // Supprimer les informations de l'utilisateur du localStorage
-//     localStorage.removeItem('user')
-// }
+        // Supprimer le token dans localStorage
+        localStorage.removeItem('token')
+
+        // Supprimer les informations de l'utilisateur du localStorage
+        localStorage.removeItem('user')
+
+    } catch (error) {
+        console.error('Erreur lors de la déconnexion:', error)
+    }
+}

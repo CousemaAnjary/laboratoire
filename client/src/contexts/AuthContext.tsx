@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { isAuthenticated } from "@/utils/auth"
-import { login as loginService } from '../services/authService'
+import { login as loginService, logout as logoutService } from '../services/authService'
 import { AuthContextType, LoginType, UserType } from "@/typeScript/Type"
 import { createContext, ReactNode, useContext, useEffect, useState } from "react"
 
@@ -8,10 +8,11 @@ import { createContext, ReactNode, useContext, useEffect, useState } from "react
 /**
  * ! Création du contexte (valeurs par défaut) 
  */
-const AuthContext = createContext<AuthContextType >({
-    isAuthenticated : false,
+const AuthContext = createContext<AuthContextType>({
+    isAuthenticated: false,
     user: null,
-    login: async () => {} 
+    login: async () => { },
+    logout: async () => { }
 })
 
 
@@ -22,7 +23,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     /**
      * ! STATE (état, données) de l'application
      */
-    
+
     const [user, setUser] = useState<UserType | null>(null)
     const [auth, setAuth] = useState(isAuthenticated())
 
@@ -61,26 +62,27 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         }
     }
 
-    // const logout = async () => {
-    //     try {
-    //         // Appel à l'API pour déconnecter un utilisateur
-    //         await logoutService()
-    //         Cookies.remove('auth_token') // Supprimer le token du cookie
-    //         setAuth(false) // Déconnecter l'utilisateur
-    //         localStorage.removeItem('user') // Supprimer les informations de l'utilisateur du localStorage
-    //         setUser(null) // Mettre à jour les données de l'utilisateur
+    const logout = async () => {
+        try {
+            // Appel à l'API pour déconnecter un utilisateur
+            await logoutService()
+            // Supprimer le token dans localStorage
+            localStorage.removeItem('token')
+            setAuth(false) // Déconnecter l'utilisateur
+            localStorage.removeItem('user') // Supprimer les informations de l'utilisateur du localStorage
+            setUser(null) // Mettre à jour les données de l'utilisateur
 
-    //     } catch (error) {
-    //         console.error('Logout failed:', error)
-    //     }
-    // }
+        } catch (error) {
+            console.error('Logout failed:', error)
+        }
+    }
 
 
     /**
      * ! AFFICHAGE (render) de l'application
      */
     return (
-        <AuthContext.Provider value={{ isAuthenticated: auth, user, login }}>
+        <AuthContext.Provider value={{ isAuthenticated: auth, user, login, logout }}>
             {children}
         </AuthContext.Provider>
     )
@@ -89,4 +91,4 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 /**
  * ! Consommation du contexte (hook)
  */
-export const useAuth = () =>  useContext(AuthContext)
+export const useAuth = () => useContext(AuthContext)
