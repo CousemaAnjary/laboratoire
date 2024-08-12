@@ -6,7 +6,7 @@ import { createContext, ReactNode, useContext, useEffect, useState } from "react
 
 
 /**
- * ! Création du contexte 
+ * ! Création du contexte (valeurs par défaut) 
  */
 const AuthContext = createContext<AuthContextType >({
     isAuthenticated : false,
