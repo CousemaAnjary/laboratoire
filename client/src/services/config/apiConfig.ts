@@ -5,13 +5,20 @@ const API_URL: string = import.meta.env.VITE_BACKEND_API_URL
 
 const api = axios.create({
     baseURL: API_URL,
-    headers: {
-        "Content-Type": "application/json"
-    },
     withCredentials: true // Pour envoyer les cookies avec les requêtes
 })
 
-// Ajouter un intercepteur de requêtes pour inclure le token dans les en-têtes
+// Ajouter un intercepteur
+api.interceptors.request.use((config) => {
+
+    // Ajouter les headers par défaut
+    config.headers = config.headers || {}
+
+    // Ajouter le Content-Type pour les requêtes POST avec des données JSON
+    config.headers['Content-Type'] = `multipart/form-data`
+
+    return config
+})
 
 
 export default api
