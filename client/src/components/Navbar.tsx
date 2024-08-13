@@ -3,9 +3,9 @@ import { Button } from "./ui/button"
 import { Link } from "react-router-dom"
 import { MdDarkMode, MdLightMode, MdMenu, MdClose } from "react-icons/md"
 import { BadgeAlert, Contact, House, Settings, User } from "lucide-react"
-import { DropdownMenu,DropdownMenuContent,DropdownMenuGroup,DropdownMenuItem,  DropdownMenuLabel,  DropdownMenuSeparator, DropdownMenuTrigger,} from "./ui/dropdown-menu"
-   
-    
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger, } from "./ui/dropdown-menu"
+
+
 export default function Navbar() {
     /**
      * ! STATE (état, données) de l'application
@@ -24,9 +24,9 @@ export default function Navbar() {
      */
     return (
         <div className="relative z-10 w-full bg-white p-4 shadow">
-            <div className="mx-auto w-full max-w-6xl">
-                <div className="flex justify-between items-center">
-                    
+            <div className="container-fluid mx-auto">
+                <div className="container mx-auto flex justify-between items-center ">
+
                     <div className="flex items-center gap-2">
                         {/* <img src={logo} alt="logo" className="w-24 h-auto object-contain" /> */}
                         <nav>
