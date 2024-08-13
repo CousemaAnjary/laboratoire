@@ -2,7 +2,6 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Dashboard from "./pages/Dashboard"
 import { Route, Routes } from "react-router-dom"
-
 import PublicRoute from "./components/routes/PublicRoute"
 import PrivateRoute from "./components/routes/PrivateRoute"
 import { AuthProvider } from "./contexts/AuthContext"
