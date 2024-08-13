@@ -1,5 +1,7 @@
+import { cn } from "@/lib/utils"
 import Navbar from "@/components/Navbar"
 import RegisterForm from "@/components/RegisterForm"
+import GridPattern from "@/components/magicui/grid-pattern";
 
 export default function Register() {
     /**
@@ -18,13 +20,14 @@ export default function Register() {
     return (
         <>
             <div className="min-h-screen flex flex-col">
+            <GridPattern width={50} height={50} x={-1} y={-1} strokeDasharray={"4 2"} className={cn("[mask-image:radial-gradient(900px_circle_at_center,white,transparent)]",)} />
                 {/* En-tête */}
                 <header className="w-full">
                     <Navbar />
                 </header>
 
                 {/* Contenu principal */}
-                <main className="flex flex-grow justify-center items-center  p-4">
+                <main className="flex flex-grow justify-center items-center p-4 z-10">
                     <div className="w-full max-w-md">
                         <RegisterForm />
                     </div>
