@@ -72,7 +72,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             // Supprimer le token dans localStorage
             localStorage.removeItem('token')
             setAuth(false) // Déconnecter l'utilisateur
-            localStorage.removeItem('user') // Supprimer les informations de l'utilisateur du localStorage
+            // Supprimer les informations de l'utilisateur du localStorage
+            localStorage.removeItem('user')
             setUser(null) // Mettre à jour les données de l'utilisateur
 
         } catch (error) {
