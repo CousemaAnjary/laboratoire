@@ -43,12 +43,6 @@ export const logout = async () => {
         // Appel à l'API pour déconnecter un utilisateur
         await api.post('/logout')
 
-        // Supprimer le token dans localStorage
-        localStorage.removeItem('token')
-
-        // Supprimer les informations de l'utilisateur du localStorage
-        localStorage.removeItem('user')
-
     } catch (error) {
         console.error('Erreur lors de la déconnexion:', error)
     }

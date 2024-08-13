@@ -61,7 +61,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             }
 
         } catch (error) {
-            console.error('Login failed:', error)
+            console.error('Erreur lors de l\'authentification:', error)
         }
     }
 
@@ -76,7 +76,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             setUser(null) // Mettre à jour les données de l'utilisateur
 
         } catch (error) {
-            console.error('Logout failed:', error)
+            console.error('Erreur lors de la déconnexion:', error)
         }
     }
 
