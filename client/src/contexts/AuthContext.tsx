@@ -49,11 +49,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         try {
             // Appel à l'API pour authentifier un utilisateur
             const response = await loginService(dataLogin)
+            const { user } = response
 
             if (response.token) {
+                // Stocker le token JWT dans localStorage
+                localStorage.setItem('token', response.token)
                 setAuth(true) // Authentifier l'utilisateur
-                const { user } = response // Extraire les données de l'utilisateur de la réponse
-                localStorage.setItem('user', JSON.stringify(user)) // Stoker les données de l'utilisateur dans le local storage
+                // Stoker les données de l'utilisateur dans le local storage
+                localStorage.setItem('user', JSON.stringify(user))
                 setUser(user) // Mettre à jour les données de l'utilisateur       
             }
 
