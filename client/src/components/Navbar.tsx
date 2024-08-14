@@ -92,6 +92,7 @@ export default function Navbar() {
                         </Button>
                     </div>
                 </div>
+                
                 {isMenuOpen && (
                     <div className="flex flex-col md:hidden mt-4">
                         <Link to="/" onClick={toggleMenu}>
