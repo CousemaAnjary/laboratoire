@@ -65,6 +65,8 @@ export default function RegisterForm() {
         }
     }
 
+
+
     /**
      * ! AFFICHAGE (render) de l'application
      */

@@ -2,7 +2,6 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Dashboard from "./pages/Dashboard"
 import { Route, Routes } from "react-router-dom"
-import GoogleCallback from "./pages/GoogleCallback"
 import { AuthProvider } from "./contexts/AuthContext"
 import PublicRoute from "./components/routes/PublicRoute"
 import PrivateRoute from "./components/routes/PrivateRoute"
@@ -32,7 +31,6 @@ export default function App() {
                         <Route path="/" element={<Login />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
-                        <Route path="/auth/google/callback" element={<GoogleCallback />} />
                     </Route>
 
                     {/* Protected Routes */}

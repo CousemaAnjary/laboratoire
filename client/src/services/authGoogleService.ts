@@ -1,11 +1,10 @@
-import { UserType } from "@/typeScript/Type";
 import api from "./config/apiConfig"
 
 export const googleAuthRedirect = async () => {
     window.location.href = `${import.meta.env.VITE_BACKEND_API_URL}/auth/google/redirect`
 }
 
-export const handleGoogleCallback = async (): Promise<{ token: string, user: UserType } | undefined> => {
+export const handleGoogleCallback = async () => {
     try {
         // Appel à l'API pour gérer le callback de Google
         const response = await api.get('/auth/google/callback')

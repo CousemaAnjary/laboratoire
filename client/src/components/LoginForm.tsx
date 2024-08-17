@@ -10,7 +10,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm, UseFormReturn } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
-import { FcGoogle } from "react-icons/fc"
+// import { FcGoogle } from "react-icons/fc"
 
 
 // Définir le schéma de validation avec Zod
@@ -114,7 +114,7 @@ export default function LoginForm() {
                             {/* <Button type="submit" className="w-full bg-cyan-700">Authentifier</Button> */}
                             <ShinyButton text="Authentifier" className="w-full p-3" />
 
-                            <div className="relative">
+                            {/* <div className="relative">
                                 <div className="absolute inset-0 flex items-center">
                                     <span className="w-full border-t"></span>
                                 </div>
@@ -125,7 +125,7 @@ export default function LoginForm() {
 
                             <div className="grid gap-2">
                                 <Button type="button" variant="outline" className="w-full"><FcGoogle size={18} className="mr-1" />Google</Button>
-                            </div>
+                            </div> */}
                         </div>
                     </form>
                 </Form>
