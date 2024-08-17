@@ -5,32 +5,38 @@ namespace App\Http\Controllers\Api\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Str;
+use Illuminate\Http\JsonResponse;
+use GuzzleHttp\Exception\ClientException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
 class GoogleAuthController extends Controller
 {
-    public function redirect()
+    public function redirect(): JsonResponse
     {
-        // Rediriger l'utilisateur vers la page de connexion Google
-        return Socialite::driver('google')->stateless()->redirect();
+        // Récupérer l'URL de redirection de Google
+        return response()->json([
+            'url' => Socialite::driver('google')->stateless()->redirect()->getTargetUrl(),
+        ]);
     }
 
-    public function callback(Request $request)
+    public function callback(Request $request): JsonResponse
     {
-        // Récupérer les informations de l'utilisateur
-        $googleUser = Socialite::driver('google')->stateless()->user();
 
-        // Vérifier si l'utilisateur existe déjà
-        $user = User::where('email', $googleUser->getEmail())->first();
-
-        if ($user) {
-            // Si l'utilisateur existe, le connecter
-            Auth::login($user);
+        try {
+            // Récupérer les informations de l'utilisateur
+            $googleUser = Socialite::driver('google')->stateless()->user();
             
-        } else {
-            // Si l'utilisateur n'existe pas, le créer
+        } catch (ClientException $e) {
+            return response()->json(['error' => 'Invalid credentials provided.'], 422);
+        }
+
+        // Vérifier si l'utilisateur existe
+        $user = User::where('email',  $googleUser->email())->first();
+
+        // Si l'utilisateur n'existe pas, on le crée
+        if (!$user) {
+
             $user = User::create([
                 'first_name' => $googleUser->user['given_name'],
                 'last_name' => $googleUser->user['family_name'],
@@ -39,15 +45,11 @@ class GoogleAuthController extends Controller
                 'image' => $googleUser->getAvatar(),
                 'google_id' => $googleUser->getId(),
             ]);
-
-            // Connecter l'utilisateur
-            Auth::login($user);
         }
 
-        // Générer un token pour l'utilisateur connecté
-        $token = $user->createToken('auth_token')->plainTextToken;
+        // Générer un token pour l'utilisateur
+        $token = $user->createToken('google-token')->plainTextToken;
 
-        // Retourner une réponse JSON avec le token et les informations de l'utilisateur
         return response()->json([
             'token' => $token,
             'user' => $user,

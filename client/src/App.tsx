@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom"
 import { AuthProvider } from "./contexts/AuthContext"
 import PublicRoute from "./components/routes/PublicRoute"
 import PrivateRoute from "./components/routes/PrivateRoute"
+import GoogleCallback from "./components/GoogleCallback"
 
 
 
@@ -31,6 +32,7 @@ export default function App() {
                         <Route path="/" element={<Login />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
+                        <Route path="/auth/google/callback" element={<GoogleCallback />} />
                     </Route>
 
                     {/* Protected Routes */}
