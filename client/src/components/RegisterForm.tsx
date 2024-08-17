@@ -9,6 +9,7 @@ import { register } from "@/services/authService"
 import { Link, useNavigate } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm, UseFormReturn } from "react-hook-form"
+import { googleAuthRedirect } from "@/services/authGoogleService"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
 
 
@@ -185,7 +186,15 @@ export default function RegisterForm() {
                             </div>
 
                             <div className="grid gap-2">
-                                <Button type="button" variant="outline" className="w-full"><FcGoogle size={18} className="mr-1" />Google</Button>
+                                <Button
+                                    type="button"
+                                    variant="outline"
+                                    className="w-full"
+                                    onClick={googleAuthRedirect}
+                                >
+                                    <FcGoogle size={18} className="mr-1" />
+                                    Google
+                                </Button>
                             </div>
                         </div>
                     </form>
