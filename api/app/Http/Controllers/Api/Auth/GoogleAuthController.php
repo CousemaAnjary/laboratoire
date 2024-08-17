@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
@@ -27,17 +28,19 @@ class GoogleAuthController extends Controller
         if ($user) {
             // Si l'utilisateur existe, le connecter
             Auth::login($user);
+            
         } else {
             // Si l'utilisateur n'existe pas, le créer
             $user = User::create([
                 'first_name' => $googleUser->user['given_name'],
                 'last_name' => $googleUser->user['family_name'],
                 'email' => $googleUser->getEmail(),
-                'password' => bcrypt(str_random(24)),
+                'password' => bcrypt(Str::random(24)),
                 'image' => $googleUser->getAvatar(),
                 'google_id' => $googleUser->getId(),
             ]);
 
+            // Connecter l'utilisateur
             Auth::login($user);
         }
 
