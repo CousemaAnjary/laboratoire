@@ -1,7 +1,8 @@
 import { cn } from "@/lib/utils"
 import Navbar from "@/components/Navbar"
-import RegisterForm from "@/components/RegisterForm"
-import GridPattern from "@/components/magicui/grid-pattern";
+import RegisterForm from "@/components/auth/RegisterForm"
+import GridPattern from "@/components/magicui/grid-pattern"
+
 
 export default function Register() {
     /**
