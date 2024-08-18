@@ -1,3 +1,4 @@
+import ModeToggle from "./ModeToggle"
 import UserDropdownMenu from "./UserDropdownMenu"
 
 
@@ -24,7 +25,7 @@ export default function Navbar(): JSX.Element {
                         <h1 className="text-base font-medium leading-none">Dashboard</h1>
                     </div>
                     <div className="flex flex-1 items-center space-x-2 justify-end">
-                        {/* <ModeToggle /> */}
+                         <ModeToggle />
                         <UserDropdownMenu />
                     </div>
                 </div>
