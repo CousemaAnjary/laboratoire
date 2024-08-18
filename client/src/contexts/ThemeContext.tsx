@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { ThemeContextType, ThemeType } from "@/typeScript/Type"
+import { ThemeContextType } from "@/typeScript/Type"
 import { createContext, useState, useContext, useEffect } from "react"
 
 
@@ -18,10 +18,10 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     /**
      * ! STATE (état, données) de l'application
      */
-    const [theme, setTheme] = useState<ThemeType>(() => {
+    const [theme, setTheme] = useState(() => {
         // Récupérer le thème stocké dans le local storage
         const localTheme = localStorage.getItem("theme")
-        return (localTheme as ThemeType) || "light"
+        return (localTheme) || "light"
     })
 
 

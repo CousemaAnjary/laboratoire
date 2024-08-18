@@ -30,11 +30,9 @@ export type AuthContextType = {
     logout: () => Promise<void>
 }
 
-// Le tpe pour le thème de l'application
-export type ThemeType = 'light' | 'dark'
 
 // Le type pour le contexte du thème
 export type ThemeContextType = {
-    theme: ThemeType
+    theme: string
     toggleTheme: () => void
 }
