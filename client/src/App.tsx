@@ -3,6 +3,7 @@ import Register from "./pages/Register"
 import Dashboard from "./pages/Dashboard"
 import { Route, Routes } from "react-router-dom"
 import { AuthProvider } from "./contexts/AuthContext"
+import { ThemeProvider } from "./contexts/ThemeContext"
 import PublicRoute from "./components/routes/PublicRoute"
 import PrivateRoute from "./components/routes/PrivateRoute"
 
@@ -25,20 +26,23 @@ export default function App() {
     return (
         <>
             <AuthProvider>
-                <Routes>
-                    {/* Public Routes */}
-                    <Route element={<PublicRoute />}>
-                        <Route path="/" element={<Login />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/register" element={<Register />} />
-                    </Route>
+                <ThemeProvider>
+                    <Routes>
+                        {/* Public Routes */}
+                        <Route element={<PublicRoute />}>
+                            <Route path="/" element={<Login />} />
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/register" element={<Register />} />
+                        </Route>
 
-                    {/* Protected Routes */}
-                    <Route element={<PrivateRoute />}>
-                        <Route path="/dashboard" element={<Dashboard />} />
-                    </Route>
+                        {/* Protected Routes */}
+                        <Route element={<PrivateRoute />}>
+                            <Route path="/dashboard" element={<Dashboard />} />
+                        </Route>
 
-                </Routes>
+                    </Routes>
+                </ThemeProvider>
+
             </AuthProvider>
         </>
     )

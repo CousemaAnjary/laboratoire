@@ -29,3 +29,12 @@ export type AuthContextType = {
     login: (dataLogin: LoginType) => Promise<void>
     logout: () => Promise<void>
 }
+
+// Le tpe pour le thème de l'application
+export type ThemeType = 'light' | 'dark'
+
+// Le type pour le contexte du thème
+export type ThemeContextType = {
+    theme: ThemeType
+    toggleTheme: () => void
+}
