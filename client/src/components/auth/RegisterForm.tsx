@@ -1,7 +1,7 @@
 import { z } from "zod"
 import { useState } from "react"
-import { Input } from "./ui/input"
-import { Button } from "./ui/button"
+import { Input } from "../ui/input"
+import { Button } from "../ui/button"
 import { FcGoogle } from "react-icons/fc"
 import { Eye, EyeOff } from "lucide-react"
 import { RegisterType } from "@/typeScript/Type"
@@ -9,7 +9,7 @@ import { register } from "@/services/authService"
 import { Link, useNavigate } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm, UseFormReturn } from "react-hook-form"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
 
 
 
