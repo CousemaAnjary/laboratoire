@@ -32,7 +32,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     useEffect(() => {
         // Mettre à jour la balise HTML
         document.documentElement.className = theme
-
+        
     }, [theme])
 
 

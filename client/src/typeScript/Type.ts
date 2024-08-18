@@ -31,6 +31,7 @@ export type AuthContextType = {
 }
 
 
+
 // Le type pour le contexte du thème
 export type ThemeContextType = {
     theme: string
