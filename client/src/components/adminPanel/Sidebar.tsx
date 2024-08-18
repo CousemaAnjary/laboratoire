@@ -23,7 +23,7 @@ export default function Sidebar() {
         <>
             <div
                 className={cn(
-                    'fixed  left-0  h-screen transition-[width] ease-in-out duration-300',
+                    'fixed   left-0  h-screen -translate-x-full lg:translate-x-0 transition-[width] ease-in-out duration-300 ',
                     isOpen ? 'w-72' : 'w-[90px]'
                 )}
             >

@@ -1,4 +1,4 @@
-import { Ellipsis } from 'lucide-react'
+import { Ellipsis, LogOut } from 'lucide-react'
 
 import { cn } from '@/lib/utils';
 import { getMenuList } from '@/utils/menuList';
@@ -80,7 +80,7 @@ export default function Menu({ isOpen, pathname }: MenuProps) {
                             )}
                         </li>
                     ))}
-                    {/* <li className="w-full grow flex items-end">
+                    <li className="w-full grow flex items-end">
                         <Button
                             onClick={() => { }}
                             variant="outline"
@@ -98,7 +98,7 @@ export default function Menu({ isOpen, pathname }: MenuProps) {
                                 Sign out
                             </p>
                         </Button>
-                    </li> */}
+                    </li> 
                 </ul>
             </nav>
         </>
