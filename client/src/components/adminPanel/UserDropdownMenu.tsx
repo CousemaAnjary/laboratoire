@@ -42,7 +42,7 @@ export default function UserDropdownMenu() {
                         className="relative h-8 w-8 rounded-full"
                     >
                         <Avatar className="h-8 w-8">
-                            <AvatarImage src="#" alt="Avatar" />
+                            <AvatarImage src={`http://localhost:8000/storage/${user?.image}`} alt="Avatar" />
                             <AvatarFallback className="bg-transparent">JD</AvatarFallback>
                         </Avatar>
                     </Button>
