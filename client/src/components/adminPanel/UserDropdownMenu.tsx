@@ -62,7 +62,7 @@ export default function UserDropdownMenu() {
                         <DropdownMenuItem className="hover:cursor-pointer" asChild>
                             <Link to="#" className="flex items-center">
                                 <User className="w-4 h-4 mr-3 text-muted-foreground" />
-                                Profil
+                              Profil
                             </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem className="hover:cursor-pointer" asChild>
