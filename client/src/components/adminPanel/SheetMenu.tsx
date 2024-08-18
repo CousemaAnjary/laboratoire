@@ -1,17 +1,25 @@
+import { Button } from "@/components/ui/button"
+import Menu from "@/components/adminPanel/Menu"
+import { Link, useLocation } from "react-router-dom"
+import { MenuIcon, PanelsTopLeft } from "lucide-react"
+import { Sheet, SheetHeader, SheetContent, SheetTrigger, } from "@/components/ui/sheet"
 
-import { MenuIcon, PanelsTopLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import  Menu  from "@/components/adminPanel/Menu";
-import {
-    Sheet,
-    SheetHeader,
-    SheetContent,
-    SheetTrigger,
-} from "@/components/ui/sheet";
-import { Link,useLocation } from "react-router-dom";
 
 export function SheetMenu() {
-    const location = useLocation(); // Utilise useLocation pour obtenir le pathname actuel
+    /**
+     * ! STATE (état, données) de l'application
+     */
+    // Utilise useLocation pour obtenir le pathname actuel
+    const location = useLocation()
+
+    /**
+     * ! COMPORTEMENT (méthodes, fonctions) de l'application
+     */
+
+
+    /**
+     * ! AFFICHAGE (render) de l'application
+     */
     return (
         <Sheet>
             {/* Trigger for the Sheet, hidden on large screens */}
