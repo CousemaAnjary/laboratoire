@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+import { Button } from "../ui/button"
 import ModeToggle from "./ModeToggle"
 import UserDropdownMenu from "./UserDropdownMenu"
 
@@ -22,10 +24,12 @@ export default function Navbar(): JSX.Element {
                 <div className="mx-4 sm:mx-8 flex h-14 items-center">
                     <div className="flex items-center space-x-4 lg:space-x-0">
                         {/* <SheetMenu /> */}
-                        <h1 className="text-base font-medium leading-none">Dashboard</h1>
+                        <Link to="/dashboard">
+                            <Button variant="ghost">Dashboard</Button>
+                        </Link>
                     </div>
                     <div className="flex flex-1 items-center space-x-2 justify-end">
-                         <ModeToggle />
+                        <ModeToggle />
                         <UserDropdownMenu />
                     </div>
                 </div>
