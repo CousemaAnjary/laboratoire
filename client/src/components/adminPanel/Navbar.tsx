@@ -21,7 +21,7 @@ export default function Navbar(): JSX.Element {
                 <div className="mx-4 sm:mx-8 flex h-14 items-center">
                     <div className="flex items-center space-x-4 lg:space-x-0">
                         {/* <SheetMenu /> */}
-                        <h1 className="font-bold">Dashboard</h1>
+                        <h1 className="text-base font-medium leading-none">Dashboard</h1>
                     </div>
                     <div className="flex flex-1 items-center space-x-2 justify-end">
                         {/* <ModeToggle /> */}
