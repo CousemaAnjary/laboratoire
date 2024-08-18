@@ -1,16 +1,16 @@
 import Navbar from "@/components/adminPanel/Navbar";
-import { cn } from "@/lib/utils"
+// import { cn } from "@/lib/utils"
 import useSidebarToggle from "@/hooks/useSidebarToggle"
 import Sidebar from "@/components/adminPanel/Sidebar"
 
 
-export default function Dashboard({ children }: { children: React.ReactNode }) {
+export default function Dashboard() {
     const { isOpen } = useSidebarToggle();
 
     return (
         <div className="h-full w-full">
             {/* Navbar */}
-            {/* <Navbar /> */}
+           <Navbar /> 
 
             <div className="flex h-full overflow-x-hidden">
                 {/* Left Sidebar */}
