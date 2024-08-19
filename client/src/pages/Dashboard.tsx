@@ -1,5 +1,6 @@
 import Navbar from "@/components/adminPanel/Navbar";
 import Sidebar from "@/components/adminPanel/Sidebar";
+import { cn } from "@/lib/utils";
 import useSidebarToggle from "@/hooks/useSidebarToggle";
 
 export default function Dashboard({ children }: { children: React.ReactNode }) {
@@ -12,9 +13,15 @@ export default function Dashboard({ children }: { children: React.ReactNode }) {
 
             {/* Conteneur principal */}
             <div
-                className={`flex flex-col flex-grow transition-all duration-300 ease-in-out ${isOpen ? 'ml-72' : 'ml-[90px]'}`}
+                className={cn(
+                    "flex flex-col flex-grow transition-[margin-left] ease-in-out duration-300",
+                    isOpen === false ? "lg:ml-[90px]" : "lg:ml-72"
+                )}
             >
+                {/* Navbar */}
                 <Navbar />
+
+                {/* Main content */}
                 <main className="flex-grow p-4">
                     {children}
                 </main>

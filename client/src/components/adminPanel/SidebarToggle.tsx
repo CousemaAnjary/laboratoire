@@ -33,7 +33,7 @@ export default function SidebarToggle({ isOpen, toggleSidebar }: SidebarTogglePr
                     <ChevronLeft
                         className={cn(
                             'h-4 w-4 transition-transform ease-in-out duration-700',
-                            isOpen ? 'rotate-0' : 'rotate-180'
+                          isOpen === false ? "rotate-180" : "rotate-0"
                         )}
                     />
                 </Button>
