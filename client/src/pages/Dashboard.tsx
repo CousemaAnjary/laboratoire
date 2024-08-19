@@ -1,7 +1,7 @@
-import Navbar from "@/components/adminPanel/Navbar";
-import Sidebar from "@/components/adminPanel/Sidebar";
-import { cn } from "@/lib/utils";
-import useSidebarToggle from "@/hooks/useSidebarToggle";
+import { cn } from "@/lib/utils"
+import Navbar from "@/components/adminPanel/Navbar"
+import Sidebar from "@/components/adminPanel/Sidebar"
+import useSidebarToggle from "@/hooks/useSidebarToggle"
 
 
 export default function Dashboard({ children }: { children: React.ReactNode }) {
