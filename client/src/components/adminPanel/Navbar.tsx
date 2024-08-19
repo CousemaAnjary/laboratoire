@@ -30,6 +30,7 @@ export default function Navbar(): JSX.Element {
                             <Button variant="ghost">Dashboard</Button>
                         </Link>
                     </div>
+                    
                     <div className="flex flex-1 items-center space-x-2 justify-end">
                         <ModeToggle />
                         <UserDropdownMenu />
