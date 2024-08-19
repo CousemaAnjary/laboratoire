@@ -1,32 +1,31 @@
 import Navbar from "@/components/adminPanel/Navbar";
-// import { cn } from "@/lib/utils"
-import useSidebarToggle from "@/hooks/useSidebarToggle"
-import Sidebar from "@/components/adminPanel/Sidebar"
+import Sidebar from "@/components/adminPanel/Sidebar";
+import { cn } from "@/lib/utils";
+import useSidebarToggle from "@/hooks/useSidebarToggle";
 
+export default function Dashboard({ children }: { children: React.ReactNode }) {
+  const { isOpen } = useSidebarToggle();
 
-export default function Dashboard() {
-    const { isOpen } = useSidebarToggle();
+  return (
+    <div className="min-h-screen flex">
+      {/* Sidebar */}
+      <Sidebar />
 
-    return (
-        <div className="h-full w-full">
-            {/* Navbar */}
-           <Navbar /> 
+      {/* Contenu principal */}
+      <div
+        className={cn(
+          "flex-grow transition-all duration-300",
+          isOpen ? "ml-72" : "ml-[90px]"
+        )}
+      >
+        {/* Navbar */}
+        <Navbar />
 
-            <div className="flex h-full overflow-x-hidden">
-                {/* Left Sidebar */}
-
-                <Sidebar />
-
-
-                {/* Main Content */}
-                <main className={`flex-grow transition-all duration-300 ease-in-out mt-12${isOpen ? 'mr-20' : 'mr-20'}`}>
-                    {/* Contenu principal */}
-                    <div className="flex flex-col h-full">
-
-                    </div>
-                </main>
-
-            </div>
-        </div>
-    );
+        {/* Main content */}
+        <main className="p-4">
+          {children}
+        </main>
+      </div>
+    </div>
+  );
 }
