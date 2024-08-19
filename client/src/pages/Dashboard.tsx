@@ -3,6 +3,7 @@ import Sidebar from "@/components/adminPanel/Sidebar";
 import { cn } from "@/lib/utils";
 import useSidebarToggle from "@/hooks/useSidebarToggle";
 
+
 export default function Dashboard({ children }: { children: React.ReactNode }) {
     const { isOpen } = useSidebarToggle();
 
