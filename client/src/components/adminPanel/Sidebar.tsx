@@ -24,12 +24,12 @@ export default function Sidebar() {
             <div
                 className={cn(
                     'fixed top-0 left-0 z-20 h-screen -translate-x-full lg:translate-x-0 transition-[width] ease-in-out duration-300',
-                    isOpen ? 'w-72' : 'w-[90px]'
+                   isOpen === false ? "w-[90px]" : "w-72"
                 )}
             >
                 <SidebarToggle isOpen={isOpen} toggleSidebar={toggleSidebar} />
 
-                <div className="h-full  flex flex-col px-3 py-4 shadow-md dark:shadow-zinc-800">
+                <div className="relative h-full flex flex-col px-3 py-4 shadow-md dark:shadow-zinc-800">
                     <Menu isOpen={isOpen} pathname={pathname} />
                 </div>
             </div>
