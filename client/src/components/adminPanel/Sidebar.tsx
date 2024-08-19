@@ -29,7 +29,7 @@ export default function Sidebar() {
             >
                 <SidebarToggle isOpen={isOpen} toggleSidebar={toggleSidebar} />
 
-                <div className="h-full  flex flex-col px-3 py-4  shadow-md dark:shadow-zinc-800">
+                <div className="h-full  flex flex-col px-3 py-4 shadow-md dark:shadow-zinc-800">
                     <Menu isOpen={isOpen} pathname={pathname} />
                 </div>
             </div>
