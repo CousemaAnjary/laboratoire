@@ -1,21 +1,21 @@
 import Navbar from "@/components/adminPanel/Navbar";
 import Sidebar from "@/components/adminPanel/Sidebar";
-import useSidebarToggle from "@/hooks/useSidebarToggle";
 import { cn } from "@/lib/utils";
+import useSidebarToggle from "@/hooks/useSidebarToggle";
 
 export default function Dashboard({ children }: { children: React.ReactNode }) {
     const { isOpen } = useSidebarToggle();
 
     return (
-        <div className="min-h-screen flex flex-row">
+        <div className="min-h-screen flex">
             {/* Sidebar */}
             <Sidebar />
 
             {/* Conteneur principal */}
             <div
                 className={cn(
-                    "flex flex-col flex-grow transition-all duration-300 ease-in-out",
-                    isOpen ? "ml-72" : "ml-[90px]"
+                    "flex flex-col flex-grow transition-[margin-left] ease-in-out duration-300",
+                    isOpen === false ? "lg:ml-[90px]" : "lg:ml-72"
                 )}
             >
                 {/* Navbar */}
