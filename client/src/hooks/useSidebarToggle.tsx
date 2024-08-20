@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {  useState } from "react";
 
 interface UseSidebarToggleReturn {
     isOpen: boolean;
@@ -18,6 +18,7 @@ export default function useSidebarToggle(): UseSidebarToggleReturn {
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
+    
     const toggleSidebar = () => {
         setIsOpen((prev) => {
             const newState = !prev;
