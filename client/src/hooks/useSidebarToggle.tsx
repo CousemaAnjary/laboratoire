@@ -1,37 +1,22 @@
-import {  useState } from "react";
+import { create } from 'zustand';
+import { persist, createJSONStorage } from 'zustand/middleware';
 
-interface UseSidebarToggleReturn {
-    isOpen: boolean;
-    toggleSidebar: () => void;
+interface useSidebarToggleStore {
+  isOpen: boolean;
+  setIsOpen: () => void;
 }
 
-export default function useSidebarToggle(): UseSidebarToggleReturn {
-    /**
-     * ! STATE (état, données) de l'application
-     */
-    const [isOpen, setIsOpen] = useState<boolean>(() => {
-        // Récupère l'état depuis le localStorage si disponible, sinon initialiser à `true`
-        const savedState = localStorage.getItem('sidebarOpen');
-        return savedState !== null ? JSON.parse(savedState) : true;
-    })
-
-    /**
-     * ! COMPORTEMENT (méthodes, fonctions) de l'application
-     */
-    
-    const toggleSidebar = () => {
-        setIsOpen((prev) => {
-            const newState = !prev;
-            localStorage.setItem('sidebarOpen', JSON.stringify(newState));
-            return newState;
-        })
+export const useSidebarToggle = create(
+  persist<useSidebarToggleStore>(
+    (set, get) => ({
+      isOpen: true,
+      setIsOpen: () => {
+        set({ isOpen: !get().isOpen });
+      }
+    }),
+    {
+      name: 'sidebarOpen', // Nom de l'état stocké dans le localStorage
+      storage: createJSONStorage(() => localStorage) // Utilisation du localStorage pour persister l'état
     }
-
-    /**
-     * ! AFFICHAGE (render) de l'application
-     */
-    return {
-        isOpen,
-        toggleSidebar,
-    };
-}
+  )
+);

@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import Menu from '@/components/adminPanel/Menu';
 import SidebarToggle from '@/components/adminPanel/SidebarToggle'
-import useSidebarToggle from '@/hooks/useSidebarToggle';
+import {useSidebarToggle} from '@/hooks/useSidebarToggle';
 
 
 export default function Sidebar() {
@@ -9,7 +9,7 @@ export default function Sidebar() {
      * ! STATE (état, données) de l'application
      */
     const pathname = window.location.pathname
-    const { isOpen, toggleSidebar } = useSidebarToggle()
+    const { isOpen, setIsOpen } = useSidebarToggle()
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
@@ -27,7 +27,7 @@ export default function Sidebar() {
                    isOpen === false ? "w-[90px]" : "w-72"
                 )}
             >
-                <SidebarToggle isOpen={isOpen} toggleSidebar={toggleSidebar} />
+                <SidebarToggle isOpen={isOpen} toggleSidebar={setIsOpen} />
 
                 <div className="relative h-full flex flex-col px-3 py-4 shadow-md dark:shadow-zinc-800">
                     <Menu isOpen={isOpen} pathname={pathname} />

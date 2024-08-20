@@ -1,10 +1,11 @@
 import Navbar from "@/components/adminPanel/Navbar";
 import Sidebar from "@/components/adminPanel/Sidebar";
 import { cn } from "@/lib/utils";
-import useSidebarToggle from "@/hooks/useSidebarToggle";
+import {useSidebarToggle} from "@/hooks/useSidebarToggle";
 
 export default function Dashboard({ children }: { children: React.ReactNode }) {
     const { isOpen } = useSidebarToggle();
+
 
     return (
         <div className="min-h-screen flex">
@@ -15,7 +16,7 @@ export default function Dashboard({ children }: { children: React.ReactNode }) {
             <div
                 className={cn(
                     "flex flex-col flex-grow transition-[margin-left] ease-in-out duration-300",
-                    isOpen === false ? "lg:ml-[90px]" : "lg:ml-72"
+                    isOpen  ? "lg:ml-72" : "lg:ml-[90px]"
                 )}
             >
                 {/* Navbar */}
