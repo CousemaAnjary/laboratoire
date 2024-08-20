@@ -13,7 +13,7 @@ export default function useSidebarToggle(): UseSidebarToggleReturn {
         // Récupère l'état depuis le localStorage si disponible, sinon initialiser à `true`
         const savedState = localStorage.getItem('sidebarOpen');
         return savedState !== null ? JSON.parse(savedState) : true;
-    });
+    })
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
@@ -23,8 +23,8 @@ export default function useSidebarToggle(): UseSidebarToggleReturn {
             const newState = !prev;
             localStorage.setItem('sidebarOpen', JSON.stringify(newState));
             return newState;
-        });
-    };
+        })
+    }
 
     /**
      * ! AFFICHAGE (render) de l'application
