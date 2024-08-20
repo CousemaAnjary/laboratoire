@@ -1,24 +1,30 @@
-import { useState } from "react"
+import { useState } from "react";
 
 interface UseSidebarToggleReturn {
-    isOpen: boolean
-    toggleSidebar: () => void
+    isOpen: boolean;
+    toggleSidebar: () => void;
 }
 
 export default function useSidebarToggle(): UseSidebarToggleReturn {
     /**
      * ! STATE (état, données) de l'application
      */
-    const [isOpen, setIsOpen] = useState<boolean>(true)
-
+    const [isOpen, setIsOpen] = useState<boolean>(() => {
+        // Récupère l'état depuis le localStorage si disponible, sinon initialiser à `true`
+        const savedState = localStorage.getItem('sidebarOpen');
+        return savedState !== null ? JSON.parse(savedState) : true;
+    });
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
-    // Fonction pour ouvrir/fermer la barre latérale
     const toggleSidebar = () => {
-        setIsOpen((prev) => !prev)
-    }
+        setIsOpen((prev) => {
+            const newState = !prev;
+            localStorage.setItem('sidebarOpen', JSON.stringify(newState));
+            return newState;
+        });
+    };
 
     /**
      * ! AFFICHAGE (render) de l'application
@@ -26,5 +32,5 @@ export default function useSidebarToggle(): UseSidebarToggleReturn {
     return {
         isOpen,
         toggleSidebar,
-    }
+    };
 }
