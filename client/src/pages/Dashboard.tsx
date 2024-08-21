@@ -26,7 +26,7 @@ export default function Dashboard({ children }: { children: React.ReactNode }) {
             {/* Conteneur principal */}
             <div
                 className={cn(
-                    "flex flex-col flex-grow  bg-zinc-50 dark:bg-zinc-900 transition-[margin-left] ease-in-out duration-300",
+                    "flex flex-col flex-grow bg-zinc-50 dark:bg-zinc-900 transition-[margin-left] ease-in-out duration-300",
                     isOpen ? "lg:ml-72" : "lg:ml-[90px]"
                 )}
             >
