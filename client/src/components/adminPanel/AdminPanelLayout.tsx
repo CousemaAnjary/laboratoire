@@ -26,7 +26,7 @@ export default function AdminPanelLayout({ children }: { children: React.ReactNo
             {/* Conteneur principal */}
             <div
                 className={cn(
-                    "flex flex-col flex-grow  dark:bg-zinc-900 transition-[margin-left] ease-in-out duration-300",
+                    "flex flex-col flex-grow  min-h-screen bg-zinc-50 dark:bg-zinc-900 transition-[margin-left] ease-in-out duration-300",
                     isOpen ? "lg:ml-72" : "lg:ml-[90px]"
                 )}
             >
@@ -34,7 +34,7 @@ export default function AdminPanelLayout({ children }: { children: React.ReactNo
                 <Navbar />
 
                 {/* Main content */}
-                <main className="container-fluid min-h-[calc(100vh_-_56px)]  bg-zinc-50 pt-8 pb-8 px-4 sm:px-8 ">
+                <main className="container pt-8 pb-8 px-4 sm:px-8 ">
                     {children}
                 </main>
             </div>
