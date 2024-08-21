@@ -1,9 +1,10 @@
 import { cn } from '@/lib/utils'
-import { Link } from 'react-router-dom'
 import { MenuList } from '@/utils/menuList'
 import { MenuProps } from '@/typeScript/Type'
 import { Button } from '@/components/ui/button'
 import { Ellipsis, LogOut } from 'lucide-react'
+import { useAuth } from "@/contexts/AuthContext"
+import { Link, useNavigate } from 'react-router-dom'
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { CollapseMenuButton } from '@/components/dashboard/CollapseMenuButton'
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip"
@@ -13,13 +14,27 @@ export default function Menu({ isOpen }: MenuProps): JSX.Element {
     /**
      * ! STATE (état, données) de l'application
      */
+    const { logout } = useAuth()
+    const navigate = useNavigate()
     const pathname = window.location.pathname
     const menuList = MenuList(pathname)
+
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
+    const handleLogout = async (): Promise<void> => {
 
+        try {
+            await logout()
+            // Déconnexion réussie, rediriger vers la page de connexion
+            navigate('/login')
+
+        } catch (error) {
+            // Afficher l'erreur dans la console
+            console.error('Logout failed', error)
+        }
+    }
 
     /**
      * ! AFFICHAGE (render) de l'application
@@ -115,7 +130,7 @@ export default function Menu({ isOpen }: MenuProps): JSX.Element {
                             <Tooltip delayDuration={100}>
                                 <TooltipTrigger asChild>
                                     <Button
-                                        onClick={() => { }}
+                                      onClick={handleLogout}
                                         variant="outline"
                                         className="w-full justify-center h-10 mt-3"
                                     >
