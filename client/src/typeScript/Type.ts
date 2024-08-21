@@ -30,10 +30,14 @@ export type AuthContextType = {
     logout: () => Promise<void>
 }
 
-
-
 // Le type pour le contexte du thème
 export type ThemeContextType = {
     theme: string
     toggleTheme: () => void
+}
+
+// Le type pour le contexte de la barre latérale
+export type SidebarToggleProps = {
+    isOpen: boolean
+    toggleSidebar: () => void
 }

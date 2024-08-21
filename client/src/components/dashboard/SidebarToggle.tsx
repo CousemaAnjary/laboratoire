@@ -1,11 +1,8 @@
-import { ChevronLeft } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils'
+import { ChevronLeft } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { SidebarToggleProps } from '@/typeScript/Type'
 
-interface SidebarToggleProps {
-    isOpen: boolean;
-    toggleSidebar: () => void;
-}
 
 export default function SidebarToggle({ isOpen, toggleSidebar }: SidebarToggleProps) {
     /**
