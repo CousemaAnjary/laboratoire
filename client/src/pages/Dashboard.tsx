@@ -34,7 +34,7 @@ export default function Dashboard({ children }: { children: React.ReactNode }): 
                 <Navbar />
 
                 {/* Main content */}
-                <main className="container pt-8 pb-8 px-4 sm:px-8">
+                <main className="container">
                     {children}
                 </main>
             </div>
