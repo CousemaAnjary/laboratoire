@@ -2,8 +2,20 @@ import { Group } from "@/typeScript/Type";
 import { Tag, Users, Settings, Bookmark, SquarePen, LayoutGrid } from "lucide-react"
 
 
+export function MenuList(pathname: string): Group[] {
+    /**
+     * ! STATE (état, données) de l'application
+     */
 
-export function getMenuList(pathname: string): Group[] {
+
+    /**
+     * ! COMPORTEMENT (méthodes, fonctions) de l'application
+     */
+
+
+    /**
+     * ! AFFICHAGE (render) de l'application
+     */
     return [
         {
             groupLabel: "",
@@ -17,6 +29,7 @@ export function getMenuList(pathname: string): Group[] {
                 }
             ]
         },
+
         {
             groupLabel: "Contents",
             menus: [
@@ -38,6 +51,7 @@ export function getMenuList(pathname: string): Group[] {
                         }
                     ]
                 },
+
                 {
                     href: "/categories",
                     label: "Categories",
@@ -45,6 +59,7 @@ export function getMenuList(pathname: string): Group[] {
                     icon: Bookmark,
                     submenus: []
                 },
+
                 {
                     href: "/tags",
                     label: "Tags",
@@ -54,6 +69,7 @@ export function getMenuList(pathname: string): Group[] {
                 }
             ]
         },
+
         {
             groupLabel: "Settings",
             menus: [
@@ -73,5 +89,5 @@ export function getMenuList(pathname: string): Group[] {
                 }
             ]
         }
-    ];
+    ]
 }
