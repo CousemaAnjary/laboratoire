@@ -1,4 +1,4 @@
-import { Group } from "@/typeScript/Type";
+import { Group } from "@/typeScript/Type"
 import { Tag, Users, Settings, Bookmark, SquarePen, LayoutGrid } from "lucide-react"
 
 
@@ -21,8 +21,8 @@ export function MenuList(pathname: string): Group[] {
             groupLabel: "",
             menus: [
                 {
-                    href: "/dashboard",
                     label: "Dashboard",
+                    href: "/dashboard",
                     active: pathname.includes("/dashboard"),
                     icon: LayoutGrid,
                     submenus: []
@@ -34,35 +34,36 @@ export function MenuList(pathname: string): Group[] {
             groupLabel: "Contents",
             menus: [
                 {
-                    href: "",
                     label: "Posts",
+                    href: "",
                     active: pathname.includes("/posts"),
                     icon: SquarePen,
                     submenus: [
                         {
-                            href: "/posts",
                             label: "All Posts",
+                            href: "/posts",
                             active: pathname === "/posts"
                         },
+
                         {
-                            href: "/posts/new",
                             label: "New Post",
+                            href: "/posts/new",
                             active: pathname === "/posts/new"
                         }
                     ]
                 },
 
                 {
-                    href: "/categories",
                     label: "Categories",
+                    href: "/categories",
                     active: pathname.includes("/categories"),
                     icon: Bookmark,
                     submenus: []
                 },
 
                 {
-                    href: "/tags",
                     label: "Tags",
+                    href: "/tags",
                     active: pathname.includes("/tags"),
                     icon: Tag,
                     submenus: []
@@ -74,15 +75,16 @@ export function MenuList(pathname: string): Group[] {
             groupLabel: "Settings",
             menus: [
                 {
-                    href: "/users",
                     label: "Users",
+                    href: "/users",
                     active: pathname.includes("/users"),
                     icon: Users,
                     submenus: []
                 },
+                
                 {
-                    href: "/account",
                     label: "Account",
+                    href: "/account",
                     active: pathname.includes("/account"),
                     icon: Settings,
                     submenus: []
