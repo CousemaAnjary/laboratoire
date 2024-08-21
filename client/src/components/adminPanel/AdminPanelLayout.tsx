@@ -1,5 +1,5 @@
-import Navbar from "@/components/admin/Navbar"
-import Sidebar from "@/components/admin/Sidebar"
+import Navbar from "@/components/adminPanel/Navbar"
+import Sidebar from "@/components/adminPanel/Sidebar"
 import { useSidebarToggle } from "@/hooks/useSidebarToggle"
 import { cn } from "@/lib/utils"
 

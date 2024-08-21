@@ -1,5 +1,5 @@
-import Menu from '@/components/admin/Menu'
-import SidebarToggle from '@/components/admin/SidebarToggle'
+import Menu from '@/components/adminPanel/Menu'
+import SidebarToggle from '@/components/adminPanel/SidebarToggle'
 import { useSidebarToggle } from '@/hooks/useSidebarToggle'
 import { cn } from '@/lib/utils'
 import { CodeXml } from 'lucide-react'

@@ -1,4 +1,4 @@
-import { CollapseMenuButton } from '@/components/admin/CollapseMenuButton'
+import { CollapseMenuButton } from '@/components/adminPanel/CollapseMenuButton'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
