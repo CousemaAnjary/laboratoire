@@ -1,7 +1,7 @@
+import { cn } from "@/lib/utils"
 import Navbar from "@/components/adminPanel/Navbar"
 import Sidebar from "@/components/adminPanel/Sidebar"
 import { useSidebarToggle } from "@/hooks/useSidebarToggle"
-import { cn } from "@/lib/utils"
 
 
 export default function AdminPanelLayout({ children }: { children: React.ReactNode }): JSX.Element {

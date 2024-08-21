@@ -1,8 +1,8 @@
 import Menu from "@/components/adminPanel/Menu"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetHeader, SheetTrigger, } from "@/components/ui/sheet"
-import { MenuIcon, PanelsTopLeft } from "lucide-react"
 import { Link, useLocation } from "react-router-dom"
+import { CodeXml, PanelLeftOpen } from "lucide-react"
+import { Sheet, SheetContent, SheetHeader, SheetTrigger, } from "@/components/ui/sheet"
 
 
 export function SheetMenu() {
@@ -26,11 +26,11 @@ export function SheetMenu() {
             <SheetTrigger className="lg:hidden" asChild>
                 <Button
                     className="h-8"
-                    variant="outline"
+                    variant="ghost"
                     size="icon"
                     aria-label="Open menu"
                 >
-                    <MenuIcon size={20} />
+                    <PanelLeftOpen  size={20} />
                 </Button>
             </SheetTrigger>
 
@@ -46,8 +46,7 @@ export function SheetMenu() {
                         asChild
                     >
                         <Link to="/dashboard" className="flex items-center gap-2">
-                            <PanelsTopLeft className="w-6 h-6 mr-1" />
-                            <h1 className="font-bold text-lg">Brand</h1>
+                            <CodeXml className="w-6 h-6 mr-1" />
                         </Link>
                     </Button>
                 </SheetHeader>
