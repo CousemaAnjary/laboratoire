@@ -110,14 +110,14 @@ export default function Menu({ isOpen }: MenuProps): JSX.Element {
 
                     ))}
 
-                    <li className="w-full grow flex items-end">
+                    <li className="w-full grow flex items-end mb-52">
                         <TooltipProvider disableHoverableContent>
                             <Tooltip delayDuration={100}>
                                 <TooltipTrigger asChild>
                                     <Button
                                         onClick={() => { }}
                                         variant="outline"
-                                        className="w-full justify-center h-10 mt-5"
+                                        className="w-full justify-center h-10 mt-3"
                                     >
                                         <span className={cn(isOpen === false ? "" : "mr-4")}>
                                             <LogOut size={18} />

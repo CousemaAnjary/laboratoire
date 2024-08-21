@@ -2,6 +2,9 @@ import { cn } from '@/lib/utils'
 import Menu from '@/components/dashboard/Menu'
 import { useSidebarToggle } from '@/hooks/useSidebarToggle'
 import SidebarToggle from '@/components/dashboard/SidebarToggle'
+import { Button } from '../ui/button'
+import { Link } from 'react-router-dom'
+import { CodeXml } from 'lucide-react'
 
 
 export default function Sidebar() {
@@ -29,7 +32,29 @@ export default function Sidebar() {
             >
                 <SidebarToggle isOpen={isOpen} toggleSidebar={setIsOpen} />
 
-                <div className="relative h-full flex flex-col px-3 py-4 shadow-md dark:shadow-zinc-800">
+                <div className="relative h-full flex flex-col px-3 py-3 shadow-md dark:shadow-zinc-800">
+                    <Button
+                        className={cn(
+                            "transition-transform ease-in-out duration-300 mb-1",
+                            isOpen === false ? "translate-x-1" : "translate-x-0"
+                        )}
+                        variant="link"
+                        asChild
+                    >
+                        <Link to="/dashboard" className="flex items-center gap-2">
+                            <CodeXml className="w-6 h-6 mr-1" />
+                            {/* <h1
+                                className={cn(
+                                    "font-bold text-lg whitespace-nowrap transition-[transform,opacity,display] ease-in-out duration-300 ",
+                                    isOpen === false
+                                        ? "-translate-x-96 opacity-0 hidden"
+                                        : "translate-x-0 opacity-100"
+                                )}
+                            >
+                              Cousema Anjary
+                            </h1> */}
+                        </Link>
+                    </Button>
                     <Menu isOpen={isOpen} pathname={pathname} />
                 </div>
             </div>
