@@ -1,8 +1,8 @@
 import { Button } from '../ui/button'
+import UserAvatar from '../UserAvatar'
 import { useAuth } from "@/contexts/AuthContext"
 import { Link, useNavigate } from 'react-router-dom'
 import { LogOut, Settings, User } from 'lucide-react'
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '../ui/dropdown-menu'
 
 
@@ -29,21 +29,6 @@ export default function UserDropdownMenu() {
         }
     }
 
-    const UserAvatar = ({ image, email }: { image?: string, email?: string }) => {
-        const placeholderImage = `https://api.dicebear.com/9.x/adventurer-neutral/svg?seed=${email}`
-        const avatarImage = image ? `http://localhost:8000/storage/${image}` : placeholderImage
-
-        return (
-            <Avatar className="h-8 w-8">
-                <AvatarImage
-                    src={avatarImage}
-                    alt="Avatar"
-                    onError={(e) => e.currentTarget.src = placeholderImage}
-                />
-                <AvatarFallback className="bg-transparent">JD</AvatarFallback>
-            </Avatar>
-        )
-    }
 
     /**
      * ! AFFICHAGE (render) de l'application
@@ -56,10 +41,6 @@ export default function UserDropdownMenu() {
                         variant="outline"
                         className="relative h-8 w-8 rounded-full"
                     >
-                        {/* <Avatar className="h-8 w-8">
-                            <AvatarImage src={`http://localhost:8000/storage/${user?.image}`} alt="Avatar" />
-                            <AvatarFallback className="bg-transparent">JD</AvatarFallback>
-                        </Avatar> */}
                         <UserAvatar image={user?.image} email={user?.email} />
                     </Button>
                 </DropdownMenuTrigger>
