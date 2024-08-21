@@ -1,10 +1,11 @@
 import { cn } from '@/lib/utils'
 import { Link } from 'react-router-dom'
-import { MenuProps } from '@/typeScript/Type'
 import { MenuList } from '@/utils/menuList'
+import { MenuProps } from '@/typeScript/Type'
 import { Button } from '@/components/ui/button'
 import { Ellipsis, LogOut } from 'lucide-react'
 import { CollapseMenuButton } from '@/components/dashboard/CollapseMenuButton'
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider  } from "@/components/ui/tooltip"
 
 
 export default function Menu({ isOpen, pathname }: MenuProps): JSX.Element {
@@ -27,11 +28,14 @@ export default function Menu({ isOpen, pathname }: MenuProps): JSX.Element {
                 <ul className="flex flex-col min-h-[calc(100vh-48px-36px-16px-32px)] lg:min-h-[calc(100vh-32px-40px-32px)] items-start space-y-1 px-2">
                     
                     {menuList.map(({ groupLabel, menus }, index) => (
+
                         <li className={cn('w-full', groupLabel ? 'pt-5' : '')} key={index}>
+
                             {isOpen && groupLabel ? (
                                 <p className="text-sm font-medium text-muted-foreground px-4 pb-2 max-w-[248px] truncate">
                                     {groupLabel}
                                 </p>
+
                             ) : !isOpen && groupLabel ? (
                                 <div className="w-full flex justify-center items-center">
                                     <Ellipsis className="h-5 w-5" />
@@ -39,6 +43,7 @@ export default function Menu({ isOpen, pathname }: MenuProps): JSX.Element {
                             ) : (
                                 <p className="pb-2"></p>
                             )}
+
                             {menus.map(
                                 ({ href, label, icon: Icon, active, submenus }, index) =>
                                     submenus.length === 0 ? (
@@ -76,7 +81,9 @@ export default function Menu({ isOpen, pathname }: MenuProps): JSX.Element {
                                     )
                             )}
                         </li>
+
                     ))}
+
                     <li className="w-full grow flex items-end">
                         <Button
                             onClick={() => { }}
