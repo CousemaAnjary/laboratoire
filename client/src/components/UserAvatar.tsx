@@ -4,6 +4,7 @@ export default function UserAvatar({ image, email }: { image?: string, email?: s
     /**
      * ! STATE (état, données) de l'application
      */
+    // dicebear.com
     const placeholderImage = `https://api.dicebear.com/9.x/fun-emoji/svg?seed=${email}`
 
 
