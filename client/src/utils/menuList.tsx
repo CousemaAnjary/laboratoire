@@ -84,15 +84,15 @@ export function MenuList(pathname: string): Group[] {
 
                 {
                     label: "Droit d'accès",
-                    href: "/account",
-                    active: pathname.includes("/account"),
+                    href: "/#",
+                    active: pathname.includes("/#"),
                     icon: Key,
                     submenus: []
                 },
                 {
                     label: "Utilisateurs",
-                    href: "/account",
-                    active: pathname.includes("/account"),
+                    href: "/#",
+                    active: pathname.includes("/#"),
                     icon: Users,
                     submenus: []
                 }
