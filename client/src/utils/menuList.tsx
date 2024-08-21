@@ -76,23 +76,23 @@ export function MenuList(pathname: string): Group[] {
             menus: [
                 {
                     label: "Configurations",
-                    href: "/#",
-                    active: pathname.includes("/#"),
+                    href: "#",
+                    active: pathname.includes("#"),
                     icon: Settings,
                     submenus: []
                 },
 
                 {
                     label: "Droit d'accès",
-                    href: "/#",
-                    active: pathname.includes("/#"),
+                    href: "#",
+                    active: pathname.includes("#"),
                     icon: Key,
                     submenus: []
                 },
                 {
                     label: "Utilisateurs",
-                    href: "/#",
-                    active: pathname.includes("/#"),
+                    href: "#",
+                    active: pathname.includes("#"),
                     icon: Users,
                     submenus: []
                 }
