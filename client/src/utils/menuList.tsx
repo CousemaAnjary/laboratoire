@@ -1,5 +1,5 @@
 import { Group } from "@/typeScript/Type"
-import { Tag, Users, Settings, Bookmark, LayoutGrid, Key } from "lucide-react"
+import {  Users, Settings, Bookmark, LayoutGrid, Key } from "lucide-react"
 
 
 export function MenuList(pathname: string): Group[] {
@@ -54,20 +54,20 @@ export function MenuList(pathname: string): Group[] {
                 // },
 
                 {
-                    label: "Categories",
+                    label: "Kanban Board",
                     href: "/categories",
                     active: pathname.includes("/categories"),
                     icon: Bookmark,
                     submenus: []
                 },
 
-                {
-                    label: "Tags",
-                    href: "/tags",
-                    active: pathname.includes("/tags"),
-                    icon: Tag,
-                    submenus: []
-                }
+                // {
+                //     label: "Tags",
+                //     href: "/tags",
+                //     active: pathname.includes("/tags"),
+                //     icon: Tag,
+                //     submenus: []
+                // }
             ]
         },
 
