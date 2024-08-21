@@ -1,4 +1,4 @@
-
+import AdminPanelLayout from "@/components/admin/AdminPanelLayout"
 
 export default function KanbanBoard() {
     /**
@@ -15,8 +15,8 @@ export default function KanbanBoard() {
      * ! AFFICHAGE (render) de l'application
      */
     return (
-        <>
+        <AdminPanelLayout>
             <h1>KanbanBoard</h1>
-        </>
+        </AdminPanelLayout>
     )
 }

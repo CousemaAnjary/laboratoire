@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom"
 import Dashboard from "./pages/dashboard/Dashboard"
 import { AuthProvider } from "./contexts/AuthContext"
 import { ThemeProvider } from "./contexts/ThemeContext"
+import KanbanBoard from "./pages/application/KanbanBoard"
 import PublicRoute from "./components/routes/PublicRoute"
 import PrivateRoute from "./components/routes/PrivateRoute"
 
@@ -37,6 +38,7 @@ export default function App() {
                         {/* Protected Routes */}
                         <Route element={<PrivateRoute />}>
                             <Route path="/dashboard" element={<Dashboard />} />
+                            <Route path="/kanbanBoard" element={<KanbanBoard />} />
                         </Route>
 
                     </Routes>
