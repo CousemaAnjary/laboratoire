@@ -1,12 +1,23 @@
-import Navbar from "@/components/adminPanel/Navbar";
-import Sidebar from "@/components/adminPanel/Sidebar";
-import { cn } from "@/lib/utils";
-import {useSidebarToggle} from "@/hooks/useSidebarToggle";
+import { cn } from "@/lib/utils"
+import Navbar from "@/components/dashboard/Navbar"
+import Sidebar from "@/components/dashboard/Sidebar"
+import { useSidebarToggle } from "@/hooks/useSidebarToggle"
+
 
 export default function Dashboard({ children }: { children: React.ReactNode }) {
-    const { isOpen } = useSidebarToggle();
+    /**
+     * ! STATE (état, données) de l'application
+     */
+    const { isOpen } = useSidebarToggle()
+
+    /**
+     * ! COMPORTEMENT (méthodes, fonctions) de l'application
+     */
 
 
+    /**
+     * ! AFFICHAGE (render) de l'application
+     */
     return (
         <div className="min-h-screen flex">
             {/* Sidebar */}
@@ -16,7 +27,7 @@ export default function Dashboard({ children }: { children: React.ReactNode }) {
             <div
                 className={cn(
                     "flex flex-col flex-grow transition-[margin-left] ease-in-out duration-300",
-                    isOpen  ? "lg:ml-72" : "lg:ml-[90px]"
+                    isOpen ? "lg:ml-72" : "lg:ml-[90px]"
                 )}
             >
                 {/* Navbar */}
@@ -28,5 +39,5 @@ export default function Dashboard({ children }: { children: React.ReactNode }) {
                 </main>
             </div>
         </div>
-    );
+    )
 }

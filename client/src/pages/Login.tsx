@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils"
 import Navbar from "@/components/Navbar"
-import LoginForm from "@/components/auth/LoginForm";
+import LoginForm from "@/components/auth/LoginForm"
 import GridPattern from "@/components/magicui/grid-pattern"
 
 

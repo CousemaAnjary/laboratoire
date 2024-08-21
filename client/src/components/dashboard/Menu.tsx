@@ -1,9 +1,9 @@
-import { Ellipsis, LogOut } from 'lucide-react'
+import { Ellipsis, LogOut } from 'lucide-react';
 
+import { CollapseMenuButton } from '@/components/dashboard/CollapseMenuButton';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { getMenuList } from '@/utils/menuList';
-import { Button } from '@/components/ui/button';
-import { CollapseMenuButton } from '@/components/adminPanel/CollapseMenuButton';
 import { Link } from 'react-router-dom';
 
 interface MenuProps {
@@ -98,7 +98,7 @@ export default function Menu({ isOpen, pathname }: MenuProps) {
                                 Sign out
                             </p>
                         </Button>
-                    </li> 
+                    </li>
                 </ul>
             </nav>
         </>

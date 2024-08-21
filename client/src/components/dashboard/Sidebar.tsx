@@ -1,7 +1,7 @@
+import Menu from '@/components/dashboard/Menu';
+import SidebarToggle from '@/components/dashboard/SidebarToggle';
+import { useSidebarToggle } from '@/hooks/useSidebarToggle';
 import { cn } from '@/lib/utils';
-import Menu from '@/components/adminPanel/Menu';
-import SidebarToggle from '@/components/adminPanel/SidebarToggle'
-import {useSidebarToggle} from '@/hooks/useSidebarToggle';
 
 
 export default function Sidebar() {
@@ -24,7 +24,7 @@ export default function Sidebar() {
             <div
                 className={cn(
                     'fixed top-0 left-0 z-20 h-screen -translate-x-full lg:translate-x-0 transition-[width] ease-in-out duration-300',
-                   isOpen === false ? "w-[90px]" : "w-72"
+                    isOpen === false ? "w-[90px]" : "w-72"
                 )}
             >
                 <SidebarToggle isOpen={isOpen} toggleSidebar={setIsOpen} />
