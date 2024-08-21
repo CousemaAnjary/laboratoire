@@ -29,6 +29,21 @@ export default function UserDropdownMenu() {
         }
     }
 
+    const UserAvatar = ({ image, email }: { image?: string, email?: string }) => {
+        const placeholderImage = `https://api.dicebear.com/9.x/adventurer-neutral/svg?seed=${email}`
+        const avatarImage = image ? `http://localhost:8000/storage/${image}` : placeholderImage
+
+        return (
+            <Avatar className="h-8 w-8">
+                <AvatarImage
+                    src={avatarImage}
+                    alt="Avatar"
+                    onError={(e) => e.currentTarget.src = placeholderImage}
+                />
+                <AvatarFallback className="bg-transparent">JD</AvatarFallback>
+            </Avatar>
+        )
+    }
 
     /**
      * ! AFFICHAGE (render) de l'application
@@ -41,10 +56,11 @@ export default function UserDropdownMenu() {
                         variant="outline"
                         className="relative h-8 w-8 rounded-full"
                     >
-                        <Avatar className="h-8 w-8">
+                        {/* <Avatar className="h-8 w-8">
                             <AvatarImage src={`http://localhost:8000/storage/${user?.image}`} alt="Avatar" />
                             <AvatarFallback className="bg-transparent">JD</AvatarFallback>
-                        </Avatar>
+                        </Avatar> */}
+                        <UserAvatar image={user?.image} email={user?.email} />
                     </Button>
                 </DropdownMenuTrigger>
 
@@ -62,7 +78,7 @@ export default function UserDropdownMenu() {
                         <DropdownMenuItem className="hover:cursor-pointer" asChild>
                             <Link to="#" className="flex items-center">
                                 <User className="w-4 h-4 mr-3 text-muted-foreground" />
-                              Profil
+                                Profil
                             </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem className="hover:cursor-pointer" asChild>
