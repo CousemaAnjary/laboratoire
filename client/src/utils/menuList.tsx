@@ -1,5 +1,5 @@
 import { Group } from "@/typeScript/Type"
-import { Tag, Users, Settings, Bookmark, SquarePen, LayoutGrid } from "lucide-react"
+import { Tag, Users, Settings, Bookmark, LayoutGrid, Key } from "lucide-react"
 
 
 export function MenuList(pathname: string): Group[] {
@@ -18,10 +18,10 @@ export function MenuList(pathname: string): Group[] {
      */
     return [
         {
-            groupLabel: "",
+            groupLabel: "Tableau de bord",
             menus: [
                 {
-                    label: "Dashboard",
+                    label: "Admininstrateur",
                     href: "/dashboard",
                     active: pathname.includes("/dashboard"),
                     icon: LayoutGrid,
@@ -31,27 +31,27 @@ export function MenuList(pathname: string): Group[] {
         },
 
         {
-            groupLabel: "Contents",
+            groupLabel: "Application",
             menus: [
-                {
-                    label: "Posts",
-                    href: "",
-                    active: pathname.includes("/posts"),
-                    icon: SquarePen,
-                    submenus: [
-                        {
-                            label: "All Posts",
-                            href: "/posts",
-                            active: pathname === "/posts"
-                        },
+                // {
+                //     label: "Posts",
+                //     href: "",
+                //     active: pathname.includes("/posts"),
+                //     icon: SquarePen,
+                //     submenus: [
+                //         {
+                //             label: "All Posts",
+                //             href: "/posts",
+                //             active: pathname === "/posts"
+                //         },
 
-                        {
-                            label: "New Post",
-                            href: "/posts/new",
-                            active: pathname === "/posts/new"
-                        }
-                    ]
-                },
+                //         {
+                //             label: "New Post",
+                //             href: "/posts/new",
+                //             active: pathname === "/posts/new"
+                //         }
+                //     ]
+                // },
 
                 {
                     label: "Categories",
@@ -72,21 +72,28 @@ export function MenuList(pathname: string): Group[] {
         },
 
         {
-            groupLabel: "Settings",
+            groupLabel: "Paramètres",
             menus: [
                 {
-                    label: "Users",
-                    href: "/users",
+                    label: "Configurations",
+                    href: "/config",
                     active: pathname.includes("/users"),
-                    icon: Users,
+                    icon: Settings,
                     submenus: []
                 },
 
                 {
-                    label: "Account",
+                    label: "Droit d'accès",
                     href: "/account",
                     active: pathname.includes("/account"),
-                    icon: Settings,
+                    icon: Key,
+                    submenus: []
+                },
+                {
+                    label: "Utilisateurs",
+                    href: "/account",
+                    active: pathname.includes("/account"),
+                    icon: Users,
                     submenus: []
                 }
             ]
