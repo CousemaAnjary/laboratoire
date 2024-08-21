@@ -70,3 +70,12 @@ export type Group = {
     groupLabel: string
     menus: Menu[]
 }
+
+// Le type pour le bouton de menu déroulant
+export type CollapseMenuButtonProps = {
+    icon: LucideIcon
+    label: string
+    active: boolean
+    submenus: Submenu[]
+    isOpen: boolean | undefined
+}
