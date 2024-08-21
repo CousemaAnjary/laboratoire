@@ -3,6 +3,7 @@ import ModeToggle from "./ModeToggle"
 import { SheetMenu } from "./SheetMenu"
 import { Link } from "react-router-dom"
 import UserDropdownMenu from "./UserDropdownMenu"
+import FullscreenToggle from "./FullscreenToggle"
 
 
 export default function Navbar(): JSX.Element {
@@ -24,14 +25,15 @@ export default function Navbar(): JSX.Element {
             <nav className="sticky top-0 z-10 w-full bg-background/95 shadow backdrop-blur supports-[backdrop-filter]:bg-background/60 dark:shadow-secondary">
                 <div className="mx-4 sm:mx-8 flex h-14 items-center">
                     <div className="flex items-center space-x-4 lg:space-x-0">
-                         <SheetMenu /> 
-                         
+                        <SheetMenu />
+
                         <Link to="/dashboard">
                             <Button variant="ghost">Laboratoire</Button>
                         </Link>
                     </div>
-                    
-                    <div className="flex flex-1 items-center space-x-2 justify-end">
+
+                    <div className="flex flex-1 items-center space-x-3 justify-end">
+                        <FullscreenToggle />
                         <ModeToggle />
                         <UserDropdownMenu />
                     </div>
