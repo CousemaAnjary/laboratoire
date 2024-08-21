@@ -27,7 +27,7 @@ export default function Navbar(): JSX.Element {
                          <SheetMenu /> 
                          
                         <Link to="/dashboard">
-                            <Button variant="ghost">Dashboard</Button>
+                            <Button variant="ghost">Laboratoire</Button>
                         </Link>
                     </div>
                     
