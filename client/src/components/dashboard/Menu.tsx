@@ -1,21 +1,17 @@
-import { Ellipsis, LogOut } from 'lucide-react';
+import { cn } from '@/lib/utils'
+import { Link } from 'react-router-dom'
+import { MenuProps } from '@/typeScript/Type'
+import { getMenuList } from '@/utils/menuList'
+import { Button } from '@/components/ui/button'
+import { Ellipsis, LogOut } from 'lucide-react'
+import { CollapseMenuButton } from '@/components/dashboard/CollapseMenuButton'
 
-import { CollapseMenuButton } from '@/components/dashboard/CollapseMenuButton';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import { getMenuList } from '@/utils/menuList';
-import { Link } from 'react-router-dom';
 
-interface MenuProps {
-    isOpen: boolean;
-    pathname: string;
-}
-
-export default function Menu({ isOpen, pathname }: MenuProps) {
+export default function Menu({ isOpen, pathname }: MenuProps): JSX.Element {
     /**
      * ! STATE (état, données) de l'application
      */
-    const menuList = getMenuList(pathname);
+    const menuList = getMenuList(pathname)
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
@@ -29,7 +25,9 @@ export default function Menu({ isOpen, pathname }: MenuProps) {
         <>
             <nav className="mt-8 h-full w-full">
                 <ul className="flex flex-col min-h-[calc(100vh-48px-36px-16px-32px)] lg:min-h-[calc(100vh-32px-40px-32px)] items-start space-y-1 px-2">
+
                     {menuList.map(({ groupLabel, menus }, index) => (
+                        
                         <li className={cn('w-full', groupLabel ? 'pt-5' : '')} key={index}>
                             {isOpen && groupLabel ? (
                                 <p className="text-sm font-medium text-muted-foreground px-4 pb-2 max-w-[248px] truncate">
