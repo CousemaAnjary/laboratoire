@@ -9,10 +9,11 @@ import { CollapseMenuButton } from '@/components/dashboard/CollapseMenuButton'
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip"
 
 
-export default function Menu({ isOpen, pathname }: MenuProps): JSX.Element {
+export default function Menu({ isOpen }: MenuProps): JSX.Element {
     /**
      * ! STATE (état, données) de l'application
      */
+    const pathname = window.location.pathname
     const menuList = MenuList(pathname)
 
     /**
