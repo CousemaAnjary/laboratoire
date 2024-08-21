@@ -11,7 +11,8 @@ export default function UserAvatar({ image, email }: { image?: string, email?: s
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
-    const avatarImage = image ? `http://localhost:8000/storage/${image}` : placeholderImage
+    const avatarImage = image ? `${import.meta.env.VITE_BACKEND_STORAGE_URL}/${image}` : placeholderImage;
+
 
     /**
      * ! AFFICHAGE (render) de l'application
