@@ -76,8 +76,8 @@ export function MenuList(pathname: string): Group[] {
             menus: [
                 {
                     label: "Configurations",
-                    href: "/config",
-                    active: pathname.includes("/users"),
+                    href: "/#",
+                    active: pathname.includes("/#"),
                     icon: Settings,
                     submenus: []
                 },
