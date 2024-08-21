@@ -1,12 +1,11 @@
-import Login from "./pages/Login"
-import Register from "./pages/Register"
-import Dashboard from "./pages/Dashboard"
+import Login from "./pages/auth/Login"
+import Register from "./pages/auth/Register"
 import { Route, Routes } from "react-router-dom"
+import Dashboard from "./pages/dashboard/Dashboard"
 import { AuthProvider } from "./contexts/AuthContext"
 import { ThemeProvider } from "./contexts/ThemeContext"
 import PublicRoute from "./components/routes/PublicRoute"
 import PrivateRoute from "./components/routes/PrivateRoute"
-
 
 
 export default function App() {

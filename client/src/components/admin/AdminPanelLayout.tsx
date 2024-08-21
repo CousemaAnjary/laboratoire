@@ -1,10 +1,10 @@
-import { cn } from "@/lib/utils"
-import Navbar from "@/components/dashboard/Navbar"
-import Sidebar from "@/components/dashboard/Sidebar"
+import Navbar from "@/components/admin/Navbar"
+import Sidebar from "@/components/admin/Sidebar"
 import { useSidebarToggle } from "@/hooks/useSidebarToggle"
+import { cn } from "@/lib/utils"
 
 
-export default function Dashboard({ children }: { children: React.ReactNode }): JSX.Element {
+export default function AdminPanelLayout({ children }: { children: React.ReactNode }): JSX.Element {
     /**
      * ! STATE (état, données) de l'application
      */

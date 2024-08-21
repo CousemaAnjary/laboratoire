@@ -1,13 +1,13 @@
-import { cn } from '@/lib/utils'
-import { MenuList } from '@/utils/menuList'
-import { MenuProps } from '@/typeScript/Type'
+import { CollapseMenuButton } from '@/components/admin/CollapseMenuButton'
 import { Button } from '@/components/ui/button'
-import { Ellipsis, LogOut } from 'lucide-react'
-import { useAuth } from "@/contexts/AuthContext"
-import { Link, useNavigate } from 'react-router-dom'
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { CollapseMenuButton } from '@/components/dashboard/CollapseMenuButton'
-import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { useAuth } from "@/contexts/AuthContext"
+import { cn } from '@/lib/utils'
+import { MenuProps } from '@/typeScript/Type'
+import { MenuList } from '@/utils/menuList'
+import { Ellipsis, LogOut } from 'lucide-react'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 export default function Menu({ isOpen }: MenuProps): JSX.Element {
@@ -130,7 +130,7 @@ export default function Menu({ isOpen }: MenuProps): JSX.Element {
                             <Tooltip delayDuration={100}>
                                 <TooltipTrigger asChild>
                                     <Button
-                                      onClick={handleLogout}
+                                        onClick={handleLogout}
                                         variant="outline"
                                         className="w-full justify-center h-10 mt-3"
                                     >

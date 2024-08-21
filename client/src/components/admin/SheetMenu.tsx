@@ -1,4 +1,4 @@
-import Menu from "@/components/dashboard/Menu"
+import Menu from "@/components/admin/Menu"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTrigger, } from "@/components/ui/sheet"
 import { MenuIcon, PanelsTopLeft } from "lucide-react"

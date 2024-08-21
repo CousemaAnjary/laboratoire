@@ -18,10 +18,10 @@ export function MenuList(pathname: string): Group[] {
      */
     return [
         {
-            groupLabel: "Tableau de bord",
+            groupLabel: "",
             menus: [
                 {
-                    label: "Admininstrateur",
+                    label: "Tableau de bord",
                     href: "/dashboard",
                     active: pathname.includes("/dashboard"),
                     icon: LayoutGrid,
