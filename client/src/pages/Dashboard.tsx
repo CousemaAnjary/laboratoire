@@ -4,7 +4,7 @@ import Sidebar from "@/components/dashboard/Sidebar"
 import { useSidebarToggle } from "@/hooks/useSidebarToggle"
 
 
-export default function Dashboard({ children }: { children: React.ReactNode }) {
+export default function Dashboard({ children }: { children: React.ReactNode }): JSX.Element {
     /**
      * ! STATE (état, données) de l'application
      */

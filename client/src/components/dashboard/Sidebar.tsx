@@ -1,7 +1,7 @@
-import Menu from '@/components/dashboard/Menu';
-import SidebarToggle from '@/components/dashboard/SidebarToggle';
-import { useSidebarToggle } from '@/hooks/useSidebarToggle';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils'
+import Menu from '@/components/dashboard/Menu'
+import { useSidebarToggle } from '@/hooks/useSidebarToggle'
+import SidebarToggle from '@/components/dashboard/SidebarToggle'
 
 
 export default function Sidebar() {
