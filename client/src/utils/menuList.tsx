@@ -81,7 +81,7 @@ export function MenuList(pathname: string): Group[] {
                     icon: Users,
                     submenus: []
                 },
-                
+
                 {
                     label: "Account",
                     href: "/account",
