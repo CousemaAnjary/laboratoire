@@ -23,17 +23,19 @@ export default function KanbanList({ title, children }: KanbanListProps) {
      */
     return (
         <>
-            <Card className="w-full max-w-64">
+            <Card className="w-full max-w-72">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">{title}</CardTitle>
-                    <Button variant="ghost" size="icon" className="h-8 w-8 p-0">
+                    <Button variant="ghost" size="icon" className="h-8 w-8 ">
                         <Ellipsis className="h-4 w-4" />
                     </Button>
                 </CardHeader>
+                
                 <CardContent className="space-y-3 px-4 py-2">
                     {children}
                 </CardContent>
-                <CardFooter>
+                
+                <CardFooter className="px-4 pt-3">
                     <Button variant="outline" className="w-full justify-start">
                         <PlusIcon className="mr-2 h-4 w-4" />
                         Ajouter une carte

@@ -34,7 +34,7 @@ export default function Kanban() {
                 </KanbanList>
 
                 {/* Option to add another list  */}
-                <Button variant={'outline'} className="w-64 justify-start">
+                <Button variant={'outline'} className="w-72 justify-start">
                     <PlusIcon className="mr-2 h-3 w-3" />
                      Ajouter une autre liste
                 </Button>
