@@ -19,24 +19,25 @@ export default function Kanban() {
      */
     return (
         <>
-            <div className="flex space-x-4 p-4 overflow-x-auto ">
+           <div className="flex space-x-4 p-4 overflow-x-auto items-start">
                 <KanbanList title="À faire">
-
+             
                 </KanbanList>
 
                 <KanbanList title="En cours">
-                    <KanbanCard content="Tâche 1" />
-                    <KanbanCard content="Tâche 2" />
+                    <KanbanCard content="CRUD" />
+                    <KanbanCard content="Une autre tâche" />
                 </KanbanList>
 
                 <KanbanList title="Terminé">
-                    <KanbanCard content="Tâche 3" />
+                    <KanbanCard content="Tâche terminée" />
                 </KanbanList>
+
 
                 {/* Option to add another list  */}
                 <Button variant={'outline'} className="w-72 justify-start">
                     <PlusIcon className="mr-2 h-3 w-3" />
-                     Ajouter une autre liste
+                    Ajouter une autre liste
                 </Button>
 
             </div>
