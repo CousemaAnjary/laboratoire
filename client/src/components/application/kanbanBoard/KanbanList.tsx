@@ -31,11 +31,11 @@ export default function KanbanList({ title, children }: KanbanListProps) {
                     </Button>
                 </CardHeader>
 
-                <CardContent className="flex-1 space-y-3 px-4 py-0 overflow-auto">
+                <CardContent className="flex-1 space-y-2 px-4 py-0 overflow-auto">
                     {children}
                 </CardContent>
 
-                <CardFooter className="px-4 pt-3">
+                <CardFooter className="px-4 pt-4">
                     <Button variant="outline" className="w-full justify-start">
                         <PlusIcon className="mr-2 h-4 w-4" />
                         Ajouter une carte
