@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -12,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kanban_lists', function (Blueprint $table) {
+        Schema::create('kanban_checklist_items', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('position');
+            $table->text('content');
+            $table->boolean('status')->default(false);
+            $table->foreignId('checklist_id')->constrained('kanban_checklists')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kanban_lists');
+        Schema::dropIfExists('kanban_checklist_items');
     }
 };

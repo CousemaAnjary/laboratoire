@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('kanban_cards', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->date('due_date')->nullable();
+            $table->integer('position');
+            $table->foreignId('list_id')->constrained('kanban_lists')->onDelete('cascade');
             $table->timestamps();
         });
     }
