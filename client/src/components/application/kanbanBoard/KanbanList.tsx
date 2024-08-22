@@ -1,3 +1,5 @@
+import { Ellipsis } from "lucide-react";
+
 interface KanbanListProps {
     title: string;
     children?: React.ReactNode;
@@ -24,7 +26,7 @@ export default function KanbanList({ title, children }: KanbanListProps) {
                     <h2 className="text-lg font-bold">{title}</h2>
                     {/* Icons or buttons for more actions */}
                     <div className="flex space-x-2">
-                        {/* Add icons or buttons here */}
+                        <Ellipsis />
                     </div>
                 </div>
                 <div className="space-y-2">
