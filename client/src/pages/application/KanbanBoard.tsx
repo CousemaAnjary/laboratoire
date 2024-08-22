@@ -1,4 +1,5 @@
 import AdminPanelLayout from "@/components/adminPanel/AdminPanelLayout"
+import Kanban from "@/components/application/kanbanBoard/Kanban"
 
 export default function KanbanBoard() {
     /**
@@ -16,7 +17,7 @@ export default function KanbanBoard() {
      */
     return (
         <AdminPanelLayout>
-            <h1>KanbanBoard</h1>
+            <Kanban />
         </AdminPanelLayout>
     )
 }
