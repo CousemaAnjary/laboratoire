@@ -1,4 +1,6 @@
-import { Ellipsis } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Ellipsis, PlusIcon } from "lucide-react";
 
 interface KanbanListProps {
     title: string;
@@ -21,21 +23,23 @@ export default function KanbanList({ title, children }: KanbanListProps) {
      */
     return (
         <>
-            <div className="bg-white rounded-md shadow-md p-4 w-80">
-                <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-lg font-bold">{title}</h2>
-                    {/* Icons or buttons for more actions */}
-                    <div className="flex space-x-2">
-                        <Ellipsis />
-                    </div>
-                </div>
-                <div className="space-y-2">
+            <Card className="w-full max-w-sm">
+                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <CardTitle className="text-sm font-medium">{title}</CardTitle>
+                    <Button variant="ghost" size="icon" className="h-8 w-8 p-0">
+                        <Ellipsis className="h-4 w-4" />
+                    </Button>
+                </CardHeader>
+                <CardContent className="space-y-3 px-4 py-2">
                     {children}
-                </div>
-                <button className="mt-4 text-blue-500 hover:text-blue-700">
-                    + Ajouter une carte
-                </button>
-            </div>
+                </CardContent>
+                <CardFooter>
+                    <Button variant="outline" className="w-full justify-start">
+                        <PlusIcon className="mr-2 h-4 w-4" />
+                        Ajouter une carte
+                    </Button>
+                </CardFooter>
+            </Card>
         </>
     )
 }

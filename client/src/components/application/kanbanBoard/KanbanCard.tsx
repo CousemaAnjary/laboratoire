@@ -1,3 +1,5 @@
+import { Card, CardContent } from "@/components/ui/card";
+
 interface KanbanCardProps {
     content: string;
 }
@@ -18,9 +20,11 @@ export default function KanbanCard({ content }: KanbanCardProps) {
      */
     return (
         <>
-            <div className="bg-gray-100 rounded-md p-3 shadow-sm">
-                {content}
-            </div>
+            <Card>
+                <CardContent className="p-2">
+                    <p className="text-sm"> {content}</p>
+                </CardContent>
+            </Card>
         </>
     )
 }
