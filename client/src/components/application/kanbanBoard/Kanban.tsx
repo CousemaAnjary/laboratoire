@@ -1,5 +1,7 @@
-import KanbanList from './KanbanList';
-import KanbanCard from './KanbanCard';
+import KanbanList from './KanbanList'
+import KanbanCard from './KanbanCard'
+import { Button } from '@/components/ui/button'
+import { PlusIcon } from 'lucide-react'
 
 export default function Kanban() {
     /**
@@ -17,9 +19,9 @@ export default function Kanban() {
      */
     return (
         <>
-            <div className="flex space-x-4 p-4 overflow-x-auto">
+            <div className="flex space-x-4 p-4 overflow-x-auto ">
                 <KanbanList title="À faire">
-                  
+
                 </KanbanList>
 
                 <KanbanList title="En cours">
@@ -31,12 +33,12 @@ export default function Kanban() {
                     <KanbanCard content="Tâche 3" />
                 </KanbanList>
 
-                {/* Option to add another list */}
-                <div className="bg-gray-100 rounded-md shadow-md p-4 w-80 flex items-center justify-center">
-                    <button className="text-blue-500 hover:text-blue-700">
-                        + Ajouter une autre liste
-                    </button>
-                </div>
+                {/* Option to add another list  */}
+                <Button variant={'outline'}>
+                    <PlusIcon className="mr-2 h-4 w-4" />
+                     Ajouter une autre liste
+                </Button>
+
             </div>
         </>
     )
