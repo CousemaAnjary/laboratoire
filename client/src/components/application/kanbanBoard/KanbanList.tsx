@@ -24,8 +24,8 @@ export default function KanbanList({ title, children }: KanbanListProps) {
     return (
         <>
             <Card className="flex flex-col w-full max-w-72">
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-1 ">
-                    <CardTitle className="text-sm font-medium">{title}</CardTitle>
+                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <CardTitle className="text-sm font-semibold">{title}</CardTitle>
                     <Button variant="ghost" size="icon" className="h-8 w-8">
                         <Ellipsis className="h-4 w-4" />
                     </Button>
@@ -36,7 +36,7 @@ export default function KanbanList({ title, children }: KanbanListProps) {
                 </CardContent>
 
                 <CardFooter className="px-4 pt-4">
-                    <Button variant="outline" className="w-full justify-start">
+                    <Button variant="outline" className="w-full justify-start font-medium">
                         <PlusIcon className="mr-2 h-4 w-4" />
                         Ajouter une carte
                     </Button>

@@ -35,9 +35,6 @@ export default function Kanban() {
                 </KanbanList>
 
                 <KanbanList title="Terminé">
-                    <KanbanCard content="Installer les dépendances du projet" />
-                    <KanbanCard content="Configurer le système de contrôle de version (Git)" />
-                    <KanbanCard content="Rédiger la documentation initiale du projet" />
                 </KanbanList>
 
 
