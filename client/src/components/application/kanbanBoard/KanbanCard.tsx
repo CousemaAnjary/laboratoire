@@ -18,9 +18,9 @@ export default function KanbanCard({ content }: kanbanCardProps) {
      */
     return (
         <>
-            <Card >
-                <CardContent className="p-2">
-                    <p className="text-sm"> {content}</p>
+            <Card className="shadow-sm">
+                <CardContent className="p-3">
+                    <p className="text-sm "> {content}</p>
                 </CardContent>
             </Card>
         </>

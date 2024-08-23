@@ -33,7 +33,7 @@ export default function KanbanList({ title }: KanbanListProps) {
      * ! AFFICHAGE (render) de l'application
      */
     return (
-        <Card className="flex flex-col w-full max-w-72">
+        <Card className="flex flex-col w-full max-w-72 shadow-sm">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-semibold">{title}</CardTitle>
                 <Button variant="ghost" size="icon" className="h-8 w-8">
@@ -53,10 +53,10 @@ export default function KanbanList({ title }: KanbanListProps) {
                             placeholder="Écrire quelque chose..."
                             value={newCardContent}
                             onChange={(e) => setNewCardContent(e.target.value)}
-                            className="w-full h-14"
+                            className="w-full h-14 shadow-sm"
                         />
                         <div className="grid grid-cols-6 gap-2 mt-3">
-                            <Button size={"sm"} onClick={addCard} className="col-span-5 w-full rounded-sm">
+                            <Button size={"sm"} onClick={addCard} className="col-span-5 w-full rounded-sm ">
                                 Ajouter
                             </Button>
 
