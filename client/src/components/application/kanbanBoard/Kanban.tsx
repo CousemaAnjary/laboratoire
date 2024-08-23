@@ -66,10 +66,10 @@ export default function Kanban() {
                         </div>
                     </CardContent>
                 </Card>
-            ) : (
+            ) : (   
                 <Button
                     variant="outline"
-                    className="w-72 h-10 shrink-0 justify-start"
+                      className="w-72 justify-start items-center"
                     onClick={() => setIsAdding(true)}
                 >
                     <PlusIcon className="mr-2 h-4 w-4" />

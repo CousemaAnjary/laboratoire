@@ -20,7 +20,7 @@ export default function KanbanCard({ content }: kanbanCardProps) {
         <>
             <Card className="shadow-sm">
                 <CardContent className="p-3">
-                    <p className="text-sm "> {content}</p>
+                    <p className="text-sm break-words overflow-hidden text-ellipsis">{content}</p>
                 </CardContent>
             </Card>
         </>
