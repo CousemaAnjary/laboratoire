@@ -23,7 +23,7 @@ export default function Navbar() {
      * ! AFFICHAGE (render) de l'application
      */
     return (
-        <div className="relative z-10 w-full bg-white p-4 shadow">
+        <div className="relative z-20 w-full p-4  bg-background/95 shadow backdrop-blur supports-[backdrop-filter]:bg-background/60 dark:shadow-secondary">
             <div className="container-fluid mx-auto">
                 <div className="container mx-auto flex justify-between items-center ">
 

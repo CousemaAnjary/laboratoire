@@ -1,11 +1,25 @@
-import { useState, useRef, useEffect } from 'react';
-import KanbanList from './KanbanList';
-import { PlusIcon } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
+import KanbanList from './KanbanList'
+import { PlusIcon } from 'lucide-react'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { useState, useRef, useEffect } from 'react'
+import { Card, CardContent } from '@/components/ui/card'
+
 
 export default function Kanban() {
+    /**
+     * ! STATE (état, données) de l'application
+     */
+
+
+    /**
+     * ! COMPORTEMENT (méthodes, fonctions) de l'application
+     */
+
+
+    /**
+     * ! AFFICHAGE (render) de l'application
+     */
     const [lists, setLists] = useState<string[]>(['À faire', 'En cours', 'Terminé']);
     const [isAdding, setIsAdding] = useState(false);
     const [newListTitle, setNewListTitle] = useState('');
@@ -66,10 +80,10 @@ export default function Kanban() {
                         </div>
                     </CardContent>
                 </Card>
-            ) : (   
+            ) : (
                 <Button
-                    variant="outline"
-                      className="w-72 justify-start items-center"
+                    variant="ghost"
+                    className="w-72 justify-start items-center"
                     onClick={() => setIsAdding(true)}
                 >
                     <PlusIcon className="mr-2 h-4 w-4" />
