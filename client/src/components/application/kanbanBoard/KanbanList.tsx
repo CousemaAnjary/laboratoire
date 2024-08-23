@@ -1,43 +1,53 @@
-import { useState, useRef, useEffect } from "react";
-import KanbanCard from "./KanbanCard";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { KanbanListProps } from "@/typeScript/Type";
-import { Ellipsis, Eraser, PlusIcon } from "lucide-react";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import KanbanCard from "./KanbanCard"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import { KanbanListProps } from "@/typeScript/Type"
+import { useState, useRef, useEffect } from "react"
+import { Ellipsis, Eraser, PlusIcon } from "lucide-react"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+
 
 export default function KanbanList({ title }: KanbanListProps) {
     /**
      * ! STATE (état, données) de l'application
      */
-    const [isAdding, setIsAdding] = useState(false);
-    const [cards, setCards] = useState<string[]>([]);
-    const [CardName, setCardName] = useState("");
-    const addCardRef = useRef<HTMLDivElement>(null);
+    const [CardName, setCardName] = useState("")
+    const addCardRef = useRef<HTMLDivElement>(null)
+    const [isAdding, setIsAdding] = useState(false)
+    const [cards, setCards] = useState<string[]>([])
+
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
-    const addCard = () => {
-        if (CardName.trim() !== "") {
-            setCards([...cards, CardName]);
-            setCardName("");
-        }
-        setIsAdding(false);
-    };
-
-    const handleClickOutside = (event: MouseEvent) => {
-        if (addCardRef.current && !addCardRef.current.contains(event.target as Node)) {
-            setIsAdding(false);
-        }
-    };
-
     useEffect(() => {
-        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("mousedown", handleClickOutside)
+
         return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
+            document.removeEventListener("mousedown", handleClickOutside)
+        }
+    }, [])
+
+    // Ajouter une carte à la liste
+    const addCard = () => {
+
+        if (CardName.trim() !== "") {
+            setCards([...cards, CardName]) // Ajouter la carte à la liste
+            setCardName("") // Réinitialiser le champ de saisie
+        }
+        // Fermer le formulaire d'ajout
+        setIsAdding(false)
+    }
+
+    // Fermer le formulaire d'ajout de carte
+    const handleClickOutside = (event: MouseEvent) => {
+
+        // Si l'utilisateur clique en dehors du formulaire
+        if (addCardRef.current && !addCardRef.current.contains(event.target as Node)) {
+            setIsAdding(false) // Fermer le formulaire
+        }
+    }
+
 
     /**
      * ! AFFICHAGE (render) de l'application
@@ -52,6 +62,7 @@ export default function KanbanList({ title }: KanbanListProps) {
             </CardHeader>
 
             <CardContent className="flex-1 space-y-2 px-4 py-1 overflow-auto">
+
                 {cards.map((content, index) => (
                     <KanbanCard key={index} content={content} />
                 ))}
@@ -79,6 +90,7 @@ export default function KanbanList({ title }: KanbanListProps) {
             </CardContent>
 
             <CardFooter className="px-4 mt-2">
+              
                 {!isAdding && (
                     <Button
                         variant="outline"
@@ -90,6 +102,7 @@ export default function KanbanList({ title }: KanbanListProps) {
                         Ajouter une carte
                     </Button>
                 )}
+                
             </CardFooter>
         </Card>
     );
