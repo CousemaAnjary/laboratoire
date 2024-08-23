@@ -1,10 +1,8 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { kanbanCardProps } from "@/typeScript/Type"
+import { Card, CardContent } from "@/components/ui/card"
 
-interface KanbanCardProps {
-    content: string;
-}
 
-export default function KanbanCard({ content }: KanbanCardProps) {
+export default function KanbanCard({ content }: kanbanCardProps) {
     /**
      * ! STATE (état, données) de l'application
      */
@@ -20,7 +18,7 @@ export default function KanbanCard({ content }: KanbanCardProps) {
      */
     return (
         <>
-            <Card>
+            <Card >
                 <CardContent className="p-2">
                     <p className="text-sm"> {content}</p>
                 </CardContent>

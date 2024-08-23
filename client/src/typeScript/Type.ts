@@ -1,4 +1,6 @@
-import { LucideIcon } from 'lucide-react';
+import { LucideIcon } from 'lucide-react'
+
+
 // Le type des données de connexion
 export type LoginType = {
     email: string
@@ -78,4 +80,14 @@ export type CollapseMenuButtonProps = {
     active: boolean
     submenus: Submenu[]
     isOpen: boolean | undefined
+}
+
+// Le type 
+export type kanbanCardProps = {
+    content: string
+}
+
+export type KanbanListProps = {
+    title: string;
+    children?: React.ReactNode;
 }
