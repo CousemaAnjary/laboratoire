@@ -21,9 +21,11 @@ export default function KanbanList({ title }: KanbanListProps) {
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
     useEffect(() => {
+        // Écouter les clics de l'utilisateur
         document.addEventListener("mousedown", handleClickOutside)
 
         return () => {
+            // Arrêter d'écouter les clics de l'utilisateur
             document.removeEventListener("mousedown", handleClickOutside)
         }
     }, [])
@@ -37,6 +39,12 @@ export default function KanbanList({ title }: KanbanListProps) {
         }
         // Fermer le formulaire d'ajout
         setIsAdding(false)
+    }
+
+    // Fermer le formulaire d'ajout de carte
+    const handleCancel = () => {
+        setIsAdding(false) // Fermer le formulaire
+        setCardName('') // Réinitialiser le champ de saisie
     }
 
     // Fermer le formulaire d'ajout de carte
@@ -71,7 +79,7 @@ export default function KanbanList({ title }: KanbanListProps) {
                     <div className="flex flex-col justify-between h-full">
                         <Input
                             type="text"
-                            placeholder="Écrire quelque chose..."
+                            placeholder="Nom de la carte"
                             value={CardName}
                             onChange={(e) => setCardName(e.target.value)}
                             className="w-full h-14 shadow-sm"
@@ -81,7 +89,7 @@ export default function KanbanList({ title }: KanbanListProps) {
                                 Ajouter
                             </Button>
 
-                            <Button variant="outline" size={"sm"} onClick={() => setIsAdding(false)} className="w-full p-2 rounded-sm">
+                            <Button variant="outline" size={"sm"} onClick={handleCancel} className="w-full p-2 rounded-sm">
                                 <Eraser className="h-4 w-4" />
                             </Button>
                         </div>
@@ -90,19 +98,19 @@ export default function KanbanList({ title }: KanbanListProps) {
             </CardContent>
 
             <CardFooter className="px-4 mt-2">
-              
+
                 {!isAdding && (
                     <Button
                         variant="outline"
                         size={"sm"}
-                        className="w-full justify-start font-medium"
+                        className="w-full justify-start items-center font-medium"
                         onClick={() => setIsAdding(true)}
                     >
                         <PlusIcon className="mr-2 h-4 w-4" />
                         Ajouter une carte
                     </Button>
                 )}
-                
+
             </CardFooter>
         </Card>
     );
