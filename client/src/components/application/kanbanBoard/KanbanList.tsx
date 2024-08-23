@@ -14,15 +14,15 @@ export default function KanbanList({ title }: KanbanListProps) {
 
     const [isAdding, setIsAdding] = useState(false)
     const [cards, setCards] = useState<string[]>([])
-    const [newCardContent, setNewCardContent] = useState("")
+    const [CardName, setCardName] = useState("")
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
     const addCard = () => {
-        if (newCardContent.trim() !== "") {
-            setCards([...cards, newCardContent])
-            setNewCardContent("")
+        if (CardName.trim() !== "") {
+            setCards([...cards, CardName])
+            setCardName("")
         }
         setIsAdding(false)
     }
@@ -31,7 +31,7 @@ export default function KanbanList({ title }: KanbanListProps) {
      * ! AFFICHAGE (render) de l'application
      */
     return (
-        <Card className="flex flex-col w-full max-w-72 shadow-sm">
+        <Card className="flex flex-col w-full max-w-72 shadow-sm ">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-semibold">{title}</CardTitle>
                 <Button variant="ghost" size="icon" className="h-8 w-8">
@@ -49,8 +49,8 @@ export default function KanbanList({ title }: KanbanListProps) {
                         <Input
                             type="text"
                             placeholder="Écrire quelque chose..."
-                            value={newCardContent}
-                            onChange={(e) => setNewCardContent(e.target.value)}
+                            value={CardName}
+                            onChange={(e) => setCardName(e.target.value)}
                             className="w-full h-14 shadow-sm"
                         />
                         <div className="grid grid-cols-6 gap-2 mt-3">
