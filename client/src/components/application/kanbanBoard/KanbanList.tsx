@@ -79,7 +79,7 @@ export default function KanbanList({ title }: KanbanListProps) {
                     <div className="flex flex-col justify-between h-full">
                         <Input
                             type="text"
-                            placeholder="Nom de la carte"
+                            placeholder="Entrez un titre pour cette carte"
                             value={CardName}
                             onChange={(e) => setCardName(e.target.value)}
                             autoFocus
