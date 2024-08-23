@@ -3,7 +3,7 @@ import KanbanCard from "./KanbanCard"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { KanbanListProps } from "@/typeScript/Type"
-import { Ellipsis, PlusIcon, X } from "lucide-react"
+import { Ellipsis, Eraser, PlusIcon} from "lucide-react"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 
@@ -59,7 +59,7 @@ export default function KanbanList({ title }: KanbanListProps) {
                             </Button>
 
                             <Button variant="outline" size={"sm"} onClick={() => setIsAdding(false)} className="w-full p-2 rounded-sm">
-                                <X className="h-4 w-4" />
+                                <Eraser className="h-4 w-4" />
                             </Button>
                         </div>
                     </div>
