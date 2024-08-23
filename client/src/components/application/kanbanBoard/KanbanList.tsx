@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Ellipsis, PlusIcon } from "lucide-react";
+import { Ellipsis, PlusIcon, X } from "lucide-react";
 import KanbanCard from "./KanbanCard"; // Assurez-vous que le chemin est correct
 import { Input } from "@/components/ui/input";
 
@@ -55,13 +55,13 @@ export default function KanbanList({ title }: KanbanListProps) {
                             onChange={(e) => setNewCardContent(e.target.value)}
                             className="w-full h-14"
                         />
-                        <div className="flex space-x-2 mt-3">
-                            <Button onClick={addCard} className="w-full">
+                        <div className="grid grid-cols-6 gap-2 mt-3">
+                            <Button onClick={addCard} className="col-span-5 w-full">
                                 Ajouter
                             </Button>
 
-                            <Button variant="outline" onClick={() => setIsAdding(false)} className="w-full">
-                                Annuler
+                            <Button variant="outline" onClick={() => setIsAdding(false)} className="w-full p-2">
+                                <X className="h-4 w-4" />
                             </Button>
                         </div>
                     </div>
