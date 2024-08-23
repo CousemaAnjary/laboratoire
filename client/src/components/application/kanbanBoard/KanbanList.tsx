@@ -82,6 +82,7 @@ export default function KanbanList({ title }: KanbanListProps) {
                             placeholder="Nom de la carte"
                             value={CardName}
                             onChange={(e) => setCardName(e.target.value)}
+                            autoFocus
                             className="w-full h-14 shadow-sm"
                         />
                         <div className="grid grid-cols-6 gap-2 mt-3">
