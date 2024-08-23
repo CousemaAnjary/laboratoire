@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { KanbanListProps } from "@/typeScript/Type"
 import { useState, useRef, useEffect } from "react"
-import { Ellipsis, Eraser, PlusIcon } from "lucide-react"
+import { CirclePlus, Ellipsis, Eraser } from "lucide-react"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 
@@ -83,7 +83,7 @@ export default function KanbanList({ title }: KanbanListProps) {
                             value={CardName}
                             onChange={(e) => setCardName(e.target.value)}
                             autoFocus
-                            className="w-full h-14 shadow-sm"
+                            className="w-full h-12 shadow-sm"
                         />
                         <div className="grid grid-cols-6 gap-2 mt-3">
                             <Button size={"sm"} onClick={addCard} className="col-span-5 w-full rounded-sm">
@@ -107,7 +107,7 @@ export default function KanbanList({ title }: KanbanListProps) {
                         className="w-full justify-start items-center font-medium"
                         onClick={() => setIsAdding(true)}
                     >
-                        <PlusIcon className="mr-2 h-4 w-4" />
+                        <CirclePlus className="mr-2 h-4 w-4" />
                         Ajouter une carte
                     </Button>
                 )}

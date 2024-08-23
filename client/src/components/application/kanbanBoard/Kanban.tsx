@@ -1,5 +1,5 @@
 import KanbanList from './KanbanList'
-import { PlusIcon } from 'lucide-react'
+import { CirclePlus } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { useState, useRef, useEffect } from 'react'
@@ -92,7 +92,7 @@ export default function Kanban() {
                     className="w-72 justify-start items-center"
                     onClick={() => setIsAdding(true)}
                 >
-                    <PlusIcon className="mr-2 h-4 w-4" />
+                    <CirclePlus className="mr-2 h-4 w-4" />
                     Ajouter une autre liste
                 </Button>
             )}
