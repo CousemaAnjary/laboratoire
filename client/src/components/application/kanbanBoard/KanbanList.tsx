@@ -56,11 +56,11 @@ export default function KanbanList({ title }: KanbanListProps) {
                             className="w-full h-14"
                         />
                         <div className="grid grid-cols-6 gap-2 mt-3">
-                            <Button onClick={addCard} className="col-span-5 w-full">
+                            <Button size={"sm"} onClick={addCard} className="col-span-5 w-full rounded-sm">
                                 Ajouter
                             </Button>
 
-                            <Button variant="outline" onClick={() => setIsAdding(false)} className="w-full p-2">
+                            <Button variant="outline" size={"sm"} onClick={() => setIsAdding(false)} className="w-full p-2 rounded-sm">
                                 <X className="h-4 w-4" />
                             </Button>
                         </div>
@@ -72,6 +72,7 @@ export default function KanbanList({ title }: KanbanListProps) {
                 {!isAdding && (
                     <Button
                         variant="outline"
+                        size={"sm"}
                         className="w-full justify-start font-medium"
                         onClick={() => setIsAdding(true)}
                     >
