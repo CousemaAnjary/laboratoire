@@ -89,5 +89,4 @@ export type kanbanCardProps = {
 
 export type KanbanListProps = {
     title: string;
-    children?: React.ReactNode;
 }

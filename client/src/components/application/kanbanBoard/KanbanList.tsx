@@ -1,13 +1,11 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Ellipsis, PlusIcon, X } from "lucide-react";
-import KanbanCard from "./KanbanCard"; // Assurez-vous que le chemin est correct
-import { Input } from "@/components/ui/input";
+import { useState } from "react"
+import KanbanCard from "./KanbanCard"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import { KanbanListProps } from "@/typeScript/Type"
+import { Ellipsis, PlusIcon, X } from "lucide-react"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
-interface KanbanListProps {
-    title: string;
-}
 
 export default function KanbanList({ title }: KanbanListProps) {
     /**
