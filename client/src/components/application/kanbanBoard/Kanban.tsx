@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button'
 import { useState, useRef, useEffect } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { DragDropContext } from 'react-beautiful-dnd'
+import { Form } from '@/components/ui/form'
+import { useForm } from "react-hook-form"
 
 
 
@@ -12,9 +14,10 @@ export default function Kanban() {
     /**
      * ! STATE (état, données) de l'application
      */
+    const form = useForm()
     const [isAdding, setIsAdding] = useState(false)
     const addListRef = useRef<HTMLDivElement>(null)
-    const [newListTitle, setNewListTitle] = useState('')
+    const [newListTitle, setNewListTitle] = useState("")
     const [lists, setLists] = useState<string[]>(['À faire', 'En cours', 'Terminé'])
 
 
@@ -56,6 +59,7 @@ export default function Kanban() {
         }
     }
 
+
     const onDragEnd = () => {
         console.log('drag end')
     }
@@ -75,25 +79,31 @@ export default function Kanban() {
                 {/* Formulaire d'ajout de liste */}
                 {isAdding ? (
                     <Card className="w-72 shrink-0" ref={addListRef}>
-                        <CardContent className="p-4">
-                            <Input
-                                type="text"
-                                placeholder="Entrez un titre pour cette liste"
-                                value={newListTitle}
-                                onChange={(e) => setNewListTitle(e.target.value)}
-                                autoFocus
-                                className="mb-4"
-                            />
-                            <div className="grid grid-cols-3 gap-2 mt-3 mb-3">
-                                <Button size={"sm"} onClick={addList} className="col-span-2 w-full rounded-sm">
-                                    Ajouter
-                                </Button>
+                        <Form {...form}>
+                            <form action="">
+                                <CardContent className="p-4">
+                                    <Input
+                                        type="text"
+                                        placeholder="Entrez un titre pour cette liste"
+                                        value={newListTitle}
+                                        onChange={(e) => setNewListTitle(e.target.value)}
+                                        autoFocus
+                                        className="mb-4"
+                                    />
+                                    <div className="grid grid-cols-3 gap-2 mt-3 mb-3">
+                                        <Button size={"sm"} onClick={addList} className="col-span-2 w-full rounded-sm">
+                                            Ajouter
+                                        </Button>
 
-                                <Button variant="outline" size={"sm"} onClick={handleCancel} className="w-full p-2 rounded-sm">
-                                    Annuler
-                                </Button>
-                            </div>
-                        </CardContent>
+                                        <Button variant="outline" size={"sm"} onClick={handleCancel} className="w-full p-2 rounded-sm">
+                                            Annuler
+                                        </Button>
+                                    </div>
+                                </CardContent>
+                            </form>
+                        </Form>
+
+
                     </Card>
                 ) : (
                     <Button
