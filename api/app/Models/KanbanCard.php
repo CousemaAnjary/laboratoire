@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class KanbanCard extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'due_date',
+        'position',
+        'list_id',
+    ];
 }

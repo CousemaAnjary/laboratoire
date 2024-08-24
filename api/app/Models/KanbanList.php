@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class KanbanList extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'position',
+    ];
 }
