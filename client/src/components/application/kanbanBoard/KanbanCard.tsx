@@ -21,7 +21,7 @@ export default function KanbanCard({ content, index }: kanbanCardProps & { index
      */
     return (
         <>
-            <Draggable draggableId={content} index={index}>
+            <Draggable draggableId={`${content}-${index}`} index={index}>
                 {(provided) => (
                     <div
                         className="relative group"
