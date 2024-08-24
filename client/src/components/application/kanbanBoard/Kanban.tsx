@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { useState, useRef, useEffect } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
-import { DragDropContext } from 'react-beautiful-dnd'
+import { DragDropContext, DropResult } from 'react-beautiful-dnd'
 
 
 
@@ -57,8 +57,22 @@ export default function Kanban() {
     }
 
     // Déplacer une carte d'une liste à une autre
-    const onDragEnd = () => {
+    const onDragEnd = (result: DropResult) => {
 
+        const { destination, source } = result
+
+        // Si la carte n'a pas de destination
+        if (!destination) return
+
+        // Si la carte est déplacée à la même position
+        if (destination.index === source.index) return
+
+        // Réorganiser l'ordre des listes
+        const newLists = Array.from(lists)
+        const [movedList] = newLists.splice(source.index, 1)
+        newLists.splice(destination.index, 0, movedList)
+
+        setLists(newLists)
     }
 
     /**

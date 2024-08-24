@@ -79,9 +79,9 @@ export default function KanbanList({ title }: KanbanListProps) {
                     >
 
                         {cards.map((content, index) => (
-                            <KanbanCard key={index} content={content} />
+                            <KanbanCard key={index} content={content} index={index} />
                         ))}
-
+                        {provided.placeholder}
                         {isAdding && (
                             <div className="flex flex-col justify-between h-full">
                                 <Input
