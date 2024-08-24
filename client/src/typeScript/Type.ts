@@ -83,6 +83,7 @@ export type CollapseMenuButtonProps = {
 
 // Le type pour les données de la card Kanban
 export type kanbanCardProps = {
+   
     content: string
 }
 

@@ -1,7 +1,7 @@
 import KanbanCard from "./KanbanCard"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Droppable } from "react-beautiful-dnd"
+
 import { KanbanListProps } from "@/typeScript/Type"
 import { useState, useRef, useEffect } from "react"
 import { CirclePlus, Ellipsis, Eraser } from "lucide-react"
@@ -70,43 +70,36 @@ export default function KanbanList({ title }: KanbanListProps) {
                 </Button>
             </CardHeader>
 
-            <Droppable droppableId={title}>
-                {(provided) => (
-                    <CardContent
-                        className="flex-1 space-y-2 px-4 py-1 overflow-auto"
-                        ref={provided.innerRef}
-                        {...provided.droppableProps}
-                    >
 
-                        {cards.map((content, index) => (
-                            <KanbanCard key={content} content={content} index={index} />
-                        ))}
-                        {provided.placeholder}
+            <CardContent className="flex-1 space-y-2 px-4 py-1 overflow-auto  ">
 
-                        {isAdding && (
-                            <div className="flex flex-col justify-between h-full">
-                                <Input
-                                    type="text"
-                                    placeholder="Entrez un titre pour cette carte"
-                                    value={CardName}
-                                    onChange={(e) => setCardName(e.target.value)}
-                                    autoFocus
-                                    className="w-full h-12 shadow-sm"
-                                />
-                                <div className="grid grid-cols-6 gap-2 mt-3">
-                                    <Button size={"sm"} onClick={addCard} className="col-span-5 w-full rounded-sm">
-                                        Ajouter
-                                    </Button>
+                {cards.map((content, index) => (
+                    <KanbanCard key={index} content={content} />
+                ))}
 
-                                    <Button variant="outline" size={"sm"} onClick={handleCancel} className="w-full p-2 rounded-sm">
-                                        <Eraser className="h-4 w-4" />
-                                    </Button>
-                                </div>
-                            </div>
-                        )}
-                    </CardContent>
+
+                {isAdding && (
+                    <div className="flex flex-col justify-between h-full">
+                        <Input
+                            type="text"
+                            placeholder="Entrez un titre pour cette carte"
+                            value={CardName}
+                            onChange={(e) => setCardName(e.target.value)}
+                            autoFocus
+                            className="w-full h-12 shadow-sm"
+                        />
+                        <div className="grid grid-cols-6 gap-2 mt-3">
+                            <Button size={"sm"} onClick={addCard} className="col-span-5 w-full rounded-sm">
+                                Ajouter
+                            </Button>
+
+                            <Button variant="outline" size={"sm"} onClick={handleCancel} className="w-full p-2 rounded-sm">
+                                <Eraser className="h-4 w-4" />
+                            </Button>
+                        </div>
+                    </div>
                 )}
-            </Droppable>
+            </CardContent>
 
             <CardFooter className="px-4 mt-2">
 

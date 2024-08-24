@@ -4,7 +4,6 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { useState, useRef, useEffect } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
-import { DragDropContext, DropResult } from 'react-beautiful-dnd'
 
 
 
@@ -56,72 +55,51 @@ export default function Kanban() {
         }
     }
 
-    // Déplacer une carte d'une liste à une autre
-    const onDragEnd = (result: DropResult) => {
-
-        const { destination, source } = result
-
-        // Si la carte n'a pas de destination
-        if (!destination) return
-
-        // Si la carte est déplacée à la même position
-        if (destination.index === source.index) return
-
-        // Réorganiser l'ordre des listes
-        const newLists = Array.from(lists)
-        const [movedList] = newLists.splice(source.index, 1)
-        newLists.splice(destination.index, 0, movedList)
-
-        setLists(newLists)
-    }
-
     /**
      * ! AFFICHAGE (render) de l'application
      */
     return (
-        <DragDropContext onDragEnd={onDragEnd}>
 
-            <div className="flex space-x-4 p-4 overflow-x-auto items-start">
-                {/* Listes Kanban */}
-                {lists.map((title, index) => (
-                    <KanbanList key={index} title={title} />
-                ))}
 
-                {/* Formulaire d'ajout de liste */}
-                {isAdding ? (
-                    <Card className="w-72 shrink-0" ref={addListRef}>
-                        <CardContent className="p-4">
-                            <Input
-                                type="text"
-                                placeholder="Entrez un titre pour cette liste"
-                                value={newListTitle}
-                                onChange={(e) => setNewListTitle(e.target.value)}
-                                autoFocus
-                                className="mb-4"
-                            />
-                            <div className="grid grid-cols-3 gap-2 mt-3 mb-3">
-                                <Button size={"sm"} onClick={addList} className="col-span-2 w-full rounded-sm">
-                                    Ajouter
-                                </Button>
+        <div className="flex space-x-4 p-4 overflow-x-auto items-start">
+            {/* Listes Kanban */}
+            {lists.map((title, index) => (
+                <KanbanList key={index} title={title} />
+            ))}
 
-                                <Button variant="outline" size={"sm"} onClick={handleCancel} className="w-full p-2 rounded-sm">
-                                    Annuler
-                                </Button>
-                            </div>
-                        </CardContent>
-                    </Card>
-                ) : (
-                    <Button
-                        variant="ghost"
-                        className="w-72 justify-start items-center border-dashed border"
-                        onClick={() => setIsAdding(true)}
-                    >
-                        <CirclePlus className="mr-2 h-4 w-4" />
-                        Ajouter une autre liste
-                    </Button>
-                )}
-            </div>
+            {/* Formulaire d'ajout de liste */}
+            {isAdding ? (
+                <Card className="w-72 shrink-0" ref={addListRef}>
+                    <CardContent className="p-4">
+                        <Input
+                            type="text"
+                            placeholder="Entrez un titre pour cette liste"
+                            value={newListTitle}
+                            onChange={(e) => setNewListTitle(e.target.value)}
+                            autoFocus
+                            className="mb-4"
+                        />
+                        <div className="grid grid-cols-3 gap-2 mt-3 mb-3">
+                            <Button size={"sm"} onClick={addList} className="col-span-2 w-full rounded-sm">
+                                Ajouter
+                            </Button>
 
-        </DragDropContext>
+                            <Button variant="outline" size={"sm"} onClick={handleCancel} className="w-full p-2 rounded-sm">
+                                Annuler
+                            </Button>
+                        </div>
+                    </CardContent>
+                </Card>
+            ) : (
+                <Button
+                    variant="ghost"
+                    className="w-72 justify-start items-center border-dashed border"
+                    onClick={() => setIsAdding(true)}
+                >
+                    <CirclePlus className="mr-2 h-4 w-4" />
+                    Ajouter une autre liste
+                </Button>
+            )}
+        </div>
     )
 }
