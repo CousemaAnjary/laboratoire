@@ -1,9 +1,9 @@
 import api from "./config/apiConfig"
-import { LoginType, RegisterType } from "@/typeScript/Type"
-
+import { LoginType } from "@/typeScript/Type"
+import { RegisterResponseType, RegisterType } from "@/typeScript/Auth"
 
 // Inscrire un nouvel utilisateur
-export const register = async (dataRegister: RegisterType) => {
+export const register = async (dataRegister: RegisterType): Promise<RegisterResponseType> => {
     try {
         // Appel à l'API pour enregistrer un nouvel utilisateur
         const response = await api.post('/register', dataRegister)
@@ -11,6 +11,7 @@ export const register = async (dataRegister: RegisterType) => {
 
     } catch (error) {
         console.error('Erreur lors de l\'inscription:', error)
+        throw error
     }
 }
 

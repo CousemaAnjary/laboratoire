@@ -3,14 +3,13 @@ import { useState } from "react"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
 import { FcGoogle } from "react-icons/fc"
+import { useForm } from "react-hook-form"
 import { Eye, EyeOff } from "lucide-react"
-import { RegisterType } from "@/typeScript/Type"
+import { RegisterType } from "@/typeScript/Auth"
 import { register } from "@/services/authService"
 import { Link, useNavigate } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm, UseFormReturn } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
-
 
 
 // Définir le schéma de validation avec Zod
@@ -29,7 +28,7 @@ export default function RegisterForm() {
     const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false)
 
-    const form: UseFormReturn<RegisterType> = useForm<RegisterType>({
+    const form = useForm<RegisterType>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             last_name: "",
@@ -44,26 +43,16 @@ export default function RegisterForm() {
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
     const handleRegister = async (data: RegisterType): Promise<void> => {
-        // Données à envoyer au serveur (API)
-        const registerData = {
-            last_name: data.last_name,
-            first_name: data.first_name,
-            email: data.email,
-            password: data.password,
-            image: data.image
-        }
-
         try {
-            await register(registerData)
-            // Inscription réussie, rediriger vers la page de connexion
-            navigate('/login')
+            // Appel à la fonction d'inscription de l'utilisateur
+            await register(data)
+            navigate('/login') 
 
         } catch (error) {
             // Afficher l'erreur dans la console
             console.error(error)
         }
     }
-
 
 
     /**
