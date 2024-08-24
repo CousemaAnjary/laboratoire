@@ -38,22 +38,24 @@ export default function Kanban() {
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
+    // Récupérer les listes Kanban
     useEffect(() => {
         const fetchKanbanLists = async () => {
             try {
                 // Appeler la fonction pour récupérer les listes
-                const dataLists = await kanbanLists();
+                const dataLists = await kanbanLists()
                 // Mettre à jour l'état avec les listes récupérées
-                setLists(dataLists);
+                setLists(dataLists)
 
             } catch (error) {
                 console.error('Erreur lors de la récupération des listes:', error);
             }
         };
         // Appeler la fonction pour récupérer les listes
-        fetchKanbanLists();
-    }, []);
+        fetchKanbanLists()
+    }, [])
 
+    // Écouter les clics de l'utilisateur
     useEffect(() => {
         // Écouter les clics de l'utilisateur
         document.addEventListener("mousedown", handleClickOutside)
@@ -64,16 +66,6 @@ export default function Kanban() {
         }
     }, [])
 
-    // Ajouter une liste au tableau Kanban
-    // const addList = () => {
-
-    //     if (newListTitle.trim() !== '') {
-    //         setLists([...lists, newListTitle]) // Ajouter la liste au tableau
-    //         setNewListTitle('') // Réinitialiser le champ de saisie
-    //     }
-    //     // Fermer le formulaire d'ajout
-    //     setIsAdding(false)
-    // }
 
     // Fermer le formulaire d'ajout de liste
     const handleCancel = () => {
