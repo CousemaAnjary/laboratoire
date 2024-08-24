@@ -21,7 +21,7 @@ export default function KanbanCard({ content }: kanbanCardProps) {
     return (
         <>
             <div className="relative group">
-                <Card className="w-full cursor-pointer border shadow-sm  group-hover:border-slate-700  transition-all duration-300">
+                <Card className="w-full cursor-pointer border shadow-sm  group-hover:border-slate-700 transition-all duration-300">
                     <CardContent className="p-1 pl-2 flex justify-between items-center">
                         <p className="text-sm break-words overflow-hidden text-ellipsis">{content}</p>
                         <Button
