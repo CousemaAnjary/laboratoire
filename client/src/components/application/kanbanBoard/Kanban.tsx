@@ -1,24 +1,38 @@
+import { z } from 'zod'
 import KanbanList from './KanbanList'
 import { CirclePlus } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import { kanbanListType } from '@/typeScript/Type'
 import { useState, useRef, useEffect } from 'react'
-import { Card, CardContent } from '@/components/ui/card'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { DragDropContext } from 'react-beautiful-dnd'
-import { Form } from '@/components/ui/form'
-import { useForm } from "react-hook-form"
+import { useForm, UseFormReturn } from "react-hook-form"
+import { Card, CardContent } from '@/components/ui/card'
+import { Form, FormControl, FormField, FormItem, } from '@/components/ui/form'
+import { addKanbanList } from '@/services/kanbanService'
 
+
+// Définir le schéma de validation avec Zod
+const formSchema = z.object({
+    name: z.string().min(2, { message: "Le nom doit contenir au moins 2 caractères" }),
+})
 
 
 export default function Kanban() {
     /**
      * ! STATE (état, données) de l'application
      */
-    const form = useForm()
     const [isAdding, setIsAdding] = useState(false)
     const addListRef = useRef<HTMLDivElement>(null)
-    const [newListTitle, setNewListTitle] = useState("")
     const [lists, setLists] = useState<string[]>(['À faire', 'En cours', 'Terminé'])
+
+    const form: UseFormReturn<kanbanListType> = useForm<kanbanListType>({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            name: "",
+        },
+    })
 
 
     /**
@@ -35,20 +49,20 @@ export default function Kanban() {
     }, [])
 
     // Ajouter une liste au tableau Kanban
-    const addList = () => {
+    // const addList = () => {
 
-        if (newListTitle.trim() !== '') {
-            setLists([...lists, newListTitle]) // Ajouter la liste au tableau
-            setNewListTitle('') // Réinitialiser le champ de saisie
-        }
-        // Fermer le formulaire d'ajout
-        setIsAdding(false)
-    }
+    //     if (newListTitle.trim() !== '') {
+    //         setLists([...lists, newListTitle]) // Ajouter la liste au tableau
+    //         setNewListTitle('') // Réinitialiser le champ de saisie
+    //     }
+    //     // Fermer le formulaire d'ajout
+    //     setIsAdding(false)
+    // }
 
     // Fermer le formulaire d'ajout de liste
     const handleCancel = () => {
         setIsAdding(false) // Fermer le formulaire
-        setNewListTitle('') // Réinitialiser le champ de saisie
+        form.reset({ name: '' }) // Réinitialiser le champ de saisie
     }
 
     // Fermer le formulaire d'ajout de liste
@@ -62,6 +76,30 @@ export default function Kanban() {
 
     const onDragEnd = () => {
         console.log('drag end')
+    }
+
+    // Enregistrer une nouvelle liste
+    const handleSubmit = async (data: kanbanListType): Promise<void> => {
+
+        // Données à envoyer au serveur (API)
+        const kanbanListData = {
+            name: data.name,
+            position: lists.length
+        }
+
+        try {
+            // Enregistrer la nouvelle liste
+            await addKanbanList(kanbanListData)
+            // Fermer le formulaire d'ajout
+            setIsAdding(false)
+            // Réinitialiser le champ de saisie
+            form.reset({ name: '' })
+
+        } catch (error) {
+            // Afficher l'erreur dans la console
+            console.error(error)
+        }
+
     }
 
 
@@ -80,22 +118,30 @@ export default function Kanban() {
                 {isAdding ? (
                     <Card className="w-72 shrink-0" ref={addListRef}>
                         <Form {...form}>
-                            <form action="">
+                            <form onSubmit={form.handleSubmit(handleSubmit)}>
                                 <CardContent className="p-4">
-                                    <Input
-                                        type="text"
-                                        placeholder="Entrez un titre pour cette liste"
-                                        value={newListTitle}
-                                        onChange={(e) => setNewListTitle(e.target.value)}
-                                        autoFocus
-                                        className="mb-4"
+                                    <FormField
+                                        control={form.control}
+                                        name="name"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormControl>
+                                                    <Input {...field}
+                                                        type="text"
+                                                        placeholder="Entrez un titre pour cette liste"
+                                                        autoFocus
+                                                        className="mb-4"
+                                                    />
+                                                </FormControl>
+                                            </FormItem>
+                                        )}
                                     />
                                     <div className="grid grid-cols-3 gap-2 mt-3 mb-3">
-                                        <Button size={"sm"} onClick={addList} className="col-span-2 w-full rounded-sm">
+                                        <Button type='submit' size={"sm"}  className="col-span-2 w-full rounded-sm">
                                             Ajouter
                                         </Button>
 
-                                        <Button variant="outline" size={"sm"} onClick={handleCancel} className="w-full p-2 rounded-sm">
+                                        <Button type='button' variant="outline" size={"sm"} onClick={handleCancel} className="w-full p-2 rounded-sm">
                                             Annuler
                                         </Button>
                                     </div>

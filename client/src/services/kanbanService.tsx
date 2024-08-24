@@ -1,3 +1,4 @@
+import { kanbanListType } from "@/typeScript/Type"
 import api from "./config/apiConfig"
 
 
@@ -14,10 +15,10 @@ export const kanbanLists = async () => {
 }
 
 // Ajouter une colonne au tableau Kanban
-export const addKanbanList = async (kanbanListData) => {
+export const addKanbanList = async (kanbanListData :kanbanListType ) => {
     try {
         // Appel à l'API pour ajouter une colonne au tableau Kanban
-        const response = await api.post('/kanbanLists', kanbanListData)
+        const response = await api.post('/kanbanList', kanbanListData)
         return response.data.kanbanList // Retourner les données de la réponse de l'API
 
     } catch (error) {

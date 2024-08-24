@@ -62,7 +62,7 @@ export type Menu = {
     href: string
     label: string
     active: boolean
-    icon: LucideIcon 
+    icon: LucideIcon
     submenus: Submenu[]
 }
 
@@ -83,11 +83,16 @@ export type CollapseMenuButtonProps = {
 
 // Le type pour les données de la card Kanban
 export type kanbanCardProps = {
-   index : number
+    index: number
     content: string
 }
 
 // Le type pour les données de la liste Kanban
 export type KanbanListProps = {
     title: string;
+}
+
+export type kanbanListType = {
+    name: string
+    position: number
 }
