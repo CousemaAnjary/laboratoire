@@ -88,8 +88,8 @@ export default function Kanban() {
                 </Card>
             ) : (
                 <Button
-                    variant="secondary"
-                    className="w-72 justify-start items-center"
+                    variant="ghost"
+                    className="w-72 justify-start items-center border-dashed border"
                     onClick={() => setIsAdding(true)}
                 >
                     <CirclePlus className="mr-2 h-4 w-4" />
