@@ -99,7 +99,7 @@ export default function Kanban() {
         }
 
         try {
-          const response = await addKanbanList(kanbanListData)
+            const response = await addKanbanList(kanbanListData)
             // Mettre à jour l'état avec la nouvelle liste
             setLists([...lists, response.kanbanList])
             setIsAdding(false);
@@ -125,7 +125,7 @@ export default function Kanban() {
             <div className="flex space-x-4 p-4 overflow-x-auto items-start">
                 {/* Listes Kanban */}
                 {lists.map((list, index) => (
-                    <KanbanList key={index} title={list.name} />
+                    <KanbanList key={index} list={list} />
                 ))}
 
                 {/* Formulaire d'ajout de liste */}

@@ -1,15 +1,15 @@
 import KanbanCard from "./KanbanCard"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-
+import { Droppable } from "react-beautiful-dnd"
 import { KanbanListProps } from "@/typeScript/Type"
 import { useState, useRef, useEffect } from "react"
 import { CirclePlus, Ellipsis, Eraser } from "lucide-react"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Droppable } from "react-beautiful-dnd"
 
 
-export default function KanbanList({ title }: KanbanListProps) {
+
+export default function KanbanList({ list }: KanbanListProps) {
     /**
      * ! STATE (état, données) de l'application
      */
@@ -65,13 +65,13 @@ export default function KanbanList({ title }: KanbanListProps) {
     return (
         <Card className="flex flex-col w-full max-w-72 shadow-sm" ref={addCardRef}>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-semibold">{title}</CardTitle>
+                <CardTitle className="text-sm font-semibold">{list.name}</CardTitle>
                 <Button variant="ghost" size="icon" className="h-8 w-8">
                     <Ellipsis className="h-4 w-4" />
                 </Button>
             </CardHeader>
 
-            <Droppable droppableId={title}>
+            <Droppable droppableId={list.id}>
                 {(provided) => (
                     <CardContent
                         className="flex-1 space-y-2 px-4 py-1 overflow-auto"

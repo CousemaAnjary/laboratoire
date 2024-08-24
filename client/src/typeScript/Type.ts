@@ -89,7 +89,10 @@ export type kanbanCardProps = {
 
 // Le type pour les données de la liste Kanban
 export type KanbanListProps = {
-    title: string;
+    list: {
+        id : string
+        name: string
+    };
 }
 
 export type kanbanListType = {
