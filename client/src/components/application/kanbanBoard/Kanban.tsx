@@ -66,6 +66,7 @@ export default function Kanban() {
      */
     return (
         <DragDropContext onDragEnd={onDragEnd}>
+
             <div className="flex space-x-4 p-4 overflow-x-auto items-start">
                 {/* Listes Kanban */}
                 {lists.map((title, index) => (
@@ -106,6 +107,7 @@ export default function Kanban() {
                     </Button>
                 )}
             </div>
+
         </DragDropContext>
     )
 }
