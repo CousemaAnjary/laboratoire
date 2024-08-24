@@ -15,8 +15,8 @@ class KanbanController extends Controller
         $kanbanLists = KanbanList::all();
 
         return response()->json([
-            'message' => 'Listes de kanban récupérées avec succès',
-            '$kanbanLists' => $kanbanLists
+            'kanbanLists' => $kanbanLists,
+            'message' => 'Listes de kanban récupérées avec succès'
         ], 200);
     }
 

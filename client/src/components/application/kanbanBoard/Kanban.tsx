@@ -10,7 +10,7 @@ import { DragDropContext } from 'react-beautiful-dnd'
 import { useForm, UseFormReturn } from "react-hook-form"
 import { Card, CardContent } from '@/components/ui/card'
 import { Form, FormControl, FormField, FormItem, } from '@/components/ui/form'
-import { addKanbanList } from '@/services/kanbanService'
+import { addKanbanList, kanbanLists } from '@/services/kanbanService'
 
 
 // Définir le schéma de validation avec Zod
@@ -25,7 +25,7 @@ export default function Kanban() {
      */
     const [isAdding, setIsAdding] = useState(false)
     const addListRef = useRef<HTMLDivElement>(null)
-    const [lists, setLists] = useState<string[]>(['À faire', 'En cours', 'Terminé'])
+    const [lists, setLists] = useState([])
 
     const form: UseFormReturn<kanbanListType> = useForm<kanbanListType>({
         resolver: zodResolver(formSchema),
@@ -38,6 +38,22 @@ export default function Kanban() {
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
+    useEffect(() => {
+        const fetchKanbanLists = async () => {
+            try {
+                // Appeler la fonction pour récupérer les listes
+                const dataLists = await kanbanLists();
+                // Mettre à jour l'état avec les listes récupérées
+                setLists(dataLists);
+
+            } catch (error) {
+                console.error('Erreur lors de la récupération des listes:', error);
+            }
+        };
+        // Appeler la fonction pour récupérer les listes
+        fetchKanbanLists();
+    }, []);
+
     useEffect(() => {
         // Écouter les clics de l'utilisateur
         document.addEventListener("mousedown", handleClickOutside)
@@ -73,11 +89,6 @@ export default function Kanban() {
         }
     }
 
-
-    const onDragEnd = () => {
-        console.log('drag end')
-    }
-
     // Enregistrer une nouvelle liste
     const handleSubmit = async (data: kanbanListType): Promise<void> => {
 
@@ -88,18 +99,21 @@ export default function Kanban() {
         }
 
         try {
-            // Enregistrer la nouvelle liste
-            await addKanbanList(kanbanListData)
-            // Fermer le formulaire d'ajout
-            setIsAdding(false)
-            // Réinitialiser le champ de saisie
-            form.reset({ name: '' })
+          const response = await addKanbanList(kanbanListData)
+            // Mettre à jour l'état avec la nouvelle liste
+            setLists([...lists, response.kanbanList])
+            setIsAdding(false);
+            form.reset({ name: '' });
 
         } catch (error) {
             // Afficher l'erreur dans la console
             console.error(error)
         }
 
+    }
+
+    const onDragEnd = () => {
+        console.log('drag end')
     }
 
 
@@ -110,8 +124,8 @@ export default function Kanban() {
         <DragDropContext onDragEnd={onDragEnd}>
             <div className="flex space-x-4 p-4 overflow-x-auto items-start">
                 {/* Listes Kanban */}
-                {lists.map((title, index) => (
-                    <KanbanList key={index} title={title} />
+                {lists.map((list, index) => (
+                    <KanbanList key={index} title={list.name} />
                 ))}
 
                 {/* Formulaire d'ajout de liste */}
@@ -137,7 +151,7 @@ export default function Kanban() {
                                         )}
                                     />
                                     <div className="grid grid-cols-3 gap-2 mt-3 mb-3">
-                                        <Button type='submit' size={"sm"}  className="col-span-2 w-full rounded-sm">
+                                        <Button type='submit' size={"sm"} className="col-span-2 w-full rounded-sm">
                                             Ajouter
                                         </Button>
 
