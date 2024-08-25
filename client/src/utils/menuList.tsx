@@ -1,4 +1,4 @@
-import { Group } from "@/typeScript/Type"
+import { Group } from "@/typeScript/AdminPanel"
 import {  Users, Settings, Bookmark, LayoutGrid, Key } from "lucide-react"
 
 

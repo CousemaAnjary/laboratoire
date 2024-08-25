@@ -1,18 +1,5 @@
-import { LucideIcon } from 'lucide-react'
-import { UserType } from './User'
-import { LoginType } from './Auth'
 
 
-
-
-
-// Le type pour le contexte d'authentification
-export type AuthContextType = {
-    isAuthenticated: boolean
-    user: UserType | null
-    login: (dataLogin: LoginType) => Promise<void>
-    logout: () => Promise<void>
-}
 
 // Le type pour le contexte du thème
 export type ThemeContextType = {
@@ -20,64 +7,3 @@ export type ThemeContextType = {
     toggleTheme: () => void
 }
 
-// Le type pour le contexte de la barre latérale
-export type SidebarToggleProps = {
-    isOpen: boolean
-    toggleSidebar: () => void
-}
-
-// Le type pour le contexte de la barre latérale
-export type MenuProps = {
-    isOpen: boolean
-    pathname: string
-}
-
-// Le type pour les sous-menus
-export type Submenu = {
-    href: string
-    label: string
-    active: boolean
-}
-
-// Le type pour les menus
-export type Menu = {
-    href: string
-    label: string
-    active: boolean
-    icon: LucideIcon
-    submenus: Submenu[]
-}
-
-// Le type pour les groupes
-export type Group = {
-    groupLabel: string
-    menus: Menu[]
-}
-
-// Le type pour le bouton de menu déroulant
-export type CollapseMenuButtonProps = {
-    icon: LucideIcon
-    label: string
-    active: boolean
-    submenus: Submenu[]
-    isOpen: boolean | undefined
-}
-
-// Le type pour les données de la card Kanban
-export type kanbanCardProps = {
-    index: number
-    content: string
-}
-
-// Le type pour les données de la liste Kanban
-export type KanbanListProps = {
-    list: {
-        id: string
-        name: string
-    };
-}
-
-export type kanbanListType = {
-    name: string
-    position: number
-}
