@@ -3,7 +3,6 @@ import KanbanList from './KanbanList'
 import { CirclePlus } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { kanbanListType } from '@/typeScript/Type'
 import { useState, useRef, useEffect } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { DragDropContext } from 'react-beautiful-dnd'
@@ -11,6 +10,7 @@ import { useForm, UseFormReturn } from "react-hook-form"
 import { Card, CardContent } from '@/components/ui/card'
 import { Form, FormControl, FormField, FormItem, } from '@/components/ui/form'
 import { addKanbanList, kanbanLists } from '@/services/kanbanService'
+import { kanbanListType } from '@/typeScript/Kanban'
 
 
 // Définir le schéma de validation avec Zod

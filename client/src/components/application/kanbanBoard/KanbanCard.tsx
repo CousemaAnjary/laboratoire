@@ -1,9 +1,8 @@
 import { Trash2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { kanbanCardProps } from "@/typeScript/Type"
-import { Card, CardContent } from "@/components/ui/card"
 import { Draggable } from "react-beautiful-dnd"
-
+import { kanbanCardProps } from "@/typeScript/Kanban"
+import { Card, CardContent } from "@/components/ui/card"
 
 
 export default function KanbanCard({ content, index }: kanbanCardProps) {
