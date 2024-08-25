@@ -3,14 +3,13 @@ import { useState } from "react"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
 import { Eye, EyeOff } from "lucide-react"
-import { LoginType } from "@/typeScript/Type"
+import { LoginType } from "@/typeScript/Auth"
 import ShinyButton from "../magicui/shiny-button"
 import { useAuth } from "@/contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm, UseFormReturn } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
-// import { FcGoogle } from "react-icons/fc"
 
 
 // Définir le schéma de validation avec Zod
@@ -39,17 +38,10 @@ export default function LoginForm() {
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
     const handleLogin = async (data: LoginType): Promise<void> => {
-        // Données à envoyer au serveur (API) pour l'authentification
-        const loginData = {
-            email: data.email,
-            password: data.password
-        }
-
         try {
             // Envoi des données au serveur (API) pour l'authentification
-            await login(loginData)
-            navigate('/dashboard') // Rediriger l'utilisateur vers le tableau de bord
-
+            await login(data)
+            navigate('/dashboard')
 
         } catch (error) {
             // Afficher l'erreur dans la console

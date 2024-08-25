@@ -1,4 +1,3 @@
-import { UserType } from "./User"
 
 // Le type des données d'inscription
 export type RegisterType = {
@@ -9,8 +8,9 @@ export type RegisterType = {
     image?: File
 }
 
-// Le type des données d'inscription de retour
-export type RegisterResponseType = {
-    user : UserType
-    message: string
+// Le type des données de connexion
+export type LoginType = {
+    email: string
+    password: string
 }
+

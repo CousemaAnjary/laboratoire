@@ -1,11 +1,6 @@
 import { LucideIcon } from 'lucide-react'
 import { UserType } from './User'
-
-// Le type des données de connexion
-export type LoginType = {
-    email: string
-    password: string
-}
+import { LoginType } from './Auth'
 
 
 
@@ -77,7 +72,7 @@ export type kanbanCardProps = {
 // Le type pour les données de la liste Kanban
 export type KanbanListProps = {
     list: {
-        id : string
+        id: string
         name: string
     };
 }
