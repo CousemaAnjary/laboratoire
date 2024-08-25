@@ -26,7 +26,7 @@ export default function KanbanList({ list }: KanbanListProps) {
 
     const addCardRef = useRef<HTMLDivElement>(null)
     const [isAdding, setIsAdding] = useState(false)
-    const [cards, setCards] = useState([])
+    const [cards, setCards] = useState<kanbanCardType[]>([])
 
     const form = useForm<kanbanCardType>({
         resolver: zodResolver(formSchema),
@@ -86,18 +86,12 @@ export default function KanbanList({ list }: KanbanListProps) {
     // Soumettre le formulaire d'ajout de carte
     const handleSubmit = async (data: kanbanCardType): Promise<void> => {
 
-        // Données à envoyer au serveur (API)
-        const kanbanCardData = {
-            name: data.name,
-            position: cards.length,
-            list_id: list.id
-        }
 
         try {
             // Appeler la fonction pour ajouter une carte
-            const response = await addKanbanCard(kanbanCardData)
+            const response = await addKanbanCard(data)
             // Mettre à jour l'état avec les données de la réponse
-            setCards([...cards, response.kanbanCard]);
+            setCards([...cards, response.kanbanCard])
             form.reset({ name: '' }) // Réinitialiser le formulaire
             setIsAdding(false) // Fermer le formulaire
 

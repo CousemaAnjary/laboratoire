@@ -25,7 +25,7 @@ export default function Kanban() {
      */
     const [isAdding, setIsAdding] = useState(false)
     const addListRef = useRef<HTMLDivElement>(null)
-    const [lists, setLists] = useState([])
+    const [lists, setLists] = useState<kanbanListType[]>([])
 
     const form: UseFormReturn<kanbanListType> = useForm<kanbanListType>({
         resolver: zodResolver(formSchema),
@@ -83,14 +83,8 @@ export default function Kanban() {
     // Enregistrer une nouvelle liste
     const handleSubmit = async (data: kanbanListType): Promise<void> => {
 
-        // Données à envoyer au serveur (API)
-        const kanbanListData = {
-            name: data.name,
-            position: lists.length
-        }
-
         try {
-            const response = await addKanbanList(kanbanListData)
+            const response = await addKanbanList(data)
             // Mettre à jour l'état avec la nouvelle liste
             setLists([...lists, response.kanbanList])
             setIsAdding(false);
@@ -115,7 +109,7 @@ export default function Kanban() {
             <div className="flex space-x-4 p-4 overflow-x-auto items-start">
                 {/* Listes Kanban */}
                 {lists.map((list, index) => (
-                    <KanbanList key={index} list={list} index={index} />
+                    <KanbanList key={index} list={list}  />
                 ))}
 
                 {/* Formulaire d'ajout de liste */}

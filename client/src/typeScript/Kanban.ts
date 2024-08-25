@@ -18,12 +18,14 @@ export type KanbanListProps = {
 
 // Le type pour les données de la liste Kanban
 export type kanbanListType = {
+    id: string
     name: string
     position: number
 }
 
 // Le type pour les données de la carte Kanban
 export type kanbanCardType = {
+    id : string
     name: string
     description?: string
     due_date?: Date
