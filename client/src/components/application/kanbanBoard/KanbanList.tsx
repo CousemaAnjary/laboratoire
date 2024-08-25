@@ -39,22 +39,22 @@ export default function KanbanList({ list }: KanbanListProps) {
      */
     // Récupérer les cartes de la colonne
 
-    // useEffect(() => {
-    //     const fetchKanbanCards = async () => {
+     useEffect(() => {
+         const fetchKanbanCards = async () => {
 
-    //         try {
-    //             // Appeler la fonction pour récupérer les cartes
-    //             const dataCards = await kanbanCards(list.id)
-    //             // Mettre à jour l'état avec les cartes récupérées
-    //             setCards(dataCards)
+             try {
+                 // Appeler la fonction pour récupérer les cartes
+                 const dataCards = await kanbanCards(list.id)
+             // Mettre à jour l'état avec les cartes récupérées
+                setCards(dataCards)
 
-    //         } catch (error) {
-    //             console.error('Erreur lors de la récupération des cartes:', error)
-    //         }
-    //     }
-    //     // Appeler la fonction pour récupérer les cartes
-    //     fetchKanbanCards()
-    // }, [list.id])
+            } catch (error) {
+                console.error('Erreur lors de la récupération des cartes:', error)
+            }
+        }
+     // Appeler la fonction pour récupérer les cartes
+         fetchKanbanCards()
+ }, [list.id])
 
     // Écouter les clics de l'utilisateur
     useEffect(() => {

@@ -36,11 +36,10 @@ class KanbanController extends Controller
         ], 201);
     }
 
-    public function getKanbanCards(Request $request, $listID)
+    public function getKanbanCards(Request $request, $listId)
     {
         // Récupérer les cartes de kanban
-        $kanbanList = KanbanList::find($listID);
-        $kanbanCards = $kanbanList->kanbanCards;
+        $kanbanCards = KanbanCard::where('list_id', $listId)->get();
 
         return response()->json([
             'kanbanCards' => $kanbanCards,

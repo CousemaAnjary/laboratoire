@@ -27,6 +27,6 @@ Route::middleware('auth:sanctum')->group(function () {
     // Routes pour le kanban
     Route::get('kanbanLists', [KanbanController::class, 'getKanbanLists']);
     Route::post('kanbanList', [KanbanController::class, 'storeKanbanList']);
-    Route::get('kanbanCards/{listID}', [KanbanController::class, 'getKanbanCards']);
+    Route::get('kanbanCards/{listId}', [KanbanController::class, 'getKanbanCards']);
     Route::post('kanbanCard', [KanbanController::class, 'storeKanbanCard']);
 });
