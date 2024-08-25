@@ -31,3 +31,9 @@ export type kanbanCardType = {
     list_id: string
 }
 
+// Le type pour les données de la carte Kanban pour le retour 
+export type kanbanCardResponse = {
+    message: string
+    kanbanCard: kanbanCardType
+}
+

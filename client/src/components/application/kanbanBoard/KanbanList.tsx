@@ -23,6 +23,7 @@ export default function KanbanList({ list }: KanbanListProps) {
     /**
      * ! STATE (état, données) de l'application
      */
+
     const addCardRef = useRef<HTMLDivElement>(null)
     const [isAdding, setIsAdding] = useState(false)
     const [cards, setCards] = useState([])
@@ -92,12 +93,11 @@ export default function KanbanList({ list }: KanbanListProps) {
             list_id: list.id
         }
 
-        // Appeler la fonction pour ajouter une carte
         try {
             // Appeler la fonction pour ajouter une carte
             const response = await addKanbanCard(kanbanCardData)
             // Mettre à jour l'état avec les données de la réponse
-            setCards([...cards, response.kanbanCard])
+            setCards([...cards, response.kanbanCard]);
             form.reset({ name: '' }) // Réinitialiser le formulaire
             setIsAdding(false) // Fermer le formulaire
 
@@ -120,7 +120,7 @@ export default function KanbanList({ list }: KanbanListProps) {
                 </Button>
             </CardHeader>
 
-            <Droppable droppableId={list.id}>
+            <Droppable droppableId={String(list.id)}>
                 {(provided) => (
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(handleSubmit)}>

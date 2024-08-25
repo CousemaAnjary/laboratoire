@@ -25,7 +25,7 @@ export default function Kanban() {
      */
     const [isAdding, setIsAdding] = useState(false)
     const addListRef = useRef<HTMLDivElement>(null)
-    const [lists, setLists] = useState<string[]>([])
+    const [lists, setLists] = useState([])
 
     const form: UseFormReturn<kanbanListType> = useForm<kanbanListType>({
         resolver: zodResolver(formSchema),
@@ -115,7 +115,7 @@ export default function Kanban() {
             <div className="flex space-x-4 p-4 overflow-x-auto items-start">
                 {/* Listes Kanban */}
                 {lists.map((list, index) => (
-                    <KanbanList key={index} list={list} />
+                    <KanbanList key={index} list={list} index={index} />
                 ))}
 
                 {/* Formulaire d'ajout de liste */}
