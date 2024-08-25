@@ -98,8 +98,7 @@ export default function KanbanList({ list }: KanbanListProps) {
             const response = await addKanbanCard(kanbanCardData)
             // Mettre à jour l'état avec les données de la réponse
             setCards([...cards, response.kanbanCard])
-            // Réinitialiser le formulaire
-            form.reset({ name: '' })
+            form.reset({ name: '' }) // Réinitialiser le formulaire
             setIsAdding(false) // Fermer le formulaire
 
 
