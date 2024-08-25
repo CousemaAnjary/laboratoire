@@ -13,4 +13,10 @@ class KanbanList extends Model
         'name',
         'position',
     ];
+
+
+    public function kanbanCards()
+    {
+        return $this->hasMany(KanbanCard::class);
+    }
 }

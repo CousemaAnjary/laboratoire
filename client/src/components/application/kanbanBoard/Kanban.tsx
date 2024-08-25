@@ -4,13 +4,13 @@ import { CirclePlus } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { useState, useRef, useEffect } from 'react'
+import { kanbanListType } from '@/typeScript/Kanban'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { DragDropContext } from 'react-beautiful-dnd'
 import { useForm, UseFormReturn } from "react-hook-form"
 import { Card, CardContent } from '@/components/ui/card'
-import { Form, FormControl, FormField, FormItem, } from '@/components/ui/form'
 import { addKanbanList, kanbanLists } from '@/services/kanbanService'
-import { kanbanListType } from '@/typeScript/Kanban'
+import { Form, FormControl, FormField, FormItem, } from '@/components/ui/form'
 
 
 // Définir le schéma de validation avec Zod
@@ -25,7 +25,7 @@ export default function Kanban() {
      */
     const [isAdding, setIsAdding] = useState(false)
     const addListRef = useRef<HTMLDivElement>(null)
-    const [lists, setLists] = useState([])
+    const [lists, setLists] = useState<string[]>([])
 
     const form: UseFormReturn<kanbanListType> = useForm<kanbanListType>({
         resolver: zodResolver(formSchema),
@@ -65,7 +65,6 @@ export default function Kanban() {
             document.removeEventListener("mousedown", handleClickOutside)
         }
     }, [])
-
 
     // Fermer le formulaire d'ajout de liste
     const handleCancel = () => {
@@ -107,7 +106,6 @@ export default function Kanban() {
     const onDragEnd = () => {
         console.log('drag end')
     }
-
 
     /**
      * ! AFFICHAGE (render) de l'application

@@ -16,4 +16,9 @@ class KanbanCard extends Model
         'position',
         'list_id',
     ];
+
+    public function kanbanList()
+    {
+        return $this->belongsTo(KanbanList::class);
+    }
 }

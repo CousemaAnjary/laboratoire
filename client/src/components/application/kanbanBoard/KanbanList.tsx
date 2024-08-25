@@ -1,27 +1,62 @@
+import { z } from "zod"
 import KanbanCard from "./KanbanCard"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Droppable } from "react-beautiful-dnd"
-import { KanbanListProps } from "@/typeScript/Type"
 import { useState, useRef, useEffect } from "react"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { CirclePlus, Ellipsis, Eraser } from "lucide-react"
+import { kanbanCardType, KanbanListProps } from "@/typeScript/Kanban"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
+import { useForm } from "react-hook-form"
+import { addKanbanCard, kanbanCards } from "@/services/kanbanService"
 
+// Définir le schéma de validation avec Zod
+const formSchema = z.object({
+    name: z.string().min(2, { message: "Le nom doit contenir au moins 2 caractères" }),
+})
 
 
 export default function KanbanList({ list }: KanbanListProps) {
     /**
      * ! STATE (état, données) de l'application
      */
-    const [CardName, setCardName] = useState("")
     const addCardRef = useRef<HTMLDivElement>(null)
     const [isAdding, setIsAdding] = useState(false)
-    const [cards, setCards] = useState<string[]>([])
+    const [cards, setCards] = useState([])
+
+    const form = useForm<kanbanCardType>({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            name: "",
+        },
+    })
 
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
+    // Récupérer les cartes de la colonne
+
+    // useEffect(() => {
+    //     const fetchKanbanCards = async () => {
+
+    //         try {
+    //             // Appeler la fonction pour récupérer les cartes
+    //             const dataCards = await kanbanCards(list.id)
+    //             // Mettre à jour l'état avec les cartes récupérées
+    //             setCards(dataCards)
+
+    //         } catch (error) {
+    //             console.error('Erreur lors de la récupération des cartes:', error)
+    //         }
+    //     }
+    //     // Appeler la fonction pour récupérer les cartes
+    //     fetchKanbanCards()
+    // }, [list.id])
+
+    // Écouter les clics de l'utilisateur
     useEffect(() => {
         // Écouter les clics de l'utilisateur
         document.addEventListener("mousedown", handleClickOutside)
@@ -32,21 +67,10 @@ export default function KanbanList({ list }: KanbanListProps) {
         }
     }, [])
 
-    // Ajouter une carte à la liste
-    const addCard = () => {
-
-        if (CardName.trim() !== "") {
-            setCards([...cards, CardName]) // Ajouter la carte à la liste
-            setCardName("") // Réinitialiser le champ de saisie
-        }
-        // Fermer le formulaire d'ajout
-        setIsAdding(false)
-    }
-
     // Fermer le formulaire d'ajout de carte
     const handleCancel = () => {
         setIsAdding(false) // Fermer le formulaire
-        setCardName('') // Réinitialiser le champ de saisie
+        form.reset({ name: '' }) // Réinitialiser le champ de saisie    
     }
 
     // Fermer le formulaire d'ajout de carte
@@ -58,6 +82,32 @@ export default function KanbanList({ list }: KanbanListProps) {
         }
     }
 
+    // Soumettre le formulaire d'ajout de carte
+    const handleSubmit = async (data: kanbanCardType): Promise<void> => {
+
+        // Données à envoyer au serveur (API)
+        const kanbanCardData = {
+            name: data.name,
+            position: cards.length,
+            list_id: list.id
+        }
+
+        // Appeler la fonction pour ajouter une carte
+        try {
+            // Appeler la fonction pour ajouter une carte
+            const response = await addKanbanCard(kanbanCardData)
+            // Mettre à jour l'état avec les données de la réponse
+            setCards([...cards, response.kanbanCard])
+            // Réinitialiser le formulaire
+            form.reset({ name: '' })
+            setIsAdding(false) // Fermer le formulaire
+
+
+        } catch (error) {
+            console.error('Erreur lors de l\'ajout de la carte:', error)
+        }
+
+    }
 
     /**
      * ! AFFICHAGE (render) de l'application
@@ -73,39 +123,55 @@ export default function KanbanList({ list }: KanbanListProps) {
 
             <Droppable droppableId={list.id}>
                 {(provided) => (
-                    <CardContent
-                        className="flex-1 space-y-2 px-4 py-1 overflow-auto"
-                        ref={provided.innerRef}
-                        {...provided.droppableProps}
-                    >
+                    <Form {...form}>
+                        <form onSubmit={form.handleSubmit(handleSubmit)}>
 
-                        {cards.map((content, index) => (
-                            <KanbanCard key={index} content={content} index={index} />
-                        ))}
+                            <CardContent
+                                className="flex-1 space-y-2 px-4 py-1 overflow-auto"
+                                ref={provided.innerRef}
+                                {...provided.droppableProps}
+                            >
 
 
-                        {isAdding && (
-                            <div className="flex flex-col justify-between h-full">
-                                <Input
-                                    type="text"
-                                    placeholder="Entrez un titre pour cette carte"
-                                    value={CardName}
-                                    onChange={(e) => setCardName(e.target.value)}
-                                    autoFocus
-                                    className="w-full h-12 shadow-sm"
-                                />
-                                <div className="grid grid-cols-6 gap-2 mt-3">
-                                    <Button size={"sm"} onClick={addCard} className="col-span-5 w-full rounded-sm">
-                                        Ajouter
-                                    </Button>
 
-                                    <Button variant="outline" size={"sm"} onClick={handleCancel} className="w-full p-2 rounded-sm">
-                                        <Eraser className="h-4 w-4" />
-                                    </Button>
-                                </div>
-                            </div>
-                        )}
-                    </CardContent>
+                                {cards.map((card, index) => (
+                                    <KanbanCard key={index} card={card} index={index} />
+                                ))}
+
+
+                                {isAdding && (
+                                    <div className="flex flex-col justify-between h-full">
+                                        <FormField
+                                            control={form.control}
+                                            name="name"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormControl>
+                                                        <Input {...field}
+                                                            type="text"
+                                                            placeholder="Entrez un titre pour cette liste"
+                                                            autoFocus
+                                                            className="w-full h-12 shadow-sm"
+                                                        />
+                                                    </FormControl>
+                                                </FormItem>
+                                            )}
+                                        />
+                                        <div className="grid grid-cols-6 gap-2 mt-3">
+                                            <Button type="submit" size={"sm"} className="col-span-5 w-full rounded-sm">
+                                                Ajouter
+                                            </Button>
+
+                                            <Button type="button" variant="outline" size={"sm"} onClick={handleCancel} className="w-full p-2 rounded-sm">
+                                                <Eraser className="h-4 w-4" />
+                                            </Button>
+                                        </div>
+                                    </div>
+                                )}
+                            </CardContent>
+                        </form>
+                    </Form>
+
                 )}
             </Droppable>
 

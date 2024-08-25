@@ -5,7 +5,7 @@ import { kanbanCardProps } from "@/typeScript/Kanban"
 import { Card, CardContent } from "@/components/ui/card"
 
 
-export default function KanbanCard({ content, index }: kanbanCardProps) {
+export default function KanbanCard({ card, index }: kanbanCardProps) {
     /**
      * ! STATE (état, données) de l'application
      */
@@ -21,7 +21,7 @@ export default function KanbanCard({ content, index }: kanbanCardProps) {
      */
     return (
         <>
-            <Draggable draggableId={content} index={index}>
+            <Draggable draggableId={card.id} index={index}>
                 {(provided) => (
                     <div className="relative group"
                         ref={provided.innerRef}
@@ -31,7 +31,7 @@ export default function KanbanCard({ content, index }: kanbanCardProps) {
 
                         <Card className="w-full cursor-pointer border shadow-sm  group-hover:border-slate-700 transition-all duration-300">
                             <CardContent className="p-1 pl-2 flex justify-between items-center">
-                                <p className="text-sm break-words overflow-hidden text-ellipsis">{content}</p>
+                                <p className="text-sm break-words overflow-hidden text-ellipsis">{card.name}</p>
                                 <Button
                                     variant={"ghost"}
                                     size={"sm"}
