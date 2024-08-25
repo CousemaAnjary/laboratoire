@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { ThemeContextType } from "@/typeScript/Type"
+import { ThemeContextType } from "@/typeScript/Autre"
 import { createContext, useState, useContext, useEffect } from "react"
 
 
