@@ -1,4 +1,4 @@
-import { KanbanCardResponse, KanbanCardType, KanbanListType } from "@/typeScript/Kanban"
+import { KanbanCardType, KanbanListType } from "@/typeScript/Kanban"
 import api from "./config/apiConfig"
 
 
@@ -42,7 +42,7 @@ export const kanbanCards = async (listId: string) => {
 
 
 // Ajouter une carte à une colonne du tableau Kanban
-export const addKanbanCard = async (kanbanCardData: KanbanCardType): Promise<KanbanCardResponse> => {
+export const addKanbanCard = async (kanbanCardData: KanbanCardType) => {
     try {
         // Appel à l'API pour ajouter une carte à une colonne du tableau Kanban
         const response = await api.post('/kanbanCard', kanbanCardData)

@@ -13,8 +13,6 @@ import { addKanbanList, kanbanLists } from '@/services/kanbanService'
 import { Form, FormControl, FormField, FormItem, } from '@/components/ui/form'
 
 
-
-
 // Définir le schéma de validation avec Zod
 const formSchema = z.object({
     name: z.string().min(2, { message: "Le nom doit contenir au moins 2 caractères" }),
