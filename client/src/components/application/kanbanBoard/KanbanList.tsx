@@ -7,11 +7,10 @@ import { Droppable } from "react-beautiful-dnd"
 import { useState, useRef, useEffect } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { CirclePlus, Ellipsis, Eraser } from "lucide-react"
-
 import { addKanbanCard, kanbanCards } from "@/services/kanbanService"
+import { KanbanCardType, KanbanListProps } from "@/typeScript/Kanban"
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { KanbanCardType, KanbanListProps } from "@/typeScript/Kanban"
 
 
 // Définir le schéma de validation avec Zod
@@ -32,10 +31,7 @@ export default function KanbanList({ list }: KanbanListProps) {
     const form = useForm<KanbanCardType>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            id: "",
             name: "",
-            position: cards.length,
-            list_id: list.id
         },
     })
 
