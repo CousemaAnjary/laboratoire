@@ -4,13 +4,15 @@ import { CirclePlus } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { useState, useRef, useEffect } from 'react'
-import { kanbanListType } from '@/typeScript/Kanban'
+import { KanbanListType } from '@/typeScript/Kanban'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { DragDropContext } from 'react-beautiful-dnd'
 import { useForm, UseFormReturn } from "react-hook-form"
 import { Card, CardContent } from '@/components/ui/card'
 import { addKanbanList, kanbanLists } from '@/services/kanbanService'
 import { Form, FormControl, FormField, FormItem, } from '@/components/ui/form'
+
+
 
 
 // Définir le schéma de validation avec Zod
@@ -25,9 +27,9 @@ export default function Kanban() {
      */
     const [isAdding, setIsAdding] = useState(false)
     const addListRef = useRef<HTMLDivElement>(null)
-    const [lists, setLists] = useState<kanbanListType[]>([])
+    const [lists, setLists] = useState<KanbanListType[]>([])
 
-    const form: UseFormReturn<kanbanListType> = useForm<kanbanListType>({
+    const form: UseFormReturn<KanbanListType> = useForm<KanbanListType>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: "",
@@ -81,10 +83,17 @@ export default function Kanban() {
     }
 
     // Enregistrer une nouvelle liste
-    const handleSubmit = async (data: kanbanListType): Promise<void> => {
+    const handleSubmit = async (data: KanbanListType): Promise<void> => {
+
+        // Données à envoyer au serveur (API)
+        const kanbanListData = {
+            id: "",
+            name: data.name,
+            position: lists.length
+        }
 
         try {
-            const response = await addKanbanList(data)
+            const response = await addKanbanList(kanbanListData)
             // Mettre à jour l'état avec la nouvelle liste
             setLists([...lists, response.kanbanList])
             setIsAdding(false);
@@ -109,7 +118,7 @@ export default function Kanban() {
             <div className="flex space-x-4 p-4 overflow-x-auto items-start">
                 {/* Listes Kanban */}
                 {lists.map((list, index) => (
-                    <KanbanList key={index} list={list}  />
+                    <KanbanList key={index} list={list} />
                 ))}
 
                 {/* Formulaire d'ajout de liste */}

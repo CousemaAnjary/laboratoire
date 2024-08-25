@@ -7,10 +7,11 @@ import { Droppable } from "react-beautiful-dnd"
 import { useState, useRef, useEffect } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { CirclePlus, Ellipsis, Eraser } from "lucide-react"
-import { kanbanCardType, KanbanListProps } from "@/typeScript/Kanban"
+
 import { addKanbanCard, kanbanCards } from "@/services/kanbanService"
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { KanbanCardType, KanbanListProps } from "@/typeScript/Kanban"
 
 
 // Définir le schéma de validation avec Zod
@@ -26,12 +27,15 @@ export default function KanbanList({ list }: KanbanListProps) {
 
     const addCardRef = useRef<HTMLDivElement>(null)
     const [isAdding, setIsAdding] = useState(false)
-    const [cards, setCards] = useState<kanbanCardType[]>([])
+    const [cards, setCards] = useState<KanbanCardType[]>([])
 
-    const form = useForm<kanbanCardType>({
+    const form = useForm<KanbanCardType>({
         resolver: zodResolver(formSchema),
         defaultValues: {
+            id: "",
             name: "",
+            position: cards.length,
+            list_id: list.id
         },
     })
 
@@ -84,12 +88,18 @@ export default function KanbanList({ list }: KanbanListProps) {
     }
 
     // Soumettre le formulaire d'ajout de carte
-    const handleSubmit = async (data: kanbanCardType): Promise<void> => {
-
+    const handleSubmit = async (data: KanbanCardType): Promise<void> => {
+        // Données à envoyer au serveur (API)
+        const kanbanCardData = {
+            id: "",
+            name: data.name,
+            position: cards.length,
+            list_id: list.id
+        }
 
         try {
             // Appeler la fonction pour ajouter une carte
-            const response = await addKanbanCard(data)
+            const response = await addKanbanCard(kanbanCardData)
             // Mettre à jour l'état avec les données de la réponse
             setCards([...cards, response.kanbanCard])
             form.reset({ name: '' }) // Réinitialiser le formulaire

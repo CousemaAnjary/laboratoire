@@ -1,11 +1,12 @@
 import { Trash2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Draggable } from "react-beautiful-dnd"
-import { kanbanCardProps } from "@/typeScript/Kanban"
+import { KanbanCardProps } from "@/typeScript/Kanban"
 import { Card, CardContent } from "@/components/ui/card"
 
 
-export default function KanbanCard({ card, index }: kanbanCardProps) {
+
+export default function KanbanCard({ card, index }: KanbanCardProps) {
     /**
      * ! STATE (état, données) de l'application
      */

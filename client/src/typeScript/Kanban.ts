@@ -1,31 +1,6 @@
-
-// Le type pour les données de la card Kanban
-export type kanbanCardProps = {
-    index: number
-    card: {
-        id: string
-        name: string
-    }
-}
-
-// Le type pour les données de la liste Kanban
-export type KanbanListProps = {
-    list: {
-        id: string
-        name: string
-    }
-}
-
-// Le type pour les données de la liste Kanban
-export type kanbanListType = {
+// Le type pour les données d'une carte Kanban
+export type KanbanCardType = {
     id: string
-    name: string
-    position: number
-}
-
-// Le type pour les données de la carte Kanban
-export type kanbanCardType = {
-    id : string
     name: string
     description?: string
     due_date?: Date
@@ -33,9 +8,32 @@ export type kanbanCardType = {
     list_id: string
 }
 
-// Le type pour les données de la carte Kanban pour le retour 
-export type kanbanCardResponse = {
-    message: string
-    kanbanCard: kanbanCardType
+// Le type pour les propriétés de la carte Kanban
+export type KanbanCardProps = {
+    index: number
+    card: KanbanCardType
 }
 
+// Le type pour les données d'une liste Kanban
+export type KanbanListType = {
+    id: string
+    name: string
+    position: number
+}
+
+// Le type pour les propriétés de la liste Kanban
+export type KanbanListProps = {
+    list: KanbanListType
+}
+
+// Le type pour la réponse de l'API lors de l'ajout d'une carte Kanban
+export type KanbanCardResponse = {
+    message: string
+    kanbanCard: KanbanCardType
+}
+
+// Le type pour la réponse de l'API lors de l'ajout d'une liste Kanban
+export type KanbanListResponse = {
+    message: string
+    kanbanList: KanbanListType
+}
