@@ -6,7 +6,6 @@ export type SidebarToggleProps = {
     toggleSidebar: () => void
 }
 
-
 // Le type pour le contexte de la barre latérale
 export type MenuProps = {
     isOpen: boolean
