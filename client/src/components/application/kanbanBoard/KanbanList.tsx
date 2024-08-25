@@ -1,5 +1,6 @@
 import { z } from "zod"
 import KanbanCard from "./KanbanCard"
+import { useForm } from "react-hook-form"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Droppable } from "react-beautiful-dnd"
@@ -7,10 +8,10 @@ import { useState, useRef, useEffect } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { CirclePlus, Ellipsis, Eraser } from "lucide-react"
 import { kanbanCardType, KanbanListProps } from "@/typeScript/Kanban"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
-import { useForm } from "react-hook-form"
 import { addKanbanCard, kanbanCards } from "@/services/kanbanService"
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+
 
 // Définir le schéma de validation avec Zod
 const formSchema = z.object({
@@ -38,23 +39,22 @@ export default function KanbanList({ list }: KanbanListProps) {
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
     // Récupérer les cartes de la colonne
+    useEffect(() => {
+        const fetchKanbanCards = async () => {
 
-     useEffect(() => {
-         const fetchKanbanCards = async () => {
-
-             try {
-                 // Appeler la fonction pour récupérer les cartes
-                 const dataCards = await kanbanCards(list.id)
-             // Mettre à jour l'état avec les cartes récupérées
+            try {
+                // Appeler la fonction pour récupérer les cartes
+                const dataCards = await kanbanCards(list.id)
+                // Mettre à jour l'état avec les cartes récupérées
                 setCards(dataCards)
 
             } catch (error) {
                 console.error('Erreur lors de la récupération des cartes:', error)
             }
         }
-     // Appeler la fonction pour récupérer les cartes
-         fetchKanbanCards()
- }, [list.id])
+        // Appeler la fonction pour récupérer les cartes
+        fetchKanbanCards()
+    }, [list.id])
 
     // Écouter les clics de l'utilisateur
     useEffect(() => {
@@ -131,8 +131,6 @@ export default function KanbanList({ list }: KanbanListProps) {
                                 ref={provided.innerRef}
                                 {...provided.droppableProps}
                             >
-
-
 
                                 {cards.map((card, index) => (
                                     <KanbanCard key={index} card={card} index={index} />
