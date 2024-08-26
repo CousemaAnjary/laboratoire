@@ -136,12 +136,10 @@ export default function KanbanList({ list }: KanbanListProps) {
                             >
 
                                 {loading ? (
-                                    // Afficher des SkeletonCards pendant le chargement
-                                    <>
-                                        <SkeletonCard />
-                                        <SkeletonCard />
-                                        <SkeletonCard />
-                                    </>
+                                    // Afficher un nombre fixe de SkeletonCard pendant le chargement
+                                    Array(1).fill(null).map((_, index) => (
+                                        <SkeletonCard key={index} />
+                                    ))
                                 ) : (
                                     cards.map((card, index) => (
                                         <KanbanCard key={index} card={card} index={index} />
