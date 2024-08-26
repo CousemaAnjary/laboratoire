@@ -119,7 +119,7 @@ export default function KanbanList({ list }: KanbanListProps) {
         <Droppable droppableId={String(list.id)} type="CARD">
             {(provided, snapshot) => (
                 <Card
-                    className={`flex flex-col w-full max-w-72 shadow-sm ${snapshot.isDraggingOver ? 'bg-gray-100' : ''}`}
+                    className={`flex flex-col w-full max-w-72 shadow-sm ${snapshot.isDraggingOver ? 'bg-gray-100 dark:bg-slate-800' : ''}`}
                     ref={provided.innerRef}
                     {...provided.droppableProps}
                     style={{
