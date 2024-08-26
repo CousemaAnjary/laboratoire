@@ -111,7 +111,7 @@ export default function Kanban() {
     }
 
     const onDragEnd = () => {
-        console.log('drag end')
+        console.log('onDragEnd')
     }
 
     /**

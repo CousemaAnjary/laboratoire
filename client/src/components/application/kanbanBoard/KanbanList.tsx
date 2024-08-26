@@ -116,33 +116,44 @@ export default function KanbanList({ list }: KanbanListProps) {
      * ! AFFICHAGE (render) de l'application
      */
     return (
-        <Card className="flex flex-col w-full max-w-72 shadow-sm" ref={addCardRef}>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-semibold">{list.name}</CardTitle>
-                <Button variant="ghost" size="icon" className="h-8 w-8">
-                    <Ellipsis className="h-4 w-4" />
-                </Button>
-            </CardHeader>
+        <Droppable droppableId={String(list.id)} type="CARD">
+            {(provided, snapshot) => (
+                <Card
+                    className={`flex flex-col w-full max-w-72 shadow-sm ${snapshot.isDraggingOver ? 'bg-gray-100' : ''}`}
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
+                    style={{
+                        transition: 'min-height 0.3s ease, max-height 0.3s ease',
+                        minHeight: cards.length > 0 ? 'auto' : '150px',
+                        maxHeight: '100vh',
+                    }}
+                >
+                    <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                        <CardTitle className="text-sm font-semibold">{list.name}</CardTitle>
+                        <Button variant="ghost" size="icon" className="h-8 w-8">
+                            <Ellipsis className="h-4 w-4" />
+                        </Button>
+                    </CardHeader>
 
-            <Droppable droppableId={String(list.id)}>
-                {(provided) => (
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(handleSubmit)}>
-
                             <CardContent
-                                className="flex-1 space-y-2 px-4 py-1 overflow-auto"
+                                className="flex-1 space-y-2 px-4 py-1"
                                 ref={provided.innerRef}
                                 {...provided.droppableProps}
+                                style={{
+                                    overflowY: 'visible',
+                                    transition: 'height 0.2s ease, min-height 0.2s ease',
+                                    height: snapshot.isDraggingOver ? 'auto' : '100%',
+                                }}
                             >
-
                                 {loading ? (
-                                    // Afficher un nombre fixe de SkeletonCard pendant le chargement
-                                    Array(1).fill(null).map((_, index) => (
+                                    Array(cards.length || 1).fill(null).map((_, index) => (
                                         <SkeletonCard key={index} />
                                     ))
                                 ) : (
                                     cards.map((card, index) => (
-                                        <KanbanCard key={index} card={card} index={index} />
+                                        <KanbanCard key={card.id} card={card} index={index} />
                                     ))
                                 )}
 
@@ -178,26 +189,23 @@ export default function KanbanList({ list }: KanbanListProps) {
                             </CardContent>
                         </form>
                     </Form>
+                    {provided.placeholder}
 
-                )}
-            </Droppable>
-
-
-            <CardFooter className="px-4 mt-2">
-
-                {!isAdding && (
-                    <Button
-                        variant="outline"
-                        size={"sm"}
-                        className="w-full justify-start items-center font-medium"
-                        onClick={() => setIsAdding(true)}
-                    >
-                        <CirclePlus className="mr-2 h-4 w-4" />
-                        Ajouter une carte
-                    </Button>
-                )}
-
-            </CardFooter>
-        </Card>
+                    <CardFooter className="px-4 mt-2">
+                        {!isAdding && (
+                            <Button
+                                variant="outline"
+                                size={"sm"}
+                                className="w-full justify-start items-center font-medium"
+                                onClick={() => setIsAdding(true)}
+                            >
+                                <CirclePlus className="mr-2 h-4 w-4" />
+                                Ajouter une carte
+                            </Button>
+                        )}
+                    </CardFooter>
+                </Card>
+            )}
+        </Droppable>
     );
 }

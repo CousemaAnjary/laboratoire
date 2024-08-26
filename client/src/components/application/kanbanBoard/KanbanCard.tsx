@@ -30,7 +30,7 @@ export default function KanbanCard({ card, index }: KanbanCardProps) {
                         {...provided.dragHandleProps}
                     >
 
-                        <Card className="w-full cursor-pointer border shadow-sm  group-hover:border-slate-700 transition-all duration-300">
+                        <Card className="w-full  border shadow-sm  group-hover:border-slate-700 transition-all duration-300">
                             <CardContent className="p-1 pl-2 flex justify-between items-center">
                                 <p className="text-sm break-words overflow-hidden text-ellipsis">{card.name}</p>
                                 <Button
