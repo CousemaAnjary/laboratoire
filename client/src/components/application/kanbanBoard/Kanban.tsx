@@ -11,6 +11,8 @@ import { useForm, UseFormReturn } from "react-hook-form"
 import { Card, CardContent } from '@/components/ui/card'
 import { addKanbanList, kanbanLists } from '@/services/kanbanService'
 import { Form, FormControl, FormField, FormItem, } from '@/components/ui/form'
+import SkeletonList from '@/components/loading/SkeletonList'
+
 
 
 // Définir le schéma de validation avec Zod
@@ -23,6 +25,7 @@ export default function Kanban() {
     /**
      * ! STATE (état, données) de l'application
      */
+    const [loading, setLoading] = useState(true)
     const [isAdding, setIsAdding] = useState(false)
     const addListRef = useRef<HTMLDivElement>(null)
     const [lists, setLists] = useState<KanbanListType[]>([])
@@ -48,9 +51,12 @@ export default function Kanban() {
                 setLists(dataLists)
 
             } catch (error) {
-                console.error('Erreur lors de la récupération des listes:', error);
+                console.error('Erreur lors de la récupération des listes:', error)
+
+            } finally {
+                setLoading(false)
             }
-        };
+        }
         // Appeler la fonction pour récupérer les listes
         fetchKanbanLists()
     }, [])
@@ -114,11 +120,22 @@ export default function Kanban() {
     return (
         <DragDropContext onDragEnd={onDragEnd}>
             <div className="flex space-x-4 p-4 overflow-x-auto items-start">
-                {/* Listes Kanban */}
-                {lists.map((list, index) => (
-                    <KanbanList key={index} list={list} />
-                ))}
-
+                {loading
+                    ? (
+                        // Afficher les squelettes pendant le chargement
+                        <>
+                            <SkeletonList />
+                            <SkeletonList />
+                            <SkeletonList />
+                        </>
+                    )
+                    : (
+                        // Afficher les listes réelles une fois chargées
+                        lists.map((list, index) => (
+                            <KanbanList key={index} list={list} />
+                        ))
+                    )
+                }
                 {/* Formulaire d'ajout de liste */}
                 {isAdding ? (
                     <Card className="w-72 shrink-0" ref={addListRef}>

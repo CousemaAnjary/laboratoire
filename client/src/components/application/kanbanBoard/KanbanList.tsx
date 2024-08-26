@@ -11,6 +11,7 @@ import { addKanbanCard, kanbanCards } from "@/services/kanbanService"
 import { KanbanCardType, KanbanListProps } from "@/typeScript/Kanban"
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import SkeletonCard from "@/components/loading/SkeletonCard"
 
 
 // Définir le schéma de validation avec Zod
@@ -23,7 +24,7 @@ export default function KanbanList({ list }: KanbanListProps) {
     /**
      * ! STATE (état, données) de l'application
      */
-
+    const [loading, setLoading] = useState(true)
     const addCardRef = useRef<HTMLDivElement>(null)
     const [isAdding, setIsAdding] = useState(false)
     const [cards, setCards] = useState<KanbanCardType[]>([])
@@ -51,6 +52,9 @@ export default function KanbanList({ list }: KanbanListProps) {
 
             } catch (error) {
                 console.error('Erreur lors de la récupération des cartes:', error)
+
+            } finally {
+                setLoading(false)
             }
         }
         // Appeler la fonction pour récupérer les cartes
@@ -131,10 +135,18 @@ export default function KanbanList({ list }: KanbanListProps) {
                                 {...provided.droppableProps}
                             >
 
-                                {cards.map((card, index) => (
-                                    <KanbanCard key={index} card={card} index={index} />
-                                ))}
-
+                                {loading ? (
+                                    // Afficher des SkeletonCards pendant le chargement
+                                    <>
+                                        <SkeletonCard />
+                                        <SkeletonCard />
+                                        <SkeletonCard />
+                                    </>
+                                ) : (
+                                    cards.map((card, index) => (
+                                        <KanbanCard key={index} card={card} index={index} />
+                                    ))
+                                )}
 
                                 {isAdding && (
                                     <div className="flex flex-col justify-between h-full">
