@@ -128,13 +128,11 @@ export default function KanbanList({ list }: KanbanListProps) {
                 {(provided) => (
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(handleSubmit)}>
-
                             <CardContent
-                                className="flex-1 space-y-2 px-4 py-1 overflow-hidden"
+                                className="flex-1 space-y-2 px-4 py-1 overflow-visible transition-all duration-200 ease-in-out"
                                 ref={provided.innerRef}
                                 {...provided.droppableProps}
                             >
-
                                 {loading ? (
                                     Array(cards.length || 1).fill(null).map((_, index) => (
                                         <SkeletonCard key={index} />
@@ -174,10 +172,11 @@ export default function KanbanList({ list }: KanbanListProps) {
                                         </div>
                                     </div>
                                 )}
+
+                                {provided.placeholder}
                             </CardContent>
                         </form>
                     </Form>
-
                 )}
             </Droppable>
 
@@ -195,6 +194,5 @@ export default function KanbanList({ list }: KanbanListProps) {
                 )}
             </CardFooter>
         </Card>
-
-    );
+    )
 }
