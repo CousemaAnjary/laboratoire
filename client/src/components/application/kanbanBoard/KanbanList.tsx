@@ -12,6 +12,7 @@ import { KanbanCardType, KanbanListProps } from "@/typeScript/Kanban"
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import SkeletonCard from "@/components/loading/SkeletonCard"
+// import { v4 as uuidv4 } from 'uuid'; // Importer un générateur d'UUID
 
 
 // Définir le schéma de validation avec Zod
@@ -89,6 +90,9 @@ export default function KanbanList({ list }: KanbanListProps) {
 
     // Soumettre le formulaire d'ajout de carte
     const handleSubmit = async (data: KanbanCardType): Promise<void> => {
+        // ID temporaire pour la carte
+        const tempId = `temp-${Date.now()}`;
+
         // Données à envoyer au serveur (API)
         const kanbanCardData = {
             id: "",
@@ -97,17 +101,21 @@ export default function KanbanList({ list }: KanbanListProps) {
             list_id: list.id
         }
 
+        // Mettre à jour l'état immédiatement avec la nouvelle carte
+        setCards((prevCards) => [...prevCards, kanbanCardData])
+        form.reset({ name: '' })
+        setIsAdding(false)
+
         try {
             // Appeler la fonction pour ajouter une carte
-            const response = await addKanbanCard(kanbanCardData)
-            // Mettre à jour l'état avec les données de la réponse
-            setCards([...cards, response.kanbanCard])
-            form.reset({ name: '' }) // Réinitialiser le formulaire
-            setIsAdding(false) // Fermer le formulaire
-
+            await addKanbanCard(kanbanCardData)
+            setCards(await kanbanCards(list.id)); // Recharger les cartes depuis le serveur pour obtenir des IDs stables
 
         } catch (error) {
             console.error('Erreur lors de l\'ajout de la carte:', error)
+
+            // En cas d'erreur, retirer la carte ajoutée localement
+            setCards((prevCards) => prevCards.filter((card) => card.id !== tempId))
         }
 
     }
