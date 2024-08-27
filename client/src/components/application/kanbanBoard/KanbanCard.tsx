@@ -22,7 +22,7 @@ export default function KanbanCard({ card, index }: KanbanCardProps) {
      */
     return (
         <>
-          <Draggable draggableId={String(card.id)} index={index}>
+            <Draggable draggableId={String(card.id)} index={index}>
                 {(provided) => (
                     <div className="relative group"
                         ref={provided.innerRef}
