@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Draggable } from "react-beautiful-dnd"
 import { KanbanCardProps } from "@/typeScript/Kanban"
 import { Card, CardContent } from "@/components/ui/card"
+import { deleteKanbanCard } from "@/services/kanbanService"
 
 
 
@@ -15,6 +16,16 @@ export default function KanbanCard({ card, index }: KanbanCardProps) {
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
+    // Supprimer une carte
+    const handleDelete = async (): Promise<void> => {
+        try {
+            // Appeler la fonction pour supprimer la carte
+            await deleteKanbanCard(card.id)
+
+        } catch (error) {
+            console.error('Erreur lors de la suppression de la carte:', error)
+        }
+    }
 
 
     /**
@@ -36,6 +47,7 @@ export default function KanbanCard({ card, index }: KanbanCardProps) {
                                 <Button
                                     variant={"ghost"}
                                     size={"sm"}
+                                    onClick={handleDelete}
                                     className="ml-2 p-2  opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out"
                                 >
                                     <Trash2 className="h-4 w-4" />

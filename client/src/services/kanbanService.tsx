@@ -50,6 +50,18 @@ export const addKanbanCard = async (kanbanCardData: KanbanCardType) => {
 
     } catch (error) {
         console.error('Erreur lors de l\'ajout de la carte:', error)
-        throw error
+    }
+}
+
+
+// Supprimer une carte du tableau Kanban
+export const deleteKanbanCard = async (cardId: string) => {
+    try {
+        // Appel à l'API pour supprimer une carte du tableau Kanban
+        const response = await api.delete(`/kanbanCard/${cardId}`)
+        return response.data // Retourner les données de la réponse de l'API
+
+    } catch (error) {
+        console.error('Erreur lors de la suppression de la carte:', error)
     }
 }
