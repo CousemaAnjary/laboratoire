@@ -60,4 +60,17 @@ class KanbanController extends Controller
             'kanbanCard' => $kanbanCard
         ], 201);
     }
+
+    public function deleteKanbanCard(Request $request, $cardId)
+    {
+        // Récupérer la carte de kanban
+        $kanbanCard = KanbanCard::find($cardId);
+
+        // Supprimer la carte de kanban
+        $kanbanCard->delete();
+
+        return response()->json([
+            'message' => 'Carte de kanban supprimée avec succès'
+        ], 200);
+    }
 }
