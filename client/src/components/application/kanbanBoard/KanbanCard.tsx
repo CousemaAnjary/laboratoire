@@ -18,11 +18,11 @@ export default function KanbanCard({ card, index, onDelete }: KanbanCardProps) {
     // Supprimer une carte
     const handleDelete = async (): Promise<void> => {
         try {
-            // Appeler la fonction pour supprimer la carte
-            await deleteKanbanCard(card.id)
-
             // Supprimer la carte de l'état local
             onDelete(card.id)
+
+            // Appeler la fonction pour supprimer la carte
+            await deleteKanbanCard(card.id)
 
         } catch (error) {
             console.error('Erreur lors de la suppression de la carte:', error)
