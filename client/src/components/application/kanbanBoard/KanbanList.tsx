@@ -91,7 +91,7 @@ export default function KanbanList({ list }: KanbanListProps) {
     // Soumettre le formulaire d'ajout de carte
     const handleSubmit = async (data: KanbanCardType): Promise<void> => {
         // ID temporaire pour la carte
-        const tempId = `temp-${Date.now()}`;
+        const tempId = `temp-${Date.now()}`
 
         // Données à envoyer au serveur (API)
         const kanbanCardData = {
