@@ -29,4 +29,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('kanbanList', [KanbanController::class, 'storeKanbanList']);
     Route::get('kanbanCards/{listId}', [KanbanController::class, 'getKanbanCards']);
     Route::post('kanbanCard', [KanbanController::class, 'storeKanbanCard']);
+    Route::delete('kanbanCard/{cardId}', [KanbanController::class, 'deleteKanbanCard']);
 });
