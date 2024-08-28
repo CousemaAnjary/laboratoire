@@ -6,8 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { deleteKanbanCard } from "@/services/kanbanService"
 
 
-
-export default function KanbanCard({ card, index }: KanbanCardProps) {
+export default function KanbanCard({ card, index, onDelete }: KanbanCardProps) {
     /**
      * ! STATE (état, données) de l'application
      */
@@ -21,6 +20,9 @@ export default function KanbanCard({ card, index }: KanbanCardProps) {
         try {
             // Appeler la fonction pour supprimer la carte
             await deleteKanbanCard(card.id)
+
+            // Supprimer la carte de l'état local
+            onDelete(card.id)
 
         } catch (error) {
             console.error('Erreur lors de la suppression de la carte:', error)

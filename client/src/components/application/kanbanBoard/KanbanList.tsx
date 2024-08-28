@@ -88,6 +88,11 @@ export default function KanbanList({ list }: KanbanListProps) {
         }
     }
 
+    // Fonction pour supprimer une carte de l'état local
+    const handleDeleteCard = (id: string) => {
+        setCards(prevCards => prevCards.filter(card => card.id !== id))
+    }
+
     // Soumettre le formulaire d'ajout de carte
     const handleSubmit = async (data: KanbanCardType): Promise<void> => {
 
@@ -148,7 +153,7 @@ export default function KanbanList({ list }: KanbanListProps) {
                                     ))
                                 ) : (
                                     cards.map((card, index) => (
-                                        <KanbanCard key={card.id} card={card} index={index} />
+                                        <KanbanCard key={card.id} card={card} index={index} onDelete={handleDeleteCard} />
                                     ))
                                 )}
 

@@ -12,6 +12,7 @@ export type KanbanCardType = {
 export type KanbanCardProps = {
     index: number
     card: KanbanCardType
+    onDelete: (id: string) => void
 }
 
 // Le type pour les données d'une liste Kanban
