@@ -90,12 +90,13 @@ export default function KanbanList({ list }: KanbanListProps) {
 
     // Soumettre le formulaire d'ajout de carte
     const handleSubmit = async (data: KanbanCardType): Promise<void> => {
+
         // ID temporaire pour la carte
         const tempId = `temp-${Date.now()}`
 
         // Données à envoyer au serveur (API)
         const kanbanCardData = {
-            id: "",
+            id: tempId,
             name: data.name,
             position: cards.length,
             list_id: list.id
@@ -109,7 +110,7 @@ export default function KanbanList({ list }: KanbanListProps) {
         try {
             // Appeler la fonction pour ajouter une carte
             await addKanbanCard(kanbanCardData)
-            setCards(await kanbanCards(list.id)); // Recharger les cartes depuis le serveur pour obtenir des IDs stables
+            setCards(await kanbanCards(list.id)) // Recharger les cartes depuis le serveur pour obtenir des IDs stables
 
         } catch (error) {
             console.error('Erreur lors de l\'ajout de la carte:', error)
