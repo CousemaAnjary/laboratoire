@@ -27,14 +27,3 @@ export type KanbanListProps = {
     list: KanbanListType
 }
 
-// Le type pour la réponse de l'API lors de l'ajout d'une carte Kanban
-export type KanbanCardResponse = {
-    message: string
-    kanbanCard: KanbanCardType
-}
-
-// Le type pour la réponse de l'API lors de l'ajout d'une liste Kanban
-export type KanbanListResponse = {
-    message: string
-    kanbanList: KanbanListType
-}

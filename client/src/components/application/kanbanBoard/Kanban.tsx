@@ -111,8 +111,9 @@ export default function Kanban() {
     }
 
     const onDragEnd = () => {
-        console.log('onDragEnd')
+       
     }
+
 
     /**
      * ! AFFICHAGE (render) de l'application
