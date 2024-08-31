@@ -20,6 +20,7 @@ export type KanbanListType = {
     id: string
     name: string
     position: number
+    cards: KanbanCardType[];
 }
 
 // Le type pour les propriétés de la liste Kanban

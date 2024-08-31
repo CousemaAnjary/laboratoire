@@ -12,7 +12,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { addKanbanList, kanbanLists } from '@/services/kanbanService'
 import { Form, FormControl, FormField, FormItem, } from '@/components/ui/form'
 import SkeletonList from '@/components/loading/SkeletonList'
-import { onDragEnd } from '@/utils/onDragEnd'
+// import { onDragEnd } from '@/utils/onDragEnd'
 
 
 
@@ -94,7 +94,8 @@ export default function Kanban() {
         const kanbanListData = {
             id: "",
             name: data.name,
-            position: lists.length
+            position: lists.length,
+            cards: [] // Ajouter une liste vide de cartes
         }
 
         try {
@@ -111,12 +112,15 @@ export default function Kanban() {
 
     }
 
+    const onDragEnd = () => {
+    }
+
 
     /**
      * ! AFFICHAGE (render) de l'application
      */
     return (
-        <DragDropContext onDragEnd={(result) => onDragEnd(result, lists, setLists)}>
+        <DragDropContext onDragEnd={onDragEnd}>
             <div className="flex space-x-4 p-4 overflow-x-auto items-start">
                 {loading
                     ? (
