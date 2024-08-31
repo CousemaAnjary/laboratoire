@@ -25,7 +25,7 @@ export const onDragEnd = (result: DropResult, lists: KanbanListType[], setLists:
             } else if (index === destListIndex) {
                 return { ...list, cards: destItems };
             } else {
-                return list;
+                return list
             }
         });
         setLists(updatedLists);
