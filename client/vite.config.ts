@@ -13,4 +13,5 @@ export default defineConfig({
   //   host: true, //permet à Vite d'utiliser votre adresse IP locale
   //   port: 5173, //port de votre serveur
   // },
+  
 })
