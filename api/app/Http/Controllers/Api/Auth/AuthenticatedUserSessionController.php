@@ -23,7 +23,7 @@ class AuthenticatedUserSessionController extends Controller
             $user = $request->user();
 
             // expiration du token en 15 minutes
-            $expires_at = now()->addMinutes(15);
+            $expires_at = Carbon::now()->addSecond(20);
 
             // Générer un token d'authentification pour l'utilisateur
             $token = $user->createToken('auth_token', ['*'], $expires_at)->plainTextToken;
@@ -44,7 +44,7 @@ class AuthenticatedUserSessionController extends Controller
 
     public function destroy(Request $request): JsonResponse
     {
-        // Révoquer le token d'authentification de l'utilisateur
+        // Révoquer le token d'authentification de l'utilisateur authentifié
         $request->user()->currentAccessToken()->delete();
 
         // Retourner une réponse JSON avec un message de succès
