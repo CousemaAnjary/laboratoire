@@ -21,6 +21,7 @@ class AuthenticatedUserSessionController extends Controller
             // Récupérer l'utilisateur authentifié
             $user = $request->user();
 
+
             // Générer un token d'authentification pour l'utilisateur
             $token = $user->createToken('auth_token')->plainTextToken;
 
