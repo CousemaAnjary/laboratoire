@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Auth\AuthenticatedUserSessionRequest;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,9 +22,11 @@ class AuthenticatedUserSessionController extends Controller
             // Récupérer l'utilisateur authentifié
             $user = $request->user();
 
+            // expiration du token en 15 minutes
+            $expires_at = now()->addMinutes(15);
 
             // Générer un token d'authentification pour l'utilisateur
-            $token = $user->createToken('auth_token')->plainTextToken;
+            $token = $user->createToken('auth_token', ['*'], $expires_at)->plainTextToken;
 
             // Retourner une réponse JSON avec l'utilisateur authentifié et le token
             return response()->json([
