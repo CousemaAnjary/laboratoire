@@ -1,5 +1,5 @@
 import { Group } from "@/typeScript/AdminPanel"
-import {  Users, Settings, Bookmark, LayoutGrid, Key } from "lucide-react"
+import { Users, Settings, Bookmark, LayoutGrid, Key, SquarePen } from "lucide-react"
 
 
 export function MenuList(pathname: string): Group[] {
@@ -33,25 +33,25 @@ export function MenuList(pathname: string): Group[] {
         {
             groupLabel: "Application",
             menus: [
-                // {
-                //     label: "Posts",
-                //     href: "",
-                //     active: pathname.includes("/posts"),
-                //     icon: SquarePen,
-                //     submenus: [
-                //         {
-                //             label: "All Posts",
-                //             href: "/posts",
-                //             active: pathname === "/posts"
-                //         },
+                {
+                    label: "Posts",
+                    href: "",
+                    active: pathname.includes("/posts"),
+                    icon: SquarePen,
+                    submenus: [
+                        {
+                            label: "All Posts",
+                            href: "/posts",
+                            active: pathname === "/posts"
+                        },
 
-                //         {
-                //             label: "New Post",
-                //             href: "/posts/new",
-                //             active: pathname === "/posts/new"
-                //         }
-                //     ]
-                // },
+                        {
+                            label: "New Post",
+                            href: "/posts/new",
+                            active: pathname === "/posts/new"
+                        }
+                    ]
+                },
 
                 {
                     label: "Kanban Board",
