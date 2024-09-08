@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Auth\AuthenticatedUserSessionController;
 use App\Http\Controllers\Api\Auth\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,4 +22,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Auth
 Route::post('/register', [RegisterController::class, 'store']);
-// Route::post('login', [AuthenticatedUserSessionController::class, 'store']);
+Route::post('/login', [AuthenticatedUserSessionController::class, 'store']);
+
+// Authenticated routes
+Route::middleware('auth:sanctum')->group(function () {
+    // Route::get('auth/verify-token', [AuthenticatedUserSessionController::class, 'verifyToken']);
+    Route::post('logout', [AuthenticatedUserSessionController::class, 'destroy']);
+});
