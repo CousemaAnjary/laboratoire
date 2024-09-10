@@ -22,11 +22,8 @@ class AuthenticatedUserSessionController extends Controller
             // Récupérer l'utilisateur authentifié
             $user = $request->user();
 
-            // expiration du token en 15 minutes
-            $expires_at = Carbon::now()->addSecond(20);
-
             // Générer un token d'authentification pour l'utilisateur
-            $token = $user->createToken('auth_token', ['*'], $expires_at)->plainTextToken;
+            $token = $user->createToken('auth_token')->plainTextToken;
 
             // Retourner une réponse JSON avec l'utilisateur authentifié et le token
             return response()->json([
