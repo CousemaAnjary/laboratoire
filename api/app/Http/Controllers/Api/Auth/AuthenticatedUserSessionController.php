@@ -32,6 +32,7 @@ class AuthenticatedUserSessionController extends Controller
                 'message' => 'User a été authentifié avec succès.'
             ], 200);
         } else {
+            
             // Retourner une réponse JSON avec un message d'erreur
             return response()->json([
                 'message' => 'Les informations d\'authentification fournies sont incorrectes.'
