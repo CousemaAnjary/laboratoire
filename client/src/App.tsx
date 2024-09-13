@@ -1,3 +1,5 @@
+import { Route, Routes } from "react-router-dom"
+
 export default function App() {
   /**
    * ! STATE (état, données) de l'application
@@ -14,6 +16,12 @@ export default function App() {
    */
   return (
     <>
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/" element="Hello World" />
+
+        {/* Protected Routes */}
+      </Routes>
     </>
   )
 }
