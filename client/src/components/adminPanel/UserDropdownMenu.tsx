@@ -1,9 +1,9 @@
-import { Button } from '../ui/button'
-import UserAvatar from '../UserAvatar'
 import { useAuth } from "@/contexts/AuthContext"
-import { Link, useNavigate } from 'react-router-dom'
 import { LogOut, Settings, User } from 'lucide-react'
+import { Link, useNavigate } from 'react-router-dom'
+import { Button } from '../ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '../ui/dropdown-menu'
+import UserAvatar from '../UserAvatar'
 
 
 export default function UserDropdownMenu() {

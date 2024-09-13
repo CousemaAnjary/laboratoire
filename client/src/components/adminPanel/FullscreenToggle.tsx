@@ -1,6 +1,6 @@
+import { Maximize, Minimize } from "lucide-react"
 import { useState } from "react"
 import { Button } from "../ui/button"
-import { Maximize, Minimize } from "lucide-react"
 
 
 export default function FullscreenToggle(): JSX.Element {

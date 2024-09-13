@@ -1,9 +1,9 @@
+import { Link } from "react-router-dom"
 import { Button } from "../ui/button"
+import FullscreenToggle from "./FullscreenToggle"
 import ModeToggle from "./ModeToggle"
 import { SheetMenu } from "./SheetMenu"
-import { Link } from "react-router-dom"
 import UserDropdownMenu from "./UserDropdownMenu"
-import FullscreenToggle from "./FullscreenToggle"
 
 
 export default function Navbar(): JSX.Element {

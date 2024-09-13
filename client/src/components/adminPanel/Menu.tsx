@@ -4,7 +4,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { useAuth } from "@/contexts/AuthContext"
 import { cn } from '@/lib/utils'
-import { MenuProps } from '@/typeScript/Type'
+import { MenuProps } from '@/typeScript/AdminPanel'
 import { MenuList } from '@/utils/menuList'
 import { Ellipsis, LogOut } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'

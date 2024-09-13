@@ -1,13 +1,13 @@
-import { cn } from "@/lib/utils"
-import { useState } from "react"
-import { Link } from "react-router-dom"
-import { ChevronDown, Dot } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { cn } from "@/lib/utils"
 import { CollapseMenuButtonProps } from "@/typeScript/AdminPanel"
 import { DropdownMenuArrow } from "@radix-ui/react-dropdown-menu"
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
-import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip"
-import { DropdownMenu, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
+import { ChevronDown, Dot } from "lucide-react"
+import { useState } from "react"
+import { Link } from "react-router-dom"
 
 
 export function CollapseMenuButton({ icon: Icon, label, active, submenus, isOpen }: CollapseMenuButtonProps) {

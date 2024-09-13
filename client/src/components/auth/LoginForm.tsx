@@ -1,15 +1,15 @@
-import { z } from "zod"
-import { useState } from "react"
-import { Input } from "../ui/input"
-import { Button } from "../ui/button"
-import { Eye, EyeOff } from "lucide-react"
-import { LoginType } from "@/typeScript/Auth"
-import ShinyButton from "../magicui/shiny-button"
 import { useAuth } from "@/contexts/AuthContext"
-import { Link, useNavigate } from "react-router-dom"
+import { LoginType } from "@/typeScript/Auth"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { Eye, EyeOff } from "lucide-react"
+import { useState } from "react"
 import { useForm, UseFormReturn } from "react-hook-form"
+import { Link, useNavigate } from "react-router-dom"
+import { z } from "zod"
+import ShinyButton from "../magicui/shiny-button"
+import { Button } from "../ui/button"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form"
+import { Input } from "../ui/input"
 
 
 // Définir le schéma de validation avec Zod

@@ -1,8 +1,8 @@
-import { useState } from "react"
-import { Button } from "./ui/button"
-import { Link } from "react-router-dom"
-import { MdDarkMode, MdLightMode, MdMenu, MdClose } from "react-icons/md"
 import { BadgeAlert, Contact, House, Settings, User } from "lucide-react"
+import { useState } from "react"
+import { MdClose, MdDarkMode, MdLightMode, MdMenu } from "react-icons/md"
+import { Link } from "react-router-dom"
+import { Button } from "./ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger, } from "./ui/dropdown-menu"
 
 
@@ -92,7 +92,7 @@ export default function Navbar() {
                         </Button>
                     </div>
                 </div>
-                
+
                 {isMenuOpen && (
                     <div className="flex flex-col md:hidden mt-4">
                         <Link to="/" onClick={toggleMenu}>
@@ -113,8 +113,8 @@ export default function Navbar() {
                     </div>
                 )}
             </div>
-            
+
         </div>
-        
+
     )
 }

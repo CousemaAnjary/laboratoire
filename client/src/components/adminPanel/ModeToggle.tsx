@@ -1,6 +1,6 @@
-import { Button } from "../ui/button"
 import { useTheme } from "@/contexts/ThemeContext";
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons"
+import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { Button } from "../ui/button";
 
 
 export default function ModeToggle() {
