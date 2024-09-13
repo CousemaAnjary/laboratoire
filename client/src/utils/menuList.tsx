@@ -55,7 +55,7 @@ export function MenuList(pathname: string): Group[] {
 
                 {
                     label: "Kanban Board",
-                    href: "/kanbanBoard",
+                    href: "#",
                     active: pathname.includes("/kanbanBoard"),
                     icon: Bookmark,
                     submenus: []
