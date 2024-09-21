@@ -1,4 +1,6 @@
 import { Route, Routes } from "react-router-dom"
+import Login from "./modules/auth/pages/Login"
+import Register from "./modules/auth/pages/Register"
 
 export default function App() {
   /**
@@ -18,7 +20,9 @@ export default function App() {
     <>
       <Routes>
         {/* Public Routes */}
-        <Route path="/" element= "Hello World" />
+        <Route path="/" element="Hello World" />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
         {/* Protected Routes */}
       </Routes>
