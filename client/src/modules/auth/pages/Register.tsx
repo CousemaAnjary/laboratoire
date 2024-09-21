@@ -1,3 +1,8 @@
+import Navbar from "@/layouts/Navbar";
+
+
+
+
 export default function Register() {
     /**
      * ! STATE (état, données) de l'application
@@ -16,7 +21,9 @@ export default function Register() {
         <>
             <div>
                 {/* En-tête */}
-                <header></header>
+                <header>
+                     <Navbar /> 
+                </header>
 
                 {/* Contenu */}
                 <main></main>
