@@ -14,18 +14,17 @@ export default function Register() {
      */
     return (
         <>
-            <>
-                <div>
-                    {/* En-tête */}
-                    <header></header>
+            <div>
+                {/* En-tête */}
+                <header></header>
 
-                    {/* Contenu */}
-                    <main></main>
+                {/* Contenu */}
+                <main></main>
 
-                    {/* Pied de page */}
-                    <footer></footer>
-                </div>
-            </>
+                {/* Pied de page */}
+                <footer></footer>
+            </div>
         </>
+
     )
 }
