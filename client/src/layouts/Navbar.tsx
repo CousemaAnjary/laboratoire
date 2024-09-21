@@ -1,3 +1,5 @@
+
+
 export default function Navbar() {
     /**
      * ! STATE (état, données) de l'application
@@ -15,7 +17,7 @@ export default function Navbar() {
     return (
         <>
             <nav className="container-fluid">
-
+               
             </nav>
         </>
     )
