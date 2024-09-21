@@ -1,4 +1,5 @@
-import Navbar from "@/layouts/Navbar";
+import Navbar from "../../../layouts/Navbar";
+
 
 
 
