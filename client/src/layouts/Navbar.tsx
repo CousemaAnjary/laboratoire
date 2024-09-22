@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import RotateTextButton from "./ui/RotateTextButton"
+import UnderlineHoverButton from "./ui/UnderlineHoverButton"
 
 export default function Navbar() {
     /**
@@ -19,8 +20,8 @@ export default function Navbar() {
         <>
             <nav className="container-fluid h-16 border-b flex justify-between items-center">
                 <div className="logo ms-20">
-                    <h1>LOGO</h1>
-
+                    {/* <h1>LOGO</h1> */}
+                    <UnderlineHoverButton text="Hover me"  className="" />
                 </div>
 
                 <div className="navbar ms-40">
