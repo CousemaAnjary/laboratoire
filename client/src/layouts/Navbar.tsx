@@ -23,7 +23,7 @@ export default function Navbar() {
                     <h1 className="font-medium font-mono">{text}</h1>
                 </div>
 
-                <div className="navbar ms-20">
+                <div className="navbar ">
                     <ul className="flex gap-10">
                         <li><Link to="/"><UnderlineHoverLink text="Laboratoire" /></Link></li>
                         <li><Link to="/about"><UnderlineHoverLink text="A propos de moi" /></Link></li>
