@@ -8,8 +8,8 @@ type UnderlineHoverButtonProps = {
 
 // Définit les classes pour chaque taille
 const sizeClasses = {
-    default: " p-1",
-    sm: "h-8 rounded-md  text-xs",
+    default: "px-[2px] py-[3px] ",
+    sm: "h-8 rounded-md text-xs",
 }
 
 export default function UnderlineHoverButton({ text, size = "default", onClick, className = "" }: UnderlineHoverButtonProps) {
