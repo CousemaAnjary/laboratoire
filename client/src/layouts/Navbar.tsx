@@ -6,7 +6,7 @@ export default function Navbar() {
     /**
      * ! STATE (état, données) de l'application
      */
-
+    const text = "< Cousema Anjary />"
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
@@ -20,10 +20,10 @@ export default function Navbar() {
         <>
             <nav className="container-fluid h-16 border-b flex justify-between items-center">
                 <div className="logo ms-20">
-                    <h1>LOGO</h1>
+                    <h1 className="font-medium font-mono">{text}</h1>
                 </div>
 
-                <div className="navbar ms-40">
+                <div className="navbar ms-20">
                     <ul className="flex gap-10">
                         <li><Link to="/"><UnderlineHoverLink text="Laboratoire" /></Link></li>
                         <li><Link to="/about"><UnderlineHoverLink text="A propos de moi" /></Link></li>
