@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import RotateTextButton from "./ui/RotateTextButton"
 import UnderlineHoverButton from "./ui/UnderlineHoverButton"
 
 export default function Navbar() {
@@ -20,15 +19,14 @@ export default function Navbar() {
         <>
             <nav className="container-fluid h-16 border-b flex justify-between items-center">
                 <div className="logo ms-20">
-                    {/* <h1>LOGO</h1> */}
-                    <UnderlineHoverButton text="Hover me"  className="" />
+                    <h1>LOGO</h1>
                 </div>
 
                 <div className="navbar ms-40">
-                    <ul className="flex gap-4">
-                        <li><Link to="/"><RotateTextButton text="Accueil" className="border-none" /></Link></li>
-                        <li><Link to="/about"><RotateTextButton text="A propos" className="border-none" /></Link></li>
-                        <li><Link to="/contact"><RotateTextButton text="Contact" className="border-none" /></Link></li>
+                    <ul className="flex gap-10">
+                        <li><Link to="/"><UnderlineHoverButton text="Accueil" className="border p-4" /></Link></li>
+                        <li><Link to="/about"><UnderlineHoverButton text="A propos" /></Link></li>
+                        <li><Link to="/contact"><UnderlineHoverButton text="Contact" /></Link></li>
                     </ul>
                 </div>
 
