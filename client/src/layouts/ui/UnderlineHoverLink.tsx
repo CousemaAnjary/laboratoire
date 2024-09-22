@@ -9,7 +9,7 @@ type UnderlineHoverLinkProps = {
 // Définit les classes pour chaque taille
 const sizeClasses = {
     default: "px-[2px] py-[3px] ",
-    sm: "h-8 rounded-md text-xs",
+    sm: "px-[2px] py-[3px] text-xs",
 }
 
 export default function UnderlineHoverLink({ text, size = "default", onClick, className = "" }: UnderlineHoverLinkProps) {
