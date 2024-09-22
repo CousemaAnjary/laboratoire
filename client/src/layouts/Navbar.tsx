@@ -24,9 +24,9 @@ export default function Navbar() {
 
                 <div className="navbar ms-40">
                     <ul className="flex gap-10">
-                        <li><Link to="/"><UnderlineHoverButton text="Accueil" /></Link></li>
-                        <li><Link to="/about"><UnderlineHoverButton text="A propos" /></Link></li>
-                        <li><Link to="/contact"><UnderlineHoverButton text="Contact" /></Link></li>
+                        <li><Link to="/"><UnderlineHoverButton text="Accueil" className="font-mono"  /></Link></li>
+                        <li><Link to="/about"><UnderlineHoverButton text="A propos"  /></Link></li>
+                        <li><Link to="/contact"><UnderlineHoverButton text="Contact"  /></Link></li>
                     </ul>
                 </div>
 
