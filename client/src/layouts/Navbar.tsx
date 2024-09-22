@@ -23,7 +23,7 @@ export default function Navbar() {
                     <h1 className="font-medium font-mono">{text}</h1>
                 </div>
 
-                <div className="navbar ">
+                <div className="navbar">
                     <ul className="flex gap-10">
                         <li>
                             <Link to="/">
