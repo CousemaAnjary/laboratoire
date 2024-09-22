@@ -15,17 +15,22 @@ export default function Navbar() {
      */
     return (
         <>
-            <nav className="container-fluid p-2 border-b flex justify-between items-center">
+            <nav className="container-fluid h-16  border-b flex justify-between items-center">
                 <div className="logo ms-20">
                     <h1>LOGO</h1>
                 </div>
 
-                <div className="navbar me-20">
-                    <ul className="flex gap-5">
+                <div className="navbar ms-40">
+                    <ul className="flex gap-7">
                         <li><a href="/">Accueil</a></li>
-                        <li><a href="/register">Inscription</a></li>
-                        <li><a href="/login">Connexion</a></li>
+                        <li><a href="/about">A propos</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
+                </div>
+
+                <div className="flex gap-7 me-20">
+                    <button>Créer un compte</button>
+                    <button>Se connecter</button>
                 </div>
             </nav>
         </>
