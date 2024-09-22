@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
-import UnderlineHoverButton from "./ui/UnderlineHoverButton"
+import UnderlineHoverLink from "./ui/UnderlineHoverLink"
+
 
 export default function Navbar() {
     /**
@@ -24,9 +25,9 @@ export default function Navbar() {
 
                 <div className="navbar ms-40">
                     <ul className="flex gap-10">
-                        <li><Link to="/"><UnderlineHoverButton text="Laboratoire" /></Link></li>
-                        <li><Link to="/about"><UnderlineHoverButton text="A propos de moi" /></Link></li>
-                        <li><Link to="/contact"><UnderlineHoverButton text="Contact" /></Link></li>
+                        <li><Link to="/"><UnderlineHoverLink text="Laboratoire" /></Link></li>
+                        <li><Link to="/about"><UnderlineHoverLink text="A propos de moi" /></Link></li>
+                        <li><Link to="/contact"><UnderlineHoverLink text="Contact" /></Link></li>
                     </ul>
                 </div>
 

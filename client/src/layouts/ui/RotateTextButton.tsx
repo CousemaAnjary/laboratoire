@@ -34,7 +34,7 @@ export default function RotateTextButton({ text, size = "default", onClick, clas
         <>
             <button
                 onClick={onClick}
-                className={`group relative overflow-hidden border rounded-md text-sm font-medium ${sizeClasses[size]} ${className}`}
+                className={`group relative overflow-hidden border rounded-md text-sm font-medium  ${sizeClasses[size]} ${className}`}
             >
                 <span className="relative inline-flex">
                     {chars.map((char, index) => (

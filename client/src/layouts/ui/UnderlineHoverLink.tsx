@@ -1,5 +1,5 @@
 
-type UnderlineHoverButtonProps = {
+type UnderlineHoverLinkProps = {
     text: string
     onClick?: () => void
     className?: string
@@ -12,7 +12,7 @@ const sizeClasses = {
     sm: "h-8 rounded-md text-xs",
 }
 
-export default function UnderlineHoverButton({ text, size = "default", onClick, className = "" }: UnderlineHoverButtonProps) {
+export default function UnderlineHoverLink({ text, size = "default", onClick, className = "" }: UnderlineHoverLinkProps) {
     /**
      * ! STATE (état, données) de l'application
      */
