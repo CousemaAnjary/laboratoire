@@ -9,7 +9,6 @@ import { Input } from "@/core/components/ui/input"
 import { Button } from "@/core/components/ui/button"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/core/components/ui/form"
-import BounceButton from "@/layouts/ui/BounceButton"
 
 
 // Définir le schéma de validation avec Zod
@@ -154,8 +153,7 @@ export default function RegisterForm() {
                             </div>
 
                             <div className="grid">
-                                {/* <Button type="submit" className="w-full">Créer un compte</Button> */}
-                                <BounceButton text="Créer un compte" className="w-full" />
+                                <Button type="submit" className="w-full">Créer un compte</Button>
                             </div>
                             <div className="relative">
                                 {/* <div className="absolute inset-0 flex items-center">
