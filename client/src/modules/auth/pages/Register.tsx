@@ -1,6 +1,8 @@
 import { cn } from "@/lib/utils"
 import Navbar from "@/layouts/Navbar"
+import RegisterForm from "../components/RegisterForm"
 import GridPattern from "@/core/components/magicui/grid-pattern"
+
 
 
 export default function Register() {
@@ -27,7 +29,12 @@ export default function Register() {
                 </header>
 
                 {/* Contenu */}
-                <main></main>
+                <main>
+                    <section>
+                        <RegisterForm />
+                    </section>
+
+                </main>
 
                 {/* Pied de page */}
                 <footer></footer>
