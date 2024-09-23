@@ -34,24 +34,24 @@ export default function RegisterForm() {
                         <div className="grid grid-cols-2 gap-2">
                             <div className="grid gap-2">
                                 <Label htmlFor="firstName" className="text-sm">Prénom</Label>
-                                <Input type="text" id="firstName" name="firstName" placeholder="Votre prénom" />
+                                <Input type="text" id="firstName" name="firstName" placeholder="Votre prénom" className="bg-white" />
                             </div>
 
                             <div className="grid gap-2">
                                 <Label htmlFor="lastName" className="text-sm">Nom</Label>
-                                <Input type="text" id="lastName" name="lastName" placeholder="Votre nom" />
+                                <Input type="text" id="lastName" name="lastName" placeholder="Votre nom" className="bg-white" />
                             </div>
                         </div>
 
                         <div className="grid gap-2">
                             <Label htmlFor="email" className="text-sm">Adresse email</Label>
-                            <Input type="email" id="email" name="email" placeholder="Votre adresse email" />
+                            <Input type="email" id="email" name="email" placeholder="Votre adresse email" className="bg-white" />
                         </div>
 
                         <div className="grid grid-cols-9 gap-2">
                             <div className="grid gap-2 col-span-8">
                                 <Label htmlFor="password" className="text-sm">Mot de passe</Label>
-                                <Input type="password" id="password" name="password" placeholder="Votre mot de passe" />
+                                <Input type="password" id="password" name="password" placeholder="Votre mot de passe" className="bg-white" />
                             </div>
                             <div className="grid mb-1">
                                 <Button type="button" variant="outline" size={"icon"} className="mt-8" onClick={() => setShowPassword(!showPassword)}>
@@ -64,9 +64,9 @@ export default function RegisterForm() {
                             <Button type="submit" className="btn btn-primary w-full">Créer un compte</Button>
                         </div>
                         <div className="relative">
-                            <div className="absolute inset-0 flex items-center">
+                            {/* <div className="absolute inset-0 flex items-center">
                                 <span className="w-full border-t"></span>
-                            </div>
+                            </div> */}
                             <div className="relative flex justify-center text-xs uppercase">
                                 <span className="bg-background px-2 text-muted-foreground">Ou continuer avec</span>
                             </div>
