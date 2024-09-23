@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom"
-import UnderlineHoverLink from "./ui/UnderlineHoverLink"
-import { Button } from "@/core/components/ui/button"
 import { User } from "lucide-react"
+import { Link } from "react-router-dom"
+import { Button } from "@/core/components/ui/button"
+import UnderlineHoverLink from "./ui/UnderlineHoverLink"
 
 
 export default function Navbar() {
