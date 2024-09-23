@@ -8,7 +8,7 @@ export default function Navbar() {
     /**
      * ! STATE (état, données) de l'application
      */
-    const text = "< Cousema Anjary />"
+    const logoText = "< Cousema Anjary />"
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
@@ -22,7 +22,7 @@ export default function Navbar() {
         <>
             <nav className="container-fluid relative z-10 bg-white h-16 border-b flex justify-between items-center">
                 <div className="logo ms-20">
-                    <h1 className="font-medium font-mono">{text}</h1>
+                    <h1 className="font-medium font-mono">{logoText}</h1>
                 </div>
 
                 <div className="navbar">
