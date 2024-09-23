@@ -48,6 +48,7 @@ export default function RegisterForm() {
         try {
             // Envoi des données du formulaire à l'API
             const response = await register(data)
+            console.log('Réponse de l\'API:', response)
             if (response) navigate('/login')
 
         } catch (error) {

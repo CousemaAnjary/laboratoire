@@ -4,6 +4,7 @@ import { RegisterResponseType, RegisterType } from "../typeScript/AuthTypes"
 // Inscription d'un utilisateur
 export const register = async (dataRegister: RegisterType): Promise<RegisterResponseType> => {
     const response = await api.post('/register', dataRegister)
+    console.log('Réponse de l\'API:', response.data)
     return response.data // Retourner les données de la réponse de l'API
 }
 

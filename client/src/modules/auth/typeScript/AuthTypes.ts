@@ -14,7 +14,7 @@ export type LoginType = {
     password: string
 }
 
-// Le type de la réponse API pour la connexion
+// Le type de la réponse API pour la connexion (login)
 export type LoginResponseType = {
     token: string
     user: {
@@ -33,6 +33,6 @@ export type RegisterResponseType = {
         first_name: string
         last_name: string
         email: string
-        image?: string // URL de l'image du profil, si disponible
-    };
-};
+        image?: string 
+    }
+}
