@@ -47,13 +47,12 @@ export default function RegisterForm() {
     const handleRegister = async (data: RegisterType): Promise<void> => {
         try {
             // Envoi des données du formulaire à l'API
-            await register(data)
-            navigate('/login')
+            const response = await register(data)
+            if (response) navigate('/login')
 
         } catch (error) {
             console.error('Erreur lors de l\'inscription:', error)
         }
-
     }
 
     /**
