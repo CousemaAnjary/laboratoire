@@ -1,6 +1,6 @@
-import { EllipsisVertical, User } from "lucide-react"
 import { Link } from "react-router-dom"
 import { Button } from "@/core/components/ui/button"
+import { EllipsisVertical, User } from "lucide-react"
 import UnderlineHoverLink from "./ui/UnderlineHoverLink"
 
 
@@ -8,8 +8,8 @@ export default function Navbar() {
     /**
      * ! STATE (état, données) de l'application
      */
-    const logoText = "< Cousema Anjary />"
     const logoSmallText = "< C.A />"
+    const logoText = "< Cousema Anjary />"
 
 
     /**
