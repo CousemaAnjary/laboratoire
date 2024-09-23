@@ -30,7 +30,7 @@ export default function Register() {
 
                 {/* Contenu */}
                 <main>
-                    <section className="bg-slate-200 flex justify-center items-center  h-[79vh] mt-9">
+                    <section className="flex justify-center items-center  h-[79vh] mt-9">
                         <RegisterForm />
                     </section>
 

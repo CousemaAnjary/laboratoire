@@ -1,11 +1,15 @@
 import { Button } from "@/core/components/ui/button";
+import { Input } from "@/core/components/ui/input";
+import { Label } from "@/core/components/ui/label";
+import { Eye, EyeOff } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function RegisterForm() {
     /**
      * ! STATE (état, données) de l'application
      */
-
+    const [showPassword, setShowPassword] = useState(false)
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
@@ -23,24 +27,41 @@ export default function RegisterForm() {
                     Vous avez déjà un compte ? Accédez-y en cliquant <Link to="/login" className="underline text-cyan-700">ici</Link>
                 </p>
 
-                <form className="flex flex-col gap-4">
-                    <div className="flex flex-col gap-2">
-                        <label htmlFor="email" className="text-sm">Adresse email</label>
-                        <input type="email" id="email" name="email" className="input" placeholder="Votre adresse email" />
-                    </div>
+                <form>
+                    <div className="grid gap-4">
+                        <div className="grid grid-cols-2 gap-2">
+                            <div className="grid gap-2">
+                                <Label htmlFor="firstName" className="text-sm">Prénom</Label>
+                                <Input type="text" id="firstName" name="firstName" placeholder="Votre prénom" />
+                            </div>
 
-                    <div className="flex flex-col gap-2">
-                        <label htmlFor="password" className="text-sm">Mot de passe</label>
-                        <input type="password" id="password" name="password" className="input" placeholder="Votre mot de passe" />
-                    </div>
+                            <div className="grid gap-2">
+                                <Label htmlFor="lastName" className="text-sm">Nom</Label>
+                                <Input type="text" id="lastName" name="lastName" placeholder="Votre nom" />
+                            </div>
+                        </div>
 
-                    <div className="flex flex-col gap-2">
-                        <label htmlFor="confirmPassword" className="text-sm">Confirmer le mot de passe</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" className="input" placeholder="Confirmer votre mot de passe" />
-                    </div>
+                        <div className="grid gap-2">
+                            <Label htmlFor="email" className="text-sm">Adresse email</Label>
+                            <Input type="email" id="email" name="email" placeholder="Votre adresse email" />
+                        </div>
 
-                    <div className="flex flex-col gap-2">
-                        <Button type="submit" className="btn btn-primary">Créer un compte</Button>
+                        <div className="grid grid-cols-8 gap-2">
+                            <div className="grid gap-2 col-span-7">
+                                <Label htmlFor="password" className="text-sm">Mot de passe</Label>
+                                <Input type="password" id="password" name="password" placeholder="Votre mot de passe" />
+                            </div>
+                            <div className="grid mb-1">
+                                <Button type="button" variant="outline" size={"icon"} className="mt-8" onClick={() => setShowPassword(!showPassword)}>
+                                    {showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
+                                </Button>
+                            </div>
+                        </div>
+
+
+                        <div className="flex flex-col gap-2">
+                            <Button type="submit" className="btn btn-primary">Créer un compte</Button>
+                        </div>
                     </div>
                 </form>
             </div>
