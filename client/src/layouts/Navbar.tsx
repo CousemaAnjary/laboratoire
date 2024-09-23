@@ -20,7 +20,7 @@ export default function Navbar() {
      */
     return (
         <>
-            <nav className="container-fluid h-16 border-b flex justify-between items-center">
+            <nav className="container-fluid relative z-10 bg-white h-16 border-b flex justify-between items-center">
                 <div className="logo ms-20">
                     <h1 className="font-medium font-mono">{text}</h1>
                 </div>

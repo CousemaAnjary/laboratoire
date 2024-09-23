@@ -1,3 +1,6 @@
+import Navbar from "@/layouts/Navbar"
+
+
 export default function Login() {
     /**
      * ! STATE (état, données) de l'application
@@ -16,7 +19,9 @@ export default function Login() {
         <>
             <div>
                 {/* En-tête */}
-                <header></header>
+                <header>
+                    <Navbar />
+                </header>
 
                 {/* Contenu */}
                 <main></main>

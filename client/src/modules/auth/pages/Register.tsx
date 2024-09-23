@@ -1,4 +1,6 @@
+import { cn } from "@/lib/utils"
 import Navbar from "@/layouts/Navbar"
+import GridPattern from "@/core/components/magicui/grid-pattern"
 
 
 export default function Register() {
@@ -18,9 +20,10 @@ export default function Register() {
     return (
         <>
             <div>
+                <GridPattern width={50} height={50} x={-1} y={-1} strokeDasharray={"4 2"} className={cn("[mask-image:radial-gradient(900px_circle_at_center,white,transparent)]",)} />
                 {/* En-tête */}
                 <header>
-                     <Navbar /> 
+                    <Navbar />
                 </header>
 
                 {/* Contenu */}
