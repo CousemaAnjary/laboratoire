@@ -1,16 +1,16 @@
 import { z } from "zod"
 import { useState } from "react"
-import { Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { FcGoogle } from "react-icons/fc"
 import { FaGithub } from "react-icons/fa"
 import { Eye, EyeOff } from "lucide-react"
+import { register } from "../services/authService"
 import { Input } from "@/core/components/ui/input"
 import { Button } from "@/core/components/ui/button"
+import { Link, useNavigate } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { RegisterType } from "../typeScript/AuthTypes"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/core/components/ui/form"
-
 
 
 // Définir le schéma de validation avec Zod
@@ -27,6 +27,7 @@ export default function RegisterForm() {
     /**
      * ! STATE (état, données) de l'application
      */
+    const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false)
 
     const form = useForm<RegisterType>({
@@ -45,10 +46,9 @@ export default function RegisterForm() {
      */
     const handleRegister = async (data: RegisterType): Promise<void> => {
         try {
-            console.log(data)
             // Envoi des données du formulaire à l'API
-            // const response = await register(data)
-            // console.log(response)
+            await register(data)
+            navigate('/login')
 
         } catch (error) {
             console.error('Erreur lors de l\'inscription:', error)
