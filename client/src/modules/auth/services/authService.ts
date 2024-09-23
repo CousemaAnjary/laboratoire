@@ -1,5 +1,4 @@
-import api from "@/services/apiConfig"
-
+import api from "@/core/services/apiConfig"
 
 // Inscription d'un utilisateur
 export const register = async () => {

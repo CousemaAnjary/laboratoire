@@ -8,7 +8,9 @@ import { Eye, EyeOff } from "lucide-react"
 import { Input } from "@/core/components/ui/input"
 import { Button } from "@/core/components/ui/button"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { RegisterType } from "../typeScript/AuthTypes"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/core/components/ui/form"
+
 
 
 // Définir le schéma de validation avec Zod
@@ -27,7 +29,7 @@ export default function RegisterForm() {
      */
     const [showPassword, setShowPassword] = useState(false)
 
-    const form = useForm({
+    const form = useForm<RegisterType>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             last_name: "",
@@ -41,8 +43,17 @@ export default function RegisterForm() {
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
-    const handleRegister = async (): Promise<void> => {
-       
+    const handleRegister = async (data: RegisterType): Promise<void> => {
+        try {
+            console.log(data)
+            // Envoi des données du formulaire à l'API
+            // const response = await register(data)
+            // console.log(response)
+
+        } catch (error) {
+            console.error('Erreur lors de l\'inscription:', error)
+        }
+
     }
 
     /**
