@@ -21,7 +21,7 @@ export default function RegisterForm() {
      */
     return (
         <>
-            <div className="p-8 border bg-white">
+            <div className="relative p-8 w-full max-w-md ">
                 <h1 className="text-3xl font-semibold mb-4 ">Créer un compte</h1>
                 <p className="mb-4 text-sm text-muted-foreground">
                     Vous avez déjà un compte ? Accédez-y en cliquant <Link to="/login" className="underline text-cyan-700">ici</Link>
@@ -46,8 +46,8 @@ export default function RegisterForm() {
                             <Input type="email" id="email" name="email" placeholder="Votre adresse email" />
                         </div>
 
-                        <div className="grid grid-cols-8 gap-2">
-                            <div className="grid gap-2 col-span-7">
+                        <div className="grid grid-cols-9 gap-2">
+                            <div className="grid gap-2 col-span-8">
                                 <Label htmlFor="password" className="text-sm">Mot de passe</Label>
                                 <Input type="password" id="password" name="password" placeholder="Votre mot de passe" />
                             </div>
@@ -58,9 +58,8 @@ export default function RegisterForm() {
                             </div>
                         </div>
 
-
-                        <div className="flex flex-col gap-2">
-                            <Button type="submit" className="btn btn-primary">Créer un compte</Button>
+                        <div className="grid">
+                            <Button type="submit" className="btn btn-primary w-full">Créer un compte</Button>
                         </div>
                     </div>
                 </form>
