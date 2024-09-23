@@ -30,9 +30,9 @@ export default function Register() {
 
                 {/* Contenu */}
                 <main>
-                    <section className="flex justify-center items-center h-[79vh] mt-9">
+                    <section className="flex justify-center items-center min-h-[79vh] mt-5 ">
                         <RegisterForm />
-                    </section>           
+                    </section>                  
                 </main>
 
                 {/* Pied de page */}
