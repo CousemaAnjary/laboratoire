@@ -46,10 +46,10 @@ export default function Navbar() {
                 </div>
 
                 <div className="flex gap-3 me-20">
-                    <Link to="#">
+                    <Link to="/register">
                         <Button variant={"ghost"}>Créer un compte</Button>
                     </Link>
-                    <Link to="#">
+                    <Link to="/login">
                         <Button variant={"outline"} className="shadow-none">
                             <User size={16} className="mr-1" /> Connexion
                         </Button>
