@@ -1,9 +1,10 @@
-import { Button } from "@/core/components/ui/button";
-import { Input } from "@/core/components/ui/input";
-import { Label } from "@/core/components/ui/label";
-import { Eye, EyeOff } from "lucide-react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import { Eye, EyeOff } from "lucide-react"
+import { Input } from "@/core/components/ui/input"
+import { Label } from "@/core/components/ui/label"
+import { Button } from "@/core/components/ui/button"
+
 
 export default function RegisterForm() {
     /**
