@@ -2,7 +2,7 @@ import { EllipsisVertical, User } from "lucide-react"
 import { Link } from "react-router-dom"
 import { Button } from "@/core/components/ui/button"
 import UnderlineHoverLink from "./ui/UnderlineHoverLink"
-import { useState } from "react"
+
 
 export default function Navbar() {
     /**
@@ -10,14 +10,12 @@ export default function Navbar() {
      */
     const logoText = "< Cousema Anjary />"
     const logoSmallText = "< C.A />"
-    const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
+
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
-    const toggleMobileMenu = () => {
-        setMobileMenuOpen(!isMobileMenuOpen)
-    }
+
 
     /**
      * ! AFFICHAGE (render) de l'application
@@ -65,43 +63,10 @@ export default function Navbar() {
 
                 {/* Mobile Menu Button */}
                 <div className="lg:hidden me-8">
-                    <Button variant={"ghost"} size={"icon"} onClick={toggleMobileMenu}>
+                    <Button variant={"ghost"} size={"icon"}>
                         <EllipsisVertical size={18} />
                     </Button>
                 </div>
-
-                {/* Mobile Menu (toggle)
-                {isMobileMenuOpen && (
-                    <div className="lg:hidden absolute top-16 right-0 bg-white shadow-lg w-full flex flex-col items-center py-4">
-                        <ul className="flex flex-col gap-4">
-                            <li>
-                                <Link to="/" onClick={toggleMobileMenu}>
-                                    <UnderlineHoverLink text="Laboratoire" />
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/about" onClick={toggleMobileMenu}>
-                                    <UnderlineHoverLink text="A propos de moi" />
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/contact" onClick={toggleMobileMenu}>
-                                    <UnderlineHoverLink text="Contact" />
-                                </Link>
-                            </li>
-                        </ul>
-                        <div className="mt-4 flex flex-col items-center gap-3">
-                            <Link to="/register" onClick={toggleMobileMenu}>
-                                <Button variant={"ghost"}>Créer un compte</Button>
-                            </Link>
-                            <Link to="/login" onClick={toggleMobileMenu}>
-                                <Button variant={"outline"} className="shadow-none">
-                                    <User size={16} className="mr-1" /> Connexion
-                                </Button>
-                            </Link>
-                        </div>
-                    </div>
-                )} */}
             </nav>
         </>
     )
