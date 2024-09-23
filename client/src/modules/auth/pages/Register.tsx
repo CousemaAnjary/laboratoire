@@ -20,8 +20,9 @@ export default function Register() {
      */
     return (
         <>
-            <div>
-                <GridPattern width={50} height={50} x={-1} y={-1} strokeDasharray={"4 2"} className={cn("[mask-image:radial-gradient(900px_circle_at_center,white,transparent)]",)} />
+            <div className="relative min-h-screen">
+                <GridPattern width={50} height={50} x={-1} y={-1} strokeDasharray={"4 2"} className={cn("absolute inset-0 [mask-image:radial-gradient(900px_circle_at_center,white,transparent)]")} />
+
                 {/* En-tête */}
                 <header>
                     <Navbar />
@@ -31,8 +32,7 @@ export default function Register() {
                 <main>
                     <section className="flex justify-center items-center h-[79vh] mt-9">
                         <RegisterForm />
-                    </section>
-
+                    </section>           
                 </main>
 
                 {/* Pied de page */}
