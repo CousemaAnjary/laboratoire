@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom"
 import UnderlineHoverLink from "./ui/UnderlineHoverLink"
+import { Button } from "@/core/components/ui/button"
+import { User } from "lucide-react"
 
 
 export default function Navbar() {
@@ -43,9 +45,15 @@ export default function Navbar() {
                     </ul>
                 </div>
 
-                <div className="flex gap-7 me-20">
-                    <button>Créer un compte</button>
-                    <button>Se connecter</button>
+                <div className="flex gap-3 me-20">
+                    <Link to="#">
+                        <Button variant={"ghost"}>Créer un compte</Button>
+                    </Link>
+                    <Link to="#">
+                        <Button variant={"outline"} className="shadow-none">
+                            <User size={16} className="mr-1" /> Connexion
+                        </Button>
+                    </Link>
                 </div>
             </nav>
         </>
