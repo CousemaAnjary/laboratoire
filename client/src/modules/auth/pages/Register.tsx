@@ -30,7 +30,7 @@ export default function Register() {
 
                 {/* Contenu */}
                 <main>
-                    <section>
+                    <section className="bg-slate-200  h-[79vh] mt-9">
                         <RegisterForm />
                     </section>
 
