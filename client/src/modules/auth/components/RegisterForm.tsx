@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { FcGoogle } from "react-icons/fc"
 import { Eye, EyeOff } from "lucide-react"
 import { Input } from "@/core/components/ui/input"
 import { Label } from "@/core/components/ui/label"
@@ -61,6 +62,19 @@ export default function RegisterForm() {
 
                         <div className="grid">
                             <Button type="submit" className="btn btn-primary w-full">Créer un compte</Button>
+                        </div>
+                        <div className="relative">
+                            <div className="absolute inset-0 flex items-center">
+                                <span className="w-full border-t"></span>
+                            </div>
+                            <div className="relative flex justify-center text-xs uppercase">
+                                <span className="bg-background px-2 text-muted-foreground">Ou continuer avec</span>
+                            </div>
+                        </div>
+                        <div className="grid gap-2">
+                            <Button type="button" variant="outline" className="w-full">
+                                <FcGoogle size={18} className="mr-1" /> Google
+                            </Button>
                         </div>
                     </div>
                 </form>
