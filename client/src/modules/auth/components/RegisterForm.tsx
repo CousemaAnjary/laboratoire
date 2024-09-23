@@ -18,7 +18,7 @@ export default function RegisterForm() {
     return (
         <>
             <div className="p-8 border bg-white">
-                <h1 className="scroll-m-20 text-3xl font-semibold tracking-tight mb-4 ">Créer un compte</h1>
+                <h1 className="text-3xl font-semibold mb-4 ">Créer un compte</h1>
                 <p className="mb-4 text-sm text-muted-foreground">
                     Vous avez déjà un compte ? Accédez-y en cliquant <Link to="/login" className="underline text-cyan-700">ici</Link>
                 </p>
