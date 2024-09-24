@@ -5,6 +5,7 @@ import PrivateRoutes from "./routes/PrivateRoutes"
 import Register from "./modules/auth/pages/Register"
 import { AuthProvider } from "./core/contexts/AuthContext"
 
+
 export default function App() {
   /**
    * ! STATE (état, données) de l'application

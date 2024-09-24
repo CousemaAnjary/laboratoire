@@ -31,12 +31,30 @@ class AuthenticatedUserSessionController extends Controller
                 'user' => $user,
                 'message' => 'User a été authentifié avec succès.'
             ], 200);
-            
         } else {
-            
+
             // Retourner une réponse JSON avec un message d'erreur
             return response()->json([
                 'message' => 'Les informations d\'authentification fournies sont incorrectes.'
+            ], 401);
+        }
+    }
+
+    public function verifyToken(Request $request): JsonResponse
+    {
+        // Vérifier si l'utilisateur est authentifié
+        if (Auth::check()) {
+
+            return response()->json([
+                'isAuthenticated' => true,
+                'message' => 'L\'utilisateur est authentifié.'
+            ], 200);
+            
+        } else {
+
+            return response()->json([
+                'isAuthenticated' => false,
+                'message' => 'L\'utilisateur n\'est pas authentifié.'
             ], 401);
         }
     }

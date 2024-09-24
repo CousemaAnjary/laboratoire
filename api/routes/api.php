@@ -26,6 +26,6 @@ Route::post('/login', [AuthenticatedUserSessionController::class, 'store']);
 
 // Authenticated routes
 Route::middleware('auth:sanctum')->group(function () {
-    // Route::get('auth/verify-token', [AuthenticatedUserSessionController::class, 'verifyToken']);
+    Route::get('is-authenticated', [AuthenticatedUserSessionController::class, 'verifyToken']);
     Route::post('logout', [AuthenticatedUserSessionController::class, 'destroy']);
 });
