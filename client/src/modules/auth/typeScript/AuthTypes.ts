@@ -38,6 +38,6 @@ export type RegisterResponseType = {
 export type AuthContextType = {
     isAuthenticated: boolean
     user: UserType | null
-    login: (data: LoginResponseType) => void
+    login: (data: LoginType) => void
     logout: () => void
 }
