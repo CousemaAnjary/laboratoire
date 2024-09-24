@@ -1,7 +1,9 @@
 /* eslint-disable react-refresh/only-export-components */
+import { isAuthenticated } from "../utils/auth"
 import { createContext, ReactNode, useContext, useEffect, useState } from "react"
 import { AuthContextType, LoginType, UserType } from "@/modules/auth/typeScript/AuthTypes"
-import { login as loginService, logout as logoutService, isAuthenticated } from '@/modules/auth/services/authService'
+import { login as loginService, logout as logoutService } from '@/modules/auth/services/authService'
+
 
 /**
  * ! Création du contexte (valeurs par défaut) 
@@ -20,36 +22,21 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     /**
       * *  STATE (état, données) de l'application
      */
-    const [auth, setAuth] = useState<boolean>(false)
-    const [loading, setLoading] = useState<boolean>(true)
+    const [auth, setAuth] = useState(isAuthenticated())
     const [user, setUser] = useState<UserType | null>(null)
 
     /**
      * * COMPORTEMENT (méthodes, fonctions) de l'application
      */
     useEffect(() => {
-        // Vérifier si l'utilisateur est authentifié
-        const checkAuth = async () => {
-            try {
-                // Appel de la fonction pour vérifier l'authentification
-                const response = await isAuthenticated()
-                setAuth(response)
 
-                if (response) {
-                    // Récupérer les données de l'utilisateur depuis le local storage
-                    const userData = JSON.parse(localStorage.getItem('user') || 'null')
-                    setUser(userData)
-                }
-
-            } catch (error) {
-                console.error('Erreur lors de la vérification de l\'authentification:', error)
-
-            } finally {
-                setLoading(false)
-            }
+        if (auth) {
+            // Récupérer les données de l'utilisateur depuis le local storage
+            const userData = JSON.parse(localStorage.getItem('user') || 'null')
+            setUser(userData)
         }
-        checkAuth()
-    }, [])
+    }, [auth])
+
 
 
     // Authentification de l'utilisateur
@@ -91,9 +78,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         }
     }
 
-    if (loading) {
-        return <div>Chargement...</div>
-    }
     /**
      * * AFFICHAGE (render) de l'application
      */
@@ -109,3 +93,50 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
  */
 
 export const useAuth = () => useContext(AuthContext)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// useEffect(() => {
+//     // Vérifier si l'utilisateur est authentifié
+//     const checkAuth = async () => {
+//         try {
+//             // Appel de la fonction pour vérifier l'authentification
+//             const response = await isAuthenticated()
+//             setAuth(response)
+
+//             if (response) {
+//                 // Récupérer les données de l'utilisateur depuis le local storage
+//                 const userData = JSON.parse(localStorage.getItem('user') || 'null')
+//                 setUser(userData)
+//             }
+
+//         } catch (error) {
+//             console.error('Erreur lors de la vérification de l\'authentification:', error)
+
+//         } finally {
+//             setLoading(false)
+//         }
+//     }
+//     checkAuth()
+// }, [])

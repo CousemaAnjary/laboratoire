@@ -40,24 +40,24 @@ class AuthenticatedUserSessionController extends Controller
         }
     }
 
-    public function verifyToken(Request $request): JsonResponse
-    {
-        // Vérifier si l'utilisateur est authentifié
-        if (Auth::check()) {
+    // public function verifyToken(Request $request): JsonResponse
+    // {
+    //     // Vérifier si l'utilisateur est authentifié
+    //     if (Auth::check()) {
 
-            return response()->json([
-                'isAuthenticated' => true,
-                'message' => 'L\'utilisateur est authentifié.'
-            ], 200);
+    //         return response()->json([
+    //             'isAuthenticated' => true,
+    //             'message' => 'L\'utilisateur est authentifié.'
+    //         ], 200);
             
-        } else {
+    //     } else {
 
-            return response()->json([
-                'isAuthenticated' => false,
-                'message' => 'L\'utilisateur n\'est pas authentifié.'
-            ], 401);
-        }
-    }
+    //         return response()->json([
+    //             'isAuthenticated' => false,
+    //             'message' => 'L\'utilisateur n\'est pas authentifié.'
+    //         ], 401);
+    //     }
+    // }
 
     public function destroy(Request $request): JsonResponse
     {
