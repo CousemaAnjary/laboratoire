@@ -1,6 +1,9 @@
-import { Route, Routes } from "react-router-dom"
 import Login from "./modules/auth/pages/Login"
+import PublicRoutes from "./routes/PublicRoutes"
+import { Route, Routes } from "react-router-dom"
+import PrivateRoutes from "./routes/PrivateRoutes"
 import Register from "./modules/auth/pages/Register"
+import { AuthProvider } from "./core/contexts/AuthContext"
 
 export default function App() {
   /**
@@ -18,14 +21,23 @@ export default function App() {
    */
   return (
     <>
-      <Routes>
-        {/* Public Routes */}
-        <Route path="/" element="Hello World" />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+      <AuthProvider>
+        <Routes>
+          {/* Public Routes */}
+          <Route element={<PublicRoutes />}>
+            <Route path="/" element="Hello World" />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Route>
 
-        {/* Protected Routes */}
-      </Routes>
+          {/* Protected Routes */}
+          <Route element={<PrivateRoutes />}>
+            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+            {/* <Route path="/kanbanBoard" element={<KanbanBoard />} /> */}
+          </Route>
+        </Routes>
+      </AuthProvider>
+
     </>
   )
 }
