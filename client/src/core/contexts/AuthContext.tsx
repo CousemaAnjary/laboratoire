@@ -24,8 +24,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [loading, setLoading] = useState<boolean>(true)
     const [user, setUser] = useState<UserType | null>(null)
 
-
-
     /**
      * * COMPORTEMENT (méthodes, fonctions) de l'application
      */
@@ -94,7 +92,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
 
     if (loading) {
-        return <div>Chargement...</div>;
+        return <div>Chargement...</div>
     }
     /**
      * * AFFICHAGE (render) de l'application
