@@ -101,7 +101,7 @@ export default function LoginForm() {
                             </div>
 
                             <div className="grid">
-                                <Button type="submit" className="w-full">Se connecter</Button>
+                                <Button type="submit" className="w-full">Authentification</Button>
                             </div>
                         </div>
                     </form>
