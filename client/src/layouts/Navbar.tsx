@@ -29,7 +29,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Desktop Navbar */}
-                <div className="navbar max-lg:hidden">
+                <div className="navbar max-lg:hidden ms-10">
                     <ul className="flex gap-10">
                         <li>
                             <Link to="/">
