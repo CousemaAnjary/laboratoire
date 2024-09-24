@@ -20,8 +20,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     /**
       * *  STATE (état, données) de l'application
      */
-    const [user, setUser] = useState<UserType | null>(null)
     const [auth, setAuth] = useState<boolean>(false)
+    const [loading, setLoading] = useState<boolean>(true)
+    const [user, setUser] = useState<UserType | null>(null)
+
+
 
     /**
      * * COMPORTEMENT (méthodes, fonctions) de l'application
@@ -42,6 +45,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
             } catch (error) {
                 console.error('Erreur lors de la vérification de l\'authentification:', error)
+
+            } finally {
+                setLoading(false)
             }
         }
         checkAuth()
@@ -81,11 +87,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             localStorage.removeItem('user')
             setAuth(false)
             setUser(null)
-            
+
         } catch (error) {
             console.error("Erreur lors de la déconnexion:", error)
         }
-    };
+    }
+
+    if (loading) {
+        return <div>Chargement...</div>;
+    }
     /**
      * * AFFICHAGE (render) de l'application
      */

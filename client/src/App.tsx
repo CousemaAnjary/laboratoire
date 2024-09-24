@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom"
 import PrivateRoutes from "./routes/PrivateRoutes"
 import Register from "./modules/auth/pages/Register"
 import { AuthProvider } from "./core/contexts/AuthContext"
+import Dashboard from "./modules/adminPanel/pages/Dashboard"
 
 
 export default function App() {
@@ -33,7 +34,7 @@ export default function App() {
 
           {/* Protected Routes */}
           <Route element={<PrivateRoutes />}>
-            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+           <Route path="/dashboard" element={<Dashboard />} /> 
             {/* <Route path="/kanbanBoard" element={<KanbanBoard />} /> */}
           </Route>
         </Routes>
