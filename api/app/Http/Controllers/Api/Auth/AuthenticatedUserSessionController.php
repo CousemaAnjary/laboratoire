@@ -31,6 +31,7 @@ class AuthenticatedUserSessionController extends Controller
                 'user' => $user,
                 'message' => 'User a été authentifié avec succès.'
             ], 200);
+            
         } else {
             
             // Retourner une réponse JSON avec un message d'erreur
