@@ -1,12 +1,13 @@
 import { z } from "zod"
 import { useState } from "react"
-import { Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { Eye, EyeOff } from "lucide-react"
 import { Input } from "@/core/components/ui/input"
 import { LoginType } from "../typeScript/AuthTypes"
+import { Link, useNavigate } from "react-router-dom"
 import { Button } from "@/core/components/ui/button"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { useAuth } from "@/core/contexts/AuthContext"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/core/components/ui/form"
 
 
@@ -21,7 +22,8 @@ export default function LoginForm() {
     /**
      * ! STATE (état, données) de l'application
      */
-
+    const { login } = useAuth()
+    const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false)
 
     const form = useForm<LoginType>({
@@ -37,14 +39,16 @@ export default function LoginForm() {
      */
     const handleLogin = async (data: LoginType): Promise<void> => {
         try {
-            console.log(data)
+            // Envoi des données au serveur (API) pour l'authentification
+            await login(data)
+            navigate('/dashboard')
 
         } catch (error) {
             // Afficher l'erreur dans la console
             console.error(error)
         }
     }
-    
+
     /**
      * ! AFFICHAGE (render) de l'application
      */
