@@ -1,5 +1,6 @@
 import { z } from "zod"
 import { useState } from "react"
+import { Toaster, toast } from 'sonner'
 import { useForm } from "react-hook-form"
 import { FcGoogle } from "react-icons/fc"
 import { FaGithub } from "react-icons/fa"
@@ -48,10 +49,16 @@ export default function RegisterForm() {
         try {
             // Envoi des données du formulaire à l'API
             const response = await register(data)
-            if (response) navigate('/login')
 
+            if (response) {
+                // Afficher un message de succès
+                toast.success('Inscription réussie !', { duration: 5000 })
+                navigate('/login')
+            }
         } catch (error) {
             console.error('Erreur lors de l\'inscription:', error)
+            // Afficher un message d'erreur
+            toast.error('Erreur lors de l\'inscription', { duration: 5000 })
         }
     }
 
@@ -60,6 +67,7 @@ export default function RegisterForm() {
      */
     return (
         <>
+            <Toaster />
             <div className="relative p-8 w-full max-w-md">
                 <h1 className="mb-2 text-2xl font-bold text-black">Inscription</h1>
                 <p className="mb-4 text-sm text-muted-foreground">
