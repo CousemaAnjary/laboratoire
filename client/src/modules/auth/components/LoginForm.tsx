@@ -50,7 +50,6 @@ export default function LoginForm() {
                 navigate('/dashboard')
             }
 
-
         } catch (error) {
             toast.error("Une erreur est survenue. Veuillez réessayer")
             console.error(error)

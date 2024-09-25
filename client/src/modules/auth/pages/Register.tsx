@@ -5,7 +5,6 @@ import RegisterForm from "../components/RegisterForm"
 import GridPattern from "@/core/components/magicui/grid-pattern"
 
 
-
 export default function Register() {
     /**
      * ! STATE (état, données) de l'application
