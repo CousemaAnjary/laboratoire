@@ -42,8 +42,3 @@ export type AuthContextType = {
     logout: () => void
 }
 
-// Le type pour les notifications avec sonner
-export type NotificationType = {
-    onSuccess: (message: string) => void
-    onError: (message: string) => void
-}

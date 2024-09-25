@@ -1,5 +1,6 @@
 import { z } from "zod"
 import { useState } from "react"
+
 import { useForm } from "react-hook-form"
 import { FcGoogle } from "react-icons/fc"
 import { FaGithub } from "react-icons/fa"
@@ -9,7 +10,7 @@ import { Input } from "@/core/components/ui/input"
 import { Button } from "@/core/components/ui/button"
 import { Link, useNavigate } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { NotificationType, RegisterType } from "../typeScript/AuthTypes"
+import { RegisterType } from "../typeScript/AuthTypes"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/core/components/ui/form"
 
 
@@ -23,7 +24,7 @@ const formSchema = z.object({
 })
 
 
-export default function RegisterForm({ onSuccess, onError }: NotificationType) {
+export default function RegisterForm() {
     /**
      * ! STATE (état, données) de l'application
      */
@@ -48,16 +49,11 @@ export default function RegisterForm({ onSuccess, onError }: NotificationType) {
         try {
             // Envoi des données du formulaire à l'API
             const response = await register(data)
+            // 
+            if (response) navigate('/login')
 
-            if (response) {
-                // Afficher un message de succès
-                onSuccess("Inscription réussie, veuillez vous connecter.");
-                navigate('/login')
-            }
         } catch (error) {
             console.error('Erreur lors de l\'inscription:', error)
-            // Afficher un message d'erreur
-            onError("Erreur lors de l'inscription.");
         }
     }
 
