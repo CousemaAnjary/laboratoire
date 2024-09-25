@@ -67,7 +67,7 @@ export default function RegisterForm() {
      */
     return (
         <>
-            <Toaster />
+            <Toaster richColors />
             <div className="relative p-8 w-full max-w-md">
                 <h1 className="mb-2 text-2xl font-bold text-black">Inscription</h1>
                 <p className="mb-4 text-sm text-muted-foreground">
