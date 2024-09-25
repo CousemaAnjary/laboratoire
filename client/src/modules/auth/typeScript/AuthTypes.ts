@@ -38,7 +38,7 @@ export type RegisterResponseType = {
 export type AuthContextType = {
     isAuthenticated: boolean
     user: UserType | null
-    login: (data: LoginType) => Promise<LoginResponseType>
-    logout: () => Promise<void>
+    login: (data: LoginType) => void
+    logout: () => void
 }
 

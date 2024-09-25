@@ -41,8 +41,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     // Authentification de l'utilisateur
     const login = async (dataLogin: LoginType) => {
-
-        try {
             // Appel à l'API pour authentifier un utilisateur
             const response = await loginService(dataLogin)
 
@@ -54,10 +52,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                 setUser(response.user)
                 setAuth(true)
             }
-
-        } catch (error) {
-            console.error('Erreur lors de l\'authentification:', error)
-        }
     }
 
 
