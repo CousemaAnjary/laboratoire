@@ -41,8 +41,17 @@ export default function LoginForm() {
     const handleLogin = async (data: LoginType): Promise<void> => {
         try {
             // Envoi des données au serveur (API) pour l'authentification
-            await login(data)
-            navigate('/dashboard')
+            const response = await login(data)
+
+            if (response.token) {
+                //  Enregistrement du message de succès dans le stockage local
+                localStorage.setItem("successMessage", "Vous êtes connecté avec succès")
+                navigate('/dashboard')
+
+            } else {
+                // Affichage d'un message d'erreur email ou mot de passe incorrect
+                toast.error("Adresse e-mail ou mot de passe incorrect")
+            }
 
         } catch (error) {
             toast.error("Une erreur est survenue. Veuillez réessayer")

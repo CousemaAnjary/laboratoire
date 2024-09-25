@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { isAuthenticated } from "../utils/auth"
 import { createContext, ReactNode, useContext, useEffect, useState } from "react"
-import { AuthContextType, LoginType, UserType } from "@/modules/auth/typeScript/AuthTypes"
+import { AuthContextType, LoginResponseType, LoginType, UserType } from "@/modules/auth/typeScript/AuthTypes"
 import { login as loginService, logout as logoutService } from '@/modules/auth/services/authService'
 
 
@@ -11,8 +11,8 @@ import { login as loginService, logout as logoutService } from '@/modules/auth/s
 const AuthContext = createContext<AuthContextType>({
     isAuthenticated: false,
     user: null,
-    login: () => { },
-    logout: () => { }
+    login: async () => ({ token: '', user: { id: '', first_name: '', last_name: '', email: '', image: '' } }),
+    logout: async () => { }
 })
 
 /**
@@ -40,23 +40,24 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
 
     // Authentification de l'utilisateur
-    const login = async (dataLogin: LoginType) => {
-            // Appel à l'API pour authentifier un utilisateur
-            const response = await loginService(dataLogin)
+    const login = async (dataLogin: LoginType): Promise<LoginResponseType> => {
+        // Appel à l'API pour authentifier un utilisateur
+        const response = await loginService(dataLogin)
 
-            if (response.token) {
-                // Stocker le token JWT dans localStorage
-                localStorage.setItem('token', response.token)
-                // Stoker les données de l'utilisateur dans le local storage
-                localStorage.setItem('user', JSON.stringify(response.user))
-                setUser(response.user)
-                setAuth(true)
-            }
+        if (response.token) {
+            // Stocker le token JWT dans localStorage
+            localStorage.setItem('token', response.token)
+            // Stoker les données de l'utilisateur dans le local storage
+            localStorage.setItem('user', JSON.stringify(response.user))
+            setUser(response.user)
+            setAuth(true)
+        }
+        return response;
     }
 
 
     // Déconnexion de l'utilisateur
-    const logout = async () => {
+    const logout = async (): Promise<void> => {
         try {
             // Appel à l'API pour déconnecter un utilisateur
             await logoutService()
