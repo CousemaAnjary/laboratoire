@@ -55,6 +55,7 @@ export default function RegisterForm() {
                 localStorage.setItem("successMessage", "Inscription réussie, veuillez vous connecter")
                 navigate('/login')
             }
+
         } catch (error) {
             toast.error("Une erreur est survenue. Veuillez réessayer");
             console.error(error)

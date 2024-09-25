@@ -1,4 +1,5 @@
 import { z } from "zod"
+import { toast } from "sonner"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { Eye, EyeOff } from "lucide-react"
@@ -9,6 +10,7 @@ import { Button } from "@/core/components/ui/button"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useAuth } from "@/core/contexts/AuthContext"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/core/components/ui/form"
+
 
 
 // Définir le schéma de validation avec Zod
@@ -40,11 +42,17 @@ export default function LoginForm() {
     const handleLogin = async (data: LoginType): Promise<void> => {
         try {
             // Envoi des données au serveur (API) pour l'authentification
-            await login(data)
-            navigate('/dashboard')
+            const response = await login(data)
+
+            if (response) {
+                //  Enregistrement du message de succès dans le stockage local
+                localStorage.setItem('message', "Vous êtes connecté avec succès !")
+                navigate('/dashboard')
+            }
+
 
         } catch (error) {
-            // Afficher l'erreur dans la console
+            toast.error("Une erreur est survenue. Veuillez réessayer")
             console.error(error)
         }
     }
