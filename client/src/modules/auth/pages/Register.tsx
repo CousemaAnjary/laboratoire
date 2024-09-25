@@ -10,12 +10,12 @@ export default function Register() {
      * ! STATE (état, données) de l'application
      */
     const handleSuccess = (message: string) => {
-        toast.success(message);
-    };
+        toast.success(message)
+    }
 
     const handleError = (message: string) => {
-        toast.error(message);
-    };
+        toast.error(message)
+    }
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
@@ -28,7 +28,7 @@ export default function Register() {
     return (
         <>
             <div className="relative min-h-screen">
-                <Toaster />
+                <Toaster richColors />
                 <GridPattern width={50} height={50} x={-1} y={-1} strokeDasharray={"4 2"} className={cn("absolute inset-0 [mask-image:radial-gradient(900px_circle_at_center,white,transparent)]")} />
 
                 {/* En-tête */}
