@@ -1,6 +1,5 @@
 import { z } from "zod"
 import { useState } from "react"
-import { Toaster, toast } from 'sonner'
 import { useForm } from "react-hook-form"
 import { FcGoogle } from "react-icons/fc"
 import { FaGithub } from "react-icons/fa"
@@ -10,7 +9,7 @@ import { Input } from "@/core/components/ui/input"
 import { Button } from "@/core/components/ui/button"
 import { Link, useNavigate } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { RegisterType } from "../typeScript/AuthTypes"
+import { NotificationType, RegisterType } from "../typeScript/AuthTypes"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/core/components/ui/form"
 
 
@@ -24,7 +23,7 @@ const formSchema = z.object({
 })
 
 
-export default function RegisterForm() {
+export default function RegisterForm({ onSuccess, onError }: NotificationType) {
     /**
      * ! STATE (état, données) de l'application
      */
@@ -52,13 +51,13 @@ export default function RegisterForm() {
 
             if (response) {
                 // Afficher un message de succès
-                toast.success('Inscription réussie !', { duration: 5000 })
+                onSuccess("Inscription réussie, veuillez vous connecter.");
                 navigate('/login')
             }
         } catch (error) {
             console.error('Erreur lors de l\'inscription:', error)
             // Afficher un message d'erreur
-            toast.error('Erreur lors de l\'inscription', { duration: 5000 })
+            onError("Erreur lors de l'inscription.");
         }
     }
 
@@ -67,7 +66,6 @@ export default function RegisterForm() {
      */
     return (
         <>
-            <Toaster richColors />
             <div className="relative p-8 w-full max-w-md">
                 <h1 className="mb-2 text-2xl font-bold text-black">Inscription</h1>
                 <p className="mb-4 text-sm text-muted-foreground">
