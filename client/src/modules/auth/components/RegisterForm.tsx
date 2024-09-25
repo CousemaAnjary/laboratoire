@@ -1,6 +1,6 @@
 import { z } from "zod"
+import { toast } from "sonner"
 import { useState } from "react"
-
 import { useForm } from "react-hook-form"
 import { FcGoogle } from "react-icons/fc"
 import { FaGithub } from "react-icons/fa"
@@ -49,11 +49,15 @@ export default function RegisterForm() {
         try {
             // Envoi des données du formulaire à l'API
             const response = await register(data)
-            // 
-            if (response) navigate('/login')
 
+            if (response) {
+                //  Enregistrement du message de succès dans le stockage local
+                localStorage.setItem("successMessage", "Inscription réussie, veuillez vous connecter")
+                navigate('/login')
+            }
         } catch (error) {
-            console.error('Erreur lors de l\'inscription:', error)
+            toast.error("Une erreur est survenue. Veuillez réessayer");
+            console.error(error)
         }
     }
 

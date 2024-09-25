@@ -1,7 +1,9 @@
 import { cn } from "@/lib/utils"
+import { useEffect } from "react"
 import Navbar from "@/layouts/Navbar"
-import GridPattern from "@/core/components/magicui/grid-pattern"
+import { toast, Toaster } from "sonner"
 import LoginForm from "../components/LoginForm"
+import GridPattern from "@/core/components/magicui/grid-pattern"
 
 
 export default function Login() {
@@ -13,14 +15,25 @@ export default function Login() {
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
+    useEffect(() => {
+        // Récupération du message de succès dans le localStorage
+        const message = localStorage.getItem("successMessage")
 
+        if (message) {
+            // Affichage du message de succès
+            toast.success(message)
+            localStorage.removeItem("successMessage")
+        }
+    }, [])
 
+ 
     /**
      * ! AFFICHAGE (render) de l'application
      */
     return (
         <>
             <div className="relative min-h-screen">
+                <Toaster richColors /> {/* Affichage des messages d'alerte */}
                 <GridPattern width={50} height={50} x={-1} y={-1} strokeDasharray={"4 2"} className={cn("absolute inset-0 [mask-image:radial-gradient(900px_circle_at_center,white,transparent)]")} />
 
                 {/* En-tête */}
