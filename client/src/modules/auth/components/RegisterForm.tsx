@@ -13,8 +13,6 @@ import { RegisterType } from "../typeScript/AuthTypes"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/core/components/ui/form"
 
 
-
-
 // Définir le schéma de validation avec Zod
 const formSchema = z.object({
     last_name: z.string().min(2, { message: "Le nom doit contenir au moins 2 caractères" }),
