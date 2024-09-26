@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             setUser(response.user)
             setAuth(true)
         }
-        return response;
+        return response
     }
 
 

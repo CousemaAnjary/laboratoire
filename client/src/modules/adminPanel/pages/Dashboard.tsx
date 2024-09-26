@@ -1,6 +1,8 @@
 import { Button } from "@/core/components/ui/button";
 import { useAuth } from "@/core/contexts/AuthContext";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast, Toaster } from "sonner";
 
 
 export default function Dashboard() {
@@ -26,12 +28,24 @@ export default function Dashboard() {
         }
     }
 
+    useEffect(() => {
+        // Récupération du message de succès dans le localStorage
+        const message = localStorage.getItem("successMessage")
+
+        if (message) {
+            // Affichage du message de succès
+            toast.success(message)
+            localStorage.removeItem("successMessage")
+        }
+    }, [])
+
 
     /**
      * ! AFFICHAGE (render) de l'application
      */
     return (
         <>
+            <Toaster richColors /> {/* Affichage des messages d'alerte */}
             <h1>Dashboard Admin</h1>
             <p className="text-sm font-medium leading-none mb-1"> {user?.last_name} {user?.first_name}</p>
 
