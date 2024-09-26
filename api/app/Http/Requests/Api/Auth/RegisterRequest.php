@@ -34,7 +34,6 @@ class RegisterRequest extends FormRequest
     {
         return [
             'email.unique' => 'Cet email est déjà utilisé par un autre utilisateur',
-            'last_name.required' => 'Le nom est obligatoire',
         ];
     }
 }

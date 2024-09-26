@@ -13,13 +13,13 @@ export const handleApiError = (error: unknown): void => {
                 const fieldErrors = errorData.errors[field];
                 fieldErrors.forEach((message: string) => {
                     // console.log(`${field}: ${message}`)
-                    toast.error(message)
+                    toast.warning(message)
                 })
             })
 
         } else {
             // Message d'erreur global si disponible
-            toast.error(errorData.message)
+            toast.warning(errorData.message)
         }
     } else {
         // Erreur générique pour les erreurs inattendues
