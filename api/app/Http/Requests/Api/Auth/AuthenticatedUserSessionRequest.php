@@ -26,4 +26,5 @@ class AuthenticatedUserSessionRequest extends FormRequest
             'password' => ['required', 'string'],
         ];
     }
+
 }
