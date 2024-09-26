@@ -23,6 +23,6 @@ export const handleApiError = (error: unknown): void => {
         }
     } else {
         // Erreur générique pour les erreurs inattendues
-        toast.error("Une erreur inattendue est survenue.")
+        toast.error("Une erreur inattendue est survenue")
     }
 }
