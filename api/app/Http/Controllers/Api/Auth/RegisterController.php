@@ -32,7 +32,7 @@ class RegisterController extends Controller
         // Retourner une réponse JSON avec l'utilisateur créé
         return response()->json([
             'user' => $user,
-            'message' => 'User a été créé avec succès.'
+            'messageSuccess' => 'Inscription réussie, veuillez vous connecter'
         ], 201);
     }
 }

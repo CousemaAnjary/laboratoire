@@ -52,7 +52,7 @@ export default function RegisterForm() {
 
             if (response) {
                 //  Enregistrement du message de succès dans le stockage local
-                localStorage.setItem("successMessage", response.message)
+                localStorage.setItem("success", response.messageSuccess)
                 navigate('/login')
             }
 

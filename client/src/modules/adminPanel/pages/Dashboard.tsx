@@ -30,12 +30,12 @@ export default function Dashboard() {
 
     useEffect(() => {
         // Récupération du message de succès dans le localStorage
-        const message = localStorage.getItem("successMessage")
+        const message = localStorage.getItem("success")
 
         if (message) {
             // Affichage du message de succès
             toast.success(message)
-            localStorage.removeItem("successMessage")
+            localStorage.removeItem("success")
         }
     }, [])
 
