@@ -1,5 +1,4 @@
 import { z } from "zod"
-import { toast } from "sonner"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { FcGoogle } from "react-icons/fc"
@@ -12,7 +11,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { RegisterType } from "../typeScript/AuthTypes"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/core/components/ui/form"
-import axios from "axios"
+
 
 
 
@@ -59,27 +58,11 @@ export default function RegisterForm() {
             }
 
         } catch (error) {
-
-            // Vérifier si l'erreur est une erreur Axios (si vous utilisez Axios)
-            if (axios.isAxiosError(error) && error.response) {
-                const errorData = error.response.data;
-
-                // Parcourir et afficher chaque message d'erreur dans 'errors'
-                if (errorData.errors) {
-                    Object.keys(errorData.errors).forEach((field) => {
-                        const fieldErrors = errorData.errors[field];
-                        fieldErrors.forEach((message: string) => {
-                            console.log(`${field}: ${message}`);
-                            toast.error(` ${message}`);
-                        });
-                    });
-                }
-            } else {
-                toast.warning("Une erreur est survenue. Veuillez réessayer")
-                console.error(error)
-            }
+            // L'erreur est déjà gérée par `handleApiError` dans le service, rien à faire ici
+            console.error("Erreur lors de l'inscription:", error);
         }
     }
+
 
     /**
      * ! AFFICHAGE (render) de l'application
