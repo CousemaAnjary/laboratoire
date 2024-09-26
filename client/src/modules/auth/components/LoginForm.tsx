@@ -49,7 +49,6 @@ export default function LoginForm() {
 
 
         } catch (error) {
-            // L'erreur est déjà gérée par `handleApiError` dans le service, rien à faire ici
             console.error(error)
         }
     }
