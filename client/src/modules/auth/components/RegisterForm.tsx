@@ -12,6 +12,8 @@ import { Link, useNavigate } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { RegisterType } from "../typeScript/AuthTypes"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/core/components/ui/form"
+import axios from "axios"
+
 
 
 // Définir le schéma de validation avec Zod
@@ -57,8 +59,25 @@ export default function RegisterForm() {
             }
 
         } catch (error) {
-            toast.error("Une erreur est survenue. Veuillez réessayer")
-            console.error(error)
+
+            // Vérifier si l'erreur est une erreur Axios (si vous utilisez Axios)
+            if (axios.isAxiosError(error) && error.response) {
+                const errorData = error.response.data;
+
+                // Parcourir et afficher chaque message d'erreur dans 'errors'
+                if (errorData.errors) {
+                    Object.keys(errorData.errors).forEach((field) => {
+                        const fieldErrors = errorData.errors[field];
+                        fieldErrors.forEach((message: string) => {
+                            console.log(`${field}: ${message}`);
+                            toast.error(` ${message}`);
+                        });
+                    });
+                }
+            } else {
+                toast.warning("Une erreur est survenue. Veuillez réessayer")
+                console.error(error)
+            }
         }
     }
 

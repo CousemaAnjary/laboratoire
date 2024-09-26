@@ -29,4 +29,12 @@ class RegisterRequest extends FormRequest
             'image' => ['nullable', 'image', 'max:2048'],
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'email.unique' => 'Cet email est déjà utilisé par un autre utilisateur',
+            'last_name.required' => 'Le nom est obligatoire',
+        ];
+    }
 }

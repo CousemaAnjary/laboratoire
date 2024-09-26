@@ -33,7 +33,7 @@ export type LoginResponseType = {
 // Le type de la réponse API pour l'inscription (register)
 export type RegisterResponseType = {
     user: UserType
-    messageSuccess: string
+    messageSuccess: string 
 }
 
 // Le type pour le contexte d'authentification
