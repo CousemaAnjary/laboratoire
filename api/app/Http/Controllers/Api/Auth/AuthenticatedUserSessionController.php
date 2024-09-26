@@ -29,13 +29,13 @@ class AuthenticatedUserSessionController extends Controller
             return response()->json([
                 'token' => $token,
                 'user' => $user,
-                'message' => 'User a été authentifié avec succès.'
+                'messageSuccess' => 'Vous êtes connecté avec succès'
             ], 200);
+            
         } else {
-
             // Retourner une réponse JSON avec un message d'erreur
             return response()->json([
-                'message' => 'Les informations d\'authentification fournies sont incorrectes.'
+                'message' => 'Les informations d\'authentification fournies sont incorrectes'
             ], 401);
         }
     }
@@ -49,7 +49,7 @@ class AuthenticatedUserSessionController extends Controller
     //             'isAuthenticated' => true,
     //             'message' => 'L\'utilisateur est authentifié.'
     //         ], 200);
-            
+
     //     } else {
 
     //         return response()->json([

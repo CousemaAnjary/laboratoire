@@ -41,15 +41,15 @@ export default function LoginForm() {
     const handleLogin = async (data: LoginType): Promise<void> => {
         try {
             // Envoi des données au serveur (API) pour l'authentification
-            await login(data)
-            
+            const response = await login(data)
+
             //  Enregistrement du message de succès dans le stockage local
-            localStorage.setItem("successMessage", "Vous êtes connecté avec succès")
+            localStorage.setItem("success", response.messageSuccess)
             navigate('/dashboard')
 
 
         } catch (error) {
-          // L'erreur est déjà gérée par `handleApiError` dans le service, rien à faire ici
+            // L'erreur est déjà gérée par `handleApiError` dans le service, rien à faire ici
             console.error(error)
         }
     }

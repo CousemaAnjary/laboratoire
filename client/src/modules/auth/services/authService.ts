@@ -1,6 +1,7 @@
 import api from "@/core/services/apiConfig"
-import { LoginResponseType, LoginType, RegisterResponseType, RegisterType } from "../typeScript/AuthTypes"
 import { handleApiError } from "@/core/utils/handleApiError"
+import { LoginResponseType, LoginType, RegisterResponseType, RegisterType } from "../typeScript/AuthTypes"
+
 
 // Inscription d'un utilisateur
 export const register = async (dataRegister: RegisterType): Promise<RegisterResponseType> => {

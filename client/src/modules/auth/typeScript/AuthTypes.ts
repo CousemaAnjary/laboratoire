@@ -27,7 +27,7 @@ export type UserType = {
 export type LoginResponseType = {
     token: string
     user: UserType
-    message: string
+    messageSuccess: string
 }
 
 // Le type de la réponse API pour l'inscription (register)
@@ -40,7 +40,7 @@ export type RegisterResponseType = {
 export type AuthContextType = {
     isAuthenticated: boolean
     user: UserType | null
-    login: (data: LoginType) => Promise<void>
+    login: (data: LoginType) => Promise<LoginResponseType>
     logout: () => Promise<void>
 }
 
