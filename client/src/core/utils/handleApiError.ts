@@ -10,7 +10,7 @@ export const handleApiError = (error: unknown): void => {
         // Afficher les erreurs spécifiques à chaque champ
         if (errorData.errors) {
             Object.keys(errorData.errors).forEach((field) => {
-                const fieldErrors = errorData.errors[field];
+                const fieldErrors = errorData.errors[field]
                 fieldErrors.forEach((message: string) => {
                     // console.log(`${field}: ${message}`)
                     toast.warning(message)
