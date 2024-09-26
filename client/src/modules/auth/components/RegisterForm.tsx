@@ -52,12 +52,12 @@ export default function RegisterForm() {
 
             if (response) {
                 //  Enregistrement du message de succès dans le stockage local
-                localStorage.setItem("successMessage", "Inscription réussie, veuillez vous connecter")
+                localStorage.setItem("successMessage", response.message)
                 navigate('/login')
             }
 
         } catch (error) {
-            toast.error("Une erreur est survenue. Veuillez réessayer");
+            toast.error("Une erreur est survenue. Veuillez réessayer")
             console.error(error)
         }
     }

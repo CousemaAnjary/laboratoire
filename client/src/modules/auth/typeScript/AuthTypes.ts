@@ -27,11 +27,13 @@ export type UserType = {
 export type LoginResponseType = {
     token: string
     user: UserType
+    message: string
 }
 
 // Le type de la réponse API pour l'inscription (register)
 export type RegisterResponseType = {
     user: UserType
+    message: string
 }
 
 // Le type pour le contexte d'authentification
