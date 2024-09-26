@@ -15,13 +15,20 @@ export const register = async (dataRegister: RegisterType): Promise<RegisterResp
         throw error
     }
 
-
 }
 
 // Connexion d'un utilisateur
 export const login = async (dataLogin: LoginType): Promise<LoginResponseType> => {
-    const response = await api.post('/login', dataLogin)
-    return response.data // Retourner les données de la réponse de l'API
+    try {
+        // Appel à l'API pour connecter un utilisateur
+        const response = await api.post('/login', dataLogin)
+        return response.data // Retourner les données de la réponse de l'API
+
+    } catch (error) {
+        // Gérer les erreurs API (serveur) 
+        handleApiError(error)
+        throw error
+    }
 }
 
 // // Vérification de l'authentification d'un utilisateur

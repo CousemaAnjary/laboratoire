@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { isAuthenticated } from "../utils/auth"
 import { createContext, ReactNode, useContext, useEffect, useState } from "react"
-import { AuthContextType, LoginResponseType, LoginType, UserType } from "@/modules/auth/typeScript/AuthTypes"
+import { AuthContextType, LoginType, UserType } from "@/modules/auth/typeScript/AuthTypes"
 import { login as loginService, logout as logoutService } from '@/modules/auth/services/authService'
 
 
@@ -11,7 +11,7 @@ import { login as loginService, logout as logoutService } from '@/modules/auth/s
 const AuthContext = createContext<AuthContextType>({
     isAuthenticated: false,
     user: null,
-    login: async () => ({ token: '', user: { id: '', first_name: '', last_name: '', email: '', image: '' }, message: '' }),
+    login: async () => { },
     logout: async () => { }
 })
 
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
 
     // Authentification de l'utilisateur
-    const login = async (dataLogin: LoginType): Promise<LoginResponseType> => {
+    const login = async (dataLogin: LoginType): Promise<void> => {
         // Appel à l'API pour authentifier un utilisateur
         const response = await loginService(dataLogin)
 
@@ -52,7 +52,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             setUser(response.user)
             setAuth(true)
         }
-        return response
     }
 
 

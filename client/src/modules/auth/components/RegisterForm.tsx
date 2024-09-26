@@ -59,7 +59,7 @@ export default function RegisterForm() {
 
         } catch (error) {
             // L'erreur est déjà gérée par `handleApiError` dans le service, rien à faire ici
-            console.error("Erreur lors de l'inscription:", error);
+            console.error(error)
         }
     }
 

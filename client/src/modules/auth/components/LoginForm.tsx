@@ -9,7 +9,7 @@ import { Button } from "@/core/components/ui/button"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useAuth } from "@/core/contexts/AuthContext"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/core/components/ui/form"
-import { toast } from "sonner"
+
 
 
 // Définir le schéma de validation avec Zod
@@ -49,7 +49,7 @@ export default function LoginForm() {
 
 
         } catch (error) {
-            toast.error("Une erreur est survenue. Veuillez réessayer")
+          // L'erreur est déjà gérée par `handleApiError` dans le service, rien à faire ici
             console.error(error)
         }
     }
