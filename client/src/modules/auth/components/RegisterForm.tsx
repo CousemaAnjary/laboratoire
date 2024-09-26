@@ -66,8 +66,9 @@ export default function RegisterForm() {
      */
     return (
         <>
+           
             <div className="relative p-8 w-full max-w-md">
-                <h1 className="mb-2 text-2xl font-bold text-black">Inscription</h1>
+                <h1 className="mb-2 text-2xl font-bold text-black">Inscription</h1>  
                 <p className="mb-4 text-sm text-muted-foreground">
                     Vous avez déjà un compte ? Accédez-y en cliquant <Link to="/login" className="underline text-cyan-700">ici</Link>
                 </p>
@@ -170,6 +171,7 @@ export default function RegisterForm() {
 
                             <div className="grid">
                                 <Button type="submit" className="w-full">Créer un compte</Button>
+                               
                             </div>
                             <div className="relative">
                                 {/* <div className="absolute inset-0 flex items-center">
@@ -192,7 +194,7 @@ export default function RegisterForm() {
                                     </Button>
                                 </div>
                             </div>
-
+                         
                         </div>
                     </form>
                 </Form>
