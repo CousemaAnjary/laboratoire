@@ -7,7 +7,6 @@ import { AuthProvider } from "./core/contexts/AuthContext"
 import Dashboard from "./modules/adminPanel/pages/Dashboard"
 
 
-
 export default function App() {
   /**
    * ! STATE (état, données) de l'application
