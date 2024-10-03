@@ -4,6 +4,7 @@ import { EllipsisVertical, User } from "lucide-react"
 import UnderlineHoverLink from "./ui/UnderlineHoverLink"
 
 
+
 export default function Navbar() {
     /**
      * ! STATE (état, données) de l'application
