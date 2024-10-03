@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 // Récupération de l'URL de l'API depuis les variables d'environnement 
-const API_URL = import.meta.env.VITE_BACKEND_API_URL === 'localhost' ? import.meta.env.VITE_BACKEND_API_URL : 'http://192.168.88.14:8000/api'
-// const API_URL = import.meta.env.VITE_BACKEND_API_URL;
+// const API_URL = import.meta.env.VITE_BACKEND_API_URL === 'localhost' ? import.meta.env.VITE_BACKEND_API_URL : 'http://192.168.88.14:8000/api'
+const API_URL = import.meta.env.VITE_BACKEND_API_URL;
 
 // Configuration de l'instance axios
 const api = axios.create({
