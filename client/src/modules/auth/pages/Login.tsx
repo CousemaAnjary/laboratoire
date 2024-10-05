@@ -6,7 +6,6 @@ import LoginForm from "../components/LoginForm"
 import GridPattern from "@/core/components/magicui/grid-pattern"
 
 
-
 export default function Login() {
     /**
      * ! STATE (état, données) de l'application
