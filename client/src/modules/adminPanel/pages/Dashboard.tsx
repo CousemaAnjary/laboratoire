@@ -1,9 +1,9 @@
-import { Button } from "@/core/components/ui/button";
-import { useAuth } from "@/core/contexts/AuthContext";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast, Toaster } from "sonner";
-import PanelLayout from "../components/PanelLayout";
+import { useEffect } from "react"
+import { toast, Toaster } from "sonner"
+import { useNavigate } from "react-router-dom"
+import PanelLayout from "../components/PanelLayout"
+import { Button } from "@/core/components/ui/button"
+import { useAuth } from "@/core/contexts/AuthContext"
 
 
 export default function Dashboard() {
@@ -16,6 +16,18 @@ export default function Dashboard() {
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
+    useEffect(() => {
+        // Récupération du message de succès dans le localStorage
+        const message = localStorage.getItem("success")
+
+        if (message) {
+            // Affichage du message de succès
+            toast.success(message)
+            localStorage.removeItem("success")
+        }
+    }, [])
+
+    
     const handleLogout = async (): Promise<void> => {
 
         try {
@@ -29,16 +41,7 @@ export default function Dashboard() {
         }
     }
 
-    useEffect(() => {
-        // Récupération du message de succès dans le localStorage
-        const message = localStorage.getItem("success")
 
-        if (message) {
-            // Affichage du message de succès
-            toast.success(message)
-            localStorage.removeItem("success")
-        }
-    }, [])
 
 
     /**
