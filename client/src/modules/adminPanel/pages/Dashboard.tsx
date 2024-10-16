@@ -3,6 +3,7 @@ import { useAuth } from "@/core/contexts/AuthContext";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, Toaster } from "sonner";
+import PanelLayout from "../components/PanelLayout";
 
 
 export default function Dashboard() {
@@ -46,12 +47,14 @@ export default function Dashboard() {
     return (
         <>
             <Toaster richColors /> {/* Affichage des messages d'alerte */}
-            <h1>Dashboard Admin</h1>
-            <p className="text-sm font-medium leading-none mb-1"> {user?.last_name} {user?.first_name}</p>
+            <PanelLayout>
+                <h1>Dashboard Admin</h1>
+                <p className="text-sm font-medium leading-none mb-1"> {user?.last_name} {user?.first_name}</p>
 
-            <Button onClick={handleLogout}>
-                Se déconnecter
-            </Button>
+                <Button onClick={handleLogout}>
+                    Se déconnecter
+                </Button>
+            </PanelLayout>
         </>
     )
 }

@@ -1,4 +1,6 @@
-export default function PanelLayout() {
+import Navbar from "./Navbar";
+
+export default function PanelLayout({ children }: { children: React.ReactNode }) {
     /**
      * ! STATE (état, données) de l'application
      */
@@ -17,8 +19,12 @@ export default function PanelLayout() {
             {/* Sidebar */}
 
             {/* Conteneur principal */}
+            <Navbar />
 
             {/* Main content */}
+            <main className="container pt-8 pb-8 px-4 sm:px-8">
+                {children}
+            </main>
         </>
     )
 }
