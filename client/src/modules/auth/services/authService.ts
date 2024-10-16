@@ -2,7 +2,6 @@ import api from "@/core/services/apiConfig"
 import { handleApiError } from "@/core/utils/handleApiError"
 import { LoginResponseType, LoginType, RegisterResponseType, RegisterType } from "../typeScript/AuthTypes"
 
-
 // Inscription d'un utilisateur
 export const register = async (dataRegister: RegisterType): Promise<RegisterResponseType> => {
     try {
@@ -15,7 +14,6 @@ export const register = async (dataRegister: RegisterType): Promise<RegisterResp
         handleApiError(error)
         throw error
     }
-
 }
 
 // Connexion d'un utilisateur
