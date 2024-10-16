@@ -1,9 +1,9 @@
-import { Button } from "@/core/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/core/components/ui/dropdown-menu"
-import { useAuth } from "@/core/contexts/AuthContext"
 import UserAvatar from "@/layouts/UserAvatar"
-import { LogOut, Settings, User } from "lucide-react"
+import { Button } from "@/core/components/ui/button"
 import { Link, useNavigate } from "react-router-dom"
+import { useAuth } from "@/core/contexts/AuthContext"
+import { LogOut, Settings, User } from "lucide-react"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/core/components/ui/dropdown-menu"
 
 
 export default function UserDropdownMenu() {
@@ -13,6 +13,7 @@ export default function UserDropdownMenu() {
     const navigate = useNavigate()
     const { user, logout } = useAuth()
 
+    
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
@@ -28,7 +29,6 @@ export default function UserDropdownMenu() {
             console.error('Logout failed', error)
         }
     }
-
 
 
     /**
