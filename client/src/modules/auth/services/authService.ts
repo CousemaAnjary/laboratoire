@@ -38,6 +38,7 @@ export const login = async (dataLogin: LoginType): Promise<LoginResponseType> =>
 //     return response.data.isAuthenticated // Retourner les données de la réponse de l'API
 // }
 
+
 // Déconnexion d'un utilisateur
 export const logout = async () => {
     await api.post('/logout')
