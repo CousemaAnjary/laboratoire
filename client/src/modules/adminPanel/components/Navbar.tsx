@@ -19,19 +19,15 @@ export default function Navbar() {
      */
     return (
         <>
-            <nav className="sticky top-0 z-10 w-full bg-background/95 shadow backdrop-blur supports-[backdrop-filter]:bg-background/60 dark:shadow-secondary">
-                <div className="mx-4 sm:mx-8 flex h-14 items-center">
-                    <div className="flex items-center space-x-4 lg:space-x-0">
+            <nav className="container-fluid relative h-16 shadow-sm  flex justify-between items-center border-b">
+                <div className="ms-10">
+                    <Link to="/dashboard">
+                        <Button variant="ghost">Laboratoire</Button>
+                    </Link>
+                </div>
 
-
-                        <Link to="/dashboard">
-                            <Button variant="ghost">Laboratoire</Button>
-                        </Link>
-                    </div>
-
-                    <div className="flex flex-1 items-center space-x-3 justify-end">
-                        <UserDropdownMenu />
-                    </div>
+                <div className="flex justify-end space-x-3 me-10">
+                    <UserDropdownMenu />
                 </div>
             </nav>
         </>
