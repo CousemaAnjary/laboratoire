@@ -1,9 +1,10 @@
-import UserAvatar from "@/layouts/UserAvatar"
-import { Button } from "@/core/components/ui/button"
+
+import { Button } from "@/components/ui/button"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "@/core/contexts/AuthContext"
 import { LogOut, Settings, User } from "lucide-react"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/core/components/ui/dropdown-menu"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import UserAvatar from "@/components/UserAvatar"
 
 
 export default function UserDropdownMenu() {

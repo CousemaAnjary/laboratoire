@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import UserDropdownMenu from "./UserDropdownMenu"
-import { Button } from "@/core/components/ui/button"
+import { Button } from "@/components/ui/button"
 
 
 export default function Navbar() {
