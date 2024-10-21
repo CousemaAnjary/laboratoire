@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
-import { Button } from "@/core/components/ui/button"
+import { Button } from "@/components/ui/button"
 import { EllipsisVertical, User } from "lucide-react"
-import UnderlineHoverLink from "./ui/UnderlineHoverLink"
+import UnderlineHoverLink from "./custom/UnderlineHoverLink"
+
 
 
 

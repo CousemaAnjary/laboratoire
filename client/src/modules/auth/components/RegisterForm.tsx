@@ -5,12 +5,12 @@ import { FcGoogle } from "react-icons/fc"
 import { FaGithub } from "react-icons/fa"
 import { Eye, EyeOff } from "lucide-react"
 import { register } from "../services/authService"
-import { Input } from "@/core/components/ui/input"
-import { Button } from "@/core/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 import { Link, useNavigate } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { RegisterType } from "../typeScript/AuthTypes"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/core/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 
 
 // Définir le schéma de validation avec Zod

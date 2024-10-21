@@ -1,9 +1,11 @@
 import { cn } from "@/lib/utils"
 import { useEffect } from "react"
-import Navbar from "@/layouts/Navbar"
+
 import { toast, Toaster } from "sonner"
 import LoginForm from "../components/LoginForm"
-import GridPattern from "@/core/components/magicui/grid-pattern"
+
+import Navbar from "@/components/Navbar"
+import GridPattern from "@/components/magicui/grid-pattern"
 
 
 export default function Login() {

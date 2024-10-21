@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/core/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 
 export default function UserAvatar({ image, email }: { image?: string, email?: string }) {

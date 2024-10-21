@@ -2,13 +2,13 @@ import { z } from "zod"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { Eye, EyeOff } from "lucide-react"
-import { Input } from "@/core/components/ui/input"
+import { Input } from "@/components/ui/input"
 import { LoginType } from "../typeScript/AuthTypes"
 import { Link, useNavigate } from "react-router-dom"
-import { Button } from "@/core/components/ui/button"
+import { Button } from "@/components/ui/button"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useAuth } from "@/core/contexts/AuthContext"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/core/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 
 
 

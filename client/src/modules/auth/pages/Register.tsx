@@ -1,8 +1,10 @@
 import { Toaster } from "sonner"
 import { cn } from "@/lib/utils"
-import Navbar from "@/layouts/Navbar"
+
 import RegisterForm from "../components/RegisterForm"
-import GridPattern from "@/core/components/magicui/grid-pattern"
+
+import Navbar from "@/components/Navbar"
+import GridPattern from "@/components/magicui/grid-pattern"
 
 
 export default function Register() {
