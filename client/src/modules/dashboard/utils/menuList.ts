@@ -1,6 +1,5 @@
-// utils/menuUtils.ts
-import { Bookmark, Key, LayoutGrid, Settings, Users, BookOpen } from "lucide-react";
-import { Group } from "../typeScript/MenuList";
+import { Group } from "../typeScript/MenuList"
+import { Bookmark, Key, LayoutGrid, Settings, Users, BookOpen } from "lucide-react"
 
 /**
  * Fonction pour générer la liste des menus de l'application
