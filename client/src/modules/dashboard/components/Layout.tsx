@@ -1,5 +1,6 @@
-import Navbar from "./Navbar";
-import Sidebar from "./Sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import AppSidebar from "./AppSidebar";
+
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     /**
@@ -15,16 +16,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
      */
     return (
         <>
-            {/* Sidebar */}
-            <Sidebar />
-
-            {/* Navbar */}
-            {/* <Navbar /> */}
-
-            {/* Contenu principal */}
-            {/* <main className="container pt-8 pb-8 px-4 sm:px-8">
-                {children}
-            </main> */}
+            <SidebarProvider>
+                <AppSidebar />
+                <main>
+                    <SidebarTrigger />
+                    {children}
+                </main>
+            </SidebarProvider>
         </>
     );
 }
