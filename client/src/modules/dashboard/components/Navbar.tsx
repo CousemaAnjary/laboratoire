@@ -21,7 +21,7 @@ export default function Navbar() {
     return (
         <>
             <nav className="container-fluid relative h-16 shadow-sm  flex justify-between items-center border-b">
-                <div className="flex items-center ms-5">
+                <div className="flex items-center space-x-3 ms-5">
                     <SidebarTrigger />
                     <Link to="/dashboard">
                         <Button variant="ghost">Laboratoire</Button>
