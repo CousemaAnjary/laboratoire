@@ -1,20 +1,32 @@
 import { Link } from "react-router-dom"
-import { ChevronRight } from "lucide-react"
+import { ChevronRight, Ellipsis } from "lucide-react"
 import { SidebarContentMenuProps } from "../typeScript/MenuList"
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
-import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubItem, SidebarMenuSubButton } from "@/components/ui/sidebar"
+import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubItem, SidebarMenuSubButton, useSidebar } from "@/components/ui/sidebar"
 
 
 export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
+    /**
+     * ! STATE (état, données) de l'application
+     */
+    const { open } = useSidebar()
+
+    /**
+     * ! COMPORTEMENT (méthodes, fonctions) de l'application
+     */
+
+    /**
+     * ! AFFICHAGE (render) de l'application
+     */
     return (
         <>
             {menuGroups.map((group, index) => (
                 <SidebarGroup key={index}>
 
-                    {/* Étiquette du groupe */}
-                    <SidebarGroupLabel>{group.groupLabel}</SidebarGroupLabel>
-
-                    {/* Contenu du groupe */}
+                    {/* Étiquette du groupe conditionnelle : groupLabel ou Ellipsis */}
+                    <SidebarGroupLabel>
+                        {open ? group.groupLabel : <Ellipsis className="h-5 w-5" />}
+                    </SidebarGroupLabel>
                     <SidebarMenu>
                         {group.menus.map((menu, index) => (
                             <Collapsible key={index} asChild defaultOpen className="group/collapsible">
