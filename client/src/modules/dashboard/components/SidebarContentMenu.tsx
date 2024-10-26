@@ -10,7 +10,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
         <>
             {menuGroups.map((group, index) => (
                 <SidebarGroup key={index}>
-                    
+
                     {/* Étiquette du groupe */}
                     <SidebarGroupLabel>{group.groupLabel}</SidebarGroupLabel>
 
@@ -26,7 +26,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                             <Link to={menu.href}>
                                                 <menu.icon className="mr-1" />
                                                 <span>{menu.label}</span>
-                                                
+
                                                 {/* Affichage conditionnel de l'icône Chevron */}
                                                 {menu.submenus && menu.submenus.length > 0 && (
                                                     <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />

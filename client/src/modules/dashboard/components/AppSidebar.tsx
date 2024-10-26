@@ -7,7 +7,7 @@ export default function AppSidebar() {
     /**
      * ! STATE (état, données) de l'application
      */
-    const menuGroups = MenuList();
+    const menuGroups = MenuList()
 
     /**
      * ! AFFICHAGE (render) de l'application
