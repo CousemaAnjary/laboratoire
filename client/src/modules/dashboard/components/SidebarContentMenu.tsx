@@ -10,6 +10,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
         <>
             {menuGroups.map((group, index) => (
                 <SidebarGroup key={index}>
+                    
                     {/* Étiquette du groupe */}
                     <SidebarGroupLabel>{group.groupLabel}</SidebarGroupLabel>
 
