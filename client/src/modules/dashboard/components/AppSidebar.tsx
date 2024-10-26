@@ -16,7 +16,7 @@ export default function AppSidebar() {
      */
     return (
         <>
-            <Sidebar variant="sidebar">
+            <Sidebar variant="sidebar" collapsible="icon">
                 <SidebarHeader />
                 <SidebarContent>
                     <SidebarGroup />

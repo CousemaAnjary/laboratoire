@@ -20,7 +20,7 @@ export default function Navbar() {
      */
     return (
         <>
-            <nav className="container-fluid relative h-16 shadow-sm  flex justify-between items-center border-b">
+            <nav className="container-fluid sticky top-0 bg-white h-16 flex justify-between items-center ">
                 <div className="flex items-center space-x-3 ms-5">
                     <SidebarTrigger />
                     <Link to="/dashboard">

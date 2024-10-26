@@ -7,7 +7,7 @@ export default function Dashboard() {
     /**
      * ! STATE (état, données) de l'application
      */
-  
+
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
@@ -24,7 +24,7 @@ export default function Dashboard() {
     }, [])
 
 
-  
+
 
     /**
      * ! AFFICHAGE (render) de l'application
@@ -33,7 +33,16 @@ export default function Dashboard() {
         <>
             <Toaster richColors /> {/* Affichage des messages d'alerte */}
             <PanelLayout>
-                <h1>Dashboard Admin</h1>
+                <div className="flex flex-col gap-4">
+                    <div className="grid auto-rows-min gap-4 md:grid-cols-4">
+                        <div className="aspect-video rounded-xl bg-muted/50" />
+                        <div className="aspect-video rounded-xl bg-muted/50" />
+                        <div className="aspect-video rounded-xl bg-muted/50" />
+                        <div className="aspect-video rounded-xl bg-muted/50" />
+                    </div>
+                    <div className="aspect-video rounded-xl bg-muted/50" />
+                </div>
+
             </PanelLayout>
         </>
     )

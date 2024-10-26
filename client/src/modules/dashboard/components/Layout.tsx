@@ -1,6 +1,6 @@
 import Navbar from "./Navbar"
 import AppSidebar from "./AppSidebar"
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -21,7 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <AppSidebar />
                 <SidebarInset>
                     <Navbar />
-                    <main className="container pt-8 pb-8 px-4 sm:px-8">
+                    <main className="container pt-8 pb-8 sm:px-8">
                         {children}
                     </main>
                 </SidebarInset>
