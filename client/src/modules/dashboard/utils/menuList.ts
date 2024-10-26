@@ -9,6 +9,8 @@ import { Group } from "../typeScript/MenuList";
  */
 export function MenuList(): Group[] {
     return [
+
+        // Groupe de menus pour le tableau de bord
         {
             groupLabel: "Tableau de bord",
             menus: [
@@ -20,6 +22,8 @@ export function MenuList(): Group[] {
                 }
             ]
         },
+
+        // Groupe de menus pour l'application
         {
             groupLabel: "Application",
             menus: [
@@ -31,6 +35,8 @@ export function MenuList(): Group[] {
                 }
             ]
         },
+
+        // Groupe de menus pour les paramètres
         {
             groupLabel: "Paramètres",
             menus: [
@@ -54,6 +60,8 @@ export function MenuList(): Group[] {
                 }
             ]
         },
+
+        // Groupe de menus pour la documentation
         {
             groupLabel: "Documentation",
             menus: [

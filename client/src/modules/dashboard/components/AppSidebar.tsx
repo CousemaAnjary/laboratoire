@@ -51,7 +51,7 @@ export default function AppSidebar() {
                                                         <SidebarMenuSubItem key={index}>
 
                                                             {/* Bouton du sous-menu */}
-                                                            <SidebarMenuSubButton asChild>
+                                                            <SidebarMenuSubButton className="ms-3" asChild>
                                                                 <Link to={submenu.href}>
                                                                     <span>{submenu.label}</span>
                                                                 </Link>
