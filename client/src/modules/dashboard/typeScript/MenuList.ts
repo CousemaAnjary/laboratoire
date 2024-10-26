@@ -20,9 +20,9 @@ export type Submenu = {
     href: string
     label: string
     // active: boolean
-} 
+}
 
-// 
+// Le type pour les propriétés du composant SidebarContentMenu
 export type SidebarContentMenuProps = {
     menuGroups: Group[]
 }

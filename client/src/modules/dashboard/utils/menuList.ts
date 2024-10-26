@@ -72,15 +72,15 @@ export function MenuList(): Group[] {
                     submenus: [
                         {
                             label: "Introduction",
-                            href: "/documentation/intro",
+                            href: "#",
                         },
                         {
                             label: "Installation",
-                            href: "/documentation/installation",
+                            href: "#",
                         },
                         {
                             label: "Utilisation avancée",
-                            href: "/documentation/advanced",
+                            href: "#",
                         }
                     ]
                 }
