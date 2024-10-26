@@ -5,7 +5,6 @@ import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/component
 import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubItem, SidebarMenuSubButton } from "@/components/ui/sidebar"
 
 
-
 export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
     return (
         <>
