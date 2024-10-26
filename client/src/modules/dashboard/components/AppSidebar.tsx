@@ -1,6 +1,23 @@
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem } from "@/components/ui/sidebar"
+import {
+    Sidebar,
+    SidebarContent,
+    SidebarFooter,
+    SidebarGroup,
+    SidebarGroupContent,
+    SidebarGroupLabel,
+    SidebarHeader,
+    SidebarMenu,
+    SidebarMenuButton,
+    SidebarMenuItem,
+    SidebarMenuSub,
+    SidebarMenuSubItem,
+    SidebarMenuSubButton,
+    SidebarRail,
+} from "@/components/ui/sidebar";
 import { Link } from "react-router-dom";
 import { MenuList } from "../utils/menuList";
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
+
 
 export default function AppSidebar() {
     /**
@@ -9,66 +26,69 @@ export default function AppSidebar() {
     const menuGroups = MenuList();
 
     /**
-     * ! COMPORTEMENT (méthodes, fonctions) de l'application
-     */
-
-
-    /**
      * ! AFFICHAGE (render) de l'application
      */
     return (
-        <>
-            <Sidebar variant="sidebar" collapsible="icon">
-                <SidebarHeader />
+        <Sidebar variant="sidebar" collapsible="icon">
+            {/* En-tête de la barre latérale */}
+            <SidebarHeader />
 
-                {/* Contenu de la barre latérale */}
-                <SidebarContent>
-                    {menuGroups.map((group, index) => (
-                        <SidebarGroup key={index}>
 
-                            {/* Étiquette du groupe */}
-                            <SidebarGroupLabel>{group.groupLabel}</SidebarGroupLabel>
+            {/* Contenu de la barre latérale */}
+            <SidebarContent>
+                {menuGroups.map((group, index) => (
+                    <SidebarGroup key={index}>
 
-                            {/* Contenu du groupe */}
-                            <SidebarGroupContent>
-                                <SidebarMenu>
-                                    {group.menus.map((menu, index) => (
-                                        <SidebarMenuItem key={index}>
+                        {/* Étiquette du groupe */}
+                        <SidebarGroupLabel>{group.groupLabel}</SidebarGroupLabel>
 
-                                            {/* Bouton du menu */}
-                                            <SidebarMenuButton asChild>
-                                                <Link to={menu.href}>
-                                                    {/* Icône du menu */}
-                                                    <menu.icon className="mr-1" />
-                                                    <span>{menu.label}</span>
-                                                </Link>
-                                            </SidebarMenuButton>
+                        {/* Contenu du groupe */}
+                        <SidebarGroupContent>
+                            <SidebarMenu>
+                                {group.menus.map((menu, index) => (
+                                    <Collapsible key={index} defaultOpen className="group/collapsible">
 
-                                            {/* Sous-menus (si disponibles) */}
+                                        {/* Élément du menu */}
+                                        <SidebarMenuItem>
+                                            <CollapsibleTrigger asChild>
+                                                <SidebarMenuButton asChild>
+                                                    <Link to={menu.href}>
+                                                        <menu.icon className="mr-1" />
+                                                        <span>{menu.label}</span>
+                                                    </Link>
+                                                </SidebarMenuButton>
+                                            </CollapsibleTrigger>
+
+                                            {/* Sous-menu du menu (si disponibles) */}
                                             {menu.submenus && menu.submenus.length > 0 && (
-                                                <SidebarMenuSub>
-                                                    {menu.submenus.map((submenu, index) => (
-                                                        <SidebarMenuSubItem key={index}>
+                                                <CollapsibleContent>
+                                                    <SidebarMenuSub>
+                                                        {menu.submenus.map((submenu, index) => (
+                                                            <SidebarMenuSubItem key={index}>
 
-                                                            {/* Bouton du sous-menu */}
-                                                            <SidebarMenuSubButton className="ms-3" asChild>
-                                                                <Link to={submenu.href}>
-                                                                    <span>{submenu.label}</span>
-                                                                </Link>
-                                                            </SidebarMenuSubButton>
-                                                        </SidebarMenuSubItem>
-                                                    ))}
-                                                </SidebarMenuSub>
+                                                                {/* Bouton du sous-menu */}
+                                                                <SidebarMenuSubButton className="ms-3" asChild>
+                                                                    <Link to={submenu.href}>
+                                                                        <span>{submenu.label}</span>
+                                                                    </Link>
+                                                                </SidebarMenuSubButton>
+                                                            </SidebarMenuSubItem>
+                                                        ))}
+                                                    </SidebarMenuSub>
+                                                </CollapsibleContent>
                                             )}
                                         </SidebarMenuItem>
-                                    ))}
-                                </SidebarMenu>
-                            </SidebarGroupContent>
-                        </SidebarGroup>
-                    ))}
-                </SidebarContent>
-                <SidebarFooter />
-            </Sidebar>
-        </>
-    )
+                                    </Collapsible>
+                                ))}
+                            </SidebarMenu>
+                        </SidebarGroupContent>
+                    </SidebarGroup>
+                ))}
+            </SidebarContent>
+
+            {/* Pied de page de la barre latérale */}
+            <SidebarFooter />
+            <SidebarRail />
+        </Sidebar>
+    );
 }
