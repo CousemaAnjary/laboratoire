@@ -1,5 +1,5 @@
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import AppSidebar from "./AppSidebar"
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 
 
 export default function Sidebar({ children }: { children: React.ReactNode }) {
