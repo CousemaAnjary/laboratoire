@@ -1,10 +1,10 @@
-
+import UserAvatar from "@/components/UserAvatar"
 import { Button } from "@/components/ui/button"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "@/core/contexts/AuthContext"
 import { LogOut, Settings, User } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import UserAvatar from "@/components/UserAvatar"
+
 
 
 export default function UserDropdownMenu() {
@@ -14,7 +14,7 @@ export default function UserDropdownMenu() {
     const navigate = useNavigate()
     const { user, logout } = useAuth()
 
-    
+
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */

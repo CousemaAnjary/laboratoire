@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { toast, Toaster } from "sonner"
-import PanelLayout from "../components/PanelLayout"
+import PanelLayout from "../components/Layout"
 
 
 export default function Dashboard() {
