@@ -27,6 +27,8 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                     <SidebarGroupLabel>
                         {open ? group.groupLabel : <Ellipsis className="h-5 w-5" />}
                     </SidebarGroupLabel>
+
+                    {/* Menu du groupe */}
                     <SidebarMenu>
                         {group.menus.map((menu, index) => (
                             <Collapsible key={index} asChild defaultOpen className="group/collapsible">
