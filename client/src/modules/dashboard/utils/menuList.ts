@@ -1,5 +1,6 @@
 // utils/menuUtils.ts
-import { Users, Settings, Bookmark, LayoutGrid, Key } from "lucide-react";
+import { Bookmark, Key, LayoutGrid, Settings, Users } from "lucide-react";
+import { Group } from "../typeScript/MenuList";
 
 /**
  * Fonction pour générer la liste des menus de l'application
@@ -7,15 +8,15 @@ import { Users, Settings, Bookmark, LayoutGrid, Key } from "lucide-react";
  * @param pathname - la route actuelle de l'application
  * @returns Group[] - la liste des groupes de menus
  */
-export function MenuList(pathname: string) {
+export function MenuList(): Group[] {
     return [
         {
-            groupLabel: "",
+            groupLabel: "Tableau de bord",
             menus: [
                 {
                     label: "Tableau de bord",
                     href: "/dashboard",
-                    active: pathname.includes("/dashboard"),
+                    // active: pathname.includes("/dashboard"),
                     icon: LayoutGrid,
                     submenus: []
                 }
@@ -27,7 +28,7 @@ export function MenuList(pathname: string) {
                 {
                     label: "Kanban Board",
                     href: "/kanbanBoard",
-                    active: pathname.includes("/kanbanBoard"),
+                    // active: pathname.includes("/kanbanBoard"),
                     icon: Bookmark,
                     submenus: []
                 }
@@ -38,22 +39,22 @@ export function MenuList(pathname: string) {
             menus: [
                 {
                     label: "Configurations",
-                    href: "/configurations",
-                    active: pathname.includes("/configurations"),
+                    href: "#",
+                    // active: pathname.includes("/configurations"),
                     icon: Settings,
                     submenus: []
                 },
                 {
                     label: "Droit d'accès",
-                    href: "/access-rights",
-                    active: pathname.includes("/access-rights"),
+                    href: "#",
+                    // active: pathname.includes("/access-rights"),
                     icon: Key,
                     submenus: []
                 },
                 {
                     label: "Utilisateurs",
-                    href: "/users",
-                    active: pathname.includes("/users"),
+                    href: "#",
+                    // active: pathname.includes("/users"),
                     icon: Users,
                     submenus: []
                 }
