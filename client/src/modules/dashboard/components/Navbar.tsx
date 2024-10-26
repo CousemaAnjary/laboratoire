@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import UserDropdownMenu from "./UserDropdownMenu"
 import { Button } from "@/components/ui/button"
+import { SidebarTrigger } from "@/components/ui/sidebar"
 
 
 export default function Navbar() {
@@ -20,7 +21,8 @@ export default function Navbar() {
     return (
         <>
             <nav className="container-fluid relative h-16 shadow-sm  flex justify-between items-center border-b">
-                <div className="ms-10">
+                <div className="flex items-center ms-5">
+                    <SidebarTrigger />
                     <Link to="/dashboard">
                         <Button variant="ghost">Laboratoire</Button>
                     </Link>
