@@ -1,6 +1,6 @@
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import AppSidebar from "./AppSidebar";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar"
+import AppSidebar from "./AppSidebar"
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 
 
 export default function Layout({ children }: { children: React.ReactNode }) {
