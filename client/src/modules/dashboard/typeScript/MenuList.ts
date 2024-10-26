@@ -21,3 +21,8 @@ export type Submenu = {
     label: string
     // active: boolean
 } 
+
+// 
+export type SidebarContentMenuProps = {
+    menuGroups: Group[]
+}
