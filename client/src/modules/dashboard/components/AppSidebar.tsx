@@ -1,4 +1,4 @@
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar"
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem } from "@/components/ui/sidebar"
 import { Link } from "react-router-dom";
 import { MenuList } from "../utils/menuList";
 
@@ -39,26 +39,26 @@ export default function AppSidebar() {
                                             <SidebarMenuButton asChild>
                                                 <Link to={menu.href}>
                                                     {/* Icône du menu */}
-                                                    <menu.icon className="mr-2" />
+                                                    <menu.icon className="mr-1" />
                                                     <span>{menu.label}</span>
                                                 </Link>
                                             </SidebarMenuButton>
 
                                             {/* Sous-menus (si disponibles) */}
                                             {menu.submenus && menu.submenus.length > 0 && (
-                                                <SidebarMenu>
+                                                <SidebarMenuSub>
                                                     {menu.submenus.map((submenu, index) => (
-                                                        <SidebarMenuItem key={index}>
+                                                        <SidebarMenuSubItem key={index}>
 
                                                             {/* Bouton du sous-menu */}
-                                                            <SidebarMenuButton asChild>
+                                                            <SidebarMenuSubButton asChild>
                                                                 <Link to={submenu.href}>
                                                                     <span>{submenu.label}</span>
                                                                 </Link>
-                                                            </SidebarMenuButton>
-                                                        </SidebarMenuItem>
+                                                            </SidebarMenuSubButton>
+                                                        </SidebarMenuSubItem>
                                                     ))}
-                                                </SidebarMenu>
+                                                </SidebarMenuSub>
                                             )}
                                         </SidebarMenuItem>
                                     ))}
