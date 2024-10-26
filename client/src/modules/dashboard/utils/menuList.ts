@@ -11,7 +11,7 @@ export function MenuList(): Group[] {
 
         // Groupe de menus pour le tableau de bord
         {
-            groupLabel: "Tableau de bord",
+            groupLabel: "",
             menus: [
                 {
                     label: "Tableau de bord",
