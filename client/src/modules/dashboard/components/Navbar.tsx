@@ -29,12 +29,12 @@ export default function Navbar() {
                             <BreadcrumbList>
                                 <BreadcrumbItem className="hidden md:block">
                                     <BreadcrumbLink href="#" className="font-medium text-xs">
-                                        Building Your Application
+                                        Tableau de bord
                                     </BreadcrumbLink>
                                 </BreadcrumbItem>
                                 <BreadcrumbSeparator className="hidden md:block" />
                                 <BreadcrumbItem>
-                                    <BreadcrumbPage className="font-medium text-xs">Tableau de bord</BreadcrumbPage>
+                                    <BreadcrumbPage className="font-medium text-xs">Tableau de bord personnel</BreadcrumbPage>
                                 </BreadcrumbItem>
                             </BreadcrumbList>
                         </Breadcrumb>
