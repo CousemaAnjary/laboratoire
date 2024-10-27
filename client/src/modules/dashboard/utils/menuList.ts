@@ -1,5 +1,5 @@
 import { Group } from "../typeScript/MenuList"
-import { Bookmark, Key, LayoutDashboard, Settings, Users } from "lucide-react"
+import { Bookmark, BookOpen, Key, LayoutDashboard, Settings, Users } from "lucide-react"
 
 /**
  * Fonction pour générer la liste des menus de l'application
@@ -66,5 +66,35 @@ export function MenuList(pathname: string): Group[] {
                 }
             ]
         },
-    ];
+
+        // Groupe de menus pour les Documentation 
+        {
+            groupLabel: "Documentation",
+            menus: [
+                {
+                    label: "Guide d'utilisateur",
+                    href: "#",
+                    active: pathname.includes("#"),
+                    icon: BookOpen,
+                    submenus: [
+                        {
+                            label: "Introduction",
+                            href: "/documentation/intro",
+                            active: pathname.includes("#"),
+                        },
+                        {
+                            label: "Installation",
+                            href: "/documentation/installation",
+                            active: pathname.includes("#"),
+                        },
+                        {
+                            label: "Utilisation avancée",
+                            href: "/documentation/advanced",
+                            active: pathname.includes("#"),
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }
