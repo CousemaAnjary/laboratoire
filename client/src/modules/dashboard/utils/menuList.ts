@@ -28,7 +28,7 @@ export function MenuList(): Group[] {
             menus: [
                 {
                     label: "Kanban Board",
-                    href: "/kanbanBoard",
+                    href: "#",
                     icon: Bookmark,
                     submenus: []
                 }

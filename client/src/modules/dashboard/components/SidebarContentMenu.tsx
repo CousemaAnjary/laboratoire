@@ -23,11 +23,11 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
             {menuGroups.map((group, index) => (
                 <SidebarGroup key={index}>
 
-                    {/* Étiquette du groupe conditionnelle : groupLabel ou Ellipsis */}
+                    {/* Étiquette du groupe conditionnelle : affiche Ellipsis si fermé et groupLabel existe */}
                     <SidebarGroupLabel>
-                        {open ? group.groupLabel : <Ellipsis className="h-5 w-5 cursor-pointer mt-3" />}
+                        {open ? (group.groupLabel) : (group.groupLabel && <Ellipsis className="h-5 w-5 cursor-pointer mt-3" />)}
                     </SidebarGroupLabel>
-
+                    
                     {/* Menu du groupe */}
                     <SidebarMenu>
                         {group.menus.map((menu, index) => (
