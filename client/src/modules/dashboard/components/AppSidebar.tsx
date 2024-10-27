@@ -1,5 +1,5 @@
+import HeaderSidebar from "./HeaderSidebar"
 import { MenuList } from "../utils/menuList"
-import HeaderSidebar from "./HeaderSidebar";
 import { SidebarContentMenu } from "./SidebarContentMenu"
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from "@/components/ui/sidebar"
 
