@@ -27,7 +27,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                     <SidebarGroupLabel>
                         {open ? (group.groupLabel) : (group.groupLabel && <Ellipsis className="h-5 w-5 cursor-pointer mt-3" />)}
                     </SidebarGroupLabel>
-                    
+
                     {/* Menu du groupe */}
                     <SidebarMenu>
                         {group.menus.map((menu, index) => (
@@ -38,7 +38,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                     <CollapsibleTrigger asChild>
                                         <SidebarMenuButton asChild>
                                             <Link to={menu.href}>
-                                                <menu.icon className="mr-1" />
+                                                <menu.icon />
                                                 <span>{menu.label}</span>
 
                                                 {/* Affichage conditionnel de l'icône Chevron */}
@@ -57,7 +57,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                                     <SidebarMenuSubItem key={index}>
 
                                                         {/* Bouton du sous-menu */}
-                                                        <SidebarMenuSubButton className="ms-3" asChild>
+                                                        <SidebarMenuSubButton className="ms-1" asChild>
                                                             <Link to={submenu.href}>
                                                                 <span>{submenu.label}</span>
                                                             </Link>

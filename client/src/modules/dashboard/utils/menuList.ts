@@ -16,7 +16,7 @@ export function MenuList(): Group[] {
                 {
                     label: "Tableau de bord",
                     href: "/dashboard",
-                    icon: LayoutGrid,
+                    icon:LayoutGrid,
                     submenus: []
                 }
             ]

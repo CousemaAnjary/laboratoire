@@ -1,8 +1,6 @@
-import { LogOut } from "lucide-react"
-import { Link } from "react-router-dom"
 import { MenuList } from "../utils/menuList"
 import { SidebarContentMenu } from "./SidebarContentMenu"
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenuButton} from "@/components/ui/sidebar"
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from "@/components/ui/sidebar"
 
 
 export default function AppSidebar() {
@@ -26,14 +24,7 @@ export default function AppSidebar() {
             </SidebarContent>
 
             {/* Pied de page de la barre latérale */}
-            <SidebarFooter className="mb-3" >
-                <SidebarMenuButton asChild>
-                    <Link to="#">
-                        <LogOut className="mr-1" />
-                        <span>Déconnexion</span>
-                    </Link>
-                </SidebarMenuButton>
-            </SidebarFooter>
+            <SidebarFooter />
             {/* <SidebarRail /> */}
         </Sidebar>
     );
