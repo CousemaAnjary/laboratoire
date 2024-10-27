@@ -15,8 +15,8 @@ export function MenuList(pathname: string): Group[] {
             menus: [
                 {
                     label: "Tableau de bord",
-                    href: "/dashboard",
-                    active: pathname.includes("/dashboard"),
+                    href: "/tableau-de-bord",
+                    active: pathname.includes("/tableau-de-bord"),
                     icon: LayoutDashboard,
                     submenus: []
 
@@ -31,8 +31,8 @@ export function MenuList(pathname: string): Group[] {
             menus: [
                 {
                     label: "Kanban Board",
-                    href: "#",
-                    active: pathname.includes("#"),
+                    href: "/kanbanBoard",
+                    active: pathname.includes("/kanbanBoard"),
                     icon: Bookmark,
                     submenus: []
                 }

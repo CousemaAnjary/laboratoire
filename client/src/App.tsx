@@ -5,6 +5,7 @@ import PrivateRoutes from "./routes/PrivateRoutes"
 import Register from "./modules/auth/pages/Register"
 import { AuthProvider } from "./core/contexts/AuthContext"
 import Dashboard from "./modules/dashboard/pages/Dashboard"
+import KanbanBoard from "./modules/kanbanBoard/pages/KanbanBoard"
 
 
 
@@ -35,8 +36,8 @@ export default function App() {
 
           {/* Protected Routes */}
           <Route element={<PrivateRoutes />}>
-           <Route path="/dashboard" element={<Dashboard />} /> 
-            {/* <Route path="/kanbanBoard" element={<KanbanBoard />} /> */}
+            <Route path="/tableau-de-bord" element={<Dashboard />} />
+            <Route path="/kanbanBoard" element={<KanbanBoard />} />
           </Route>
         </Routes>
       </AuthProvider>
