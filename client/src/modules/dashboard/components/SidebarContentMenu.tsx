@@ -59,7 +59,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                                         {/* Bouton du sous-menu */}
                                                         <SidebarMenuSubButton className="ms-1" asChild>
                                                             <Link to={submenu.href}>
-                                                                <span className="font-medium text-xs">{submenu.label}</span>
+                                                                <span className="font-medium text-xs text-sidebar-foreground/90">{submenu.label}</span>
                                                             </Link>
                                                         </SidebarMenuSubButton>
                                                     </SidebarMenuSubItem>
