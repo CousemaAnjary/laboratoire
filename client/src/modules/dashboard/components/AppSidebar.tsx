@@ -1,4 +1,5 @@
 import { MenuList } from "../utils/menuList"
+import HeaderSidebar from "./HeaderSidebar";
 import { SidebarContentMenu } from "./SidebarContentMenu"
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from "@/components/ui/sidebar"
 
@@ -15,8 +16,9 @@ export default function AppSidebar() {
     return (
         <Sidebar variant="floating" collapsible="icon">
             {/* En-tête de la barre latérale */}
-            <SidebarHeader />
-
+            <SidebarHeader>
+                <HeaderSidebar />
+            </SidebarHeader>
 
             {/* Contenu de la barre latérale */}
             <SidebarContent>

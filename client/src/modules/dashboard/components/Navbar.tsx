@@ -24,7 +24,7 @@ export default function Navbar() {
                 <div className="flex items-center space-x-3 ms-5">
                     <SidebarTrigger />
                     <Link to="/dashboard">
-                        <Button variant="ghost">Laboratoire</Button>
+                        <Button variant="ghost">Laboratoire </Button>
                     </Link>
                 </div>
 

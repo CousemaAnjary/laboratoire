@@ -1,5 +1,5 @@
 import { Group } from "../typeScript/MenuList"
-import { Bookmark, Key, LayoutGrid, Settings, Users, BookOpen } from "lucide-react"
+import { Bookmark, Key, LayoutGrid, Settings, Users } from "lucide-react"
 
 /**
  * Fonction pour générer la liste des menus de l'application
@@ -16,8 +16,21 @@ export function MenuList(): Group[] {
                 {
                     label: "Tableau de bord",
                     href: "/dashboard",
-                    icon:LayoutGrid,
-                    submenus: []
+                    icon: LayoutGrid,
+                    submenus: [
+                        {
+                            label: "Tableau de bord personnel",
+                            href: "#",
+                        },
+                        {
+                            label: "Tableau de bord kanban",
+                            href: "#",
+                        },
+                        {
+                            label: "Tableau de bord compétences",
+                            href: "#",
+                        },
+                    ]
                 }
             ]
         },
@@ -59,31 +72,5 @@ export function MenuList(): Group[] {
                 }
             ]
         },
-
-        // Groupe de menus pour la documentation
-        {
-            groupLabel: "Documentation",
-            menus: [
-                {
-                    label: "Guide d'utilisateur",
-                    href: "#",
-                    icon: BookOpen,
-                    submenus: [
-                        {
-                            label: "Introduction",
-                            href: "#",
-                        },
-                        {
-                            label: "Installation",
-                            href: "#",
-                        },
-                        {
-                            label: "Utilisation avancée",
-                            href: "#",
-                        }
-                    ]
-                }
-            ]
-        }
     ];
 }
