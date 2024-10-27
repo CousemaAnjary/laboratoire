@@ -38,7 +38,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                     <CollapsibleTrigger asChild>
                                         <SidebarMenuButton asChild>
                                             <Link to={menu.href}>
-                                                <menu.icon  className="text-black" />
+                                                <menu.icon className="text-black" />
                                                 <span className="font-medium text-sm">{menu.label}</span>
 
                                                 {/* Affichage conditionnel de l'icône Chevron */}
