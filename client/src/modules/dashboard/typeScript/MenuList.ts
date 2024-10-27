@@ -10,7 +10,7 @@ export type Group = {
 export type Menu = {
     label: string
     href: string
-    // active: boolean
+    active: boolean
     icon: LucideIcon
     submenus: Submenu[]
 }
@@ -19,7 +19,7 @@ export type Menu = {
 export type Submenu = {
     href: string
     label: string
-    // active: boolean
+    active: boolean
 }
 
 // Le type pour les propriétés du composant SidebarContentMenu

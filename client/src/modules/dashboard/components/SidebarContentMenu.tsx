@@ -36,7 +36,10 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                 {/* Élément du menu */}
                                 <SidebarMenuItem>
                                     <CollapsibleTrigger asChild>
-                                        <SidebarMenuButton asChild>
+                                        <SidebarMenuButton
+                                            variant={menu.active ? "outline" : "default"}
+                                            asChild
+                                        >
                                             <Link to={menu.href}>
                                                 <menu.icon className="text-black" />
                                                 <span className="font-medium text-sm">{menu.label}</span>

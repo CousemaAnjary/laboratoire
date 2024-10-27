@@ -1,5 +1,6 @@
 import HeaderSidebar from "./HeaderSidebar"
 import { MenuList } from "../utils/menuList"
+import { useLocation } from "react-router-dom"
 import { SidebarContentMenu } from "./SidebarContentMenu"
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from "@/components/ui/sidebar"
 
@@ -8,7 +9,8 @@ export default function AppSidebar() {
     /**
      * ! STATE (état, données) de l'application
      */
-    const menuGroups = MenuList()
+    const { pathname } = useLocation() // Utilisation de useLocation pour récupérer le chemin actuel
+    const menuGroups = MenuList(pathname)
 
     /**
      * ! AFFICHAGE (render) de l'application

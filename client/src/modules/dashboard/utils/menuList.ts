@@ -6,7 +6,7 @@ import { Bookmark, Key, LayoutDashboard, Settings, Users } from "lucide-react"
  * en fonction du pathname actuel
  * @returns Group[] - la liste des groupes de menus
  */
-export function MenuList(): Group[] {
+export function MenuList(pathname: string): Group[] {
     return [
 
         // Groupe de menus pour le tableau de bord
@@ -16,21 +16,11 @@ export function MenuList(): Group[] {
                 {
                     label: "Tableau de bord",
                     href: "/dashboard",
+                    active: pathname.includes("/dashboard"),
                     icon: LayoutDashboard,
-                    submenus: [
-                        {
-                            label: "Tableau de bord personnel",
-                            href: "#",
-                        },
-                        {
-                            label: "Tableau de bord kanban",
-                            href: "#",
-                        },
-                        {
-                            label: "Tableau de bord compétences",
-                            href: "#",
-                        },
-                    ]
+                    submenus: []
+
+
                 }
             ]
         },
@@ -42,6 +32,7 @@ export function MenuList(): Group[] {
                 {
                     label: "Kanban Board",
                     href: "#",
+                    active: pathname.includes("#"),
                     icon: Bookmark,
                     submenus: []
                 }
@@ -55,18 +46,21 @@ export function MenuList(): Group[] {
                 {
                     label: "Configurations",
                     href: "#",
+                    active: pathname.includes("#"),
                     icon: Settings,
                     submenus: []
                 },
                 {
                     label: "Droit d'accès",
                     href: "#",
+                    active: pathname.includes("#"),
                     icon: Key,
                     submenus: []
                 },
                 {
                     label: "Utilisateurs",
                     href: "#",
+                    active: pathname.includes("#"),
                     icon: Users,
                     submenus: []
                 }
