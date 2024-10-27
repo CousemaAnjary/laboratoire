@@ -25,7 +25,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
 
                     {/* Étiquette du groupe conditionnelle : groupLabel ou Ellipsis */}
                     <SidebarGroupLabel>
-                        {open ? group.groupLabel : <Ellipsis className="h-5 w-5" />}
+                        {open ? group.groupLabel : <Ellipsis className="h-5 w-5 cursor-pointer mt-3" />}
                     </SidebarGroupLabel>
 
                     {/* Menu du groupe */}
