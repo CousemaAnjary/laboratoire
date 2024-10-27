@@ -67,7 +67,7 @@ export function MenuList(pathname: string): Group[] {
             ]
         },
 
-        // Groupe de menus pour les Documentation 
+        // Groupe de menus pour les documentation 
         {
             groupLabel: "Documentation",
             menus: [
