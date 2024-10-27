@@ -25,7 +25,6 @@ export default function AppSidebar() {
 
             {/* Pied de page de la barre latérale */}
             <SidebarFooter />
-            {/* <SidebarRail /> */}
         </Sidebar>
     );
 }

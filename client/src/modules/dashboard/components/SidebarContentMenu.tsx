@@ -38,8 +38,8 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                     <CollapsibleTrigger asChild>
                                         <SidebarMenuButton asChild>
                                             <Link to={menu.href}>
-                                                <menu.icon />
-                                                <span>{menu.label}</span>
+                                                <menu.icon className="text-black" />
+                                                <span className="font-medium text-sm">{menu.label}</span>
 
                                                 {/* Affichage conditionnel de l'icône Chevron */}
                                                 {menu.submenus && menu.submenus.length > 0 && (
@@ -59,7 +59,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                                         {/* Bouton du sous-menu */}
                                                         <SidebarMenuSubButton className="ms-1" asChild>
                                                             <Link to={submenu.href}>
-                                                                <span>{submenu.label}</span>
+                                                                <span className="font-medium text-xs">{submenu.label}</span>
                                                             </Link>
                                                         </SidebarMenuSubButton>
                                                     </SidebarMenuSubItem>
