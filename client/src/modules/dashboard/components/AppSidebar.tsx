@@ -1,8 +1,8 @@
-import { LogOut } from "lucide-react";
+import { LogOut } from "lucide-react"
+import { Link } from "react-router-dom"
 import { MenuList } from "../utils/menuList"
 import { SidebarContentMenu } from "./SidebarContentMenu"
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenuButton, SidebarRail, } from "@/components/ui/sidebar"
-import { Link } from "react-router-dom";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenuButton} from "@/components/ui/sidebar"
 
 
 export default function AppSidebar() {
@@ -34,7 +34,7 @@ export default function AppSidebar() {
                     </Link>
                 </SidebarMenuButton>
             </SidebarFooter>
-            <SidebarRail />
+            {/* <SidebarRail /> */}
         </Sidebar>
     );
 }
