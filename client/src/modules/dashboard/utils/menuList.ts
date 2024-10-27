@@ -1,5 +1,5 @@
 import { Group } from "../typeScript/MenuList"
-import { Bookmark, Key, LayoutGrid, Settings, Users } from "lucide-react"
+import { Bookmark, Key, LayoutDashboard, Settings, Users } from "lucide-react"
 
 /**
  * Fonction pour générer la liste des menus de l'application
@@ -16,7 +16,7 @@ export function MenuList(): Group[] {
                 {
                     label: "Tableau de bord",
                     href: "/dashboard",
-                    icon: LayoutGrid,
+                    icon: LayoutDashboard,
                     submenus: [
                         {
                             label: "Tableau de bord personnel",

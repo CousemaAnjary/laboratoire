@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button"
 import { SidebarMenuButton } from "@/components/ui/sidebar"
 
 
-
 export default function HeaderSidebar() {
     /**
      * ! STATE (état, données) de l'application
