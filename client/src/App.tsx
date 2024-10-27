@@ -8,7 +8,6 @@ import Dashboard from "./modules/dashboard/pages/Dashboard"
 import KanbanBoard from "./modules/kanbanBoard/pages/KanbanBoard"
 
 
-
 export default function App() {
   /**
    * ! STATE (état, données) de l'application
