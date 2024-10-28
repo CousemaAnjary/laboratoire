@@ -8,7 +8,7 @@ export default function Navbar() {
     /**
      * ! STATE (état, données) de l'application
      */
-
+    
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
@@ -25,7 +25,7 @@ export default function Navbar() {
 
                    
                     <div className="flex items-center gap-2 px-4">
-                        <SidebarTrigger className="-ml-1" />
+                        <SidebarTrigger className="-ml-1"  />
                         <Separator orientation="vertical" className="mr-2 h-4" />
                         <Breadcrumb>
                             <BreadcrumbList>
