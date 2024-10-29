@@ -31,13 +31,13 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                     {/* Menu du groupe */}
                     <SidebarMenu>
                         {group.menus.map((menu, index) => (
-                            <Collapsible key={index} asChild defaultOpen className="group/collapsible">
+                            <Collapsible key={index} className="group/collapsible ">
 
                                 {/* Élément du menu */}
                                 <SidebarMenuItem>
                                     <CollapsibleTrigger asChild>
                                         <SidebarMenuButton variant={menu.active ? "outline" : "default"} asChild>
-                                            <Link to={menu.href}>
+                                            <Link to={menu.href} >
                                                 <menu.icon className="text-black" />
                                                 <span className="font-medium text-sm">{menu.label}</span>
 
@@ -57,9 +57,9 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                                     <SidebarMenuSubItem key={index}>
 
                                                         {/* Bouton du sous-menu */}
-                                                        <SidebarMenuSubButton isActive={submenu.active ?? false} className="ms-1" asChild>
+                                                        <SidebarMenuSubButton isActive= {submenu.active ?? false} className="ms-1" asChild>
                                                             <Link to={submenu.href}>
-                                                                <span className="font-medium text-xs text-sidebar-foreground/90">{submenu.label}</span>
+                                                                <span className={`font-medium text-xs ${submenu.active ? "text-blue-900" : ""}`}>{submenu.label}</span>
                                                             </Link>
                                                         </SidebarMenuSubButton>
                                                     </SidebarMenuSubItem>
@@ -67,7 +67,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                             </SidebarMenuSub>
                                         </CollapsibleContent>
                                     )}
-                                   
+
                                 </SidebarMenuItem>
                             </Collapsible>
                         ))}

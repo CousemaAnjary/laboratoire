@@ -27,14 +27,14 @@ export function MenuList(pathname: string): Group[] {
                     icon: LayoutDashboard,
                     submenus: [
                         {
+                            label: "Personnel",
+                            href: "#",
+                            active: pathname.includes("/tableau-de-board/personnel"),
+                        },
+                        {
                             label: "Kanban board",
                             href: "/tableau-de-board/kanban",
                             active: pathname.includes("/tableau-de-board/kanban"),
-                        },
-                        {
-                            label: "Personnel",
-                            href: "#",
-                            active: pathname.includes("#"),
                         },
                     ]
                 }
