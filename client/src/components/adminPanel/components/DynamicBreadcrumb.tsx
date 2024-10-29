@@ -1,5 +1,5 @@
 import { MenuList } from "../utils/menuList"
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 
 
@@ -36,9 +36,11 @@ export default function DynamicBreadcrumb() {
                     ) : (
                         <>
                             <BreadcrumbItem>
-                                <BreadcrumbLink href="/administration" className="font-medium text-xs text-gray-600 hover:text-gray-800">
-                                    Administration
-                                </BreadcrumbLink>
+                                <Link to="/administration">
+                                    <BreadcrumbLink className="font-medium text-xs text-gray-600 hover:text-gray-800">
+                                        Administration
+                                    </BreadcrumbLink>
+                                </Link>
                             </BreadcrumbItem>
                             <BreadcrumbSeparator />
 
@@ -46,9 +48,11 @@ export default function DynamicBreadcrumb() {
                             {activeSubmenu && activeMenu ? (
                                 <>
                                     <BreadcrumbItem>
-                                        <BreadcrumbLink href={activeMenu.href} className="font-medium text-xs text-gray-600 hover:text-gray-800">
-                                            {activeMenu.label}
-                                        </BreadcrumbLink>
+                                        <Link to={activeMenu.href}>
+                                            <BreadcrumbLink className="font-medium text-xs text-gray-600 hover:text-gray-800">
+                                                {activeMenu.label}
+                                            </BreadcrumbLink>
+                                        </Link>
                                     </BreadcrumbItem>
                                     <BreadcrumbSeparator />
                                     <BreadcrumbItem>
@@ -57,7 +61,7 @@ export default function DynamicBreadcrumb() {
                                         </BreadcrumbPage>
                                     </BreadcrumbItem>
                                 </>
-                                
+
                             ) : activeMenu ? (
                                 <BreadcrumbItem>
                                     <BreadcrumbPage className="font-medium text-xs text-gray-800">
