@@ -34,13 +34,13 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                             <Collapsible
                                 key={index}
                                 defaultOpen={menu.active}
-                                className="group/collapsible"           
+                                className="group/collapsible"
                             >
 
                                 {/* Élément du menu */}
                                 <SidebarMenuItem>
                                     <CollapsibleTrigger asChild>
-                                        <Link to={menu.href} >
+                                        <Link to={menu.href}  >
                                             <SidebarMenuButton
                                                 variant={menu.active ? "outline" : "default"}
                                                 tooltip={menu.label}
@@ -50,7 +50,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
 
                                                 {/* Affichage conditionnel de l'icône Chevron */}
                                                 {menu.submenus?.length > 0 && (
-                                                    <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                                                    <ChevronRight className="ml-auto transition-transform duration-100 group-data-[state=open]/collapsible:rotate-90" />
                                                 )}
                                             </SidebarMenuButton>
                                         </Link>
