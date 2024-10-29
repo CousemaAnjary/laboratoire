@@ -29,7 +29,7 @@ export function MenuList(pathname: string): Group[] {
                         {
                             label: "Kanban board",
                             href: "/tableau-de-board/kanban",
-                            active: pathname.includes("tableau-de-board/kanban"),
+                            active: pathname.includes("/tableau-de-board/kanban"),
                         },
                         {
                             label: "Personnel",
@@ -51,7 +51,7 @@ export function MenuList(pathname: string): Group[] {
                     active: pathname.includes("/kanbanBoard"),
                     icon: Bookmark,
                     submenus: []
-                }
+                },
             ]
         },
 

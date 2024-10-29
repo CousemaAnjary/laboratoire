@@ -36,7 +36,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                 {/* Élément du menu */}
                                 <SidebarMenuItem>
                                     <CollapsibleTrigger asChild>
-                                        <SidebarMenuButton variant={menu.active ? "outline" : "default"} asChild >
+                                        <SidebarMenuButton variant={menu.active ? "outline" : "default"} asChild>
                                             <Link to={menu.href}>
                                                 <menu.icon className="text-black" />
                                                 <span className="font-medium text-sm">{menu.label}</span>
@@ -57,7 +57,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                                     <SidebarMenuSubItem key={index}>
 
                                                         {/* Bouton du sous-menu */}
-                                                        <SidebarMenuSubButton isActive className="ms-1" asChild>
+                                                        <SidebarMenuSubButton isActive={submenu.active ?? false} className="ms-1" asChild>
                                                             <Link to={submenu.href}>
                                                                 <span className="font-medium text-xs text-sidebar-foreground/90">{submenu.label}</span>
                                                             </Link>
@@ -67,6 +67,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                             </SidebarMenuSub>
                                         </CollapsibleContent>
                                     )}
+                                   
                                 </SidebarMenuItem>
                             </Collapsible>
                         ))}
