@@ -1,14 +1,14 @@
 import UserDropdownMenu from "./UserDropdownMenu"
+import DynamicBreadcrumb from "./DynamicBreadcrumb"
 import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 
 
 export default function Navbar() {
     /**
      * ! STATE (état, données) de l'application
      */
-    
+
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
@@ -23,23 +23,10 @@ export default function Navbar() {
             <nav className="container-fluid sticky top-0 bg-white h-16 flex justify-between items-center ">
                 <div className="flex items-center space-x-3 ms-5">
 
-
                     <div className="flex items-center gap-2 px-4">
-                        <SidebarTrigger  className="-ml-1" />
+                        <SidebarTrigger className="-ml-1" />
                         <Separator orientation="vertical" className="mr-2 h-4" />
-                        <Breadcrumb>
-                            <BreadcrumbList>
-                                <BreadcrumbItem className="hidden md:block">
-                                    <BreadcrumbLink href="#" className="font-medium text-xs">
-                                        Tableau de bord
-                                    </BreadcrumbLink>
-                                </BreadcrumbItem>
-                                <BreadcrumbSeparator className="hidden md:block" />
-                                <BreadcrumbItem>
-                                    <BreadcrumbPage className="font-medium text-xs">Tableau de bord personnel</BreadcrumbPage>
-                                </BreadcrumbItem>
-                            </BreadcrumbList>
-                        </Breadcrumb>
+                        <DynamicBreadcrumb />
                     </div>
 
                 </div>
