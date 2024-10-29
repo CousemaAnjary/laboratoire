@@ -34,8 +34,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                             <Collapsible
                                 key={index}
                                 defaultOpen={menu.active}
-                                className="group/collapsible"
-                                asChild
+                                className="group/collapsible"           
                             >
 
                                 {/* Élément du menu */}
