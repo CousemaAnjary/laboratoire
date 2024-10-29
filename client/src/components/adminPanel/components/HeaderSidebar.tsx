@@ -22,10 +22,12 @@ export default function HeaderSidebar() {
             <SidebarMenuButton size="lg">
                 <Button className="flex aspect-square size-8 items-center justify-center rounded-md bg-blue-900 hover:bg-blue-900 text-sidebar-primary-foreground">
                     <CodeXml className="size-6" />
+
                 </Button>
+
                 <div className="grid flex-1 text-left text-sm leading-tight">
                     <span className="truncate font-semibold">
-                        Laboratoire 
+                        Laboratoire
                     </span>
                 </div>
             </SidebarMenuButton>

@@ -12,12 +12,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
 
+
     /**
      * ! AFFICHAGE (render) de l'application
      */
     return (
         <>
-            <SidebarProvider >
+            <SidebarProvider>
                 <AppSidebar />
                 <SidebarInset>
                     <Navbar />

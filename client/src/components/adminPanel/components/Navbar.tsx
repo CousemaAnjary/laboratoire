@@ -23,9 +23,9 @@ export default function Navbar() {
             <nav className="container-fluid sticky top-0 bg-white h-16 flex justify-between items-center ">
                 <div className="flex items-center space-x-3 ms-5">
 
-                   
+
                     <div className="flex items-center gap-2 px-4">
-                        <SidebarTrigger className="-ml-1"  />
+                        <SidebarTrigger  className="-ml-1" />
                         <Separator orientation="vertical" className="mr-2 h-4" />
                         <Breadcrumb>
                             <BreadcrumbList>
