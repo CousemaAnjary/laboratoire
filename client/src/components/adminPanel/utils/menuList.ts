@@ -1,5 +1,5 @@
 import { Group } from "../typeScript/MenuList"
-import { Bookmark, BookOpen, Key, LayoutDashboard, Settings, Users } from "lucide-react"
+import { Bookmark, BookOpen, Home, Key, LayoutDashboard, Settings, Users } from "lucide-react"
 
 /**
  * Fonction pour générer la liste des menus de l'application
@@ -11,16 +11,32 @@ export function MenuList(pathname: string): Group[] {
 
         // Groupe de menus pour le tableau de bord
         {
-            groupLabel: "",
+            groupLabel: "Tableau de bord",
             menus: [
                 {
-                    label: "Tableau de bord",
-                    href: "/tableau-de-bord",
-                    active: pathname.includes("/tableau-de-bord"),
-                    icon: LayoutDashboard,
+                    label: "Administration",
+                    href: "/administration",
+                    active: pathname.includes("/administration"),
+                    icon: Home,
                     submenus: []
-
-
+                },
+                {
+                    label: "Tableau de bord",
+                    href: "#",
+                    active: pathname.includes("/tableau-de-board/"),
+                    icon: LayoutDashboard,
+                    submenus: [
+                        {
+                            label: "Kanban board",
+                            href: "/tableau-de-board/kanban",
+                            active: pathname.includes("tableau-de-board/kanban"),
+                        },
+                        {
+                            label: "Personnel",
+                            href: "#",
+                            active: pathname.includes("#"),
+                        },
+                    ]
                 }
             ]
         },
@@ -79,22 +95,22 @@ export function MenuList(pathname: string): Group[] {
                     submenus: [
                         {
                             label: "Introduction",
-                            href: "/documentation/intro",
+                            href: "#",
                             active: pathname.includes("#"),
                         },
                         {
                             label: "Installation",
-                            href: "/documentation/installation",
+                            href: "#",
                             active: pathname.includes("#"),
                         },
                         {
                             label: "Utilisation avancée",
-                            href: "/documentation/advanced",
+                            href: "#",
                             active: pathname.includes("#"),
                         }
                     ]
                 }
             ]
-        }
+        },
     ]
 }

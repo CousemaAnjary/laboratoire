@@ -1,9 +1,9 @@
 import { useEffect } from "react"
 import { toast, Toaster } from "sonner"
-import PanelLayout from "../components/Layout"
+import Layout from "@/components/adminPanel/components/Layout"
 
 
-export default function Dashboard() {
+export default function Administration() {
     /**
      * ! STATE (état, données) de l'application
      */
@@ -23,16 +23,13 @@ export default function Dashboard() {
         }
     }, [])
 
-
-
-
     /**
      * ! AFFICHAGE (render) de l'application
      */
     return (
         <>
             <Toaster richColors /> {/* Affichage des messages d'alerte */}
-            <PanelLayout>
+            <Layout>
                 <div className="flex flex-col gap-4">
                     <div className="grid auto-rows-min gap-4 md:grid-cols-4">
                         <div className="aspect-video rounded-xl bg-muted/50" />
@@ -42,8 +39,7 @@ export default function Dashboard() {
                     </div>
                     <div className="aspect-video rounded-xl bg-muted/50" />
                 </div>
-
-            </PanelLayout>
+            </Layout>
         </>
     )
 }

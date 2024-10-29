@@ -1,8 +1,6 @@
 import Layout from "@/components/adminPanel/components/Layout"
 
-
-
-export default function KanbanBoard() {
+export default function DHkanbanBoard() {
     /**
      * ! STATE (état, données) de l'application
      */
@@ -19,7 +17,7 @@ export default function KanbanBoard() {
     return (
         <>
             <Layout>
-                <h1>Kanban Board</h1>
+                <h1>Tableau de board Kanban Board</h1>
             </Layout>
         </>
     )

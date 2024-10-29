@@ -45,8 +45,7 @@ export default function LoginForm() {
 
             //  Enregistrement du message de succès dans le stockage local
             localStorage.setItem("success", response.messageSuccess)
-            navigate('/dashboard')
-
+            navigate('/administration')
 
         } catch (error) {
             console.error(error)
