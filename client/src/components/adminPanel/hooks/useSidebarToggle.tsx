@@ -24,5 +24,5 @@ export default function useSidebarToggle() {
     /**
      * ! AFFICHAGE (render) de l'application
      */
-    return [open, setOpen]
+    return { open, setOpen }
 }

@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     /**
      * ! STATE (état, données) de l'application
      */
-    const [open, setOpen] = useSidebarToggle()
+    const { open, setOpen } = useSidebarToggle()
 
 
     /**
