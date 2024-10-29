@@ -31,7 +31,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                     {/* Menu du groupe */}
                     <SidebarMenu>
                         {group.menus.map((menu, index) => (
-                            <Collapsible key={index} className="group/collapsible ">
+                            <Collapsible key={index} className="group/collapsible" defaultOpen={menu.active ?? false}>
 
                                 {/* Élément du menu */}
                                 <SidebarMenuItem>
@@ -57,7 +57,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                                     <SidebarMenuSubItem key={index}>
 
                                                         {/* Bouton du sous-menu */}
-                                                        <SidebarMenuSubButton isActive= {submenu.active ?? false} className="ms-1" asChild>
+                                                        <SidebarMenuSubButton isActive={submenu.active ?? false} className="ms-1" asChild>
                                                             <Link to={submenu.href}>
                                                                 <span className={`font-medium text-xs ${submenu.active ? "text-blue-900" : ""}`}>{submenu.label}</span>
                                                             </Link>
