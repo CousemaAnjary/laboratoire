@@ -50,7 +50,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                                 <span className="font-medium text-sm">{menu.label}</span>
 
                                                 {/* Affichage conditionnel de l'icône Chevron */}
-                                                {menu.submenus && menu.submenus.length > 0 && (
+                                                {menu.submenus?.length > 0 && (
                                                     <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                                                 )}
                                             </SidebarMenuButton>
@@ -58,7 +58,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                     </CollapsibleTrigger>
 
                                     {/* Sous-menu du menu (si disponibles) */}
-                                    {menu.submenus && menu.submenus.length > 0 && (
+                                    {menu.submenus?.length > 0 && (
                                         <CollapsibleContent>
                                             <SidebarMenuSub>
                                                 {menu.submenus.map((submenu, index) => (
