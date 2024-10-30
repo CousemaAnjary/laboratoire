@@ -1,5 +1,5 @@
 import { Group } from "../typeScript/MenuList"
-import { Bookmark, BookOpen, Home, Key, LayoutDashboard, Settings, Users } from "lucide-react"
+import { Bookmark, Home, Key, LayoutDashboard, Settings, Users } from "lucide-react"
 
 /**
  * Fonction pour générer la liste des menus de l'application
@@ -84,34 +84,34 @@ export function MenuList(pathname: string): Group[] {
         },
 
         // Groupe de menus pour les documentation 
-        {
-            groupLabel: "Documentation",
-            menus: [
-                {
-                    label: "Guide d'utilisateur",
-                    href: "#",
-                    active: pathname.includes("#"),
-                    icon: BookOpen,
-                    submenus: [
-                        {
-                            label: "Introduction",
-                            href: "#",
-                            active: pathname.includes("#"),
-                        },
-                        {
-                            label: "Installation",
-                            href: "#",
-                            active: pathname.includes("#"),
-                        },
-                        {
-                            label: "Utilisation avancée",
-                            href: "#",
-                            active: pathname.includes("#"),
-                        }
-                    ]
-                },
+        // {
+        //     groupLabel: "Documentation",
+        //     menus: [
+        //         {
+        //             label: "Guide d'utilisateur",
+        //             href: "#",
+        //             active: pathname.includes("#"),
+        //             icon: BookOpen,
+        //             submenus: [
+        //                 {
+        //                     label: "Introduction",
+        //                     href: "#",
+        //                     active: pathname.includes("#"),
+        //                 },
+        //                 {
+        //                     label: "Installation",
+        //                     href: "#",
+        //                     active: pathname.includes("#"),
+        //                 },
+        //                 {
+        //                     label: "Utilisation avancée",
+        //                     href: "#",
+        //                     active: pathname.includes("#"),
+        //                 }
+        //             ]
+        //         },
                
-            ]
-        },
+        //     ]
+        // },
     ]
 }
