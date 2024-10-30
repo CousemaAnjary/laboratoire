@@ -1,11 +1,13 @@
 import { Group } from "../typeScript/MenuList"
-import { Bookmark,  House, Key, LayoutDashboard, Settings, Users } from "lucide-react"
+import { House, Key, LayoutDashboard, Settings2, SquareDashedKanban, Users } from "lucide-react"
 
 /**
- * Fonction pour générer la liste des menus de l'application
- * en fonction du pathname actuel
- * @returns Group[] - la liste des groupes de menus
+ * Liste des menus de l'application
+ * 
+ * @param pathname URL actuelle de l'application
+ * @returns Liste des menus de l'application
  */
+
 export function MenuList(pathname: string): Group[] {
     return [
 
@@ -49,7 +51,7 @@ export function MenuList(pathname: string): Group[] {
                     label: "Kanban Board",
                     href: "/kanbanBoard",
                     active: pathname.includes("/kanbanBoard"),
-                    icon: Bookmark,
+                    icon: SquareDashedKanban,
                     submenus: []
                 },
             ]
@@ -63,7 +65,7 @@ export function MenuList(pathname: string): Group[] {
                     label: "Configurations",
                     href: "#",
                     active: pathname.includes("#"),
-                    icon: Settings,
+                    icon: Settings2,
                     submenus: []
                 },
                 {
@@ -110,7 +112,7 @@ export function MenuList(pathname: string): Group[] {
         //                 }
         //             ]
         //         },
-               
+
         //     ]
         // },
     ]
