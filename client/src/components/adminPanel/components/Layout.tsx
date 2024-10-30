@@ -22,13 +22,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <>
             <SidebarProvider open={open} onOpenChange={setOpen}>
-                <AppSidebar />
+            <AppSidebar />
                 <SidebarInset>
                     <Navbar />
                     <main className="container pt-8 pb-8 sm:px-8">
                         {children}
                     </main>
-                </SidebarInset>
+                </SidebarInset>        
             </SidebarProvider>
         </>
     );
