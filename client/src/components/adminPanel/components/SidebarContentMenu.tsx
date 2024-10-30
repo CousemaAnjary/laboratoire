@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { ChevronRight, Ellipsis } from "lucide-react"
 import { SidebarContentMenuProps } from "../typeScript/MenuList"
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
-import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubItem, SidebarMenuSubButton, useSidebar, SidebarGroupContent } from "@/components/ui/sidebar"
+import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubItem, SidebarMenuSubButton, useSidebar, SidebarGroupContent, SidebarMenuBadge } from "@/components/ui/sidebar"
 
 
 export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
@@ -37,11 +37,12 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                     defaultOpen={menu.active}
                                     className="group/collapsible"
                                     asChild
+
                                 >
 
                                     {/* Élément du menu */}
                                     <SidebarMenuItem>
-                                        <CollapsibleTrigger asChild>
+                                        <CollapsibleTrigger asChild >
                                             <Link to={menu.href}>
                                                 <SidebarMenuButton
                                                     variant={menu.active ? "outline" : "default"}
@@ -49,12 +50,14 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                                 >
                                                     {menu.icon && <menu.icon className="text-black" />}
                                                     <span className="font-medium text-sm">{menu.label}</span>
-
-                                                    {/* Affichage conditionnel de l'icône Chevron */}
-                                                    {menu.submenus && menu.submenus.length > 0 && (
-                                                        <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                                                    )}
                                                 </SidebarMenuButton>
+
+                                                {/* Affichage conditionnel de l'icône Chevron */}
+                                                <SidebarMenuBadge>
+                                                    {menu.submenus && menu.submenus.length > 0 && (
+                                                        <ChevronRight size={16} className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                                                    )}
+                                                </SidebarMenuBadge>
                                             </Link>
                                         </CollapsibleTrigger>
 

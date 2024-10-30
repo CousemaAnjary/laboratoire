@@ -39,7 +39,7 @@ export function MenuList(pathname: string): Group[] {
                             active: pathname.includes("/tableau-de-board/kanban"),
                         },
                     ]
-                }
+                },
             ]
         },
 
