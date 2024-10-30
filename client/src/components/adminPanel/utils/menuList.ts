@@ -1,5 +1,5 @@
 import { Group } from "../typeScript/MenuList"
-import { Bookmark, Home, Key, LayoutDashboard, Settings, Users } from "lucide-react"
+import { Bookmark,  House, Key, LayoutDashboard, Settings, Users } from "lucide-react"
 
 /**
  * Fonction pour générer la liste des menus de l'application
@@ -17,7 +17,7 @@ export function MenuList(pathname: string): Group[] {
                     label: "Administration",
                     href: "/administration",
                     active: pathname.includes("/administration"),
-                    icon: Home,
+                    icon: House,
                     submenus: []
                 },
                 {

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { ChevronRight, Ellipsis } from "lucide-react"
 import { SidebarContentMenuProps } from "../typeScript/MenuList"
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
-import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubItem, SidebarMenuSubButton, useSidebar, SidebarGroupContent, SidebarMenuBadge } from "@/components/ui/sidebar"
+import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubItem, SidebarMenuSubButton, useSidebar, SidebarGroupContent } from "@/components/ui/sidebar"
 
 
 export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
@@ -36,25 +36,25 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                     key={index}
                                     defaultOpen={menu.active}
                                     className="group/collapsible"
+                                    asChild
                                 >
 
                                     {/* Élément du menu */}
                                     <SidebarMenuItem>
-                                        <CollapsibleTrigger asChild>
-                                            <Link to={menu.href}>
-                                                <SidebarMenuButton
-                                                    variant={menu.active ? "outline" : "default"}
-                                                    tooltip={menu.label}
-                                                >
-                                                    {menu.icon && <menu.icon className="text-black" />}
-                                                    <span className="font-medium text-sm">{menu.label}</span>
-                                                    {/* Affichage conditionnel de l'icône Chevron */}
-                                                    {menu.submenus && menu.submenus.length > 0 && (
-                                                        <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                                                    )}
-                                                </SidebarMenuButton>
-                                                {/* <SidebarMenuBadge>24</SidebarMenuBadge> */}
-                                            </Link>
+                                        <CollapsibleTrigger asChild >
+                                            <SidebarMenuButton
+                                                variant={menu.active ? "outline" : "default"}
+                                                tooltip={menu.label}
+                                            >
+                                                {menu.icon && <menu.icon className="text-black" />}
+                                                <span className="font-medium text-sm">{menu.label}</span>
+                                                
+                                                {/* Affichage conditionnel de l'icône Chevron */}
+                                                {menu.submenus && menu.submenus.length > 0 && (
+                                                    <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                                                )}
+                                        
+                                            </SidebarMenuButton>                     
                                         </CollapsibleTrigger>
 
                                         {/* Sous-menu du menu (si disponibles) */}
@@ -62,14 +62,13 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                             <CollapsibleContent>
                                                 <SidebarMenuSub>
                                                     {menu.submenus.map((submenu, index) => (
-                                                        <SidebarMenuSubItem key={index}>
+                                                        <SidebarMenuSubItem key={index} >
 
                                                             {/* Bouton du sous-menu */}
                                                             <Link to={submenu.href}>
                                                                 <SidebarMenuSubButton
                                                                     isActive={submenu.active}
                                                                     className="ms-1"
-                                                                    asChild
                                                                 >
                                                                     <span className={`font-medium text-xs ${submenu.active ? "text-blue-900 hover:text-blue-900" : ""}`}>
                                                                         {submenu.label}
