@@ -21,7 +21,9 @@ export default function AppSidebar() {
             <SidebarHeader>
                 <HeaderSidebar />
             </SidebarHeader>
+
             <SidebarSeparator />
+            
             {/* Contenu de la barre latérale */}
             <SidebarContent>
                 <SidebarContentMenu menuGroups={menuGroups} />
