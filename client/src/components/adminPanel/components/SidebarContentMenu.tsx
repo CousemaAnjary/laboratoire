@@ -42,18 +42,21 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                     {/* Élément du menu */}
                                     <SidebarMenuItem>
                                         <CollapsibleTrigger asChild>
-                                            <SidebarMenuButton
-                                                variant={menu.active ? "outline" : "default"}
-                                                tooltip={menu.label}
-                                            >
-                                                {menu.icon && <menu.icon className="text-black" />}
-                                                <span className="font-medium text-sm">{menu.label}</span>
-                                                
-                                                {/* Affichage conditionnel de l'icône Chevron */}
-                                                {menu.submenus && menu.submenus.length > 0 && (
-                                                    <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                                                )}                                    
-                                            </SidebarMenuButton>                     
+                                            <Link to={menu.href}>
+                                                <SidebarMenuButton
+                                                    variant={menu.active ? "outline" : "default"}
+                                                    tooltip={menu.label}
+                                                >
+                                                    {menu.icon && <menu.icon className="text-black" />}
+                                                    <span className="font-medium text-sm">{menu.label}</span>
+
+                                                    {/* Affichage conditionnel de l'icône Chevron */}
+                                                    {menu.submenus && menu.submenus.length > 0 && (
+                                                        <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                                                    )}
+                                                </SidebarMenuButton>
+                                            </Link>
+
                                         </CollapsibleTrigger>
 
                                         {/* Sous-menu du menu (si disponibles) */}
