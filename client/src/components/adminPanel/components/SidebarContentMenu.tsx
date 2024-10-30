@@ -56,7 +56,6 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                                     )}
                                                 </SidebarMenuButton>
                                             </Link>
-
                                         </CollapsibleTrigger>
 
                                         {/* Sous-menu du menu (si disponibles) */}
