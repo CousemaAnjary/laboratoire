@@ -64,15 +64,16 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                                     <SidebarMenuSubItem key={index}>
 
                                                         {/* Bouton du sous-menu */}
-                                                        <Link to={submenu.href}>
-                                                            <SidebarMenuSubButton
-                                                                isActive={submenu.active}
-                                                                className="ms-1"
-                                                                asChild
-                                                            >
+                                                        <SidebarMenuSubButton
+                                                            isActive={submenu.active}
+                                                            className="ms-1"
+                                                            asChild
+                                                        >
+                                                            <Link to={submenu.href}>
                                                                 <span className={`font-medium text-xs ${submenu.active ? "text-blue-900 hover:text-blue-900" : ""}`}>{submenu.label}</span>
-                                                            </SidebarMenuSubButton>
-                                                        </Link>
+                                                            </Link>
+                                                        </SidebarMenuSubButton>
+
                                                     </SidebarMenuSubItem>
                                                 ))}
                                             </SidebarMenuSub>
