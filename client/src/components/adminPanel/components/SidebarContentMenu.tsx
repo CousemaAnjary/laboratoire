@@ -55,7 +55,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                                 {/* Affichage conditionnel de l'icône Chevron */}
                                                 <SidebarMenuBadge>
                                                     {menu.submenus && menu.submenus.length > 0 && (
-                                                        <ChevronRight size={16} className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                                                        <ChevronRight size={15} className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                                                     )}
                                                 </SidebarMenuBadge>
                                             </Link>
