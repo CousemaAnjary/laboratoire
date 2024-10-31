@@ -17,10 +17,7 @@ export default function DroitAcces() {
     return (
         <>
             <Layout>
-                <div className="flex flex-col items-center justify-center h-full">
-                    <h1 className="text-3xl font-bold text-center">Droit d'accès</h1>
-                    <p className="text-center">Page en construction</p>
-                </div>
+                <h1>Droit acces</h1>
             </Layout>
         </>
     )
