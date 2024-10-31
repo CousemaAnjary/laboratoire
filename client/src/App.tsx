@@ -8,6 +8,7 @@ import KanbanBoard from "./modules/kanbanBoard/pages/KanbanBoard"
 import DHkanbanBoard from "./modules/dashboard/pages/DHkanbanBoard"
 import Administration from "./modules/administration/pages/Administration"
 import DroitAcces from "./modules/droitAcces/pages/DroitAcces"
+import Utilisateurs from "./modules/utilisateurs/pages/Utilisateurs"
 
 
 
@@ -42,6 +43,7 @@ export default function App() {
             <Route path="/administration" element={<Administration />} />
             <Route path="/tableau-de-board/kanban" element={<DHkanbanBoard />} />
             <Route path="/droit-acces" element={<DroitAcces />} />
+            <Route path="/utilisateurs" element={<Utilisateurs />} />
           </Route>
         </Routes>
       </AuthProvider>

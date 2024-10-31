@@ -77,8 +77,8 @@ export function MenuList(pathname: string): Group[] {
                 },
                 {
                     label: "Utilisateurs",
-                    href: "#",
-                    active: pathname.includes("#"),
+                    href: "/utilisateurs",
+                    active: pathname.includes("/utilisateurs"),
                     icon: Users,
                     submenus: []
                 }
