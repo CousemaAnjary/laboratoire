@@ -70,8 +70,8 @@ export function MenuList(pathname: string): Group[] {
                 },
                 {
                     label: "Droit d'accès",
-                    href: "#",
-                    active: pathname.includes("#"),
+                    href: "/droit-acces",
+                    active: pathname.includes("/droit-acces"),
                     icon: Key,
                     submenus: []
                 },

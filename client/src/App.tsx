@@ -7,6 +7,7 @@ import { AuthProvider } from "./core/contexts/AuthContext"
 import KanbanBoard from "./modules/kanbanBoard/pages/KanbanBoard"
 import DHkanbanBoard from "./modules/dashboard/pages/DHkanbanBoard"
 import Administration from "./modules/administration/pages/Administration"
+import DroitAcces from "./modules/droitAcces/pages/DroitAcces"
 
 
 
@@ -40,6 +41,7 @@ export default function App() {
             <Route path="/kanbanBoard" element={<KanbanBoard />} />
             <Route path="/administration" element={<Administration />} />
             <Route path="/tableau-de-board/kanban" element={<DHkanbanBoard />} />
+            <Route path="/droit-acces" element={<DroitAcces />} />
           </Route>
         </Routes>
       </AuthProvider>
