@@ -42,7 +42,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
 
                                     {/* Élément du menu */}
                                     <SidebarMenuItem>
-                                        <CollapsibleTrigger asChild >
+                                        <CollapsibleTrigger asChild>
                                             <Link to={menu.href}>
                                                 <SidebarMenuButton
                                                     variant={menu.active ? "outline" : "default"}

@@ -20,8 +20,8 @@ export default function Navbar() {
      */
     return (
         <>
-            <nav className="container-fluid sticky top-0 bg-white h-16 flex justify-between items-center ">
-                <div className="flex items-center space-x-3 ms-5">
+            <nav className="container-fluid sticky top-0 bg-white h-16 flex justify-between items-center">
+              
 
                     <div className="flex items-center gap-2 px-4">
                         <SidebarTrigger className="-ml-1" />
@@ -29,7 +29,7 @@ export default function Navbar() {
                         <DynamicBreadcrumb />
                     </div>
 
-                </div>
+             
 
                 <div className="flex justify-end space-x-3 me-10">
                     <UserDropdownMenu />
