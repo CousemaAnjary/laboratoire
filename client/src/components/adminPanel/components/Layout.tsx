@@ -21,9 +21,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
      */
     return (
         <>
-            <SidebarProvider open={open} onOpenChange={setOpen}>
+            <SidebarProvider open={open} onOpenChange={setOpen} style={{ backgroundColor: "#edf2f9" }}>
                 <AppSidebar />
-                <SidebarInset>
+                <SidebarInset style={{ backgroundColor: "#edf2f9" }}>
                     <Navbar />
                     <main className="container pt-8 pb-8 sm:px-8">
                         {children}

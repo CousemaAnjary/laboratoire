@@ -20,7 +20,7 @@ export default function Navbar() {
      */
     return (
         <>
-            <nav className="container-fluid sticky top-0 bg-white h-16 flex justify-between items-center">
+            <nav className="container-fluid sticky top-0 h-16 flex justify-between items-center" style={{ backgroundColor: "#edf2f9" }}>
                 <div className="flex items-center gap-2 px-4">
                     <SidebarTrigger className="-ml-1" />
                     <Separator orientation="vertical" className="mr-2 h-4" />

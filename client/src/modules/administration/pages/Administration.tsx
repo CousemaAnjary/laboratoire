@@ -32,12 +32,12 @@ export default function Administration() {
             <Layout>
                 <div className="flex flex-col gap-4">
                     <div className="grid auto-rows-min gap-4 md:grid-cols-4">
-                        <div className="aspect-video rounded-xl bg-muted/50" />
-                        <div className="aspect-video rounded-xl bg-muted/50" />
-                        <div className="aspect-video rounded-xl bg-muted/50" />
-                        <div className="aspect-video rounded-xl bg-muted/50" />
+                        <div className="aspect-video rounded-xl bg-white shadow" />
+                        <div className="aspect-video rounded-xl bg-white shadow" />
+                        <div className="aspect-video rounded-xl bg-white shadow" />
+                        <div className="aspect-video rounded-xl bg-white shadow" />
                     </div>
-                    <div className="aspect-video rounded-xl bg-muted/50" />
+                    <div className="aspect-video rounded-xl bg-white shadow" />
                 </div>
             </Layout>
         </>
