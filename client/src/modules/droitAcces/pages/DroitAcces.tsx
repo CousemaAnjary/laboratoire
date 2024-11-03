@@ -1,6 +1,4 @@
 import Layout from "@/components/adminPanel/components/Layout";
-import { Button } from "@/components/ui/button";
-import { Save } from "lucide-react";
 
 export default function DroitAcces() {
     /**
@@ -19,14 +17,8 @@ export default function DroitAcces() {
     return (
         <>
             <Layout>
-                <div className="flex justify-between mb-4">
-                    <h1 className="text-2xl">Gestion des droits utilisateurs</h1>
-
-                    <div className="flex">
-                        <Button className="bg-blue-900 hover:bg-blue-800">
-                            < Save strokeWidth={3} />Enregistrer
-                        </Button>
-                    </div>
+                <div className="flex justify-between items-center mb-8 bg-white p-6 shadow rounded">
+                    <h1 className="text-xl">Gestion des droits utilisateurs</h1>
                 </div>
             </Layout>
         </>

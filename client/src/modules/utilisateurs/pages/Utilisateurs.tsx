@@ -18,11 +18,11 @@ export default function Utilisateurs() {
     return (
         <>
             <Layout>
-                <div className="flex justify-between items-center mb-8">
-                    <h1 className="text-2xl">Gestion des utilisateurs</h1>
+                <div className="flex justify-between items-center mb-8 bg-white p-6 shadow rounded">
+                    <h1 className="text-xl">Gestion des utilisateurs</h1>
                 </div>
 
-                <div className="p-6 bg-muted/50 rounded-lg">
+                <div className="p-6 bg-white shadow rounded">
                 </div>
             </Layout>
         </>
