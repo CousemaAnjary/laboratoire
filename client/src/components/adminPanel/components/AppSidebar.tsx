@@ -11,7 +11,8 @@ export default function AppSidebar() {
     /**
      * ! STATE (état, données) de l'application
      */
-    const { pathname } = useLocation() // Utilisation de useLocation pour récupérer le chemin actuel
+    // Utilisation de useLocation pour récupérer le chemin actuel de l'URL
+    const { pathname } = useLocation()
     const menuGroups = MenuList(pathname)
 
     /**
