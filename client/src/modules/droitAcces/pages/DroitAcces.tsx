@@ -1,4 +1,5 @@
 import Layout from "@/components/adminPanel/components/Layout";
+import corner from "@/assets/images/corner-4.png";
 
 export default function DroitAcces() {
     /**
@@ -17,8 +18,16 @@ export default function DroitAcces() {
     return (
         <>
             <Layout>
-                <div className="flex justify-between items-center mb-8 bg-white p-6 shadow rounded">
-                    <h1 className="text-xl">Gestion des droits utilisateurs</h1>
+                <div
+                    className="flex justify-between items-center mb-8 bg-white p-6 shadow rounded relative overflow-hidden"
+                    style={{
+                        backgroundImage: `url(${corner})`,
+                        backgroundPosition: "bottom right",
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "130px"
+                    }}
+                >
+                    <h1 className="text font-medium text-gray-800">Gestion des droits utilisateurs</h1>
                 </div>
             </Layout>
         </>
