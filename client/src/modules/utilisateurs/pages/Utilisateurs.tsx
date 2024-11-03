@@ -19,7 +19,7 @@ export default function Utilisateurs() {
         <>
             <Layout>
                 <div
-                    className="flex justify-between items-center mb-8 bg-white p-6 shadow rounded relative overflow-hidden"
+                    className="flex justify-between items-center mb-8 bg-white p-6 shadow rounded"
                     style={{
                         backgroundImage: `url(${corner})`,
                         backgroundPosition: "bottom right",
@@ -27,7 +27,7 @@ export default function Utilisateurs() {
                         backgroundSize: "130px"
                     }}
                 >
-                    <h1 className="text font-medium text-gray-800">Gestion des utilisateurs</h1>
+                    <h1 className="font-medium text-gray-800">Gestion des utilisateurs</h1>
                 </div>
 
                 <div className="p-6 bg-white shadow rounded">
