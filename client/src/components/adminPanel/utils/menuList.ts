@@ -1,5 +1,5 @@
 import { Group } from "../typeScript/MenuList"
-import { House, Key, LayoutDashboard, Settings2, SquareDashedKanban, Users } from "lucide-react"
+import { Component, House, Key, LayoutDashboard, Settings2, SquareKanban, Store, Users } from "lucide-react"
 
 /**
  * Liste des menus de l'application
@@ -29,9 +29,9 @@ export function MenuList(pathname: string): Group[] {
                     icon: LayoutDashboard,
                     submenus: [
                         {
-                            label: "Personnel",
+                            label: "E-Commerce",
                             href: "#",
-                            active: pathname.includes("/tableau-de-board/personnel"),
+                            active: pathname.includes("/tableau-de-board/e-commerce"),
                         },
                         {
                             label: "Kanban board",
@@ -48,11 +48,52 @@ export function MenuList(pathname: string): Group[] {
             groupLabel: "Application",
             menus: [
                 {
+                    label: "E-Commerce",
+                    href: "#",
+                    active: pathname.includes("#"),
+                    icon: Store,
+                    submenus: []
+                },
+                {
                     label: "Kanban Board",
                     href: "/kanbanBoard",
                     active: pathname.includes("/kanbanBoard"),
-                    icon: SquareDashedKanban,
+                    icon: SquareKanban,
                     submenus: []
+                },
+
+            ]
+        },
+        // {
+        //     groupLabel: "Pages",
+        //     menus: [
+        //         {
+        //             label: "E-Commerce",
+        //             href: "#",
+        //             active: pathname.includes("#"),
+        //             icon: Store,
+        //             submenus: []
+        //         },
+        //     ]
+        // },
+
+
+        // Groupe de menus pour les modules
+        {
+            groupLabel: "Modules",
+            menus: [
+                {
+                    label: "Composants",
+                    href: "#",
+                    active: pathname.includes("#"),
+                    icon: Component,
+                    submenus: [
+                        {
+                            label: "Buttons",
+                            href: "#",
+                            active: pathname.includes("#"),
+                        },
+                    ]
                 },
             ]
         },
