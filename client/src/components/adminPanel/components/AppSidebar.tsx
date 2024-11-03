@@ -1,8 +1,10 @@
 import HeaderSidebar from "./HeaderSidebar"
 import { MenuList } from "../utils/menuList"
 import { useLocation } from "react-router-dom"
+import { ScrollArea } from "@/components/ui/scroll-area"
 import { SidebarContentMenu } from "./SidebarContentMenu"
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarSeparator } from "@/components/ui/sidebar"
+
 
 
 export default function AppSidebar() {
@@ -25,9 +27,11 @@ export default function AppSidebar() {
             <SidebarSeparator />
 
             {/* Contenu de la barre latérale */}
-            <SidebarContent>
-                <SidebarContentMenu menuGroups={menuGroups} />
-            </SidebarContent>
+            <ScrollArea>
+                <SidebarContent>
+                    <SidebarContentMenu menuGroups={menuGroups} />
+                </SidebarContent>
+            </ScrollArea>
 
             {/* Pied de page de la barre latérale */}
             <SidebarFooter />
