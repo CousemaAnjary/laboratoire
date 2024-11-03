@@ -26,3 +26,11 @@ export type Group = {
 export type SidebarContentMenuProps = {
     menuGroups: Group[]
 }
+
+// Type pour les propriétés du composant CollapseMenuButton
+export type CollapseMenuButtonProps = {
+    label: string
+    active?: boolean
+    submenus?: Submenu[]
+    isOpen: boolean
+}
