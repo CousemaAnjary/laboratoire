@@ -1,5 +1,6 @@
 import { Group } from "../typeScript/MenuList"
-import { House, Key, LayoutDashboard, Puzzle, Settings2, SquareKanban, Store, Users } from "lucide-react"
+import { Box, House, Key, LayoutDashboard, PackageOpen, Puzzle, Settings2, SquareKanban, Store, Users } from "lucide-react"
+import { FaPuzzlePiece } from "react-icons/fa6";
 
 /**
  * Liste des menus de l'application
@@ -48,14 +49,14 @@ export function MenuList(pathname: string): Group[] {
             groupLabel: "Application",
             menus: [
                 {
-                    label: "E-Commerce",
+                    label: "E commerce",
                     href: "#",
                     active: pathname.includes("#"),
                     icon: Store,
                     submenus: []
                 },
                 {
-                    label: "Kanban Board",
+                    label: "Kanban board",
                     href: "/kanbanBoard",
                     active: pathname.includes("/kanbanBoard"),
                     icon: SquareKanban,
@@ -86,7 +87,7 @@ export function MenuList(pathname: string): Group[] {
                     label: "Composants",
                     href: "#",
                     active: pathname.includes("#"),
-                    icon: Puzzle,
+                    icon: Box ,
                     submenus: [
                         {
                             label: "Buttons",
