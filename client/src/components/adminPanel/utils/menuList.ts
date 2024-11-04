@@ -1,6 +1,5 @@
 import { Group } from "../typeScript/MenuList"
-import { Box, House, Key, LayoutDashboard, PackageOpen, Puzzle, Settings2, SquareKanban, Store, Users } from "lucide-react"
-import { FaPuzzlePiece } from "react-icons/fa6";
+import { Box, House, Key, LayoutDashboard, Settings2, SquareKanban, Store, Users } from "lucide-react"
 
 /**
  * Liste des menus de l'application
