@@ -19,7 +19,7 @@ export default function Utilisateurs() {
         <>
             <Layout>
                 <div
-                    className="flex justify-between items-center mb-8 bg-white p-6 shadow rounded"
+                    className="flex justify-between items-center mb-8 bg-white p-4 shadow rounded"
                     style={{
                         backgroundImage: `url(${corner})`,
                         backgroundPosition: "bottom right",
