@@ -39,7 +39,7 @@ export default function LoginForm() {
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
     const handleLogin = async (data: LoginType): Promise<void> => {
-
+        
         // Affichage du loader pendant le chargement
         setLoading(true)
 
@@ -55,7 +55,6 @@ export default function LoginForm() {
             console.error(error)
 
         } finally {
-
             // Désactivation du loader après le chargement
             setLoading(false)
         }
