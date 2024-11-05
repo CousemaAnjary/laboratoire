@@ -2,16 +2,13 @@ import PublicRoutes from "./routes/PublicRoutes"
 import { Route, Routes } from "react-router-dom"
 import PrivateRoutes from "./routes/PrivateRoutes"
 import { AuthProvider } from "./core/contexts/AuthContext"
-import Login from "./modules/authentifications/pages/Login"
-import Register from "./modules/authentifications/pages/Register"
+import Login from "./modules/authentifications/login/pages/Login"
+import Register from "./modules/authentifications/register/pages/Register"
 import DroitAcces from "./modules/parametres/droit-acces/pages/DroitAcces"
 import Utilisateurs from "./modules/parametres/utilisateurs/pages/Utilisateurs"
 import KanbanBoard from "./modules/applications/kanban-board/pages/KanbanBoard"
 import Administration from "./modules/tableaux-de-bord/administration/pages/Administration"
 import DHkanbanBoard from "./modules/tableaux-de-bord/tableaux-de-bord/pages/DHkanbanBoard"
-
-
-
 
 
 export default function App() {

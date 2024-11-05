@@ -1,14 +1,14 @@
-import { z } from "zod"
+import { Button } from "@/components/ui/button"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { useAuth } from "@/core/contexts/AuthContext"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { Eye, EyeOff, Loader } from "lucide-react"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { Eye, EyeOff, Loader } from "lucide-react"
-import { Input } from "@/components/ui/input"
-import { LoginType } from "../typeScript/AuthTypes"
 import { Link, useNavigate } from "react-router-dom"
-import { Button } from "@/components/ui/button"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useAuth } from "@/core/contexts/AuthContext"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { z } from "zod"
+import { LoginType } from "../../typeScript/AuthTypes"
 
 
 
@@ -56,7 +56,7 @@ export default function LoginForm() {
             console.error(error)
 
         } finally {
-            
+
             // Désactivation du loader après le chargement
             setLoading(false)
         }

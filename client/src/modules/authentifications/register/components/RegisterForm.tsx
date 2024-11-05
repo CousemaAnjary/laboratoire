@@ -1,16 +1,16 @@
-import { z } from "zod"
+import { Button } from "@/components/ui/button"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { Eye, EyeOff } from "lucide-react"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { FcGoogle } from "react-icons/fc"
 import { FaGithub } from "react-icons/fa"
-import { Eye, EyeOff } from "lucide-react"
-import { register } from "../services/authService"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { FcGoogle } from "react-icons/fc"
 import { Link, useNavigate } from "react-router-dom"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { RegisterType } from "../typeScript/AuthTypes"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { z } from "zod"
+import { register } from "../../services/authService"
+import { RegisterType } from "../../typeScript/AuthTypes"
 
 
 // Définir le schéma de validation avec Zod
@@ -66,9 +66,9 @@ export default function RegisterForm() {
      */
     return (
         <>
-           
+
             <div className="relative p-8 w-full max-w-md">
-                <h1 className="mb-2 text-2xl font-bold text-black">Inscription</h1>  
+                <h1 className="mb-2 text-2xl font-bold text-black">Inscription</h1>
                 <p className="mb-4 text-sm text-muted-foreground">
                     Vous avez déjà un compte ? Accédez-y en cliquant <Link to="/login" className="underline text-cyan-700">ici</Link>
                 </p>
@@ -171,7 +171,7 @@ export default function RegisterForm() {
 
                             <div className="grid">
                                 <Button type="submit" className="w-full">Créer un compte</Button>
-                               
+
                             </div>
                             <div className="relative">
                                 {/* <div className="absolute inset-0 flex items-center">
@@ -194,7 +194,7 @@ export default function RegisterForm() {
                                     </Button>
                                 </div>
                             </div>
-                         
+
                         </div>
                     </form>
                 </Form>

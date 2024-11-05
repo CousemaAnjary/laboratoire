@@ -1,13 +1,12 @@
-import { Toaster } from "sonner"
 import { cn } from "@/lib/utils"
-
-import RegisterForm from "../components/RegisterForm"
-
+import { useEffect } from "react"
+import { toast, Toaster } from "sonner"
 import Navbar from "@/components/Navbar"
+import LoginForm from "../components/LoginForm"
 import GridPattern from "@/components/magicui/grid-pattern"
 
 
-export default function Register() {
+export default function Login() {
     /**
      * ! STATE (état, données) de l'application
      */
@@ -16,6 +15,16 @@ export default function Register() {
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
+    useEffect(() => {
+        // Récupération du message de succès dans le localStorage
+        const message = localStorage.getItem("success")
+
+        if (message) {
+            // Affichage du message de succès
+            toast.success(message)
+            localStorage.removeItem("success")
+        }
+    }, [])
 
 
     /**
@@ -35,7 +44,7 @@ export default function Register() {
                 {/* Contenu */}
                 <main>
                     <section className="flex justify-center items-center min-h-[79vh] mt-5 ">
-                        <RegisterForm />
+                        <LoginForm />
                     </section>
                 </main>
 
@@ -43,6 +52,5 @@ export default function Register() {
                 <footer></footer>
             </div>
         </>
-
     )
 }
