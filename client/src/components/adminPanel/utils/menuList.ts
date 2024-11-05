@@ -13,7 +13,7 @@ export function MenuList(pathname: string): Group[] {
 
         // Groupe de menus pour le tableau de bord
         {
-            groupLabel: "Tableau de bord",
+            groupLabel: "Tableaux de bord",
             menus: [
                 {
                     label: "Administration",
