@@ -1,17 +1,18 @@
-import { MenuList } from "../utils/menuList"
+import { menu } from "@/utils/menu"
 import { Link, useLocation } from "react-router-dom"
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
+
 
 export default function DynamicBreadcrumb() {
+    /**
+     * ! STATE (état, données) de l'application
+     */
     const { pathname } = useLocation() // Utilisation de useLocation pour récupérer le chemin actuel
-    const menuGroups = MenuList(pathname)
+    const menuGroups = menu(pathname) // Utilisation de la fonction menu pour récupérer les menus et sous-menus
+
+    /**
+     * ! COMPORTEMENT (méthodes, fonctions) de l'application
+     */
 
     // Trouver le menu actif et le sous-menu actif
     const activeMenu = menuGroups.flatMap((group) => group.menus).find((menu) => menu.active)
@@ -20,6 +21,9 @@ export default function DynamicBreadcrumb() {
     // Vérifier si l'utilisateur est sur la page "Administration"
     const isAdminPage = pathname === "/administration"
 
+    /**
+     * ! AFFICHAGE (render) de l'application
+     */
     return (
         <Breadcrumb>
             <BreadcrumbList > {/* Flex pour alignement */}
@@ -37,7 +41,7 @@ export default function DynamicBreadcrumb() {
                             </Link>
                         </BreadcrumbItem>
 
-                        <BreadcrumbSeparator/> {/* Séparateur stylisé */}
+                        <BreadcrumbSeparator /> {/* Séparateur stylisé */}
 
                         {activeSubmenu && activeMenu ? (
                             <>
