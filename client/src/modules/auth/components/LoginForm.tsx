@@ -1,7 +1,7 @@
 import { z } from "zod"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { Eye, EyeOff } from "lucide-react"
+import { Eye, EyeOff, Loader } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { LoginType } from "../typeScript/AuthTypes"
 import { Link, useNavigate } from "react-router-dom"
@@ -25,6 +25,7 @@ export default function LoginForm() {
      */
     const { login } = useAuth()
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
 
     const form = useForm<LoginType>({
@@ -39,6 +40,10 @@ export default function LoginForm() {
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
     const handleLogin = async (data: LoginType): Promise<void> => {
+
+        // Affichage du loader pendant le chargement
+        setLoading(true)
+
         try {
             // Envoi des données au serveur (API) pour l'authentification
             const response = await login(data)
@@ -49,6 +54,11 @@ export default function LoginForm() {
 
         } catch (error) {
             console.error(error)
+
+        } finally {
+            
+            // Désactivation du loader après le chargement
+            setLoading(false)
         }
     }
 
@@ -109,7 +119,18 @@ export default function LoginForm() {
                             </div>
 
                             <div className="grid">
-                                <Button type="submit" className="w-full">Authentification</Button>
+                                <Button type="submit" className="w-full" disabled={loading}>
+                                    {loading ? (
+                                        <>
+                                            <Loader className="mr-2 h-4 w-4 animate-spin" />
+                                            Veuillez patienter
+                                        </>
+                                    ) : (
+                                        "Connexion"
+                                    )}
+
+                                </Button>
+
                             </div>
                         </div>
                     </form>
