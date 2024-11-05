@@ -48,7 +48,7 @@ export function MenuList(pathname: string): Group[] {
             groupLabel: "Application",
             menus: [
                 {
-                    label: "E commerce",
+                    label: "E-commerce",
                     href: "#",
                     active: pathname.includes("#"),
                     icon: Store,
