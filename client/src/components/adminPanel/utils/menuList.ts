@@ -83,20 +83,7 @@ export function MenuList(pathname: string): Group[] {
                 },
             ]
         },
-        // {
-        //     groupLabel: "Pages",
-        //     menus: [
-        //         {
-        //             label: "E-Commerce",
-        //             href: "#",
-        //             active: pathname.includes("#"),
-        //             icon: Store,
-        //             submenus: []
-        //         },
-        //     ]
-        // },
-
-
+ 
         // Groupe de menus pour les modules
         {
             groupLabel: "Modules",
