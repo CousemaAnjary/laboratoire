@@ -29,7 +29,7 @@ export function MenuList(pathname: string): Group[] {
                     icon: LayoutDashboard,
                     submenus: [
                         {
-                            label: "E-Commerce",
+                            label: "E-commerce",
                             href: "#",
                             active: pathname.includes("/tableau-de-board/e-commerce"),
                         },
