@@ -1,5 +1,4 @@
-import Layout from "@/components/adminPanel/components/Layout"
-
+import Layout from "@/components/admin-panel/components/Layout";
 
 
 export default function KanbanBoard() {

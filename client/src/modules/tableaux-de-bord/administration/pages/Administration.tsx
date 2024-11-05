@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { toast, Toaster } from "sonner"
-import Layout from "@/components/adminPanel/components/Layout"
+import Layout from "@/components/admin-panel/components/Layout"
 
 
 export default function Administration() {

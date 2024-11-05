@@ -1,4 +1,4 @@
-import Layout from "@/components/adminPanel/components/Layout";
+import Layout from "@/components/admin-panel/components/Layout";
 import corner from "@/assets/images/corner-4.png";
 
 export default function Utilisateurs() {
