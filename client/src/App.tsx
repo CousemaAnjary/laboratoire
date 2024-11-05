@@ -1,14 +1,15 @@
-import Login from "./modules/auth/pages/Login"
 import PublicRoutes from "./routes/PublicRoutes"
 import { Route, Routes } from "react-router-dom"
 import PrivateRoutes from "./routes/PrivateRoutes"
-import Register from "./modules/auth/pages/Register"
 import { AuthProvider } from "./core/contexts/AuthContext"
-import KanbanBoard from "./modules/kanbanBoard/pages/KanbanBoard"
-import DHkanbanBoard from "./modules/dashboard/pages/DHkanbanBoard"
-import Administration from "./modules/administration/pages/Administration"
-import DroitAcces from "./modules/droitAcces/pages/DroitAcces"
-import Utilisateurs from "./modules/utilisateurs/pages/Utilisateurs"
+import Login from "./modules/authentifications/pages/Login"
+import Register from "./modules/authentifications/pages/Register"
+import DroitAcces from "./modules/parametres/droitAcces/pages/DroitAcces"
+import Utilisateurs from "./modules/parametres/utilisateurs/pages/Utilisateurs"
+import KanbanBoard from "./modules/applications/kanban-board/pages/KanbanBoard"
+import Administration from "./modules/tableaux-de-bord/administration/pages/Administration"
+import DHkanbanBoard from "./modules/tableaux-de-bord/tableaux-de-bord/pages/DHkanbanBoard"
+
 
 
 
