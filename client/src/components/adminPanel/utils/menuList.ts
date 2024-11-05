@@ -1,5 +1,5 @@
 import { Group } from "../typeScript/MenuList"
-import { Box, House, Key, LayoutDashboard, Settings2, SquareKanban, Store, Users } from "lucide-react"
+import { Box, Globe, House, Key, LayoutDashboard, Settings2, SquareKanban, Store, Users } from "lucide-react"
 
 /**
  * Liste des menus de l'application
@@ -45,7 +45,7 @@ export function MenuList(pathname: string): Group[] {
 
         // Groupe de menus pour l'application
         {
-            groupLabel: "Application",
+            groupLabel: "Applications",
             menus: [
                 {
                     label: "E-commerce",
@@ -62,6 +62,18 @@ export function MenuList(pathname: string): Group[] {
                     submenus: []
                 },
 
+            ]
+        },
+        {
+            groupLabel: "Pages",
+            menus: [
+                {
+                    label: "Landing",
+                    href: "#",
+                    active: pathname.includes("#"),
+                    icon: Globe,
+                    submenus: []
+                },
             ]
         },
         // {
