@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom"
 import { ChevronRight, Ellipsis } from "lucide-react"
-import { SidebarContentMenuProps } from "../typeScript/MenuList"
+import { SidebarContentMenuProps } from "../typeScript/adminPanelType"
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
 import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubItem, SidebarMenuSubButton, useSidebar, SidebarGroupContent, SidebarMenuBadge } from "@/components/ui/sidebar"
+
 
 
 export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {

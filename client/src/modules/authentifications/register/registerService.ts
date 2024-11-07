@@ -1,5 +1,5 @@
 import api from "@/core/services/apiConfig"
-import { handleApiError } from "@/core/utils/handleApiError"
+import { handleApiError } from "@/utils/handleApiError"
 import { RegisterResponseType, RegisterType } from "./registerType"
 
 

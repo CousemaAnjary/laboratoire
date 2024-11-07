@@ -1,6 +1,6 @@
 import api from "@/core/services/apiConfig"
+import { handleApiError } from "@/utils/handleApiError"
 import { LoginResponseType, LoginType } from "./loginType"
-import { handleApiError } from "@/core/utils/handleApiError"
 
 
 // Connexion d'un utilisateur
