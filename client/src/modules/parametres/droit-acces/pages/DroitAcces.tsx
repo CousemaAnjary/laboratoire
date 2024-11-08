@@ -1,5 +1,6 @@
-import Layout from "@/components/admin-panel/components/Layout";
-import corner from "@/assets/images/corner-4.png";
+import corner from "@/assets/images/corner-4.png"
+import Layout from "@/components/admin-panel/components/Layout"
+
 
 export default function DroitAcces() {
     /**
