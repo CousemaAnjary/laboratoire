@@ -1,5 +1,5 @@
 import { Group } from "./typeScript/menuType"
-import { AtSign, Box, Globe, House, Key, LayoutDashboard, Settings2, SquareKanban, Store, Users } from "lucide-react"
+import { AtSign, Globe, House, Key, LayoutDashboard, Settings2, SquareKanban, Store, Users } from "lucide-react"
 
 
 export function menu(pathname: string): Group[] {
