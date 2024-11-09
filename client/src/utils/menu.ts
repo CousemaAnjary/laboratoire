@@ -78,25 +78,25 @@ export function menu(pathname: string): Group[] {
             ]
         },
 
-        // Groupe de menus pour les modules
-        {
-            groupLabel: "Modules",
-            menus: [
-                {
-                    label: "Composants",
-                    href: "#",
-                    active: pathname.includes("#"),
-                    icon: Box,
-                    submenus: [
-                        {
-                            label: "Buttons",
-                            href: "#",
-                            active: pathname.includes("#"),
-                        },
-                    ]
-                },
-            ]
-        },
+        // // Groupe de menus pour les modules
+        // {
+        //     groupLabel: "Modules",
+        //     menus: [
+        //         {
+        //             label: "Composants",
+        //             href: "#",
+        //             active: pathname.includes("#"),
+        //             icon: Box,
+        //             submenus: [
+        //                 {
+        //                     label: "Buttons",
+        //                     href: "#",
+        //                     active: pathname.includes("#"),
+        //                 },
+        //             ]
+        //         },
+        //     ]
+        // },
 
         // Groupe de menus pour les paramètres
         {
