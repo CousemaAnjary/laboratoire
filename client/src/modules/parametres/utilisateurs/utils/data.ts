@@ -1,6 +1,7 @@
 export type Payment = {
     id: number;
     nom: string;
+    prenom: string;
     email: string;
     statut: string;
     rôle: string;
@@ -11,6 +12,7 @@ export const data: Payment[] = [
     {
         id: 1,
         nom: "John Doe",
+        prenom: "John",
         email: "john.doe@example.com",
         statut: "Actif",
         rôle: "Admin",
@@ -19,6 +21,7 @@ export const data: Payment[] = [
     {
         id: 2,
         nom: "Jane Smith",
+        prenom: "Jane",
         email: "jane.smith@example.com",
         statut: "Inactif",
         rôle: "Utilisateur",
