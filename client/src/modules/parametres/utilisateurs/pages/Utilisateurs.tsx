@@ -1,5 +1,8 @@
 import Layout from "@/components/admin-panel/components/Layout";
 import corner from "@/assets/images/corner-4.png";
+import { DataTable } from "@/components/data-table/components/DataTable";
+import { columns } from "@/components/data-table/utils/columns";
+import { data } from "../utils/data";
 
 export default function Utilisateurs() {
     /**
@@ -30,8 +33,8 @@ export default function Utilisateurs() {
                     <h1 className="font-medium text-gray-800">Gestion des utilisateurs</h1>
                 </div>
 
-                <div>
-
+                <div className="bg-white p-8 shadow rounded">
+                    <DataTable columns={columns} data={data} />
                 </div>
             </Layout>
         </>
