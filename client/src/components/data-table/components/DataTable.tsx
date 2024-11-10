@@ -4,7 +4,6 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 
 
 
-
 export default function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
     /**
      * ! STATE (état, données) de l'application
@@ -63,7 +62,7 @@ export default function DataTable<TData, TValue>({ columns, data }: DataTablePro
 
                     ) : (  
                         <TableRow>
-                            
+
                             {/* Aucun résultat */}
                             <TableCell colSpan={columns.length} className="h-24 text-center">
                                 Aucun résultat.
