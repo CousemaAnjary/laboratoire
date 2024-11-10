@@ -1,3 +1,4 @@
+// data.ts
 export type Payment = {
     id: number;
     nom: string;
@@ -8,11 +9,12 @@ export type Payment = {
     dernièreConnexion: string;
 };
 
+// Exemple de données
 export const data: Payment[] = [
     {
         id: 1,
-        nom: "John Doe",
-        prenom: "John",
+        nom: "John",
+        prenom: "Doe",
         email: "john.doe@example.com",
         statut: "Actif",
         rôle: "Admin",
@@ -20,8 +22,8 @@ export const data: Payment[] = [
     },
     {
         id: 2,
-        nom: "Jane Smith",
-        prenom: "Jane",
+        nom: "Jane",
+        prenom: "Smith",
         email: "jane.smith@example.com",
         statut: "Inactif",
         rôle: "Utilisateur",

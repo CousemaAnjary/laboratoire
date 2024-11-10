@@ -1,7 +1,7 @@
 import { data } from "../utils/data"
+import { columns } from "../utils/columns"
 import corner from "@/assets/images/corner-4.png"
 import Layout from "@/components/admin-panel/components/Layout"
-import { columns } from "@/components/data-table/utils/columns"
 import { DataTable } from "@/components/data-table/components/DataTable"
 
 

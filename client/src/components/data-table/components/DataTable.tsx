@@ -4,7 +4,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 
 
 
-export default function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
+export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
     /**
      * ! STATE (état, données) de l'application
      */
@@ -60,7 +60,7 @@ export default function DataTable<TData, TValue>({ columns, data }: DataTablePro
                             </TableRow>
                         ))
 
-                    ) : (  
+                    ) : (
                         <TableRow>
 
                             {/* Aucun résultat */}
