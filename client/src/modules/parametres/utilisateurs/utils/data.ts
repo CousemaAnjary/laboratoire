@@ -6,7 +6,6 @@ export type Payment = {
     email: string;
     statut: string;
     rôle: string;
-    dernièreConnexion: string;
 };
 
 // Exemple de données
@@ -18,7 +17,7 @@ export const data: Payment[] = [
         email: "john.doe@example.com",
         statut: "Actif",
         rôle: "Admin",
-        dernièreConnexion: "2024-11-09",
+     
     },
     {
         id: 2,
@@ -27,7 +26,6 @@ export const data: Payment[] = [
         email: "jane.smith@example.com",
         statut: "Inactif",
         rôle: "Utilisateur",
-        dernièreConnexion: "2024-10-30",
     },
     // Ajoutez plus de données si nécessaire
 ];
