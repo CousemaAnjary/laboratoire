@@ -36,12 +36,19 @@ export const columns: ColumnDef<Payment>[] = [
             // Assurez-vous que cette syntaxe JSX est correcte
             <DataTableColumnHeader column={column} title="Nom" />
         ),
+        cell: ({ row }) => (
+            <div className="capitalize">{row.getValue("nom")}</div>
+        ),
+
     },
     {
         accessorKey: "prenom",
         header: ({ column }) => (
             // Assurez-vous que cette syntaxe JSX est correcte
             <DataTableColumnHeader column={column} title="Prénom" />
+        ),
+        cell: ({ row }) => (
+            <div className="capitalize">{row.getValue("prenom")}</div>
         ),
     },
     {
@@ -50,6 +57,9 @@ export const columns: ColumnDef<Payment>[] = [
             // Assurez-vous que cette syntaxe JSX est correcte
             <DataTableColumnHeader column={column} title="Email" />
         ),
+        cell: ({ row }) => (
+            <div className="capitalize">{row.getValue("email")}</div>
+        ),
     },
     {
         accessorKey: "statut",
@@ -57,12 +67,18 @@ export const columns: ColumnDef<Payment>[] = [
             // Assurez-vous que cette syntaxe JSX est correcte
             <DataTableColumnHeader column={column} title="Statut" />
         ),
+        cell: ({ row }) => (
+            <div className="capitalize">{row.getValue("statut")}</div>
+        ),
     },
     {
         accessorKey: "rôle",
         header: ({ column }) => (
             // Assurez-vous que cette syntaxe JSX est correcte
             <DataTableColumnHeader column={column} title="Rôle" />
+        ),
+        cell: ({ row }) => (
+            <div className="capitalize">{row.getValue("rôle")}</div>
         ),
     },
 ];
