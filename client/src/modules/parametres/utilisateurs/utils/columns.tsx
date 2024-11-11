@@ -39,19 +39,31 @@ export const columns: ColumnDef<Payment>[] = [
     },
     {
         accessorKey: "prenom",
-        header: "Prénom"
+        header: ({ column }) => (
+            // Assurez-vous que cette syntaxe JSX est correcte
+            <DataTableColumnHeader column={column} title="Prénom" />
+        ),
     },
     {
         accessorKey: "email",
-        header: "Email"
+        header: ({ column }) => (
+            // Assurez-vous que cette syntaxe JSX est correcte
+            <DataTableColumnHeader column={column} title="Email" />
+        ),
     },
     {
         accessorKey: "statut",
-        header: "Statut"
+        header: ({ column }) => (
+            // Assurez-vous que cette syntaxe JSX est correcte
+            <DataTableColumnHeader column={column} title="Statut" />
+        ),
     },
     {
         accessorKey: "rôle",
-        header: "Rôle"
+        header: ({ column }) => (
+            // Assurez-vous que cette syntaxe JSX est correcte
+            <DataTableColumnHeader column={column} title="Rôle" />
+        ),
     },
 ];
 
