@@ -8,7 +8,7 @@ export type Utilisateur = {
 }
 
 export const utilisateurFields: { key: keyof Utilisateur; title: string }[] = [
-    { key: "id", title: "ID" },
+    // { key: "id", title: "ID" },
     { key: "nom", title: "Nom" },
     { key: "prenom", title: "Prénom" },
     { key: "email", title: "Email" },
