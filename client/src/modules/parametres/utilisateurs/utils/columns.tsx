@@ -34,7 +34,7 @@ export const columns: ColumnDef<Payment>[] = [
         accessorKey: "nom",
         header: ({ column }) => (
             // Assurez-vous que cette syntaxe JSX est correcte
-            <DataTableColumnHeader column={column} title="Nom" />
+            <DataTableColumnHeader column={column} title="Nom"  />
         ),
         cell: ({ row }) => (
             <div className="capitalize">{row.getValue("nom")}</div>

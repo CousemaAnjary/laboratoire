@@ -34,7 +34,7 @@ export default function Utilisateurs() {
                     <h1 className="font-medium text-gray-800">Gestion des utilisateurs</h1>
                 </div>
 
-                <div className="bg-white p-8 shadow rounded">
+                <div className="bg-white p-6 shadow rounded">
                     <DataTable columns={columns} data={data} />
                 </div>
             </Layout>
