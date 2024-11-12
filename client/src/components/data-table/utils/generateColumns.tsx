@@ -1,6 +1,6 @@
-"use client";
-import { ColumnDef } from "@tanstack/react-table";
+import { ColumnDef } from "@tanstack/react-table"
 import { DataTableColumnHeader } from "@/components/data-table/components/DataTableColumnHeader";
+
 
 // Fonction pour générer automatiquement les colonnes
 export function generateColumns<T>(fields: { key: keyof T; title: string }[]): ColumnDef<T>[] {

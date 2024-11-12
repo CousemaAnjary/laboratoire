@@ -1,9 +1,9 @@
 import { Utilisateur } from "../utils/data"
 import corner from "@/assets/images/corner-4.png"
-import { generateColumns } from "../utils/columns"
 import Layout from "@/components/admin-panel/components/Layout"
 import { utilisateurData, utilisateurFields } from "../utils/data"
 import { DataTable } from "@/components/data-table/components/DataTable"
+import { generateColumns } from "@/components/data-table/utils/generateColumns"
 
 
 export default function Utilisateurs() {
