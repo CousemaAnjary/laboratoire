@@ -23,5 +23,13 @@ export const utilisateurData: Utilisateur[] = [
         email: "john.doe@example.com",
         statut: "Actif",
     },
-    // Ajoutez plus de données si nécessaire
+
+    {
+        id: 2,
+        nom: "ABDILLAH",
+        prenom: "Cousema",
+        email: "cousema@example.com",
+        statut: "Inactif",
+    },
+
 ];
