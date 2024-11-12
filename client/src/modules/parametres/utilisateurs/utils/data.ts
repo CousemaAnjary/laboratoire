@@ -5,7 +5,7 @@ export type Utilisateur = {
     prenom: string;
     email: string;
     statut: string;
-};
+}
 
 export const utilisateurFields: { key: keyof Utilisateur; title: string }[] = [
     { key: "id", title: "ID" },
