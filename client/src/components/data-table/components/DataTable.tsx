@@ -1,36 +1,27 @@
-"use client"
+import { DataTableProps } from "../typeScript/dataTableType"
+import { flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
-import {
-    ColumnDef,
-    flexRender,
-    getCoreRowModel,
-    useReactTable,
-} from "@tanstack/react-table"
 
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table"
+export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
+    /**
+     * ! STATE (état, données) de l'application
+     */
 
-interface DataTableProps<TData, TValue> {
-    columns: ColumnDef<TData, TValue>[]
-    data: TData[]
-}
 
-export function DataTable<TData, TValue>({
-    columns,
-    data,
-}: DataTableProps<TData, TValue>) {
+    /**
+     * ! COMPORTEMENT (méthodes, fonctions) de l'application
+     */
     const table = useReactTable({
         data,
         columns,
-        getCoreRowModel: getCoreRowModel(),
+        getCoreRowModel: getCoreRowModel()
     })
 
+
+    /**
+     * ! AFFICHAGE (render) de l'application
+     */
     return (
         <div className="rounded-md border">
             <Table>
