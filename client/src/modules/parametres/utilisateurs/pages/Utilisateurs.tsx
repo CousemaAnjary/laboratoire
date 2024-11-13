@@ -1,17 +1,15 @@
-import { utilisateurData, utilisateurKeys } from "../utils/data";
 import corner from "@/assets/images/corner-4.png"
-import Layout from "@/components/admin-panel/components/Layout";
-
-import { DataTable } from "@/components/data-table/components/DataTable";
-import { GenerateColumns } from "@/components/data-table/components/GenerateColumns";
-
+import Layout from "@/components/admin-panel/components/Layout"
+import { utilisateurData, utilisateurKeys } from "../utils/data"
+import { DataTable } from "@/components/data-table/components/DataTable"
+import { GenerateColumns } from "@/components/data-table/components/GenerateColumns"
 
 
 export default function Utilisateurs() {
     /**
      * ! STATE (état, données) de l'application
      */
-    const Columns = GenerateColumns(utilisateurKeys);
+    const Columns = GenerateColumns(utilisateurKeys)
 
 
     /**
