@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Table } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { DataTableFacetedFilter } from "./DataTableFacetedFilter";
+import { useState } from "react";
 
 interface DataTableToolbarProps<TData> {
     table: Table<TData>;
@@ -20,19 +21,20 @@ export function DataTableToolbar<TData>({
     table,
     filterableColumns,
 }: DataTableToolbarProps<TData>) {
+    // État pour gérer la valeur du filtre global
+    const [globalFilter, setGlobalFilter] = useState("");
+
     return (
         <div className="flex flex-wrap items-center justify-between">
             <div className="flex flex-1 flex-wrap items-center gap-2">
-                {/* Champ de saisie pour filtrer dans toutes les colonnes */}
+                {/* Champ de saisie pour le filtre global */}
                 <Input
                     placeholder="Rechercher"
+                    value={globalFilter}
                     onChange={(event) => {
                         const searchValue = event.target.value;
-                        table.getAllColumns().forEach((column) => {
-                            if (column.getCanFilter()) {
-                                column.setFilterValue(searchValue);
-                            }
-                        });
+                        setGlobalFilter(searchValue); // Mettre à jour l'état
+                        table.setGlobalFilter(searchValue); // Appliquer le filtre global
                     }}
                     className="h-8 w-[150px] lg:w-[250px]"
                 />
@@ -50,15 +52,18 @@ export function DataTableToolbar<TData>({
                 )}
 
                 {/* Bouton de réinitialisation des filtres */}
-                {/* {table.getState().columnFilters.length > 0 && (
+                {table.getState().columnFilters.length > 0 && (
                     <Button
                         variant="ghost"
-                        onClick={() => table.resetColumnFilters()}
+                        onClick={() => {
+                            table.resetColumnFilters();
+                            setGlobalFilter(""); // Réinitialiser le filtre global
+                        }}
                         className="h-8 px-2 lg:px-3"
                     >
                         Réinitialiser
                     </Button>
-                )} */}
+                )}
             </div>
 
             <div className="flex items-center gap-2">
