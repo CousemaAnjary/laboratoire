@@ -1,4 +1,3 @@
-import { Cross2Icon } from "@radix-ui/react-icons";
 import { Table } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,7 +21,7 @@ export function DataTableToolbar<TData>({
     filterableColumns = [],
 }: DataTableToolbarProps<TData>) {
     // Vérifiez si des filtres sont appliqués
-    const isFiltered = table.getState().columnFilters.length > 0;
+    // const isFiltered = table.getState().columnFilters.length > 0;
 
     return (
         <div className="flex flex-wrap items-center justify-between">
@@ -50,7 +49,7 @@ export function DataTableToolbar<TData>({
                 ))}
 
                 {/* Bouton de réinitialisation des filtres */}
-                {isFiltered && (
+                {/* {isFiltered && (
                     <Button
                         variant="ghost"
                         onClick={() => table.resetColumnFilters()}
@@ -59,7 +58,7 @@ export function DataTableToolbar<TData>({
                         Réinitialiser
                         <Cross2Icon className="ml-2 h-4 w-4" />
                     </Button>
-                )}
+                )} */}
             </div>
 
             <div className="flex items-center gap-2">
