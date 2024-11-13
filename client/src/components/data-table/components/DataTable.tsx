@@ -32,7 +32,10 @@ interface DataTableProps<TData> {
     filterableColumns: Array<{
         id: keyof TData;
         title: string;
-        options: string[];
+        options: Array<{
+            label: string;
+            value: string;
+        }>;
     }>;
 }
 

@@ -1,6 +1,5 @@
 // data.ts
 
-// Définition du type Utilisateur
 export type Utilisateur = {
     nom: string;
     prénom: string;
@@ -17,6 +16,7 @@ export const utilisateurData: Utilisateur[] = [
         statut: "Actif",
     },
     {
+
         nom: "ABDILLAH",
         prénom: "Cousema",
         email: "cousema@example.com",
@@ -33,12 +33,25 @@ export const utilisateurData: Utilisateur[] = [
 // Récupérer les clés des propriétés dynamiquement
 export const utilisateurKeys = Object.keys(utilisateurData[0]) as Array<keyof Utilisateur>;
 
-// Définir les colonnes filtrables avec les types appropriés
-export const filterableColumns: {
-    id: keyof Utilisateur;
-    title: string;
-    options: string[];
-}[] = [
-        { id: "statut", title: "Statut", options: ["Actif", "Inactif"] },
-        { id: "nom", title: "Nom", options: ["John", "ABDILLAH", "BEN MOHAMED"] },
-    ];
+// Spécifiez les clés que vous souhaitez rendre filtrables
+const filterableKeys: Array<keyof Utilisateur> = ["statut"]; // Ajoutez ici les clés que vous voulez
+
+// Fonction pour générer des options uniques pour chaque clé
+function generateFilterableColumns() {
+    return filterableKeys.map((key) => {
+        const uniqueValues = Array.from(
+            new Set(utilisateurData.map((item) => item[key]))
+        );
+        return {
+            id: key,
+            title: key.charAt(0).toUpperCase() + key.slice(1),
+            options: uniqueValues.map((value) => ({
+                label: String(value),
+                value: String(value),
+            })),
+        };
+    });
+}
+
+// Générer `filterableColumns` en utilisant uniquement les clés spécifiées
+export const filterableColumns = generateFilterableColumns();

@@ -2,7 +2,7 @@ import { Cross2Icon } from "@radix-ui/react-icons";
 import { Table } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { DataTableFacetedFilter } from "./data-table-faceted-filter";
+import { DataTableFacetedFilter } from "./DataTableFacetedFilter";
 import { TrashIcon } from "lucide-react";
 
 interface DataTableToolbarProps<TData> {
@@ -10,7 +10,10 @@ interface DataTableToolbarProps<TData> {
     filterableColumns?: Array<{
         id: keyof TData;
         title: string;
-        options: string[];
+        options: Array<{
+            label: string;
+            value: string;
+        }>;
     }>;
 }
 
