@@ -1,7 +1,6 @@
-
-import { ColumnDef } from "@tanstack/react-table";
-import { Checkbox } from "@/components/ui/checkbox";
-import { DataTableColumnHeader } from "./DataTableColumnHeader";
+import { ColumnDef } from "@tanstack/react-table"
+import { Checkbox } from "@/components/ui/checkbox"
+import { DataTableColumnHeader } from "./DataTableColumnHeader"
 
 
 // Fonction générique pour générer automatiquement les colonnes avec des en-têtes en majuscules et une colonne de sélection
