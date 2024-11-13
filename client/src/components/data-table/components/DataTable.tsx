@@ -78,7 +78,7 @@ export function DataTable<TData>({
             <DataTableToolbar table={table} filterableColumns={filterableColumns} />
 
             {/* Table rendering */}
-            <div className="overflow-y-auto rounded-md border">
+            <div className="overflow-x-auto rounded-md border">
                 <Table>
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (

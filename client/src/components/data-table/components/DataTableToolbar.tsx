@@ -52,7 +52,7 @@ export function DataTableToolbar<TData>({
                 )}
 
                 {/* Bouton de réinitialisation des filtres */}
-                {table.getState().columnFilters.length > 0 && (
+                {/* {table.getState().columnFilters.length > 0 && (
                     <Button
                         variant="ghost"
                         onClick={() => {
@@ -63,7 +63,7 @@ export function DataTableToolbar<TData>({
                     >
                         Réinitialiser
                     </Button>
-                )}
+                )} */}
             </div>
 
             <div className="flex items-center gap-2">
