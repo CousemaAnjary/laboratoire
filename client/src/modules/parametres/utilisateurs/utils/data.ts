@@ -25,3 +25,6 @@ export const utilisateurData: Utilisateur[] = [
     },
 ];
 
+// Récupérer les clés des propriétés dynamiquement
+export const utilisateurKeys = Object.keys(utilisateurData[0]) as Array<keyof Utilisateur>;
+

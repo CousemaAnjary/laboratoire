@@ -1,8 +1,9 @@
-import { utilisateurData } from "../utils/data";
+import { utilisateurData, utilisateurKeys } from "../utils/data";
 import corner from "@/assets/images/corner-4.png"
 import Layout from "@/components/admin-panel/components/Layout";
-import { Columns } from "@/components/data-table/components/Columns";
+
 import { DataTable } from "@/components/data-table/components/DataTable";
+import { GenerateColumns } from "@/components/data-table/components/GenerateColumns";
 
 
 
@@ -10,7 +11,7 @@ export default function Utilisateurs() {
     /**
      * ! STATE (état, données) de l'application
      */
-
+    const Columns = GenerateColumns(utilisateurKeys);
 
 
     /**
