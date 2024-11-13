@@ -2,7 +2,7 @@
 export type Utilisateur = {
     id: number;
     nom: string;
-    prenom: string;
+    prénom: string;
     email: string;
     statut: string;
 };
@@ -12,14 +12,14 @@ export const utilisateurData: Utilisateur[] = [
     {
         id: 1,
         nom: "John",
-        prenom: "Doe",
+        prénom: "Doe",
         email: "john.doe@example.com",
         statut: "Actif",  
     },
     {
         id: 2,
         nom: "ABDILLAH",
-        prenom: "Cousema",
+        prénom: "Cousema",
         email: "cousema@example.com",
         statut: "Inactif",
     },
