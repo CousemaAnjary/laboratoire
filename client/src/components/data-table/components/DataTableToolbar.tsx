@@ -13,8 +13,8 @@ interface DataTableToolbarProps<TData> {
         options: Array<{
             label: string;
             value: string;
-        }>;
-    }>;
+        }>
+    }>
 }
 
 export function DataTableToolbar<TData>({
