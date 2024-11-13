@@ -8,5 +8,5 @@ export function GenerateColumns<T>(keys: Array<keyof T>): ColumnDef<T>[] {
         header: ({ column }) => (
             <DataTableColumnHeader column={column} title={String(key).toUpperCase()} />
         ),
-    })) as ColumnDef<T>[];
+    })) as ColumnDef<T>[]
 }
