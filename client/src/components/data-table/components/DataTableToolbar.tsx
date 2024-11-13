@@ -1,6 +1,3 @@
-// DataTableToolbar.tsx
-"use client";
-
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { Table } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
@@ -30,12 +27,8 @@ export function DataTableToolbar<TData>({
         <div className="flex flex-wrap items-center justify-between">
             <div className="flex flex-1 flex-wrap items-center gap-2">
                 <Input
-                    placeholder="Filtrer les étiquettes..."
-                    value={(table.getColumn("note")?.getFilterValue() as string) ?? ""}
-                    onChange={(event) => {
-                        table.getColumn("note")?.setFilterValue(event.target.value);
-                    }}
-                    className="h-8 w-[150px] lg:w-[250px]"
+                    placeholder="Filtrer les étiquettes"
+                    className="h-8 w-[150px] lg:w-[250px] shadow-none"
                 />
 
                 {/* Boucle sur fields pour générer les filtres dynamiquement */}
@@ -68,8 +61,8 @@ export function DataTableToolbar<TData>({
 
             <div className="flex items-center gap-2">
                 {table.getFilteredSelectedRowModel().rows.length > 0 && (
-                    <Button variant="outline" size="sm">
-                        <TrashIcon className="mr-2 size-4" aria-hidden="true" />
+                    <Button variant="outline" size={"sm"} >
+                        <TrashIcon className="mr" size={1} aria-hidden="true" />
                         Supprimer ({table.getFilteredSelectedRowModel().rows.length})
                     </Button>
                 )}
