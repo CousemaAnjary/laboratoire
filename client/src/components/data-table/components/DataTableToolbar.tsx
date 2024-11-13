@@ -29,14 +29,14 @@ export function DataTableToolbar<TData>({
             <div className="flex flex-1 flex-wrap items-center gap-2">
                 {/* Champ de saisie pour le filtre global */}
                 <Input
-                    placeholder="Rechercher"
+                    placeholder="Filtrer les résultats"
                     value={globalFilter}
                     onChange={(event) => {
                         const searchValue = event.target.value;
                         setGlobalFilter(searchValue); // Mettre à jour l'état
                         table.setGlobalFilter(searchValue); // Appliquer le filtre global
                     }}
-                    className="h-8 w-[150px] lg:w-[250px]"
+                    className="h-8 w-[150px] lg:w-[250px] shadow-none"
                 />
 
                 {/* Boucle sur les colonnes filtrables définies dans `data.ts` */}
