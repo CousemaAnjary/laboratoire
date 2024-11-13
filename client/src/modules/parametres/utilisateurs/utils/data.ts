@@ -1,6 +1,5 @@
 // data.ts
-export type Utilisateur = {
-    id: number;
+export type Utilisateur = {  
     nom: string;
     prénom: string;
     email: string;
@@ -9,15 +8,13 @@ export type Utilisateur = {
 
 // Exemple de données
 export const utilisateurData: Utilisateur[] = [
-    {
-        id: 1,
+    {   
         nom: "John",
         prénom: "Doe",
         email: "john.doe@example.com",
         statut: "Actif",  
     },
     {
-        id: 2,
         nom: "ABDILLAH",
         prénom: "Cousema",
         email: "cousema@example.com",
