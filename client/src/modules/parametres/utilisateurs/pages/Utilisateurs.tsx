@@ -1,5 +1,9 @@
+import { utilisateurData } from "../utils/data";
 import corner from "@/assets/images/corner-4.png"
 import Layout from "@/components/admin-panel/components/Layout";
+import { Columns } from "@/components/data-table/components/Columns";
+import { DataTable } from "@/components/data-table/components/DataTable";
+
 
 
 export default function Utilisateurs() {
@@ -7,7 +11,7 @@ export default function Utilisateurs() {
      * ! STATE (état, données) de l'application
      */
 
-    
+
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
@@ -29,6 +33,9 @@ export default function Utilisateurs() {
                 }}
             >
                 <h1 className="font-medium text-gray-800">Gestion des utilisateurs</h1>
+            </div>
+            <div className="">
+                <DataTable columns={Columns} data={utilisateurData} />
             </div>
         </Layout>
     )

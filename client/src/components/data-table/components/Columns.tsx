@@ -1,27 +1,28 @@
 "use client"
 
+import { Utilisateur } from "@/modules/parametres/utilisateurs/utils/data"
 import { ColumnDef } from "@tanstack/react-table"
 
-// This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
-export type Payment = {
-    id: string
-    amount: number
-    status: "pending" | "processing" | "success" | "failed"
-    email: string
-}
 
-export const Columns: ColumnDef<Payment>[] = [
+export const Columns: ColumnDef<Utilisateur>[] = [
     {
-        accessorKey: "status",
-        header: "Status",
+        accessorKey: "id",
+        header: "ID",
+    },
+    {
+        accessorKey: "nom",
+        header: "Nom",
+    },
+    {
+        accessorKey: "prenom",
+        header: "Prénom",
     },
     {
         accessorKey: "email",
         header: "Email",
     },
     {
-        accessorKey: "amount",
-        header: "Amount",
+        accessorKey: "statut",
+        header: "Statut",
     },
 ]
