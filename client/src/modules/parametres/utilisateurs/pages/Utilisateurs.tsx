@@ -31,11 +31,7 @@ export default function Utilisateurs() {
                 <h1 className="font-medium text-gray-800">Gestion des utilisateurs</h1>
             </div>
             <div className="bg-white p-6 shadow rounded-md">
-                <DataTable
-                    columns={Columns}
-                    data={utilisateurData}
-                    filterableColumns={filterableColumns}
-                />
+                <DataTable columns={Columns} data={utilisateurData} filterableColumns={filterableColumns} />
             </div>
         </Layout>
     );
