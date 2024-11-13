@@ -1,5 +1,3 @@
-"use client"
-
 import { ColumnDef } from "@tanstack/react-table";
 
 // Fonction générique pour générer automatiquement les colonnes avec des en-têtes en majuscules
