@@ -1,8 +1,9 @@
-import { Table } from "@tanstack/react-table";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { DataTableFacetedFilter } from "./DataTableFacetedFilter";
-import { TrashIcon } from "lucide-react";
+import { TrashIcon } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { Table } from "@tanstack/react-table"
+import { Button } from "@/components/ui/button"
+import { DataTableFacetedFilter } from "./DataTableFacetedFilter"
+
 
 interface DataTableToolbarProps<TData> {
     table: Table<TData>;
@@ -29,9 +30,9 @@ export function DataTableToolbar<TData>({
                 {/* Champ de saisie pour filtrer par libellé */}
                 <Input
                     placeholder="Filtrer les libellés"
-                    value={(table.getColumn("note")?.getFilterValue() as string) ?? ""}
+                    value={(table.getColumn("nom")?.getFilterValue() as string) ?? ""}
                     onChange={(event) => {
-                        table.getColumn("note")?.setFilterValue(event.target.value);
+                        table.getColumn("nom")?.setFilterValue(event.target.value);
                     }}
                     className="h-8 w-[150px] lg:w-[250px]"
                 />
