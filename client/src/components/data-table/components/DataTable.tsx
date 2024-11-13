@@ -1,3 +1,4 @@
+// DataTable.tsx
 "use client";
 
 import * as React from "react";
@@ -24,14 +25,18 @@ import {
     TableRow,
 } from "@/components/ui/table";
 
+import { DataTableToolbar } from "./DataTableToolbar";
+
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[];
     data: TData[];
+    fields: { key: keyof TData; title: string; filterable?: boolean }[]; // Ajout des fields
 }
 
 export function DataTable<TData, TValue>({
     columns,
     data,
+    fields,
 }: DataTableProps<TData, TValue>) {
     const [rowSelection, setRowSelection] = React.useState({});
     const [columnVisibility, setColumnVisibility] =
@@ -64,6 +69,7 @@ export function DataTable<TData, TValue>({
 
     return (
         <div className="space-y-4">
+            <DataTableToolbar table={table} fields={fields} />
             <div className="overflow-y-auto rounded-md border">
                 <Table>
                     <TableHeader>
@@ -95,10 +101,7 @@ export function DataTable<TData, TValue>({
                                 >
                                     {row.getVisibleCells().map((cell) => (
                                         <TableCell className="px-4 py-2" key={cell.id}>
-                                            {flexRender(
-                                                cell.column.columnDef.cell,
-                                                cell.getContext()
-                                            )}
+                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                         </TableCell>
                                     ))}
                                 </TableRow>
