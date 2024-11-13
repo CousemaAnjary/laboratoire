@@ -14,7 +14,7 @@ export const utilisateurData: Utilisateur[] = [
         nom: "John",
         prenom: "Doe",
         email: "john.doe@example.com",
-        statut: "Actif",
+        statut: "Actif",  
     },
     {
         id: 2,
