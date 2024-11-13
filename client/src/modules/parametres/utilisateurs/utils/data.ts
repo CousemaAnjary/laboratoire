@@ -1,4 +1,6 @@
 // data.ts
+
+// Définition du type Utilisateur
 export type Utilisateur = {
     nom: string;
     prénom: string;
@@ -20,7 +22,6 @@ export const utilisateurData: Utilisateur[] = [
         email: "cousema@example.com",
         statut: "Inactif",
     },
-
     {
         nom: "BEN MOHAMED",
         prénom: "Nour",
@@ -32,3 +33,12 @@ export const utilisateurData: Utilisateur[] = [
 // Récupérer les clés des propriétés dynamiquement
 export const utilisateurKeys = Object.keys(utilisateurData[0]) as Array<keyof Utilisateur>;
 
+// Définir les colonnes filtrables avec les types appropriés
+export const filterableColumns: {
+    id: keyof Utilisateur;
+    title: string;
+    options: string[];
+}[] = [
+        { id: "statut", title: "Statut", options: ["Actif", "Inactif"] },
+        { id: "nom", title: "Nom", options: ["John", "ABDILLAH", "BEN MOHAMED"] },
+    ];
