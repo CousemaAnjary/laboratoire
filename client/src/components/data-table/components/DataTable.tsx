@@ -101,14 +101,14 @@ export function DataTable<TData>({
                         ))}
                     </TableHeader>
                     <TableBody>
-                        {table.getRowModel().rows.length > 0 ? (
+                        {table.getRowModel().rows?.length > 0 ? (
                             table.getRowModel().rows.map((row) => (
                                 <TableRow
                                     key={row.id}
-                                    data-state={row.getIsSelected() ? "selected" : undefined}
+                                    data-state={row.getIsSelected() && "selected"}
                                 >
                                     {row.getVisibleCells().map((cell) => (
-                                        <TableCell key={cell.id} className="px-4 py-2">
+                                        <TableCell key={cell.id} className="px-4 py-3">
                                             {flexRender(
                                                 cell.column.columnDef.cell,
                                                 cell.getContext()
@@ -119,8 +119,8 @@ export function DataTable<TData>({
                             ))
                         ) : (
                             <TableRow>
-                                <TableCell colSpan={columns.length} className="h-24 text-center">
-                                    Aucun résultat.
+                                <TableCell colSpan={columns.length} className="h-16 text-center bg-gray-50">
+                                    Aucun résultat
                                 </TableCell>
                             </TableRow>
                         )}

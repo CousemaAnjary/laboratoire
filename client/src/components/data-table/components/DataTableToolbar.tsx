@@ -70,7 +70,7 @@ export function DataTableToolbar<TData>({
                 {/* Bouton pour supprimer les lignes sélectionnées */}
                 {table.getFilteredSelectedRowModel().rows.length > 0 ? (
                     <Button variant="outline" size="sm">
-                        <TrashIcon className="mr-2 h-4 w-4" aria-hidden="true" />
+                        <TrashIcon className="h-4 w-4" aria-hidden="true" />
                         Supprimer ({table.getFilteredSelectedRowModel().rows.length})
                     </Button>
                 ) : null}

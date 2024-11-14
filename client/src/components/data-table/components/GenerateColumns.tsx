@@ -38,7 +38,7 @@ export function GenerateColumns<T>(keys: Array<keyof T>): ColumnDef<T>[] {
             <DataTableColumnHeader column={column} title={key as string} />
         ),
         cell: ({ row }) => (
-            <div className=" capitalize">{row.getValue(key as string)}</div>
+            <div className="">{row.getValue(key as string)}</div>
         ),
     })) as ColumnDef<T>[];
 
