@@ -77,13 +77,14 @@ export function DataTable<TData>({
     });
 
     return (
-        <div className="space-y-4 overflow-x-hidden">
-            {/* Toolbar for filters and actions */}
-            <DataTableToolbar table={table} filterableColumns={filterableColumns} />
-
-            {/* Responsive table container with horizontal scroll */}
-            <ScrollArea className="rounded-md border overflow-hidden">
-                <Table className="min-w-full ">
+        <div className="space-y-4">
+        {/* Toolbar for filters and actions */}
+        <DataTableToolbar table={table} filterableColumns={filterableColumns} />
+    
+        {/* ScrollArea de ShadCN pour le défilement horizontal */}
+        <ScrollArea className="w-full overflow-x-auto rounded-md border">
+            <div className="min-w-full">
+                <Table>
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
@@ -91,14 +92,14 @@ export function DataTable<TData>({
                                     <TableHead
                                         key={header.id}
                                         colSpan={header.colSpan}
-                                        className="px-4 py-2"
+                                        className="px-4 py-2 "
                                     >
                                         {header.isPlaceholder
                                             ? null
                                             : flexRender(
-                                                header.column.columnDef.header,
-                                                header.getContext()
-                                            )}
+                                                  header.column.columnDef.header,
+                                                  header.getContext()
+                                              )}
                                     </TableHead>
                                 ))}
                             </TableRow>
@@ -112,7 +113,10 @@ export function DataTable<TData>({
                                     data-state={row.getIsSelected() && "selected"}
                                 >
                                     {row.getVisibleCells().map((cell) => (
-                                        <TableCell className="px-4 py-4" key={cell.id}>
+                                        <TableCell
+                                            className="px-4 py-4 "
+                                            key={cell.id}
+                                        >
                                             {flexRender(
                                                 cell.column.columnDef.cell,
                                                 cell.getContext()
@@ -133,9 +137,11 @@ export function DataTable<TData>({
                         )}
                     </TableBody>
                 </Table>
-                <ScrollBar orientation="horizontal" />
-            </ScrollArea>
-            <DataTablePagination table={table} />
-        </div>
+            </div>
+            <ScrollBar orientation="horizontal" />
+        </ScrollArea>
+        <DataTablePagination table={table} />
+    </div>
+    
     );
 }
