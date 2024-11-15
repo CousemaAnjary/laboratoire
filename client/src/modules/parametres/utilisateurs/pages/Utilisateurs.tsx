@@ -19,25 +19,27 @@ export default function Utilisateurs() {
      */
     return (
         <Layout>
-          
-                <div
-                    className="flex justify-between items-center mb-8 bg-white p-4 shadow rounded-md"
-                    style={{
-                        backgroundImage: `url(${corner})`,
-                        backgroundPosition: "bottom right",
-                        backgroundRepeat: "no-repeat",
-                        backgroundSize: "130px",
-                    }}
-                >
-                    <h1 className="font-medium text-gray-800">Gestion des utilisateurs</h1>
-                </div>
-                <div className=" bg-white p-6 shadow rounded-md ">
-                    <DataTable
+            <div
+                className="flex justify-between items-center mb-8 bg-white p-4 shadow rounded-md"
+                style={{
+                    backgroundImage: `url(${corner})`,
+                    backgroundPosition: "bottom right",
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "130px",
+                }}
+            >
+                <h1 className="font-medium text-gray-800">Gestion des utilisateurs</h1>
+            </div>
+
+            <div className="bg-white">
+                <DataTable
                         columns={Columns}
                         data={utilisateurData}
                         filterableColumns={filterableColumns}
-                    />
-                </div>
+                    /> 
+            </div>
         </Layout>
     );
 }
+
+
