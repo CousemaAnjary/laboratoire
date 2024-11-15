@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/table";
 
 import { DataTableToolbar } from "./DataTableToolbar";
+import { DataTablePagination } from "./DataTablePagination";
 
 interface DataTableProps<TData> {
     columns: ColumnDef<TData>[];
@@ -78,8 +79,8 @@ export function DataTable<TData>({
             <DataTableToolbar table={table} filterableColumns={filterableColumns} />
 
             {/* Table rendering */}
-            <div className="overflow-y-auto rounded-md border">
-                <Table>
+            <div className="overflow-x-auto rounded-md border">
+            <Table className="min-w-full">
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
@@ -127,6 +128,7 @@ export function DataTable<TData>({
                     </TableBody>
                 </Table>
             </div>
+            <DataTablePagination table={table} />
         </div>
     );
 }
