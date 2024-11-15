@@ -25,7 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <AppSidebar />
                 <SidebarInset className="bg-slate-100">
                     <Navbar />
-                    <main className="container pt-8 pb-8 sm:px-8">
+                      <main className="container pt-8 pb-8 sm:px-8">
                         {children}
                     </main>
                 </SidebarInset>

@@ -93,6 +93,17 @@ export const utilisateurData: Utilisateur[] = [
         rôle: "Modérateur",
         dateInscription: "2019-05-19",
     },
+    {
+        nom: "Julie",
+        prénom: "Simon",
+        email: "julie.simon@example.com",
+        statut: "Actif",
+        téléphone: "345-678-9012",
+        adresse: "123 rue",
+        dateNaissance: "1996-02-14",
+        rôle: "Modérateur",
+        dateInscription: "2019-05-19",
+    },
 ];
 
 
