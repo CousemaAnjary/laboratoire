@@ -4,6 +4,7 @@ import { Table } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { DataTableFacetedFilter } from "./DataTableFacetedFilter";
 import { useState } from "react";
+import { DataTableViewOptions } from "./DataTableViewOptions";
 
 interface DataTableToolbarProps<TData> {
     table: Table<TData>;
@@ -69,6 +70,7 @@ export function DataTableToolbar<TData>({
                         Supprimer ({table.getFilteredSelectedRowModel().rows.length})
                     </Button>
                 ) : null} */}
+                <DataTableViewOptions table={table} />
             </div>
         </div>
     );
