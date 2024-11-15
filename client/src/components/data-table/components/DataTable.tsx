@@ -11,6 +11,7 @@ import {
     getFacetedRowModel,
     getFacetedUniqueValues,
     getFilteredRowModel,
+    getPaginationRowModel,
     getSortedRowModel,
     useReactTable,
 } from "@tanstack/react-table";
@@ -68,6 +69,7 @@ export function DataTable<TData>({
         onColumnVisibilityChange: setColumnVisibility,
         getCoreRowModel: getCoreRowModel(),
         getFilteredRowModel: getFilteredRowModel(),
+        getPaginationRowModel: getPaginationRowModel(),
         getSortedRowModel: getSortedRowModel(),
         getFacetedRowModel: getFacetedRowModel(),
         getFacetedUniqueValues: getFacetedUniqueValues(),
@@ -75,11 +77,11 @@ export function DataTable<TData>({
 
     return (
         <div className="space-y-4">
-            {/* Pass the `table` and `filterableColumns` props to `DataTableToolbar` */}
+            {/* Toolbar for filters and actions */}
             <DataTableToolbar table={table} filterableColumns={filterableColumns} />
 
-            {/* Table rendering */}
-            <div className="overflow-x-auto rounded-md border">
+            {/* Responsive table container */}
+            <div className="overflow-y-auto rounded-md border">
             <Table className="min-w-full">
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
