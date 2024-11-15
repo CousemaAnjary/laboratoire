@@ -32,7 +32,7 @@ export default function Utilisateurs() {
             </div>
 
 
-            <div className="overflow-auto  bg-white p-6 shadow rounded-md">
+            <div className=" bg-white p-6 shadow rounded-md">
                 <DataTable
                     columns={Columns}
                     data={utilisateurData}
