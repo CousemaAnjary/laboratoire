@@ -52,24 +52,16 @@ export function DataTableToolbar<TData>({
                     ) : null
                 )}
 
+            </div>
+
+            <div className="flex items-center gap-2">
                 {/* Bouton pour supprimer les lignes sélectionnées */}
                 {table.getFilteredSelectedRowModel().rows.length > 0 ? (
                     <Button variant="outline" size="sm">
                         <TrashIcon className="h-4 w-4" aria-hidden="true" />
                         Supprimer ({table.getFilteredSelectedRowModel().rows.length})
-
                     </Button>
                 ) : null}
-            </div>
-
-            <div className="flex items-center gap-2">
-                {/* Bouton pour supprimer les lignes sélectionnées */}
-                {/* {table.getFilteredSelectedRowModel().rows.length > 0 ? (
-                    <Button variant="outline" size="sm">
-                        <TrashIcon className="h-4 w-4" aria-hidden="true" />
-                        Supprimer ({table.getFilteredSelectedRowModel().rows.length})
-                    </Button>
-                ) : null} */}
                 <DataTableViewOptions table={table} />
             </div>
         </div>
