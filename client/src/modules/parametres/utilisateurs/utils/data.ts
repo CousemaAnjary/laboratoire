@@ -8,10 +8,7 @@ export type Utilisateur = {
     statut: string;
     téléphone: string;
     date_Naissance: string;
-    date_Inscription: string;
     rôle: string;
-    adresse: string;
-    voiture: string;
     
 };
 
@@ -22,36 +19,27 @@ export const utilisateurData: Utilisateur[] = [
         prénom: "Durand",
         email: "sophie.durand@example.com",
         statut: "Actif",
-        téléphone: "321-654-9870",
-        adresse: "123 rue",
+        téléphone: "321-654-9870",     
         date_Naissance: "1993-11-20",
         rôle: "Utilisateur",
-        date_Inscription: "2022-04-15",
-        voiture: "Peugeot 208",
     },
     {
         nom: "Lucas",
         prénom: "Martinez",
         email: "lucas.martinez@example.com",
         statut: "Inactif",
-        téléphone: "654-321-0987",
-        adresse: "123 rue",
+        téléphone: "654-321-0987",    
         date_Naissance: "1988-01-30",
-        rôle: "Utilisateur",
-        date_Inscription: "2018-06-11",
-        voiture: "Renault Clio",
+        rôle: "Utilisateur",  
     },
     {
         nom: "Emma",
         prénom: "Lefebvre",
         email: "emma.lefebvre@example.com",
         statut: "Actif",
-        téléphone: "789-123-4567",
-        adresse: "123 rue ",
+        téléphone: "789-123-4567",   
         date_Naissance: "1995-07-05",
         rôle: "Modérateur",
-        date_Inscription: "2021-11-03",
-        voiture: "Citroën C3",
     },
     // {
     //     nom: "Hugo",
