@@ -82,7 +82,7 @@ export function DataTable<TData>({
 
             {/* Responsive table container */}
             <div className="overflow-y-auto rounded-md border">
-            <Table className="min-w-full">
+                <Table >
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
@@ -111,7 +111,7 @@ export function DataTable<TData>({
                                     data-state={row.getIsSelected() && "selected"}
                                 >
                                     {row.getVisibleCells().map((cell) => (
-                                        <TableCell key={cell.id} className="px-4 py-3">
+                                        <TableCell className="px-4 py-3" key={cell.id}>
                                             {flexRender(
                                                 cell.column.columnDef.cell,
                                                 cell.getContext()
