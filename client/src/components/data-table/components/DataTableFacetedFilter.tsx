@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import { CheckIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import { Column } from "@tanstack/react-table";
@@ -38,15 +36,17 @@ export function DataTableFacetedFilter<TData, TValue>({
     title,
     options,
 }: DataTableFacetedFilterProps<TData, TValue>) {
-    // Obtenez les valeurs uniques pour les facettes
+    // Récupérez les valeurs filtrées sélectionnées
+    const selectedValues = new Set<string>(
+        (column?.getFilterValue() as string[]) || []
+    );
     const facets = column?.getFacetedUniqueValues();
-    const selectedValues = new Set(column?.getFilterValue() as string[]);
 
     return (
         <Popover>
             <PopoverTrigger asChild>
                 <Button variant="outline" size="sm" className="h-8 border-dashed">
-                    <PlusCircledIcon className="h-4 w-4" />
+                    <PlusCircledIcon className="mr-2 h-4 w-4" />
                     {title}
                     {selectedValues.size > 0 && (
                         <>
