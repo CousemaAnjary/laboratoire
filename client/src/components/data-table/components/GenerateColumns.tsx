@@ -41,17 +41,17 @@ export function GenerateColumns<T>(keys: Array<keyof T>): ColumnDef<T>[] {
         cell: ({ row }) => (
             <div >{row.getValue(key as string)}</div>
         ),
-    })) as ColumnDef<T>[];
+    })) as ColumnDef<T>[]
 
     // Colonne d'actions pour chaque ligne
     const actionsColumn: ColumnDef<T> = {
         id: "actions",
-        header: "Actions",
-        cell: ({ row }) => <DataTableRowActions row={row} />, // Utilisation de DataTableRowActions
+        header: () => <div className="uppercase text-xs font-medium text-slate-900">Actions</div>,
+        cell: ({ row }) => <DataTableRowActions row={row} />,
         enableSorting: false,
         enableHiding: false,
     };
 
     // Retourner toutes les colonnes, y compris la colonne de sélection et les actions
-    return [selectionColumn, ...generatedColumns, actionsColumn];
+    return [selectionColumn, ...generatedColumns, actionsColumn]
 }
