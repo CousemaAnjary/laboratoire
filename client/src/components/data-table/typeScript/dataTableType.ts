@@ -32,3 +32,19 @@ export interface DataTableProps<TData> {
 export interface DataTablePaginationProps<TData> {
   table: Table<TData>;
 }
+
+export interface DataTableToolbarProps<TData> {
+  table: Table<TData>;
+  filterableColumns: Array<{
+      id: keyof TData;
+      title: string;
+      options: Array<{
+          label: string;
+          value: string;
+      }>;
+  }>;
+}
+
+export interface DataTableViewOptionsProps<TData> {
+  table: Table<TData>;
+}

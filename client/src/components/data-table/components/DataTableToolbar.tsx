@@ -1,46 +1,44 @@
-import { TrashIcon } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Table } from "@tanstack/react-table";
-import { Button } from "@/components/ui/button";
-import { DataTableFacetedFilter } from "./DataTableFacetedFilter";
-import { useState } from "react";
-import { DataTableViewOptions } from "./DataTableViewOptions";
+import { useState } from "react"
+import { TrashIcon } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import { DataTableViewOptions } from "./DataTableViewOptions"
+import { DataTableFacetedFilter } from "./DataTableFacetedFilter"
+import { DataTableToolbarProps } from "../typeScript/dataTableType"
 
-interface DataTableToolbarProps<TData> {
-    table: Table<TData>;
-    filterableColumns: Array<{
-        id: keyof TData;
-        title: string;
-        options: Array<{
-            label: string;
-            value: string;
-        }>;
-    }>;
-}
 
-export function DataTableToolbar<TData>({
-    table,
-    filterableColumns,
-}: DataTableToolbarProps<TData>) {
-    // État pour gérer la valeur du filtre global
-    const [globalFilter, setGlobalFilter] = useState("");
 
+export function DataTableToolbar<TData>({ table, filterableColumns }: DataTableToolbarProps<TData>) {
+    /**
+     * ! STATE (état, données) de l'application
+     */
+    const [globalFilter, setGlobalFilter] = useState("") // État pour le filtre global
+
+    /**
+     * ! COMPORTEMENT (méthodes, fonctions) de l'application
+     */
+
+
+    /**
+     * ! AFFICHAGE (render) de l'application
+     */
     return (
         <div className="flex flex-wrap items-center justify-between">
             <div className="flex flex-1 flex-wrap items-center gap-2">
+
                 {/* Champ de saisie pour le filtre global */}
                 <Input
                     placeholder="Filtrer les résultats"
                     value={globalFilter}
                     onChange={(event) => {
                         const searchValue = event.target.value;
-                        setGlobalFilter(searchValue); // Mettre à jour l'état
-                        table.setGlobalFilter(searchValue); // Appliquer le filtre global
+                        setGlobalFilter(searchValue); // Mettre à jour l'état local du filtre global
+                        table.setGlobalFilter(searchValue); // Appliquer le filtre global au tableau
                     }}
                     className="h-8 w-[150px] lg:w-[250px] shadow-none"
                 />
 
-                {/* Boucle sur les colonnes filtrables définies dans `data.ts` */}
+                {/* Affichage des filtres facettés pour les colonnes définies */}
                 {filterableColumns.map((column) =>
                     table.getColumn(column.id as string) ? (
                         <DataTableFacetedFilter
@@ -51,17 +49,19 @@ export function DataTableToolbar<TData>({
                         />
                     ) : null
                 )}
-
             </div>
 
             <div className="flex items-center gap-2">
-                {/* Bouton pour supprimer les lignes sélectionnées */}
+                
+                {/* Bouton pour supprimer les lignes sélectionnées, s'il y en a */}
                 {table.getFilteredSelectedRowModel().rows.length > 0 ? (
                     <Button variant="outline" size="sm">
                         <TrashIcon className="h-4 w-4" aria-hidden="true" />
                         Supprimer ({table.getFilteredSelectedRowModel().rows.length})
                     </Button>
                 ) : null}
+
+                {/* Options d'affichage du tableau */}
                 <DataTableViewOptions table={table} />
             </div>
         </div>
