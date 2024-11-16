@@ -1,6 +1,7 @@
 import { ColumnDef } from "@tanstack/react-table"
 import { Checkbox } from "@/components/ui/checkbox"
 import { DataTableColumnHeader } from "./DataTableColumnHeader"
+import { DataTableRowActions } from "./DataTableRowActions";
 
 
 // Fonction générique pour générer automatiquement les colonnes avec des en-têtes en majuscules et une colonne de sélection
@@ -42,6 +43,15 @@ export function GenerateColumns<T>(keys: Array<keyof T>): ColumnDef<T>[] {
         ),
     })) as ColumnDef<T>[];
 
-    // Retourner toutes les colonnes, y compris la colonne de sélection
-    return [selectionColumn, ...generatedColumns];
+    // Colonne d'actions pour chaque ligne
+    const actionsColumn: ColumnDef<T> = {
+        id: "actions",
+        header: "Actions",
+        cell: ({ row }) => <DataTableRowActions row={row} />, // Utilisation de DataTableRowActions
+        enableSorting: false,
+        enableHiding: false,
+    };
+
+    // Retourner toutes les colonnes, y compris la colonne de sélection et les actions
+    return [selectionColumn, ...generatedColumns, actionsColumn];
 }
