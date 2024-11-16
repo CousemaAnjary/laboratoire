@@ -1,11 +1,5 @@
 import { Column, ColumnDef } from "@tanstack/react-table"
 
-export interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
-  data: TData[];
-}
-
-
 export interface DataTableColumnHeaderProps<TData, TValue>
   extends React.HTMLAttributes<HTMLDivElement> {
   column: Column<TData, TValue>;
@@ -20,4 +14,17 @@ export interface DataTableFacetedFilterProps<TData, TValue> {
     value: string;
     icon?: React.ComponentType<{ className?: string }>;
   }[];
+}
+
+export interface DataTableProps<TData> {
+  columns: ColumnDef<TData>[];
+  data: TData[];
+  filterableColumns: Array<{
+      id: keyof TData;
+      title: string;
+      options: Array<{
+          label: string;
+          value: string;
+      }>
+  }>
 }
