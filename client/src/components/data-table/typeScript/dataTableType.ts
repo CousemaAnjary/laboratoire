@@ -1,4 +1,4 @@
-import { Column, ColumnDef } from "@tanstack/react-table"
+import { Column, ColumnDef, Table } from "@tanstack/react-table"
 
 export interface DataTableColumnHeaderProps<TData, TValue>
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -27,4 +27,8 @@ export interface DataTableProps<TData> {
           value: string;
       }>
   }>
+}
+
+export interface DataTablePaginationProps<TData> {
+  table: Table<TData>;
 }
