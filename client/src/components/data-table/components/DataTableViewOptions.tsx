@@ -26,7 +26,7 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps
                 <Button
                     variant="outline"
                     size="sm"
-                    className="ml-auto hidden h-8 lg:flex"
+                    className="ml-auto hidden h-8 lg:flex font-inter"
                 >
                     {/* Icône et étiquette "Afficher" */}
                     <MixerHorizontalIcon className=" h-4 w-4" />
@@ -36,7 +36,7 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps
 
             {/* Contenu du menu déroulant */}
             <DropdownMenuContent align="end" className="w-[150px]">
-                <DropdownMenuLabel className="text-center">Colonnes</DropdownMenuLabel>
+                <DropdownMenuLabel className="text-center font-inter font-normal">Colonnes</DropdownMenuLabel>
                 <DropdownMenuSeparator />
 
                 {/* Itère sur toutes les colonnes qui peuvent être masquées/affichées */}
@@ -49,7 +49,7 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps
                     .map((column) => (
                         <DropdownMenuCheckboxItem
                             key={column.id}
-                            className="capitalize"
+                            className="capitalize font-inter text-xs"
                             checked={column.getIsVisible()}
                             onCheckedChange={(value) => column.toggleVisibility(!!value)}
                         >

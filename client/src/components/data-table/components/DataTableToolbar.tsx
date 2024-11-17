@@ -55,10 +55,11 @@ export function DataTableToolbar<TData>({ table, filterableColumns }: DataTableT
                 
                 {/* Bouton pour supprimer les lignes sélectionnées, s'il y en a */}
                 {table.getFilteredSelectedRowModel().rows.length > 0 ? (
-                    <Button variant="outline" size="sm">
-                        <TrashIcon className="h-4 w-4" aria-hidden="true" />
-                        Supprimer ({table.getFilteredSelectedRowModel().rows.length})
-                    </Button>
+                    <Button variant="outline" size="sm" className="font-inter flex items-center">
+                    <TrashIcon aria-hidden="true" />
+                    <span>Supprimer ({table.getFilteredSelectedRowModel().rows.length})</span>
+                </Button>
+                
                 ) : null}
 
                 {/* Options d'affichage du tableau */}
