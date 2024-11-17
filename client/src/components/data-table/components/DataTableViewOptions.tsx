@@ -19,6 +19,7 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps
     /**
      * ! AFFICHAGE (render) de l'application
      */
+    
     return (
         <DropdownMenu>
             {/* Déclencheur du menu déroulant */}
@@ -28,15 +29,16 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps
                     size="sm"
                     className="ml-auto hidden h-8 lg:flex font-inter"
                 >
-                    {/* Icône et étiquette "Afficher" */}
-                    <MixerHorizontalIcon className=" h-4 w-4" />
+                    <MixerHorizontalIcon className="h-4 w-4" />
                     Afficher
                 </Button>
             </DropdownMenuTrigger>
 
             {/* Contenu du menu déroulant */}
             <DropdownMenuContent align="end" className="w-[150px]">
-                <DropdownMenuLabel className="text-center font-inter font-normal">Colonnes</DropdownMenuLabel>
+                <DropdownMenuLabel className="text-center font-inter font-normal">
+                    Colonnes
+                </DropdownMenuLabel>
                 <DropdownMenuSeparator />
 
                 {/* Itère sur toutes les colonnes qui peuvent être masquées/affichées */}
@@ -49,9 +51,10 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps
                     .map((column) => (
                         <DropdownMenuCheckboxItem
                             key={column.id}
-                            className="capitalize font-inter text-xs"
+                            className="capitalize font-inter text-xs truncate  overflow-hidden whitespace-nowrap"
                             checked={column.getIsVisible()}
                             onCheckedChange={(value) => column.toggleVisibility(!!value)}
+                            title={column.id} // Ajoute une info-bulle pour le texte complet
                         >
                             {column.id}
                         </DropdownMenuCheckboxItem>
