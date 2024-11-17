@@ -85,7 +85,7 @@ export function DataTable<TData>({ columns, data, filterableColumns }: DataTable
                                     >
                                         {row.getVisibleCells().map((cell) => (
                                             <TableCell
-                                                className="px-4 py-4"
+                                                className="px-4 py-3"
                                                 key={cell.id}
                                             >
                                                 {flexRender(
