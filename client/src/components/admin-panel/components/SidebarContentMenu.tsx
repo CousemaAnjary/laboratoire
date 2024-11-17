@@ -50,7 +50,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                                     tooltip={menu.label}
                                                 >
                                                     {menu.icon && <menu.icon className="text-black" />}
-                                                    <span className="font-medium font-roboto text-sm">{menu.label}</span>
+                                                    <span className="font-inter">{menu.label}</span>
                                                 </SidebarMenuButton>
 
                                                 {/* Affichage conditionnel de l'icône Chevron */}
@@ -75,7 +75,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                                                     isActive={submenu.active}
                                                                     className="ms-1"
                                                                 >
-                                                                    <span className={`font-medium text-xs ${submenu.active ? "text-blue-900 hover:text-blue-900" : ""}`}>
+                                                                    <span className={`font-medium  text-xs ${submenu.active ? "text-blue-900 hover:text-blue-900" : ""}`}>
                                                                         {submenu.label}
                                                                     </span>
                                                                 </SidebarMenuSubButton>

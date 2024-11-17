@@ -29,7 +29,7 @@ export default function Utilisateurs() {
                     backgroundSize: "130px",
                 }}
             >
-                <h1 className="font-medium text-gray-800">Gestion des utilisateurs</h1>
+                <h1 className="font-medium font-inter text-gray-800">Gestion des utilisateurs</h1>
             </div>
 
             <div className=" bg-white p-6 shadow rounded-md">

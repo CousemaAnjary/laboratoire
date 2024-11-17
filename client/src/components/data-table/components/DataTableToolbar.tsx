@@ -35,7 +35,7 @@ export function DataTableToolbar<TData>({ table, filterableColumns }: DataTableT
                         setGlobalFilter(searchValue); // Mettre à jour l'état local du filtre global
                         table.setGlobalFilter(searchValue); // Appliquer le filtre global au tableau
                     }}
-                    className="h-8 w-[150px] lg:w-[250px] shadow-none"
+                    className="h-8 w-[150px] lg:w-[250px] shadow-none font-inter text-xs"
                 />
 
                 {/* Affichage des filtres facettés pour les colonnes définies */}

@@ -32,7 +32,7 @@ export function DataTableFacetedFilter<TData, TValue>({ column, title, options }
             <PopoverTrigger asChild>
                 <Button variant="outline" size="sm" className="h-8 border-dashed">
                     <PlusCircledIcon className="h-4 w-4" />
-                    {title}
+                    <span className="font-inter">{title}</span>
 
                     {/* Affiche le nombre de filtres sélectionnés sous forme de badge */}
                     {selectedValues.size > 0 && (
@@ -57,7 +57,7 @@ export function DataTableFacetedFilter<TData, TValue>({ column, title, options }
                                                 key={option.value}
                                                 className="rounded-sm px-1 font-normal"
                                             >
-                                                {option.label}
+                                                <span className="font-inter">{option.label}</span>
                                             </Badge>
                                         ))
                                 )}
@@ -72,9 +72,9 @@ export function DataTableFacetedFilter<TData, TValue>({ column, title, options }
                 <Command>
 
                     {/* Champ de recherche pour filtrer les options */}
-                    <CommandInput placeholder={`Rechercher ${title}`} />
+                    <CommandInput placeholder={`Rechercher ${title}`} className="font-inter text-xs" />
                     <CommandList>
-                        <CommandEmpty>Aucun résultat trouvé.</CommandEmpty>
+                        <CommandEmpty className="font-inter text-sm text-center text-zinc-700 p-4">Aucun résultat trouvé</CommandEmpty>
                         <CommandGroup>
 
                             {/* Affiche chaque option de filtre avec un bouton de sélection */}
@@ -113,7 +113,7 @@ export function DataTableFacetedFilter<TData, TValue>({ column, title, options }
                                         {option.icon && (
                                             <option.icon className="mr-2 h-4 w-4 text-muted-foreground" />
                                         )}
-                                        <span>{option.label}</span>
+                                        <span className="font-inter text-xs">{option.label}</span>
 
                                         {/* Affiche le nombre de fois que cette option apparaît dans les données */}
                                         {facets?.get(option.value) && (
@@ -133,7 +133,7 @@ export function DataTableFacetedFilter<TData, TValue>({ column, title, options }
                                 <CommandGroup>
                                     <CommandItem
                                         onSelect={() => column?.setFilterValue(undefined)}
-                                        className="justify-center text-center"
+                                        className="justify-center text-center font-inter text-xs"
                                     >
                                         Effacer les filtres
                                     </CommandItem>
