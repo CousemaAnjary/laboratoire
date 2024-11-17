@@ -31,9 +31,12 @@ export function UtilisateurRowActions<TData>({ row }: UtilisateurRowActionsProps
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[160px]">
-                <DropdownMenuItem onClick={handleEdit}><Pencil className="h-4 w-4 mr-2 " />Éditer</DropdownMenuItem>
+                <DropdownMenuItem className="font-inter text-xs" onClick={handleEdit}>
+                    <Pencil className="h-4 w-4 mr-2" />
+                    Éditer
+                </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={handleDelete}>
+                <DropdownMenuItem className="font-inter text-xs" onClick={handleDelete}>
                     <TrashIcon className="h-4 w-4 mr-2" />
                     Supprimer
                     <span className="ml-auto text-xs text-muted-foreground">⌘⌫</span>

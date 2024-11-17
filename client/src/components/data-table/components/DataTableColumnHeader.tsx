@@ -32,10 +32,10 @@ export function DataTableColumnHeader<TData, TValue>({ column, title, className 
                         <Button
                             variant="ghost"
                             size="sm"
-                            className="-ml-3 h-8 data-[state=open]:bg-accent"
+                            className="-ml-3 h-8 data-[state=open]:bg-accent uppercase font-inter"
                         >
                             {/* Titre de la colonne en majuscules avec l'icône de tri */}
-                            <span className="uppercase font-medium text-slate-900">{title}</span>
+                            <span className=" text-slate-600">{title}</span>
                             {column.getIsSorted() === "desc" ? (
                                 <ArrowDownIcon className="ml-2 h-4 w-4" />
                             ) : column.getIsSorted() === "asc" ? (
@@ -50,22 +50,22 @@ export function DataTableColumnHeader<TData, TValue>({ column, title, className 
                     <DropdownMenuContent align="start">
                         {/* Option pour trier en ordre croissant */}
                         <DropdownMenuItem onClick={() => column.toggleSorting(false)}>
-                            <ArrowUpIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
-                            Asc
+                            <ArrowUpIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70 " />
+                             <span className="font-inter text-xs">Asc</span>
                         </DropdownMenuItem>
 
                         {/* Option pour trier en ordre décroissant */}
                         <DropdownMenuItem onClick={() => column.toggleSorting(true)}>
-                            <ArrowDownIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
-                            Desc
+                            <ArrowDownIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70 " />
+                            <span className="font-inter text-xs">Desc</span>
                         </DropdownMenuItem>
 
                         <DropdownMenuSeparator />
 
                         {/* Option pour masquer la colonne */}
                         <DropdownMenuItem onClick={() => column.toggleVisibility(false)}>
-                            <EyeNoneIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
-                            Hide
+                            <EyeNoneIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70 " />
+                            <span className="font-inter text-xs"> Masquer</span>
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
