@@ -1,9 +1,8 @@
-import { Utilisateur } from "./data"
 import { ColumnDef } from "@tanstack/react-table"
 import { Checkbox } from "@/components/ui/checkbox"
+import { Utilisateur } from "../typeScript/utilisateurType"
 import { UtilisateurRowActions } from "../components/UtilisateurRowActions"
 import { DataTableColumnHeader } from "@/components/data-table/components/DataTableColumnHeader"
-
 
 
 export const columns: ColumnDef<Utilisateur>[] = [
