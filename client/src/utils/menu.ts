@@ -117,7 +117,7 @@ export function menu(pathname: string): Group[] {
                     submenus: []
                 },
                 {
-                    label: "Utilisateurs",
+                    label: "Rôles et Permissions",
                     href: "/utilisateurs",
                     active: pathname.includes("/utilisateurs"),
                     icon: Users,

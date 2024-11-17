@@ -52,14 +52,14 @@ export function DataTableToolbar<TData>({ table, filterableColumns }: DataTableT
             </div>
 
             <div className="flex items-center gap-2">
-                
+
                 {/* Bouton pour supprimer les lignes sélectionnées, s'il y en a */}
                 {table.getFilteredSelectedRowModel().rows.length > 0 ? (
-                    <Button variant="outline" size="sm" className="font-inter flex items-center">
-                    <TrashIcon aria-hidden="true" />
-                    <span>Supprimer ({table.getFilteredSelectedRowModel().rows.length})</span>
-                </Button>
-                
+                    <Button variant="outline"  className="font-inter text-xs flex items-center">
+                        <TrashIcon aria-hidden="true"  className="text-red-600" />
+                        <span>Supprimer ({table.getFilteredSelectedRowModel().rows.length})</span>
+                    </Button>
+
                 ) : null}
 
                 {/* Options d'affichage du tableau */}

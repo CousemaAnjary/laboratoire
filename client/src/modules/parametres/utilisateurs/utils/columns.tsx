@@ -1,11 +1,11 @@
-import { ColumnDef } from "@tanstack/react-table"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Utilisateur } from "../typeScript/utilisateurType"
-import { UtilisateurRowActions } from "../components/UtilisateurRowActions"
-import { DataTableColumnHeader } from "@/components/data-table/components/DataTableColumnHeader"
+import { ColumnDef } from "@tanstack/react-table";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Profil } from "../typeScript/utilisateurType";
+import { UtilisateurRowActions } from "@/modules/parametres/utilisateurs/components/UtilisateurRowActions";
+import { DataTableColumnHeader } from "@/components/data-table/components/DataTableColumnHeader";
 
 
-export const columns: ColumnDef<Utilisateur>[] = [
+export const columns: ColumnDef<Profil>[] = [
     {
         id: "select",
         header: ({ table }) => (
@@ -15,60 +15,65 @@ export const columns: ColumnDef<Utilisateur>[] = [
                     (table.getIsSomePageRowsSelected() && "indeterminate")
                 }
                 onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-                aria-label="Select all"
-                className="translate-y-0.5  border-slate-600 data-[state=checked]:bg-blue-800"
+                aria-label="Tout sélectionner"
+                className="translate-y-0.5 border-slate-600 data-[state=checked]:bg-blue-800"
             />
         ),
         cell: ({ row }) => (
             <Checkbox
                 checked={row.getIsSelected()}
                 onCheckedChange={(value) => row.toggleSelected(!!value)}
-                aria-label="Select row"
-                className="translate-y-0.5  border-slate-600 data-[state=checked]:bg-blue-800"
+                aria-label="Sélectionner la ligne"
+                className="translate-y-0.5 border-slate-600 data-[state=checked]:bg-blue-800"
             />
         ),
         enableSorting: false,
         enableHiding: false,
     },
     {
-        accessorKey: "nom",
-        header: ({ column }) => <DataTableColumnHeader column={column} title="Nom" />,
-        cell: ({ row }) => <div className="capitalize font-inter text-slate-800">{row.getValue("nom")}</div>,
+        accessorKey: "nomProfil",
+        header: ({ column }) => <DataTableColumnHeader column={column} title="Nom du Profil" />,
+        cell: ({ row }) => <div className="capitalize font-inter text-slate-800">{row.getValue("nomProfil")}</div>,
     },
+    // {
+    //     accessorKey: "description",
+    //     header: ({ column }) => <DataTableColumnHeader column={column} title="Description" />,
+    //     cell: ({ row }) => <div className="font-inter text-slate-800">{row.getValue("description")}</div>,
+    // },
     {
-        accessorKey: "prénom",
-        header: ({ column }) => <DataTableColumnHeader column={column} title="Prénom" />,
-        cell: ({ row }) => <div className="capitalize font-inter text-slate-800">{row.getValue("prénom")}</div>,
+        accessorKey: "permissions",
+        header: ({ column }) => <DataTableColumnHeader column={column} title="Permissions" />,
+        cell: ({ row }) => <div className="font-inter text-slate-800">{(row.getValue("permissions") as string[]).join(", ")}</div>,
     },
+    // {
+    //     accessorKey: "dateCreation",
+    //     header: ({ column }) => <DataTableColumnHeader column={column} title="Date de Création" />,
+    //     cell: ({ row }) => <div className="font-inter text-slate-800">{row.getValue("dateCreation")}</div>,
+    // },
     {
-        accessorKey: "email",
-        header: ({ column }) => <DataTableColumnHeader column={column} title="Email" />,
-        cell: ({ row }) => <div className="capitalize font-inter text-slate-800">{row.getValue("email")}</div>,
+        accessorKey: "utilisateursAssignes",
+        header: ({ column }) => <DataTableColumnHeader column={column} title="Utilisateurs Assignés" />,
+        cell: ({ row }) => <div className="font-inter text-slate-800">{row.getValue("utilisateursAssignes")} utilisateurs</div>,
     },
+
+   
     {
         accessorKey: "statut",
         header: ({ column }) => <DataTableColumnHeader column={column} title="Statut" />,
         cell: ({ row }) => <div className="capitalize font-inter text-slate-800">{row.getValue("statut")}</div>,
         filterFn: (row, id, value) => {
-            return value.includes(row.getValue(id))
+            return value.includes(row.getValue(id));
         },
     },
     {
-        accessorKey: "date_Naissance",
-        header: ({ column }) => <DataTableColumnHeader column={column} title="Date de Naissance" />,
-        cell: ({ row }) => <div className="capitalize font-inter text-slate-800">{row.getValue("date_Naissance")}</div>,
+        accessorKey: "derniereMiseAJour",
+        header: ({ column }) => <DataTableColumnHeader column={column} title="Dernière Mise à Jour" />,
+        cell: ({ row }) => <div className="font-inter text-slate-800">{row.getValue("derniereMiseAJour")}</div>,
     },
-    {
-        accessorKey: "rôle",
-        header: ({ column }) => <DataTableColumnHeader column={column} title="Rôle" />,
-        cell: ({ row }) => <div className="capitalize font-inter text-slate-800">{row.getValue("rôle")}</div>,
-        filterFn: (row, id, value) => {
-            return value.includes(row.getValue(id))
-        },
-    },
+  
     {
         id: "actions",
-        header: () => (<div className="uppercase  font-inter text-xs text-slate-600">Actions</div>),
+        header: () => (<div className="uppercase font-inter text-xs text-slate-600">Actions</div>),
         cell: ({ row }) => <UtilisateurRowActions row={row} />,
     },
-]
+];

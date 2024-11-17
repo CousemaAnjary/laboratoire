@@ -1,7 +1,7 @@
 import { columns } from "../utils/columns"
 import corner from "@/assets/images/corner-4.png"
 import Layout from "@/components/admin-panel/components/Layout"
-import { filterableColumns, utilisateurData } from "../utils/data"
+import { filterableColumns, profilData} from "../utils/data"
 import { DataTable } from "@/components/data-table/components/DataTable"
 
 
@@ -29,13 +29,13 @@ export default function Utilisateurs() {
                     backgroundSize: "130px",
                 }}
             >
-                <h1 className="font-medium font-inter text-gray-800">Gestion des utilisateurs</h1>
+                <h1 className="font-medium font-inter text-gray-800">Gestion des Rôles et Permissions</h1>
             </div>
 
             <div className=" bg-white p-6 shadow rounded-md">
                 <DataTable
                     columns={columns}
-                    data={utilisateurData}
+                    data={profilData}
                     filterableColumns={filterableColumns}
                 />
             </div>

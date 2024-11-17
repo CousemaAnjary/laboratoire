@@ -4,12 +4,11 @@ export interface UtilisateurRowActionsProps<TData> {
     row: Row<TData>
 }
 
-export type Utilisateur = {
-    nom: string;
-    prénom: string;
-    email: string;
-    statut: string;
-    date_Naissance: string;
-    rôle: string;
-    
-};
+export interface Profil {
+    nomProfil: string; // Nom du Profil
+    description: string; // Description du profil
+    permissions: string[]; // Liste des permissions (Lire, Écrire, Modifier, etc.)
+    statut: string; // Statut (actif ou inactif)
+    derniereMiseAJour: string; // Dernière Mise à Jour
+    utilisateursAssignes: number; // Nombre d'utilisateurs assignés
+}

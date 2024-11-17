@@ -1,37 +1,36 @@
-import { Utilisateur } from "../typeScript/utilisateurType"
-import { generateFilterableColumns } from "@/utils/generateFilterableColumns"
+import { generateFilterableColumns } from "@/utils/generateFilterableColumns";
+import { Profil } from "../typeScript/utilisateurType";
 
-
-// Exemple de données
-export const utilisateurData: Utilisateur[] = [
+// Exemple de données mises à jour
+export const profilData: Profil[] = [
     {
-        nom: "sophie",
-        prénom: "durand",
-        email: "sophie.durand@example.com",
+        nomProfil: "Administration",
+        description: "Accès aux fonctionnalités d'administration générale.",
+        permissions: ["Lire", "Écrire", "Modifier"],     
         statut: "actif",
-        date_Naissance: "1993-11-20",
-        rôle: "utilisateur",
+        derniereMiseAJour: "20 novembre 2024",
+        utilisateursAssignes: 5,
     },
     {
-        nom: "lucas",
-        prénom: "martinez",
-        email: "lucas.martinez@example.com",
+        nomProfil: "Utilisateur Standard",
+        description: "Accès aux fonctionnalités de base.",
+        permissions: ["Lire"], 
+        statut: "actif",
+        derniereMiseAJour: "10 novembre 2024",
+        utilisateursAssignes: 12,
+    },
+    {
+        nomProfil: "Support Technique",
+        description: "Support technique et assistance.",
+        permissions: ["Lire", "Modifier"],
         statut: "inactif",
-        date_Naissance: "1988-01-30",
-        rôle: "utilisateur",
+        derniereMiseAJour: "15 septembre 2024",
+        utilisateursAssignes: 3,
     },
-    {
-        nom: "emma",
-        prénom: "lefebvre",
-        email: "emma.lefebvre@example.com",
-        statut: "actif",
-        date_Naissance: "1995-07-05",
-        rôle: "modérateur",
-    },
-]
+];
 
 // Définir les clés que vous souhaitez rendre filtrables
-const filterableKeys: Array<keyof Utilisateur> = ["statut", "rôle"]
+const filterableKeys: Array<keyof Profil> = ["statut"];
 
 // Utiliser la fonction pour générer `filterableColumns`
-export const filterableColumns = generateFilterableColumns(utilisateurData, filterableKeys)
+export const filterableColumns = generateFilterableColumns(profilData, filterableKeys);
