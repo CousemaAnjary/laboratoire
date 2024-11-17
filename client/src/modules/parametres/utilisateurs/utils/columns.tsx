@@ -1,7 +1,7 @@
 import { Utilisateur } from "./data"
 import { ColumnDef } from "@tanstack/react-table"
 import { Checkbox } from "@/components/ui/checkbox"
-import { DataTableRowActions } from "@/components/data-table/components/DataTableRowActions"
+import { UtilisateurRowActions } from "../components/UtilisateurRowActions"
 import { DataTableColumnHeader } from "@/components/data-table/components/DataTableColumnHeader"
 
 
@@ -64,6 +64,6 @@ export const columns: ColumnDef<Utilisateur>[] = [
     {
         id: "actions",
         header: () => (<div className="uppercase text-xs font-medium text-slate-900">Actions</div>),
-        cell: ({ row }) => <DataTableRowActions row={row} />,
+        cell: ({ row }) => <UtilisateurRowActions row={row} />,
     },
-];
+]

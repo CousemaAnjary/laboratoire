@@ -1,34 +1,22 @@
-import { DotsHorizontalIcon } from "@radix-ui/react-icons";
-import { Row } from "@tanstack/react-table";
-import { Button } from "@/components/ui/button";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button"
+import { DotsHorizontalIcon } from "@radix-ui/react-icons"
+import { UtilisateurRowActionsProps } from "../typeScript/utilisateurType"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
-interface DataTableRowActionsProps<TData> {
-    row: Row<TData>;
-}
 
-export function DataTableRowActions<TData>({ row }: DataTableRowActionsProps<TData>) {
-    // You can access row data like this:
-    const rowData = row.original;
 
-    // Example functions using the row data
+export function UtilisateurRowActions<TData>({ row }: UtilisateurRowActionsProps<TData>) {
+    // Vous pouvez accéder aux données de la ligne comme ceci :
+    const rowData = row.original
+
+    // Fonctions d'exemple utilisant les données de la ligne
     const handleEdit = () => {
-        console.log("Editing row:", rowData);
-    };
-
-    const handleCopy = () => {
-        console.log("Copying row:", rowData);
+        console.log("Éditer la ligne :", rowData)
     };
 
     const handleDelete = () => {
-        console.log("Deleting row:", rowData);
-    };
+        console.log("Supprimer la ligne :", rowData)
+    }
 
     return (
         <DropdownMenu>
@@ -43,7 +31,6 @@ export function DataTableRowActions<TData>({ row }: DataTableRowActionsProps<TDa
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[160px]">
                 <DropdownMenuItem onClick={handleEdit}>Éditer</DropdownMenuItem>
-                <DropdownMenuItem onClick={handleCopy}>Faire une copie</DropdownMenuItem>
                 <DropdownMenuItem>Favori</DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleDelete}>
