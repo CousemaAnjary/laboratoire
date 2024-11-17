@@ -31,7 +31,7 @@ export function UtilisateurRowActions<TData>({ row }: UtilisateurRowActionsProps
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[160px]">
-                <DropdownMenuItem onClick={handleEdit}><Pencil className="h-4 w-4 mr-2" />Éditer</DropdownMenuItem>
+                <DropdownMenuItem onClick={handleEdit}><Pencil className="h-4 w-4 mr-2 " />Éditer</DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleDelete}>
                     <TrashIcon className="h-4 w-4 mr-2" />
