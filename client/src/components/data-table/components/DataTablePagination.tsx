@@ -25,12 +25,12 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
 
             {/* Informations sur les lignes sélectionnées et options de pagination */}
             <div className="flex flex-col items-center space-y-2 sm:flex-row sm:space-x-6 sm:space-y-0">
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-muted-foreground font-inter">
                     {table.getFilteredSelectedRowModel().rows.length} sur{" "}
-                    {table.getFilteredRowModel().rows.length} ligne(s) sélectionnée(s).
+                    {table.getFilteredRowModel().rows.length} ligne(s) sélectionnée(s)
                 </div>
                 <div className="flex items-center space-x-2">
-                    <p className="text-sm">Lignes par page</p>
+                    <p className="text-sm font-inter">Lignes par page</p>
 
                     {/* Sélecteur pour le nombre de lignes par page */}
                     <Select
@@ -39,13 +39,13 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
                             table.setPageSize(Number(value));
                         }}
                     >
-                        <SelectTrigger className="h-9 w-[70px]">
+                        <SelectTrigger className="h-7 w-[68px]">
                             <SelectValue placeholder={table.getState().pagination.pageSize} />
                         </SelectTrigger>
-                        <SelectContent side="top">
+                        <SelectContent side="right">
                             {[5, 10, 20, 30, 40, 50].map((pageSize) => (
                                 <SelectItem key={pageSize} value={`${pageSize}`}>
-                                    {pageSize}
+                                    <span className="font-inter text-xs">{pageSize}</span>
                                 </SelectItem>
                             ))}
                         </SelectContent>
@@ -62,7 +62,7 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
                         <PaginationItem>
                             <Button
                                 variant="outline"
-                                className="h-8 w-8 p-0"
+                                className="h-8 w-8 p-0 font-inter"
                                 onClick={() => table.setPageIndex(0)}
                                 disabled={!table.getCanPreviousPage()}
                             >
@@ -77,6 +77,7 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
                                 <PaginationLink
                                     size={"sm"}
                                     href="#"
+                                    className="font-inter"
                                     isActive={table.getState().pagination.pageIndex === index}
                                     onClick={() => table.setPageIndex(index)}
                                 >
@@ -96,7 +97,7 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
                         <PaginationItem>
                             <Button
                                 variant="outline"
-                                className="h-8 w-8 p-0"
+                                className="h-8 w-8 p-0 font-inter"
                                 onClick={() => table.setPageIndex(table.getPageCount() - 1)}
                                 disabled={!table.getCanNextPage()}
                             >
