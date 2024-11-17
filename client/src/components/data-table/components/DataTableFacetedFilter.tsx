@@ -12,11 +12,11 @@ export function DataTableFacetedFilter<TData, TValue>({ column, title, options }
     /**
      * ! STATE (état, données) de l'application
      */
+    // État pour stocker les valeurs sélectionnées dans le filtre
+    const selectedValues = new Set(column?.getFilterValue() as string[]);
+
     // Récupère les valeurs uniques de la colonne pour le filtrage
     const facets = column?.getFacetedUniqueValues()
-
-    // État pour stocker les valeurs sélectionnées dans le filtre
-    const selectedValues = new Set(column?.getFilterValue() as string[])
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application

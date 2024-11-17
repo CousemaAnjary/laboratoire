@@ -5,28 +5,28 @@ import { generateFilterableColumns } from "@/utils/generateFilterableColumns"
 // Exemple de données
 export const utilisateurData: Utilisateur[] = [
     {
-        nom: "Sophie",
-        prénom: "Durand",
+        nom: "sophie",
+        prénom: "durand",
         email: "sophie.durand@example.com",
-        statut: "Actif",
+        statut: "actif",
         date_Naissance: "1993-11-20",
-        rôle: "Utilisateur",
+        rôle: "utilisateur",
     },
     {
-        nom: "Lucas",
-        prénom: "Martinez",
+        nom: "lucas",
+        prénom: "martinez",
         email: "lucas.martinez@example.com",
-        statut: "Inactif",
+        statut: "inactif",
         date_Naissance: "1988-01-30",
-        rôle: "Utilisateur",
+        rôle: "utilisateur",
     },
     {
-        nom: "Emma",
-        prénom: "Lefebvre",
+        nom: "emma",
+        prénom: "lefebvre",
         email: "emma.lefebvre@example.com",
-        statut: "Actif",
+        statut: "actif",
         date_Naissance: "1995-07-05",
-        rôle: "Modérateur",
+        rôle: "modérateur",
     },
 ]
 

@@ -32,8 +32,8 @@ export function DataTableToolbar<TData>({ table, filterableColumns }: DataTableT
                     value={globalFilter}
                     onChange={(event) => {
                         const searchValue = event.target.value;
-                        setGlobalFilter(searchValue) // Mettre à jour l'état local du filtre global
-                        table.setGlobalFilter(searchValue) // Appliquer le filtre global au tableau
+                        setGlobalFilter(searchValue); // Mettre à jour l'état local du filtre global
+                        table.setGlobalFilter(searchValue); // Appliquer le filtre global au tableau
                     }}
                     className="h-8 w-[150px] lg:w-[250px] shadow-none"
                 />
@@ -42,7 +42,7 @@ export function DataTableToolbar<TData>({ table, filterableColumns }: DataTableT
                 {filterableColumns.map((column) =>
                     table.getColumn(column.id as string) ? (
                         <DataTableFacetedFilter
-                            key={column.id as string}
+                            key={String(column.id)}
                             column={table.getColumn(column.id as string)}
                             title={column.title}
                             options={column.options}
@@ -52,7 +52,7 @@ export function DataTableToolbar<TData>({ table, filterableColumns }: DataTableT
             </div>
 
             <div className="flex items-center gap-2">
-
+                
                 {/* Bouton pour supprimer les lignes sélectionnées, s'il y en a */}
                 {table.getFilteredSelectedRowModel().rows.length > 0 ? (
                     <Button variant="outline" size="sm">

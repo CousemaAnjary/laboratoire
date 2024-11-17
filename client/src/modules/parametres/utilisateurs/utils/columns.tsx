@@ -33,32 +33,38 @@ export const columns: ColumnDef<Utilisateur>[] = [
     {
         accessorKey: "nom",
         header: ({ column }) => <DataTableColumnHeader column={column} title="Nom" />,
-        cell: ({ row }) => <div>{row.getValue("nom")}</div>,
+        cell: ({ row }) => <div className="capitalize">{row.getValue("nom")}</div>,
     },
     {
         accessorKey: "prénom",
         header: ({ column }) => <DataTableColumnHeader column={column} title="Prénom" />,
-        cell: ({ row }) => <div>{row.getValue("prénom")}</div>,
+        cell: ({ row }) => <div className="capitalize">{row.getValue("prénom")}</div>,
     },
     {
         accessorKey: "email",
         header: ({ column }) => <DataTableColumnHeader column={column} title="Email" />,
-        cell: ({ row }) => <div>{row.getValue("email")}</div>,
+        cell: ({ row }) => <div className="capitalize">{row.getValue("email")}</div>,
     },
     {
         accessorKey: "statut",
         header: ({ column }) => <DataTableColumnHeader column={column} title="Statut" />,
-        cell: ({ row }) => <div>{row.getValue("statut")}</div>,
+        cell: ({ row }) => <div className="capitalize">{row.getValue("statut")}</div>,
+        filterFn: (row, id, value) => {
+            return value.includes(row.getValue(id))
+        },
     },
     {
         accessorKey: "date_Naissance",
         header: ({ column }) => <DataTableColumnHeader column={column} title="Date de Naissance" />,
-        cell: ({ row }) => <div>{row.getValue("date_Naissance")}</div>,
+        cell: ({ row }) => <div className="capitalize">{row.getValue("date_Naissance")}</div>,
     },
     {
         accessorKey: "rôle",
         header: ({ column }) => <DataTableColumnHeader column={column} title="Rôle" />,
-        cell: ({ row }) => <div>{row.getValue("rôle")}</div>,
+        cell: ({ row }) => <div className="capitalize">{row.getValue("rôle")}</div>,
+        filterFn: (row, id, value) => {
+            return value.includes(row.getValue(id))
+        },
     },
     {
         id: "actions",
