@@ -31,7 +31,7 @@ export function DataTableFacetedFilter<TData, TValue>({ column, title, options }
             {/* Déclencheur du Popover pour ouvrir les options de filtre */}
             <PopoverTrigger asChild>
                 <Button variant="outline" size="sm" className="h-8 border-dashed">
-                    <PlusCircledIcon className="mr-2 h-4 w-4" />
+                    <PlusCircledIcon className="h-4 w-4" />
                     {title}
 
                     {/* Affiche le nombre de filtres sélectionnés sous forme de badge */}
