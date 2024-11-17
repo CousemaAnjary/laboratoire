@@ -1,6 +1,8 @@
+import { Button } from "@/components/ui/button"
 import { DataTablePaginationProps } from "../typeScript/dataTableType"
+import { DoubleArrowLeftIcon, DoubleArrowRightIcon } from "@radix-ui/react-icons"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from "@/components/ui/select"
-import { Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationNext, PaginationLink, PaginationEllipsis } from "@/components/ui/pagination"
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationEllipsis } from "@/components/ui/pagination"
 
 
 
@@ -9,8 +11,7 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
      * ! STATE (état, données) de l'application
      */
 
-    const isPreviousDisabled = !table.getCanPreviousPage()
-    const isNextDisabled = !table.getCanNextPage()
+    
 
     /**
     * ! COMPORTEMENT (méthodes, fonctions) de l'application
@@ -59,11 +60,15 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
 
                         {/* Bouton pour la première page */}
                         <PaginationItem>
-                            <PaginationPrevious
-                                href="#"
+                            <Button
+                                variant="outline"
+                                className="h-8 w-8 p-0"
                                 onClick={() => table.setPageIndex(0)}
-                                className={isPreviousDisabled ? "opacity-50 pointer-events-none" : ""}
-                            />
+                                disabled={!table.getCanPreviousPage()}
+                            >
+                                <span className="sr-only">Go to first page</span>
+                                <DoubleArrowLeftIcon className="h-4 w-4" />
+                            </Button>
                         </PaginationItem>
 
                         {/* Liens de page pour naviguer */}
@@ -89,11 +94,15 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationProps<T
 
                         {/* Bouton pour la dernière page */}
                         <PaginationItem>
-                            <PaginationNext
-                                href="#"
+                            <Button
+                                variant="outline"
+                                className="h-8 w-8 p-0"
                                 onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-                                className={isNextDisabled ? "opacity-50 pointer-events-none" : ""}
-                            />
+                                disabled={!table.getCanNextPage()}
+                            >
+                                <span className="sr-only">Go to last page</span>
+                                <DoubleArrowRightIcon className="h-4 w-4" />
+                            </Button>
                         </PaginationItem>
                     </PaginationContent>
                 </Pagination>
