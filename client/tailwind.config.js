@@ -1,5 +1,3 @@
-
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	darkMode: ["class"],
@@ -20,8 +18,14 @@ module.exports = {
 		},
 		extend: {
 			fontFamily: {
-				roboto: ['Roboto', 'sans-serif'],
-				dancing: ['Dancing Script', 'sans-serif']
+				roboto: ['Roboto'],
+				dancing: ['Dancing Script'],
+				poppins: ['Poppins'],
+				inter: ['Inter'],
+				lato: ['Lato'],
+				hostGrotesk: ['Host Grotesk'],
+				nunitoSans: ['Nunito Sans'],
+				doto: ['Doto']
 			},
 			colors: {
 				border: 'hsl(var(--border))',

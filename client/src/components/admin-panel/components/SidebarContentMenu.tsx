@@ -50,7 +50,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                                     tooltip={menu.label}
                                                 >
                                                     {menu.icon && <menu.icon className="text-black" />}
-                                                    <span className="font-medium text-sm">{menu.label}</span>
+                                                    <span className="font-medium font-roboto text-sm">{menu.label}</span>
                                                 </SidebarMenuButton>
 
                                                 {/* Affichage conditionnel de l'icône Chevron */}
