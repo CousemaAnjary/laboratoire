@@ -17,6 +17,6 @@ export function generateFilterableColumns<T>(
                 label: String(value).charAt(0).toUpperCase() + String(value).slice(1),
                 value: String(value),
             })),
-        };
-    });
+        }
+    })
 }
