@@ -1,14 +1,15 @@
-import corner from "@/assets/images/corner-4.png";
-import Layout from "@/components/admin-panel/components/Layout";
-import { filterableColumns, utilisateurData, utilisateurKeys } from "../utils/data";
-import { DataTable } from "@/components/data-table/components/DataTable";
-import { GenerateColumns } from "@/components/data-table/components/GenerateColumns";
+import { columns } from "../utils/columns"
+import corner from "@/assets/images/corner-4.png"
+import Layout from "@/components/admin-panel/components/Layout"
+import { filterableColumns, utilisateurData } from "../utils/data"
+import { DataTable } from "@/components/data-table/components/DataTable"
+
 
 export default function Utilisateurs() {
     /**
      * ! STATE (état, données) de l'application
      */
-    const Columns = GenerateColumns(utilisateurKeys);
+
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
@@ -33,7 +34,7 @@ export default function Utilisateurs() {
 
             <div className=" bg-white p-6 shadow rounded-md">
                 <DataTable
-                    columns={Columns}
+                    columns={columns}
                     data={utilisateurData}
                     filterableColumns={filterableColumns}
                 />
