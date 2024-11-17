@@ -30,7 +30,7 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps
                     className="ml-auto hidden h-8 lg:flex"
                 >
                     {/* Icône et étiquette "Afficher" */}
-                    <MixerHorizontalIcon className="mr-2 h-4 w-4" />
+                    <MixerHorizontalIcon className=" h-4 w-4" />
                     Afficher
                 </Button>
             </DropdownMenuTrigger>
