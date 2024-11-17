@@ -5,7 +5,6 @@ import { DataTableViewOptionsProps } from "../typeScript/dataTableType"
 import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, } from "@/components/ui/dropdown-menu"
 
 
-
 export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps<TData>) {
     /**
      * ! STATE (état, données) de l'application

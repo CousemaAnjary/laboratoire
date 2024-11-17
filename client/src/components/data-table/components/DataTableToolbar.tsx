@@ -42,7 +42,7 @@ export function DataTableToolbar<TData>({ table, filterableColumns }: DataTableT
                 {filterableColumns.map((column) =>
                     table.getColumn(column.id as string) ? (
                         <DataTableFacetedFilter
-                            key={String(column.id)}
+                            key={column.id as string}
                             column={table.getColumn(column.id as string)}
                             title={column.title}
                             options={column.options}
@@ -52,7 +52,7 @@ export function DataTableToolbar<TData>({ table, filterableColumns }: DataTableT
             </div>
 
             <div className="flex items-center gap-2">
-                
+
                 {/* Bouton pour supprimer les lignes sélectionnées, s'il y en a */}
                 {table.getFilteredSelectedRowModel().rows.length > 0 ? (
                     <Button variant="outline" size="sm">
