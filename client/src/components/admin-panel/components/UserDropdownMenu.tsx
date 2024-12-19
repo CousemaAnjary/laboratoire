@@ -73,7 +73,7 @@ export default function UserDropdownMenu() {
                     </DropdownMenuGroup>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem className="hover:cursor-pointer font-inter" onClick={handleLogout}>
-                        <LogOut className="w-4 h-4 mr-3 text-muted-foreground text-red-700" />
+                        <LogOut className="w-4 h-4 mr-3 text-muted-foreground text-red-600" />
                         Déconnexion
                     </DropdownMenuItem>
                 </DropdownMenuContent>
