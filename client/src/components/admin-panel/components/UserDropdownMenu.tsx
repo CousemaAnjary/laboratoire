@@ -50,8 +50,8 @@ export default function UserDropdownMenu() {
                 <DropdownMenuContent className="w-56" align="end" forceMount>
                     <DropdownMenuLabel className="font-normal">
                         <div className="flex flex-col space-y-1">
-                            <p className="text-sm font-medium leading-none mb-1"> {user?.last_name} {user?.first_name}</p>
-                            <p className="text-xs leading-none text-muted-foreground">
+                            <p className="text-sm font-inter font-medium leading-none mb-1"> {user?.last_name} {user?.first_name}</p>
+                            <p className="text-xs font-inter leading-none text-muted-foreground">
                                 {user?.email}
                             </p>
                         </div>
@@ -59,21 +59,21 @@ export default function UserDropdownMenu() {
                     <DropdownMenuSeparator />
                     <DropdownMenuGroup>
                         <DropdownMenuItem className="hover:cursor-pointer" asChild>
-                            <Link to="#" className="flex items-center">
+                            <Link to="#" className="flex items-center font-inter">
                                 <User className="w-4 h-4 mr-3 text-muted-foreground" />
-                                Profil
+                                Profile
                             </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem className="hover:cursor-pointer" asChild>
-                            <Link to="#" className="flex items-center">
+                            <Link to="#" className="flex items-center font-inter">
                                 <Settings className="w-4 h-4 mr-3 text-muted-foreground" />
                                 Paramètres
                             </Link>
                         </DropdownMenuItem>
                     </DropdownMenuGroup>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem className="hover:cursor-pointer" onClick={handleLogout}>
-                        <LogOut className="w-4 h-4 mr-3 text-muted-foreground" />
+                    <DropdownMenuItem className="hover:cursor-pointer font-inter" onClick={handleLogout}>
+                        <LogOut className="w-4 h-4 mr-3 text-muted-foreground text-red-700" />
                         Déconnexion
                     </DropdownMenuItem>
                 </DropdownMenuContent>
