@@ -107,6 +107,7 @@ export function DataTable<TData>({ columns, data, filterableColumns }: DataTable
                         </TableBody>
                     </Table>
                 </div>
+                
                 {/* Barre de défilement horizontal de ShadCN */}
                 <ScrollBar orientation="horizontal" />
             </ScrollArea>
