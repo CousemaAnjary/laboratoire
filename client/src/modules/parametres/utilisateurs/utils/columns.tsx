@@ -43,7 +43,7 @@ export const columns: ColumnDef<Profil>[] = [
     {
         accessorKey: "permissions",
         header: ({ column }) => <DataTableColumnHeader column={column} title="Permissions" />,
-        cell: ({ row }) => <div className="font-inter text-slate-800">{(row.getValue("permissions") as string[]).join(", ")}</div>,
+        cell: ({ row }) => <div className="capitalize font-inter text-slate-800">{(row.getValue("permissions") as string[]).join(", ")}</div>,
     },
     // {
     //     accessorKey: "dateCreation",

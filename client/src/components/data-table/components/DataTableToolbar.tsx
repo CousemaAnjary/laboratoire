@@ -55,7 +55,7 @@ export function DataTableToolbar<TData>({ table, filterableColumns }: DataTableT
 
                 {/* Bouton pour supprimer les lignes sélectionnées, s'il y en a */}
                 {table.getFilteredSelectedRowModel().rows.length > 0 ? (
-                    <Button variant="outline"  className="font-inter text-xs flex items-center">
+                    <Button variant="outline" size={"sm"} className="font-inter text-xs flex items-center">
                         <TrashIcon aria-hidden="true"  className="text-red-600" />
                         <span>Supprimer ({table.getFilteredSelectedRowModel().rows.length})</span>
                     </Button>
