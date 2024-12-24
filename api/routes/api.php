@@ -29,3 +29,12 @@ Route::middleware('auth:sanctum')->group(function () {
     // Route::get('is-authenticated', [AuthenticatedUserSessionController::class, 'verifyToken']);
     Route::post('logout', [AuthenticatedUserSessionController::class, 'destroy']);
 });
+
+// superAdmin routes
+Route::middleware(['auth:sanctum', 'role:superAdmin'])->group(function () {});
+
+// admin routes 
+Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {});
+
+// user routes
+Route::middleware(['auth:sanctum', 'role:user'])->group(function () {});
