@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Auth\AuthenticatedUserSessionController;
 use App\Http\Controllers\Api\Auth\RegisterController;
+use App\Http\Controllers\Api\RoleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,7 +32,9 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 // superAdmin routes
-Route::middleware(['auth:sanctum', 'role:superAdmin'])->group(function () {});
+Route::middleware(['auth:sanctum', 'role:superAdmin'])->group(function () {
+    Route::get('/roles', [RoleController::class, 'index']); 
+});
 
 // admin routes 
 Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {});

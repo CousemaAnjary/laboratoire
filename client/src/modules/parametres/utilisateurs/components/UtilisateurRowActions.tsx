@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button"
+import { EyeIcon, Pencil, TrashIcon } from "lucide-react"
 import { DotsHorizontalIcon } from "@radix-ui/react-icons"
 import { UtilisateurRowActionsProps } from "../typeScript/utilisateurType"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { EyeIcon, Pencil, TrashIcon } from "lucide-react"
 
 
 

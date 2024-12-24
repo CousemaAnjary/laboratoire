@@ -1,15 +1,16 @@
 import { columns } from "../utils/columns"
 import corner from "@/assets/images/corner-4.png"
-import { filterableColumns, profilData} from "../utils/data"
+import Data, { filterableColumns } from "../components/Data"
 import Layout from "@/components/admin-panel/components/Layout"
 import { DataTable } from "@/components/data-table/components/DataTable"
+
 
 
 export default function Utilisateurs() {
     /**
      * ! STATE (état, données) de l'application
      */
-
+    const data = Data()
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
@@ -35,7 +36,7 @@ export default function Utilisateurs() {
             <div className="bg-white p-6 shadow rounded-md">
                 <DataTable
                     columns={columns}
-                    data={profilData}
+                    data={data}
                     filterableColumns={filterableColumns}
                 />
             </div>

@@ -1,11 +1,11 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Profil } from "../typeScript/utilisateurType";
+import {Roles } from "../typeScript/utilisateurType";
 import { UtilisateurRowActions } from "@/modules/parametres/utilisateurs/components/UtilisateurRowActions";
 import { DataTableColumnHeader } from "@/components/data-table/components/DataTableColumnHeader";
 
 
-export const columns: ColumnDef<Profil>[] = [
+export const columns: ColumnDef<Roles>[] = [
     {
         id: "select",
         header: ({ table }) => (
@@ -31,9 +31,9 @@ export const columns: ColumnDef<Profil>[] = [
         enableHiding: false,
     },
     {
-        accessorKey: "nomProfil",
+        accessorKey: "name",
         header: ({ column }) => <DataTableColumnHeader column={column} title="Nom du Profil" />,
-        cell: ({ row }) => <div className="capitalize font-inter text-slate-800">{row.getValue("nomProfil")}</div>,
+        cell: ({ row }) => <div className="capitalize font-inter text-slate-800">{row.getValue("name")}</div>,
     },
     // {
     //     accessorKey: "description",
