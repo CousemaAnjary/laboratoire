@@ -23,9 +23,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <>
             <SidebarProvider open={open} onOpenChange={setOpen} className="bg-slate-100">
                 <AppSidebar />
-                <SidebarInset className="bg-slate-100 overflow-x-hidden"> {/* Ajoutez overflow-x-hidden */}
+                <SidebarInset className="relative h-screen bg-slate-100 overflow-x-hidden"> {/* Ajoutez overflow-x-hidden */}
                     <Navbar />
-                    <main className="container pt-8 pb-8 sm:px-8 over"> {/* Ajoutez overflow-x-auto */}
+                    <main className="container pt-8 pb-8 sm:px-8"> {/* Ajoutez overflow-x-auto */}
                         {children}
                     </main>
                 </SidebarInset>
