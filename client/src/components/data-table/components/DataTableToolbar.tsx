@@ -57,7 +57,8 @@ export function DataTableToolbar<TData>({ table, filterableColumns }: DataTableT
                 {table.getFilteredSelectedRowModel().rows.length > 0 ? (
                     <Button variant="outline" size={"sm"} className="font-inter text-xs flex items-center">
                         <TrashIcon aria-hidden="true"  className="text-red-600" />
-                        <span>Supprimer ({table.getFilteredSelectedRowModel().rows.length})</span>
+                       Supprimer ({table.getFilteredSelectedRowModel().rows.length})
+                       
                     </Button>
 
                 ) : null}

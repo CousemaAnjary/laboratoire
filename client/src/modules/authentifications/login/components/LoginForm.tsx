@@ -66,11 +66,11 @@ export default function LoginForm() {
     return (
         <>
             <div className="relative p-8 w-full max-w-md">
-                <h1 className="mb-2 text-2xl font-bold text-black">Se connecter</h1>
-                <p className="mb-4 text-md  text-black">
+                <h1 className="mb-2 text-2xl font-medium font-inter text-black">Se connecter</h1>
+                <p className="mb-4 text-md text-black">
                     Connectez-vous à votre compte pour accéder à votre espace personnel
                 </p>
-                <p className="mb-4 text-sm text-muted-foreground">
+                <p className="mb-4 text-sm  text-muted-foreground">
                     Vous n'avez pas de compte ? Inscrivez-vous en cliquant <Link to="/register" className="underline text-cyan-700">ici</Link>
                 </p>
 
@@ -83,11 +83,11 @@ export default function LoginForm() {
                                     name="email"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel>Adresse email</FormLabel>
+                                            <FormLabel className="font-inter">Adresse email</FormLabel>
                                             <FormControl>
-                                                <Input {...field} placeholder="exemple@gmail.com" className="shadow-sm bg-white" />
+                                                <Input {...field} placeholder="exemple@gmail.com" className="shadow-sm bg-white font-inter" />
                                             </FormControl>
-                                            <FormMessage />
+                                            <FormMessage className="font-inter" />
                                         </FormItem>
                                     )}
                                 />
@@ -100,11 +100,11 @@ export default function LoginForm() {
                                         name="password"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Mot de passe</FormLabel>
+                                                <FormLabel className="font-inter">Mot de passe</FormLabel>
                                                 <FormControl>
-                                                    <Input {...field} type={showPassword ? "text" : "password"} placeholder="Entrez votre mot de passe" className="shadow-sm bg-white" />
+                                                    <Input {...field} type={showPassword ? "text" : "password"} placeholder="Entrez votre mot de passe" className="shadow-sm bg-white font-inter" />
                                                 </FormControl>
-                                                <FormMessage />
+                                                <FormMessage className="font-inter"/>
                                             </FormItem>
                                         )}
                                     />
@@ -117,7 +117,7 @@ export default function LoginForm() {
                             </div>
 
                             <div className="grid">
-                                <Button type="submit" className="w-full" disabled={loading}>
+                                <Button type="submit" className="w-full font-inter" disabled={loading}>
                                     {loading ? (
                                         <>
                                             <Loader className="mr-2 h-4 w-4 animate-spin" />

@@ -35,17 +35,17 @@ export default function Navbar() {
                     <ul className="flex gap-10">
                         <li>
                             <Link to="/">
-                                <UnderlineHoverLink text="Laboratoire" />
+                                <UnderlineHoverLink text="Laboratoire" className="font-inter" />
                             </Link>
                         </li>
                         <li>
                             <Link to="/about">
-                                <UnderlineHoverLink text="A propos de moi" />
+                                <UnderlineHoverLink text="A propos de moi" className="font-inter" />
                             </Link>
                         </li>
                         <li>
                             <Link to="/contact">
-                                <UnderlineHoverLink text="Contact" />
+                                <UnderlineHoverLink text="Contact" className="font-inter" />
                             </Link>
                         </li>
                     </ul>
@@ -54,11 +54,11 @@ export default function Navbar() {
                 {/* Desktop Auth Buttons */}
                 <div className="flex gap-3 me-20 max-lg:hidden">
                     <Link to="/register">
-                        <Button variant={"ghost"}>Créer un compte</Button>
+                        <Button variant={"ghost"} className="font-inter">Créer un compte</Button>
                     </Link>
                     <Link to="/login">
-                        <Button variant={"outline"} className="shadow-none">
-                            <User size={16} className="mr-1" /> Connexion
+                        <Button variant={"outline"} className="shadow-none font-inter">
+                            <User size={16}  /> Connexion
                         </Button>
                     </Link>
                 </div>

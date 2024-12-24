@@ -75,7 +75,7 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                                                     isActive={submenu.active}
                                                                     className="ms-1"
                                                                 >
-                                                                    <span className={`font-medium  text-xs ${submenu.active ? "text-blue-900 hover:text-blue-900" : ""}`}>
+                                                                    <span className={`font-medium font-inter text-xs ${submenu.active ? "text-blue-900 hover:text-blue-900" : ""}`}>
                                                                         {submenu.label}
                                                                     </span>
                                                                 </SidebarMenuSubButton>

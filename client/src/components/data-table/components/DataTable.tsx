@@ -99,7 +99,7 @@ export function DataTable<TData>({ columns, data, filterableColumns }: DataTable
                             ) : (
                                 <TableRow>
                                     {/* Message affiché lorsqu'il n'y a aucun résultat */}
-                                    <TableCell colSpan={columns.length} className="h-16 text-center bg-gray-50">
+                                    <TableCell colSpan={columns.length} className="h-16 text-center font-inter bg-gray-50">
                                         Aucun résultat
                                     </TableCell>
                                 </TableRow>

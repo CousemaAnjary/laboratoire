@@ -68,7 +68,7 @@ export default function RegisterForm() {
         <>
 
             <div className="relative p-8 w-full max-w-md">
-                <h1 className="mb-2 text-2xl font-bold text-black">Inscription</h1>
+                <h1 className="mb-2 text-2xl font-medium font-inter text-black">Inscription</h1>
                 <p className="mb-4 text-sm text-muted-foreground">
                     Vous avez déjà un compte ? Accédez-y en cliquant <Link to="/login" className="underline text-cyan-700">ici</Link>
                 </p>
@@ -83,11 +83,11 @@ export default function RegisterForm() {
                                         name="last_name"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Nom</FormLabel>
+                                                <FormLabel className="font-inter">Nom</FormLabel>
                                                 <FormControl>
-                                                    <Input {...field} placeholder="ABDILLAH" className="shadow-sm bg-white" />
+                                                    <Input {...field} placeholder="ABDILLAH" className="shadow-sm bg-white font-inter" />
                                                 </FormControl>
-                                                <FormMessage />
+                                                <FormMessage className="font-inter" />
                                             </FormItem>
                                         )}
                                     />
@@ -99,11 +99,11 @@ export default function RegisterForm() {
                                         name="first_name"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Prénom</FormLabel>
+                                                <FormLabel className="font-inter">Prénom</FormLabel>
                                                 <FormControl>
                                                     <Input {...field} placeholder="Cousema Anjary" className="shadow-sm bg-white" />
                                                 </FormControl>
-                                                <FormMessage />
+                                                <FormMessage className="font-inter" />
                                             </FormItem>
                                         )}
                                     />
@@ -116,11 +116,11 @@ export default function RegisterForm() {
                                     name="email"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel>Adresse email</FormLabel>
+                                            <FormLabel className="font-inter">Adresse email</FormLabel>
                                             <FormControl>
                                                 <Input {...field} placeholder="exemple@gmail.com" className="shadow-sm bg-white" />
                                             </FormControl>
-                                            <FormMessage />
+                                            <FormMessage className="font-inter" />
                                         </FormItem>
                                     )}
                                 />
@@ -133,11 +133,11 @@ export default function RegisterForm() {
                                         name="password"
                                         render={({ field }) => (
                                             <FormItem>
-                                                <FormLabel>Mot de passe</FormLabel>
+                                                <FormLabel className="font-inter">Mot de passe</FormLabel>
                                                 <FormControl>
                                                     <Input {...field} type={showPassword ? "text" : "password"} placeholder="Entrez votre mot de passe" className="shadow-sm bg-white" />
                                                 </FormControl>
-                                                <FormMessage />
+                                                <FormMessage className="font-inter" />
                                             </FormItem>
                                         )}
                                     />
@@ -154,15 +154,15 @@ export default function RegisterForm() {
                                     name="image"
                                     render={({ field }) => (
                                         <FormItem>
-                                            <FormLabel>Image</FormLabel>
+                                            <FormLabel className="font-inter">Image</FormLabel>
                                             <FormControl>
                                                 <Input
                                                     type="file"
-                                                    className="shadow-sm bg-white"
+                                                    className="shadow-sm bg-white font-inter text-xs"
                                                     onChange={(e) => { field.onChange(e.target.files ? e.target.files[0] : undefined) }}
                                                 />
                                             </FormControl>
-                                            <FormMessage />
+                                            <FormMessage className="font-inter" />
                                         </FormItem>
                                     )}
                                 />
@@ -170,7 +170,7 @@ export default function RegisterForm() {
                             </div>
 
                             <div className="grid">
-                                <Button type="submit" className="w-full">Créer un compte</Button>
+                                <Button type="submit" className="w-full font-inter">Créer un compte</Button>
 
                             </div>
                             <div className="relative">
@@ -178,19 +178,19 @@ export default function RegisterForm() {
                                 <span className="w-full border-t"></span>
                             </div> */}
                                 <div className="relative flex justify-center text-xs uppercase">
-                                    <span className="bg-background px-2 text-muted-foreground">Ou continuer avec</span>
+                                    <span className="bg-background px-2 font-inter text-muted-foreground">Ou continuer avec</span>
                                 </div>
                             </div>
 
                             <div className="grid grid-cols-2 gap-2">
                                 <div className="grid gap-2">
-                                    <Button type="button" variant="outline" className="w-full">
-                                        <FcGoogle size={18} className="mr-1" /> Google
+                                    <Button type="button" variant="outline" className="w-full font-inter">
+                                        <FcGoogle size={18} /> Google
                                     </Button>
                                 </div>
                                 <div className="grid gap-2">
-                                    <Button type="button" variant="outline" className="w-full">
-                                        <FaGithub size={18} className="mr-1" /> Github
+                                    <Button type="button" variant="outline" className="w-full font-inter">
+                                        <FaGithub size={18} /> Github
                                     </Button>
                                 </div>
                             </div>
