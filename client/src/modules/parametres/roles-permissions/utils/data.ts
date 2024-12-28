@@ -1,6 +1,6 @@
 import { Roles } from "../typeScript/utilisateurType";
 
-export function transformRoles(roles: Roles[]): Roles[] {
+export function dataRole(roles: Roles[]): Roles[] {
     return roles.map((role) => ({
         name: role.name || "Non spécifié",
         description: role.description || "Pas de description",
