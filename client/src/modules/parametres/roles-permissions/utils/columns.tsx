@@ -1,6 +1,6 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "@/components/ui/checkbox";
-import {Roles } from "../typeScript/utilisateurType";
+import { Roles } from "../typeScript/utilisateurType";
 import { UtilisateurRowActions } from "../components/UtilisateurRowActions";
 import { DataTableColumnHeader } from "@/components/data-table/components/DataTableColumnHeader";
 
@@ -44,7 +44,14 @@ export const columns: ColumnDef<Roles>[] = [
     {
         accessorKey: "permissions",
         header: ({ column }) => <DataTableColumnHeader column={column} title="Permissions" />,
-        cell: ({ row }) => <div className="capitalize font-inter text-slate-800">{(row.getValue("permissions") as string[]).join(", ")}</div>,
+        cell: ({ row }) => (
+            <div className="capitalize font-inter text-slate-800">
+                {/* Transformation des permissions en une liste de noms */}
+                {(row.getValue("permissions") as { id: number; name: string }[])
+                    .map((permission) => permission.name)
+                    .join(", ") || "Aucune permission"}
+            </div>
+        ),
     },
     // {
     //     accessorKey: "dateCreation",
@@ -57,7 +64,7 @@ export const columns: ColumnDef<Roles>[] = [
         cell: ({ row }) => <div className="font-inter text-slate-800">{row.getValue("utilisateursAssignes")} utilisateurs</div>,
     },
 
-   
+
     {
         accessorKey: "statut",
         header: ({ column }) => <DataTableColumnHeader column={column} title="Statut" />,
@@ -71,7 +78,7 @@ export const columns: ColumnDef<Roles>[] = [
         header: ({ column }) => <DataTableColumnHeader column={column} title="Dernière Mise à Jour" />,
         cell: ({ row }) => <div className="font-inter text-slate-800">{row.getValue("derniereMiseAJour")}</div>,
     },
-  
+
     {
         id: "actions",
         header: () => (<div className="uppercase font-inter text-xs text-slate-600">Actions</div>),
