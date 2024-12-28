@@ -1,8 +1,11 @@
 import { columns } from "../utils/columns"
 import corner from "@/assets/images/corner-4.png"
-import Data, { filterableColumns } from "../components/Data"
 import Layout from "@/components/admin-panel/components/Layout"
 import { DataTable } from "@/components/data-table/components/DataTable"
+import { useRoles } from "../hooks/useRoles"
+import { transformRoles } from "../utils/data"
+import { Roles } from "../typeScript/utilisateurType"
+import { generateFilterableColumns } from "@/utils/generateFilterableColumns"
 
 
 
@@ -10,7 +13,11 @@ export default function Utilisateurs() {
     /**
      * ! STATE (état, données) de l'application
      */
-    const data = Data()
+    const roles = useRoles(); // Récupération des rôles via le hook
+    const data = transformRoles(roles); // Transformation des données
+
+    const filterableKeys: Array<keyof Roles> = ["statut"]; // Définir les clés filtrables
+    const filterableColumns = generateFilterableColumns(data, filterableKeys); // Générer les colonnes filtrables
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
