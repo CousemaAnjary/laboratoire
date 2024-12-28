@@ -1,8 +1,9 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "@/components/ui/checkbox";
 import {Roles } from "../typeScript/utilisateurType";
-import { UtilisateurRowActions } from "@/modules/parametres/utilisateurs/components/UtilisateurRowActions";
+import { UtilisateurRowActions } from "../components/UtilisateurRowActions";
 import { DataTableColumnHeader } from "@/components/data-table/components/DataTableColumnHeader";
+
 
 
 export const columns: ColumnDef<Roles>[] = [
