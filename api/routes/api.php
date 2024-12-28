@@ -32,12 +32,12 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 // superAdmin routes
-Route::middleware(['auth:sanctum', 'role:superAdmin'])->group(function () {
-    Route::get('/roles', [RoleController::class, 'index']); 
+Route::middleware(['auth:sanctum', 'role:superAdministration'])->group(function () {
+    Route::get('/roles', [RoleController::class, 'index']);
 });
 
 // admin routes 
-Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {});
+Route::middleware(['auth:sanctum', 'role:administration'])->group(function () {});
 
 // user routes
-Route::middleware(['auth:sanctum', 'role:user'])->group(function () {});
+Route::middleware(['auth:sanctum', 'role:utilisateur'])->group(function () {});
