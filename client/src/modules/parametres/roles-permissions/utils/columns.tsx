@@ -65,19 +65,19 @@ export const columns: ColumnDef<Roles>[] = [
     },
 
 
-    {
-        accessorKey: "statut",
-        header: ({ column }) => <DataTableColumnHeader column={column} title="Statut" />,
-        cell: ({ row }) => <div className="capitalize font-inter text-slate-800">{row.getValue("statut")}</div>,
-        filterFn: (row, id, value) => {
-            return value.includes(row.getValue(id));
-        },
-    },
-    {
-        accessorKey: "derniereMiseAJour",
-        header: ({ column }) => <DataTableColumnHeader column={column} title="Dernière Mise à Jour" />,
-        cell: ({ row }) => <div className="font-inter text-slate-800">{row.getValue("derniereMiseAJour")}</div>,
-    },
+    // {
+    //     accessorKey: "statut",
+    //     header: ({ column }) => <DataTableColumnHeader column={column} title="Statut" />,
+    //     cell: ({ row }) => <div className="capitalize font-inter text-slate-800">{row.getValue("statut")}</div>,
+    //     filterFn: (row, id, value) => {
+    //         return value.includes(row.getValue(id));
+    //     },
+    // },
+    // {
+    //     accessorKey: "derniereMiseAJour",
+    //     header: ({ column }) => <DataTableColumnHeader column={column} title="Dernière Mise à Jour" />,
+    //     cell: ({ row }) => <div className="font-inter text-slate-800">{row.getValue("derniereMiseAJour")}</div>,
+    // },
 
     {
         id: "actions",

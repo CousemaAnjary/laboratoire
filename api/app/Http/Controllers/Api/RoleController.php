@@ -10,7 +10,9 @@ class RoleController extends Controller
 {
     public function index()
     {
-        $roles = Role::with('permissions')->get(); // Inclure les permissions si nécessaire
+        $roles = Role::with('permissions')
+            ->withCount('model_has_roles  as user_count')
+            ->get(); // Inclure les permissions si nécessaire
 
         // Retourner une réponse JSON avec les rôles
         return response()->json([
