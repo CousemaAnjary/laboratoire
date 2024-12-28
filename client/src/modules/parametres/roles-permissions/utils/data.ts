@@ -8,5 +8,5 @@ export function dataRole(roles: Roles[]): Roles[] {
         statut: role.statut || "inconnu",
         derniereMiseAJour: role.derniereMiseAJour || "Non spécifié",
         utilisateursAssignes: role.utilisateursAssignes || 0,
-    }));
+    }))
 }
