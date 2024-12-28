@@ -34,7 +34,7 @@ export const columns: ColumnDef<Roles>[] = [
     {
         accessorKey: "name",
         header: ({ column }) => <DataTableColumnHeader column={column} title="Nom du Profil" />,
-        cell: ({ row }) => <div className="capitalize font-inter text-slate-800">{row.getValue("name")}</div>,
+        cell: ({ row }) => <div className="capitalize font-inter text-slate-800">  {(row.getValue("name") as string).replace(/([A-Z])/g, ' $1').trim()}</div>,
     },
     // {
     //     accessorKey: "description",
@@ -58,11 +58,11 @@ export const columns: ColumnDef<Roles>[] = [
     //     header: ({ column }) => <DataTableColumnHeader column={column} title="Date de Création" />,
     //     cell: ({ row }) => <div className="font-inter text-slate-800">{row.getValue("dateCreation")}</div>,
     // },
-    {
-        accessorKey: "utilisateursAssignes",
-        header: ({ column }) => <DataTableColumnHeader column={column} title="Utilisateurs Assignés" />,
-        cell: ({ row }) => <div className="font-inter text-slate-800">{row.getValue("utilisateursAssignes")} utilisateurs</div>,
-    },
+    // {
+    //     accessorKey: "utilisateursAssignes",
+    //     header: ({ column }) => <DataTableColumnHeader column={column} title="Utilisateurs Assignés" />,
+    //     cell: ({ row }) => <div className="font-inter text-slate-800">{row.getValue("utilisateursAssignes")} utilisateurs</div>,
+    // },
 
 
     // {

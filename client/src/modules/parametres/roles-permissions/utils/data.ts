@@ -7,6 +7,6 @@ export function dataRole(roles: Roles[]): Roles[] {
         permissions: role.permissions || [],
         statut: role.statut || "inconnu",
         derniereMiseAJour: role.derniereMiseAJour || "Non spécifié",
-        utilisateursAssignes: role.utilisateursAssignes || 0,
+        user_count: role.user_count || 0,
     }))
 }
