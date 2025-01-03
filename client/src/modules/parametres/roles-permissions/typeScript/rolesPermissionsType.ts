@@ -4,6 +4,10 @@ export interface RolesPermissionsProps<TData> {
     row: Row<TData>
 }
 
+export interface RolesUsersProps<TData> {
+    row: Row<TData>
+}
+
 export interface Roles {
     id: number; // Identifiant unique
     name: string; // Nom du Profil
