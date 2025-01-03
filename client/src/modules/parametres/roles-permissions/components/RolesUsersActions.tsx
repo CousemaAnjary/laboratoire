@@ -2,20 +2,23 @@ import { Button } from "@/components/ui/button"
 import {  FaUserAltSlash } from "react-icons/fa"
 import { PiUserSwitchDuotone } from "react-icons/pi";
 import { DotsHorizontalIcon } from "@radix-ui/react-icons"
+import { RolesUsersProps } from "../typeScript/rolesPermissionsType"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 
-export default function RolesUsersActions() {
+
+export default function RolesUsersActions<TData>({ row }: RolesUsersProps<TData>) {
     /**
      * ! STATE (état, données) de l'application
      */
+    const rowData = row.original
     
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
     const handleChangeRole = () => {
-        console.log("Changer le rôle")
+        console.log(rowData)
     }
 
 
