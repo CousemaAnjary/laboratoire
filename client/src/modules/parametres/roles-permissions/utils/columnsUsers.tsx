@@ -1,9 +1,9 @@
 
 import { Checkbox } from "@/components/ui/checkbox";
 import { ColumnDef } from "@tanstack/react-table";
-import { RolesPermissionsActions } from "../components/RolesPermissionsActions";
 import { Users } from "../typeScript/rolesPermissionsType";
 import { DataTableColumnHeader } from "@/components/data-table/components/DataTableColumnHeader";
+import RolesUsersActions from "../components/RolesUsersActions";
 
 
 
@@ -53,6 +53,6 @@ export const columnsUsers: ColumnDef<Users>[] = [
     {
         id: "actions",
         header: () => (<div className="uppercase font-inter text-xs text-slate-600">Actions</div>),
-        cell: ({ row }) => <RolesPermissionsActions row={row} />,
+        cell: ({ row }) => <RolesUsersActions row={row} />,
     },
 ];
