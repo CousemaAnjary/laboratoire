@@ -8,9 +8,6 @@ use App\Models\Role;
 
 class RoleController extends Controller
 {
-    /**
-     * Retourne la liste des rôles avec leurs permissions associées.
-     */
     public function index()
     {
         // Charger les rôles avec leurs permissions associées
