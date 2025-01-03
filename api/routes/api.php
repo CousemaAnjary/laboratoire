@@ -29,6 +29,7 @@ Route::post('/login', [AuthenticatedUserSessionController::class, 'store']);
 Route::middleware('auth:sanctum')->group(function () {
     // Route::get('is-authenticated', [AuthenticatedUserSessionController::class, 'verifyToken']);
     Route::post('logout', [AuthenticatedUserSessionController::class, 'destroy']);
+   
 });
 
 // superAdmin routes

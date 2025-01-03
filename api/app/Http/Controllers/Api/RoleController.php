@@ -22,16 +22,22 @@ class RoleController extends Controller
 
     public function users($id)
     {
-        // Vérifier si le rôle existe
-        $role = Role::findOrFail($id);
+        // Vérifie si le rôle existe
+        $role = Role::find($id);
 
-        // Obtenir les utilisateurs associés au rôle
-        $users = $role->users()->get();
+        if (!$role) {
+            return response()->json([
+                'message' => 'Rôle non trouvé.'
+            ], 404);
+        }
 
-        // Retourner la réponse JSON
+        // Charger les utilisateurs associés au rôle
+        $users = $role->users; // Assure-toi que la relation `users` existe dans le modèle Role
+
+        // Retourner les données des utilisateurs
         return response()->json([
             'users' => $users,
-            'message' => 'Liste des utilisateurs récupérée avec succès'
+            'message' => 'Liste des utilisateurs du rôle récupérée avec succès.',
         ], 200);
     }
 }

@@ -7,12 +7,13 @@ export function useRoleUsers() {
     /**
      * ! STATE (état, données) de l'application
      */
+    const { id } = useParams()
     const [roleUsers, setRoleUsers] = useState<Users[]>([]) // Déclaration du state roleUsers
 
     /**
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
-    const { id } = useParams()
+
 
     useEffect(() => {
         // Récupération des utilisateurs associés au rôle
