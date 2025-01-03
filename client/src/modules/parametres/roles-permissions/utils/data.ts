@@ -2,6 +2,7 @@ import { Roles } from "../typeScript/rolesPermissionsType";
 
 export function dataRole(roles: Roles[]): Roles[] {
     return roles.map((role) => ({
+        id: role.id ,
         name: role.name || "Non spécifié",
         description: role.description || "Pas de description",
         permissions: role.permissions || [],

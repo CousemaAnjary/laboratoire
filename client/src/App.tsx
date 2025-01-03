@@ -9,6 +9,7 @@ import Utilisateurs from "./modules/parametres/roles-permissions/pages/Utilisate
 import KanbanBoard from "./modules/applications/kanban-board/pages/KanbanBoard"
 import Administration from "./modules/tableaux-de-bord/administration/pages/Administration"
 import DHkanbanBoard from "./modules/tableaux-de-bord/tableaux-de-bord/pages/DHkanbanBoard"
+import RolesUsers from "./modules/parametres/roles-permissions/pages/RolesUsers"
 
 
 
@@ -44,6 +45,7 @@ export default function App() {
             <Route path="/tableau-de-board/kanban" element={<DHkanbanBoard />} />
             <Route path="/droit-acces" element={<DroitAcces />} />
             <Route path="/roles-permissions" element={<Utilisateurs />} />
+            <Route path="/roles-permissions/:id/users" element={<RolesUsers />} />
           </Route>
         </Routes>
       </AuthProvider>

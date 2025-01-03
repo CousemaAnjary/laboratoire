@@ -5,6 +5,7 @@ export interface RolesPermissionsProps<TData> {
 }
 
 export interface Roles {
+    id: string
     name: string; // Nom du Profil
     description: string; // Description du profil
     permissions: string[]; // Liste des permissions (Lire, Écrire, Modifier, etc.)
