@@ -16,7 +16,6 @@ class RoleController extends Controller
         // Charger les rôles avec leurs permissions associées
         $roles = Role::with('permissions')->get();
 
-
         // Retourner les données des rôles et permissions
         return response()->json([
             'roles' => $roles,
