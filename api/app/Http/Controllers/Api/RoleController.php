@@ -16,12 +16,6 @@ class RoleController extends Controller
         // Charger les rôles avec leurs permissions associées
         $roles = Role::with('permissions')->get();
 
-        // Vérifier si des rôles existent
-        if ($roles->isEmpty()) {
-            return response()->json([
-                'message' => 'Aucun rôle trouvé.',
-            ], 404);
-        }
 
         // Retourner les données des rôles et permissions
         return response()->json([
