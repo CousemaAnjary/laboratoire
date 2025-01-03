@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button"
-import { EyeIcon, Pencil, TrashIcon } from "lucide-react"
+import { FaUsers,FaEdit } from "react-icons/fa"
 import { DotsHorizontalIcon } from "@radix-ui/react-icons"
 import { UtilisateurRowActionsProps } from "../typeScript/utilisateurType"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 
 
@@ -15,9 +15,9 @@ export function UtilisateurRowActions<TData>({ row }: UtilisateurRowActionsProps
         console.log("Éditer la ligne :", rowData)
     }
 
-    const handleDelete = () => {
-        console.log("Supprimer la ligne :", rowData)
-    }
+    // const handleDelete = () => {
+    //     console.log("Supprimer la ligne :", rowData)
+    // }
 
     return (
         <DropdownMenu>
@@ -32,20 +32,20 @@ export function UtilisateurRowActions<TData>({ row }: UtilisateurRowActionsProps
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-[160px]">
                 <DropdownMenuItem className="font-inter text-xs" onClick={handleEdit}>
-                    <Pencil className="h-4 w-4 mr-2" />
+                    <FaEdit className="h-4 w-4 mr-2" />
                     Éditer config
                 </DropdownMenuItem>
                 {/* Option pour voir les détails */}
                 <DropdownMenuItem className="font-inter text-xs" >
-                    <EyeIcon className="h-4 w-4 mr-2" />
-                    Voir 
+                    <FaUsers className="h-4 w-4 mr-2" />
+                    Voir utilisateurs
                 </DropdownMenuItem>
-                <DropdownMenuSeparator />
+                {/* <DropdownMenuSeparator />
                 <DropdownMenuItem className="font-inter text-xs" onClick={handleDelete}>
                     <TrashIcon className="h-4 w-4 mr-2 text-red-600" />
                     Supprimer
                     <span className="ml-auto text-xs text-muted-foreground">⌘⌫</span>
-                </DropdownMenuItem>
+                </DropdownMenuItem> */}
             </DropdownMenuContent>
         </DropdownMenu>
     );

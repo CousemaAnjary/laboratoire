@@ -43,7 +43,7 @@ export default function App() {
             <Route path="/administration" element={<Administration />} />
             <Route path="/tableau-de-board/kanban" element={<DHkanbanBoard />} />
             <Route path="/droit-acces" element={<DroitAcces />} />
-            <Route path="/utilisateurs" element={<Utilisateurs />} />
+            <Route path="/roles-permissions" element={<Utilisateurs />} />
           </Route>
         </Routes>
       </AuthProvider>

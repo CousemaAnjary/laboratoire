@@ -34,6 +34,7 @@ Route::middleware('auth:sanctum')->group(function () {
 // superAdmin routes
 Route::middleware(['auth:sanctum', 'role:superAdministration'])->group(function () {
     Route::get('/roles', [RoleController::class, 'index']);
+    Route::get('/roles{id}/users', [RoleController::class, 'users']);
 });
 
 

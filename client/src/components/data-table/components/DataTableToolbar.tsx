@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { TrashIcon } from "lucide-react"
+// import { TrashIcon } from "lucide-react"
 import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+// import { Button } from "@/components/ui/button"
 import { DataTableViewOptions } from "./DataTableViewOptions"
 import { DataTableFacetedFilter } from "./DataTableFacetedFilter"
 import { DataTableToolbarProps } from "../typeScript/dataTableType"
@@ -54,14 +54,14 @@ export function DataTableToolbar<TData>({ table, filterableColumns }: DataTableT
             <div className="flex items-center gap-2">
 
                 {/* Bouton pour supprimer les lignes sélectionnées, s'il y en a */}
-                {table.getFilteredSelectedRowModel().rows.length > 0 ? (
+                {/* {table.getFilteredSelectedRowModel().rows.length > 0 ? (
                     <Button variant="outline" size={"sm"} className="font-inter text-xs flex items-center">
                         <TrashIcon aria-hidden="true"  className="text-red-600" />
                        Supprimer ({table.getFilteredSelectedRowModel().rows.length})
                        
                     </Button>
 
-                ) : null}
+                ) : null} */}
 
                 {/* Options d'affichage du tableau */}
                 <DataTableViewOptions table={table} />
