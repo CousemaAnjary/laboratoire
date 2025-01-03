@@ -37,7 +37,9 @@ Route::middleware(['auth:sanctum', 'role:superAdministration'])->group(function 
 });
 
 // admin routes 
-Route::middleware(['auth:sanctum', 'role:administration'])->group(function () {});
+Route::middleware(['auth:sanctum', 'role:administration'])->group(function () {
+   
+});
 
 // user routes
 Route::middleware(['auth:sanctum', 'role:utilisateur'])->group(function () {});

@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { FaGithub } from "react-icons/fa"
 import { FcGoogle } from "react-icons/fc"
-import { Eye, EyeOff } from "lucide-react"
+import { Eye, EyeOff, Loader } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { register } from "../registerService"
 import { RegisterType } from "../registerType"
@@ -28,6 +28,7 @@ export default function RegisterForm() {
      * ! STATE (état, données) de l'application
      */
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
 
     const form = useForm<RegisterType>({
@@ -45,6 +46,10 @@ export default function RegisterForm() {
      * ! COMPORTEMENT (méthodes, fonctions) de l'application
      */
     const handleRegister = async (data: RegisterType): Promise<void> => {
+
+        // Affichage du loader pendant le chargement
+        setLoading(true)
+
         try {
             // Envoi des données du formulaire à l'API
             const response = await register(data)
@@ -57,7 +62,12 @@ export default function RegisterForm() {
 
         } catch (error) {
             console.error(error)
+
+        } finally {
+            // Désactivation du loader après le chargement
+            setLoading(false)
         }
+
     }
 
 
@@ -101,7 +111,7 @@ export default function RegisterForm() {
                                             <FormItem>
                                                 <FormLabel className="font-inter">Prénom</FormLabel>
                                                 <FormControl>
-                                                    <Input {...field} placeholder="Cousema Anjary" className="shadow-sm bg-white" />
+                                                    <Input {...field} placeholder="Cousema Anjary" className="shadow-sm bg-white font-inter" />
                                                 </FormControl>
                                                 <FormMessage className="font-inter" />
                                             </FormItem>
@@ -118,7 +128,7 @@ export default function RegisterForm() {
                                         <FormItem>
                                             <FormLabel className="font-inter">Adresse email</FormLabel>
                                             <FormControl>
-                                                <Input {...field} placeholder="exemple@gmail.com" className="shadow-sm bg-white" />
+                                                <Input {...field} placeholder="exemple@gmail.com" className="shadow-sm bg-white font-inter" />
                                             </FormControl>
                                             <FormMessage className="font-inter" />
                                         </FormItem>
@@ -135,7 +145,7 @@ export default function RegisterForm() {
                                             <FormItem>
                                                 <FormLabel className="font-inter">Mot de passe</FormLabel>
                                                 <FormControl>
-                                                    <Input {...field} type={showPassword ? "text" : "password"} placeholder="Entrez votre mot de passe" className="shadow-sm bg-white" />
+                                                    <Input {...field} type={showPassword ? "text" : "password"} placeholder="Entrez votre mot de passe" className="shadow-sm bg-white font-inter" />
                                                 </FormControl>
                                                 <FormMessage className="font-inter" />
                                             </FormItem>
@@ -170,7 +180,17 @@ export default function RegisterForm() {
                             </div>
 
                             <div className="grid">
-                                <Button type="submit" className="w-full font-inter">Créer un compte</Button>
+                                <Button type="submit" className="w-full font-inter" disabled={loading}>
+                                    {loading ? (
+                                        <>
+                                            <Loader className="mr-2 h-4 w-4 animate-spin" />
+                                            Veuillez patienter
+                                        </>
+                                    ) : (
+                                        "Créer un compte"
+                                    )}
+
+                                </Button>
 
                             </div>
                             <div className="relative">
