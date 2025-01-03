@@ -1,4 +1,4 @@
-import { Roles } from "../typeScript/utilisateurType";
+import { Roles } from "../typeScript/rolesPermissionsType";
 
 export function dataRole(roles: Roles[]): Roles[] {
     return roles.map((role) => ({

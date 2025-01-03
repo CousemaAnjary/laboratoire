@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Roles } from "../typeScript/utilisateurType";
 import { getRoles } from "../rolesPermissionsService";
+import { Roles } from "../typeScript/rolesPermissionsType";
 
 export function useRoles() {
     const [roles, setRoles] = useState<Roles[]>([])

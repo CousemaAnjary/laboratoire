@@ -1,11 +1,11 @@
-import { columns } from "../utils/columns"
 import corner from "@/assets/images/corner-4.png"
 import Layout from "@/components/admin-panel/components/Layout"
 import { DataTable } from "@/components/data-table/components/DataTable"
-import { useRoles } from "../hooks/useRoles"
-import { dataRole } from "../utils/data"
-import { Roles } from "../typeScript/utilisateurType"
 import { generateFilterableColumns } from "@/utils/generateFilterableColumns"
+import { useRoles } from "../hooks/useRoles"
+import { Roles } from "../typeScript/rolesPermissionsType"
+import { columns } from "../utils/columns"
+import { dataRole } from "../utils/data"
 
 
 

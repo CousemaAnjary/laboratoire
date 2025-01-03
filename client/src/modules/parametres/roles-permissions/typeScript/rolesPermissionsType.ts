@@ -1,6 +1,6 @@
 import { Row } from "@tanstack/react-table"
 
-export interface UtilisateurRowActionsProps<TData> {
+export interface RolesPermissionsProps<TData> {
     row: Row<TData>
 }
 

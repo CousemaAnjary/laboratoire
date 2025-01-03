@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button"
-import { FaUsers,FaEdit } from "react-icons/fa"
+import { FaEdit, FaUsers } from "react-icons/fa"
 import { DotsHorizontalIcon } from "@radix-ui/react-icons"
-import { UtilisateurRowActionsProps } from "../typeScript/utilisateurType"
+import { RolesPermissionsProps } from "../typeScript/rolesPermissionsType"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
 
 
-export function UtilisateurRowActions<TData>({ row }: UtilisateurRowActionsProps<TData>) {
+export function RolesPermissionsActions<TData>({ row }: RolesPermissionsProps<TData>) {
     // Vous pouvez accéder aux données de la ligne comme ceci :
     const rowData = row.original
 
@@ -18,6 +18,10 @@ export function UtilisateurRowActions<TData>({ row }: UtilisateurRowActionsProps
     // const handleDelete = () => {
     //     console.log("Supprimer la ligne :", rowData)
     // }
+
+    const handleViewUsers = () => {
+        console.log("Voir les utilisateurs de la ligne :", rowData)
+    }
 
     return (
         <DropdownMenu>
@@ -36,7 +40,7 @@ export function UtilisateurRowActions<TData>({ row }: UtilisateurRowActionsProps
                     Éditer config
                 </DropdownMenuItem>
                 {/* Option pour voir les détails */}
-                <DropdownMenuItem className="font-inter text-xs" >
+                <DropdownMenuItem className="font-inter text-xs" onClick={handleViewUsers} >
                     <FaUsers className="h-4 w-4 mr-2" />
                     Voir utilisateurs
                 </DropdownMenuItem>
