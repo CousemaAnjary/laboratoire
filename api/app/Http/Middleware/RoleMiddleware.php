@@ -13,8 +13,9 @@ class RoleMiddleware
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param  string  $role
      */
-    public function handle(Request $request, Closure $next, $role): Response
+    public function handle(Request $request, Closure $next, string $role): Response
     {
         // Vérifier si l'utilisateur est authentifié
         if (!Auth::check()) {
@@ -22,7 +23,7 @@ class RoleMiddleware
         }
 
         // Vérifier si l'utilisateur possède le rôle requis
-        if (!Auth::user()->hasRole($role)) {
+        if (!Auth::user()->roles()->where('name', $role)->exists()) {
             return response()->json(['message' => 'Forbidden'], 403);
         }
 
