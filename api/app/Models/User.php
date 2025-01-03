@@ -26,9 +26,9 @@ class User extends Authenticatable
     ];
 
     // Un utilisateur appartient à un rôle
-    public function role()
+    public function roles()
     {
-        return $this->belongsTo(Role::class, 'role_id');
+        return $this->belongsToMany(Role::class, 'role_users', 'user_id', 'role_id');
     }
 
     // Un utilisateur a plusieurs permissions
