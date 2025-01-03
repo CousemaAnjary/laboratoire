@@ -5,11 +5,11 @@ import { AuthProvider } from "./core/contexts/AuthContext"
 import Login from "./modules/authentifications/login/pages/Login"
 import Register from "./modules/authentifications/register/pages/Register"
 import DroitAcces from "./modules/parametres/droit-acces/pages/DroitAcces"
-import Utilisateurs from "./modules/parametres/roles-permissions/pages/Utilisateurs"
 import KanbanBoard from "./modules/applications/kanban-board/pages/KanbanBoard"
+import RolesUsers from "./modules/parametres/roles-permissions/pages/RolesUsers"
 import Administration from "./modules/tableaux-de-bord/administration/pages/Administration"
 import DHkanbanBoard from "./modules/tableaux-de-bord/tableaux-de-bord/pages/DHkanbanBoard"
-import RolesUsers from "./modules/parametres/roles-permissions/pages/RolesUsers"
+import RolesPermissions from "./modules/parametres/roles-permissions/pages/RolesPermissions"
 
 
 
@@ -44,7 +44,7 @@ export default function App() {
             <Route path="/administration" element={<Administration />} />
             <Route path="/tableau-de-board/kanban" element={<DHkanbanBoard />} />
             <Route path="/droit-acces" element={<DroitAcces />} />
-            <Route path="/roles-permissions" element={<Utilisateurs />} />
+            <Route path="/roles-permissions" element={<RolesPermissions />} />
             <Route path="/roles-permissions/:id/users" element={<RolesUsers />} />
           </Route>
         </Routes>

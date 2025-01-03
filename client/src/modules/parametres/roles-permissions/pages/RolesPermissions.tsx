@@ -9,7 +9,7 @@ import { dataRole } from "../utils/data"
 
 
 
-export default function Utilisateurs() {
+export default function RolesPermissions() {
     /**
      * ! STATE (état, données) de l'application
      */

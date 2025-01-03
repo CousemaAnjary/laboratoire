@@ -21,7 +21,6 @@ export function RolesPermissionsActions<TData extends { id: number }>({ row }: R
     const handleViewUsers = () => {
         // Naviguer vers la page des utilisateurs associés à ce rôle
         navigate(`/roles-permissions/${rowData.id}/users`);
-        console.log("Row Data:", rowData);
 
     }
     /**
