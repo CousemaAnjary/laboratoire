@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Auth\RegisterRequest;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -28,6 +29,14 @@ class RegisterController extends Controller
 
         // Créer un nouvel utilisateur
         $user = User::create($validated);
+
+        // Assigner le rôle par défaut à l'utilisateur
+        $defaultRole = Role::where('name', 'utilisateur')->first();
+        
+        // Vérifier si le rôle par défaut existe
+        if ($defaultRole) {
+            $user->roles()->attach($defaultRole->id);
+        }
 
         // Retourner une réponse JSON avec l'utilisateur créé
         return response()->json([
