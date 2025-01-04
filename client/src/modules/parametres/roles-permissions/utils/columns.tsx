@@ -59,10 +59,10 @@ export const columns: ColumnDef<Roles>[] = [
     //     cell: ({ row }) => <div className="font-inter text-slate-800">{row.getValue("dateCreation")}</div>,
     // },
     {
-        accessorKey: "user_count",
+        accessorKey: "users_count",
         header: ({ column }) => <DataTableColumnHeader column={column} title="Utilisateurs Assignés" />,
         cell: ({ row }) => {
-            const usersCount = row.getValue("user_count") as number;
+            const usersCount = row.getValue("users_count") as number;
             return (
                 <div className="font-inter text-slate-800">
                     {usersCount} utilisateur{usersCount > 1 ? "s" : ""}

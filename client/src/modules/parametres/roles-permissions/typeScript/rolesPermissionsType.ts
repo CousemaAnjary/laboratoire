@@ -15,7 +15,7 @@ export interface Roles {
     permissions: { id: number; name: string }[]; // Liste des permissions
     statut: string; // Statut (actif ou inactif)
     derniereMiseAJour: string; // Dernière Mise à Jour
-    user_count: number; // Nombre d'utilisateurs assignés
+    users_count: number; // Nombre d'utilisateurs assignés
 }
 
 export interface Users {

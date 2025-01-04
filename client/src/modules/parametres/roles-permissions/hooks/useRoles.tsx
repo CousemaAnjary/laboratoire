@@ -9,6 +9,7 @@ export function useRoles() {
         const fetchRoles = async () => {
             try {
                 const data = await getRoles()
+                console.log("Données des rôles récupérées :", data); // Vérifiez la clé users_count
                 setRoles(data)
             } catch (error) {
                 console.error("Erreur lors de la récupération des rôles:", error)

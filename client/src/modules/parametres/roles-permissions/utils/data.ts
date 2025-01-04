@@ -8,6 +8,6 @@ export function dataRole(roles: Roles[]): Roles[] {
         permissions: role.permissions.map((perm) => ({ id: perm.id, name: perm.name })),
         statut: role.statut || "inconnu",
         derniereMiseAJour: role.derniereMiseAJour || "Non spécifié",
-        user_count: role.user_count || 0, // Utiliser users_count correctement
+        users_count: role.users_count || 0, // Utiliser users_count correctement
     }))
 }
