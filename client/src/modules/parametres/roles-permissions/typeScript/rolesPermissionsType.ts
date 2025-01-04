@@ -12,7 +12,7 @@ export interface Roles {
     id: number; // Identifiant unique
     name: string; // Nom du Profil
     description: string; // Description du profil
-    permissions: string[]; // Liste des permissions (Lire, Écrire, Modifier, etc.)
+    permissions: { id: number; name: string }[]; // Liste des permissions
     statut: string; // Statut (actif ou inactif)
     derniereMiseAJour: string; // Dernière Mise à Jour
     user_count: number; // Nombre d'utilisateurs assignés

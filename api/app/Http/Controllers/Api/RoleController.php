@@ -11,7 +11,10 @@ class RoleController extends Controller
     public function index()
     {
         // Charger les rôles avec leurs permissions associées
-        $roles = Role::with('permissions')->get();
+        $roles = Role::with('permissions')
+        ->withCount('users') // Compter le nombre d'utilisateurs associés
+        ->get();
+
 
         // Retourner les données des rôles et permissions
         return response()->json([
