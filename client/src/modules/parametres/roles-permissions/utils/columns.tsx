@@ -58,11 +58,11 @@ export const columns: ColumnDef<Roles>[] = [
     //     header: ({ column }) => <DataTableColumnHeader column={column} title="Date de Création" />,
     //     cell: ({ row }) => <div className="font-inter text-slate-800">{row.getValue("dateCreation")}</div>,
     // },
-    // {
-    //     accessorKey: "utilisateursAssignes",
-    //     header: ({ column }) => <DataTableColumnHeader column={column} title="Utilisateurs Assignés" />,
-    //     cell: ({ row }) => <div className="font-inter text-slate-800">{row.getValue("utilisateursAssignes")} utilisateurs</div>,
-    // },
+    {
+        accessorKey: "utilisateursAssignes",
+        header: ({ column }) => <DataTableColumnHeader column={column} title="Utilisateurs Assignés" />,
+        cell: ({ row }) => <div className="font-inter text-slate-800">{row.getValue("utilisateursAssignes")} utilisateurs</div>,
+    },
 
 
     // {
