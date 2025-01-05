@@ -56,3 +56,4 @@ export const columnsUsers: ColumnDef<Users>[] = [
         cell: ({ row }) => <RolesUsersActions row={row} />,
     },
 ];
+
