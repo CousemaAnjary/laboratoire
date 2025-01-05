@@ -52,11 +52,7 @@ export const columnsUsers: ColumnDef<Users>[] = [
 
     {
         id: "actions",
-        header: () => (<div className="uppercase font-inter text-xs text-end text-slate-600">Actions</div>),
-        cell: ({ row }) => (
-            <div className="text-end">
-                <RolesUsersActions row={row} />
-            </div>
-        ),
+        header: () => (<div className="uppercase font-inter text-xs  text-slate-600">Actions</div>),
+        cell: ({ row }) => <RolesUsersActions row={row} />,
     },
 ];
