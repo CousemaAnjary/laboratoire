@@ -16,7 +16,7 @@ export default function RolesPermissions() {
     const roles = useRoles(); // Récupération des rôles via le hook
     const data = dataRole(roles); // Transformation des données
 
-    const filterableKeys: Array<keyof Roles> = ["statut"]; // Définir les clés filtrables
+    const filterableKeys: Array<keyof Roles> = ["name"]; // Définir les clés filtrables
     const filterableColumns = generateFilterableColumns(data, filterableKeys); // Générer les colonnes filtrables
 
     /**

@@ -35,6 +35,9 @@ export const columns: ColumnDef<Roles>[] = [
         accessorKey: "name",
         header: ({ column }) => <DataTableColumnHeader column={column} title="Nom du Profil" />,
         cell: ({ row }) => <div className="capitalize font-inter text-slate-800">  {(row.getValue("name") as string).replace(/([A-Z])/g, ' $1').trim()}</div>,
+        filterFn: (row, id, value) => {
+            return value.includes(row.getValue(id));
+        },
     },
     // {
     //     accessorKey: "description",
@@ -69,6 +72,10 @@ export const columns: ColumnDef<Roles>[] = [
                 </div>
             );
         },
+        filterFn: (row, id, value) => {
+            return value.includes(row.getValue(id));
+        },
+
     },
 
 
