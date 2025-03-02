@@ -18,7 +18,7 @@ export default function AppSidebar() {
      * ! AFFICHAGE (render) de l'application
      */
     return (
-        <Sidebar variant="floating" collapsible="icon">
+        <Sidebar variant="floating" collapsible="icon" >
             {/* En-tête de la barre latérale */}
             <SidebarHeader>
                 <HeaderSidebar />

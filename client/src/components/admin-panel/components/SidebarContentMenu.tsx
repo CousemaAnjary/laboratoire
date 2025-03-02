@@ -38,7 +38,6 @@ export function SidebarContentMenu({ menuGroups }: SidebarContentMenuProps) {
                                     defaultOpen={menu.active}
                                     className="group/collapsible"
                                     asChild
-
                                 >
 
                                     {/* Élément du menu */}
